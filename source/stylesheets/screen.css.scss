@@ -59,8 +59,8 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: normal;
 
   // language selector for mobile devices
   .lang-selector {
@@ -79,31 +79,37 @@ html, body {
 
   &>.search {
     position: relative;
+    margin-bottom: 20px;
 
     input {
       background: $nav-bg;
-      border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      border: 1px solid $search-box-border-color;
+      padding: 10px 10px 10px 30px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
       color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
+      border-radius: 20px;
+
+      &:focus {
+        border-color: $accelo-blue;
+        transition: 0.2s;
+      }
     }
+	
 
     &:before {
       position: absolute;
-      top: 17px;
-      left: $nav-padding;
+      top: 22px;
+      left: 25px;
       color: $nav-text;
       @extend %icon-search;
     }
   }
 
   .logo {
-    margin-bottom: $logo-margin;
+    margin: $logo-margin;
   }
 
   .search-results {
@@ -144,7 +150,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 2.3;
   }
 
   li {
@@ -174,7 +180,8 @@ html, body {
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 2.3;
   }
 
   .toc-footer {
@@ -366,7 +373,7 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 19px;
+    font-size: 25px;
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
@@ -384,7 +391,7 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 17px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
@@ -443,8 +450,12 @@ html, body {
   }
 
   p, li, dt, dd {
-    line-height: 1.6;
+    line-height: 1.8;
     margin-top: 0;
+  }
+
+  b, strong {
+    font-weight: 500;
   }
 
   img {
@@ -506,6 +517,18 @@ html, body {
     border: 1px solid #F7E633;
     background: linear-gradient(to top left, #F7E633 0%, #F1D32F 100%);
   }
+
+  p {
+    line-height: 1.8;
+  }
+
+  a[href], a[href]:visited {
+    color: $accelo-blue;
+    &:hover {
+      color: $accelo-link-blue;
+    }
+  }
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
