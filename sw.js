@@ -1,1 +1,1 @@
-importScripts("sw-toolbox.js"),toolbox.precache(["https://fonts.googleapis.com/css?family=Roboto"]),toolbox.router.get("/(.*)",toolbox.fastest);
+importScripts("sw-toolbox.js"),toolbox.precache(["https://fonts.googleapis.com/css?family=Roboto"]),toolbox.router.get("/(.*)",toolbox.networkFirst);
