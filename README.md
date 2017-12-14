@@ -29,14 +29,20 @@ You can now see the docs at http://localhost:4567.
 
 For those who don't have JavaScript runtime or are experiencing JavaScript runtime issues with ExecJS, it is recommended to add the [rubyracer gem](https://github.com/cowboyd/therubyracer) to your gemfile and run `bundle` again.
 
-## Need Help? Found a bug?
+## For errors in our documentation
 
-[Submit an issue](https://github.com/Accelo/docs/issues) to the Accelo Docs GitHub if you need any help. And, of course, feel free to submit pull requests with bug fixes or changes.
+Please [submit an issue](https://github.com/Accelo/docs/issues) to the Accelo Docs GitHub and, of course, feel free to submit pull requests with fixes and improvements.
 
+## Need API help?
+
+[Post a question](https://groups.google.com/forum/#!forum/accelo-devs) on our forum and someone will be happy to help.
 
 ## Special Thanks
 
-A big thanks to all the contributors and maintainers of [Slate](https://github.com/lord/slate).
+- A big thanks to all the contributors and maintainers of [Slate](https://github.com/lord/slate) :heart: ; and
+- Even **bigger** thanks to [Matthew H](https://github.com/matthewhughes112) - the primary author of these docs! :tada:
+
+## Maintenance
 
 ### Upgrading Slate
 
