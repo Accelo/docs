@@ -1,7 +1,7 @@
-# Taxes
+## Taxes
 The different account tax codes are stored by Accelo in the tax object. For information on these, and instructions on interacting with them through the deployment please see the [support doucmentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/tax-codes/)
 
-## The Tax Object (Beta)
+### The Tax Object (Beta)
 > Example tax:
 
 ```json
@@ -27,7 +27,7 @@ The tax object contains the following:
 
 
 
-## Get Tax (Beta)
+### Get Tax (Beta)
 
 ```http
 GET /api/v0/taxes/{tax_id} HTTP/1.1
@@ -45,10 +45,10 @@ curl -X GET \
 
 This request returns a [tax object](#the-tax-object-beta) specified by its `tax_id`
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [tax object](#the-tax-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single tax object with its default fields and any additional fields requested through `_fields`.
 
 
@@ -56,7 +56,7 @@ The response will be the single tax object with its default fields and any addit
 
 
 
-## List Taxes (Beta)
+### List Taxes (Beta)
 
 ```http
 GET /api/v0/taxes HTTP/1.1
@@ -74,15 +74,15 @@ curl -X GET \
 
 This request returns a list of [taxes](#the-tax-object-beta).
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the standard [pagination parameters](#configuring-the-response-pagination).
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [tax object](#the-tax-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -90,7 +90,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | id |
 | standing |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter |
@@ -99,14 +99,14 @@ This request supports the following [order filters](#filters-order-filters):
 | standing |
 | title |
 
-#### Range Filters
+##### Range Filters
 This request supports the following [range filters](#filters-range-filters):
 
 | Filter |
 |:-|
 | id |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [taxes](#the-tax-object-beta) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -114,7 +114,7 @@ The response will be a list of [taxes](#the-tax-object-beta) with their default 
 
 
 
-## Count Taxes (Beta)
+### Count Taxes (Beta)
 
 ```http
 GET /api/v0/taxes/count HTTP/1.1

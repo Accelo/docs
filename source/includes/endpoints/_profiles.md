@@ -1,4 +1,4 @@
-# Profiles
+## Profiles
 Profile fields are objects used for tracking extra information from your Accelo deployment. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/profile-fields/) for further information about profile fields. Currently, custom profile fields are supported on the following objects:  
 1. [Companies](#companies)  
 2. [Contacts](#contacts)  
@@ -8,7 +8,7 @@ Profile fields are objects used for tracking extra information from your Accelo 
 6. [Milestones](#milestones)  
 7. [Staff](#staff)
 
-## The Profile Field Object
+### The Profile Field Object
 > Example profile field:
 
 ```json
@@ -45,7 +45,7 @@ These are objects describing the custom fields on the deployment, they contain t
 | description | string | A description of the profile field. |
 
 
-## The Profile Value Object
+### The Profile Value Object
 > Example profile value object:
 
 ```json
@@ -82,7 +82,7 @@ These are objects describing a value of a given [profile field](#the-profile-fie
 
 
 <a name="retrieve-a-list-of-profile-fields"></a>
-## List Profile Fields
+### List Profile Fields
 > Sample Request:  
 
 ```http
@@ -101,10 +101,10 @@ curl -X get \
 
 This request returns a list of [profile fields](#the-profile-field-object) available for the given object.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [profile field object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 This response will be a list of [profile fields](#the-profile-field-object) with their default fields, and any additional fields requested through `_fields`.
 
 
@@ -113,7 +113,7 @@ This response will be a list of [profile fields](#the-profile-field-object) with
 
 
 <a name="retrieve-a-list-of-profile-values"></a>
-## List Profile Field Values
+### List Profile Field Values
 > Sample Request:  
 
 ```http
@@ -132,10 +132,10 @@ curl -X get \
 
 This request returns a list of [profile values](#the-profile-value-object) for the given `object` of identified by `object_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 This response will be a list of [profile values](#the-profile-value-object) with their default fields, and any additional fields requested through `_fields`.
 
 
@@ -144,7 +144,7 @@ This response will be a list of [profile values](#the-profile-value-object) with
 
 
 <a name="update-a-profile-value-link"></a>
-## Update a Profile Value
+### Update a Profile Value
 > Example, a business has changed its opening hours:
 
 ```shell
@@ -159,7 +159,7 @@ curl -X put \
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular object, specified by its `object_id`, of a particular type, specified by `object`.
 
-### Configuring the Profile Value
+#### Configuring the Profile Value
 This request updates the `value` of a profile value, since this object is dynamic the field we send will depend on the type of `value`:
 
 | Field Name | Type | Description |
@@ -170,10 +170,10 @@ This request updates the `value` of a profile value, since this object is dynami
 | value_type | string | If `field_type` is "lookup", update the `value_type` with this string. |
 | value | string | If `field_type` is none of the above, update the `value` with this string. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated [profile value](#the-profile-value-object) with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -182,7 +182,7 @@ The response will be the single, updated [profile value](#the-profile-value-obje
 
 
 <a name="create-a-profile-value-link"></a>
-## Create a Profile Value
+### Create a Profile Value
 > Example, a company has give us their business hours:
 
 ```shell
@@ -197,11 +197,11 @@ curl -X post \
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its `profile_field_id`. The object whose profile field is to be update is identified by `object_id` and `object`.
 
-### Configuring the Profile Value
+#### Configuring the Profile Value
 This request accepts the same fields as the [previous request](#configuring-the-profile-value), that is, it takes only the relevant value field(s). The relevant value field is required for this request.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the newly created [profile value](#the-profile-value-object) with its default fields, and any additional fields requested through `_fields`.

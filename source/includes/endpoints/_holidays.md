@@ -1,7 +1,7 @@
-# Holidays (Beta)
+## Holidays (Beta)
 A user's holidays are available through the API as the "holiday" object. 
 
-## The Holiday Object (Beta)
+### The Holiday Object (Beta)
 > Sample holiday:
 
 ```json
@@ -33,7 +33,7 @@ The holiday object contains the following:
 
 
 
-## Get Holiday (Beta)
+### Get Holiday (Beta)
 
 ```http
 GET /holidays/{holiday_id} HTTP/1.1
@@ -51,10 +51,10 @@ curl -X GET \
 
 This request returns a single [holiday](#the-holiday-object-beta), specified by its `holiday_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [holiday object](#the-holiday-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a single holiday with its default fields and any additional fields requested through `_fields`.
 
 
@@ -62,7 +62,7 @@ The response will be a single holiday with its default fields and any additional
 
 
 
-## List Holidays (Beta)
+### List Holidays (Beta)
 
 ```http
 GET /holidays/ HTTP/1.1
@@ -80,15 +80,15 @@ curl -X GET \
 
 This request returns a list of [holidays](#the-holiday-object-beta).
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the standard [pagination parameters](#configuring-the-response-pagination).
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [holiday object](#the-holiday-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -96,7 +96,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | id |
 | staff_id |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Field |
@@ -104,7 +104,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_start |
 | date_end|
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Field |
@@ -115,7 +115,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | date_end |
 | duration_seconds |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Field |
@@ -127,7 +127,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | title |
 | duration |
 
-#### Empty Filters
+##### Empty Filters
 This request supports the following [empty filters](#filters-empty-filters):
 
 | Filter |
@@ -135,14 +135,14 @@ This request supports the following [empty filters](#filters-empty-filters):
 | date_end |
 | duration_seconds |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [holidays](#the-holiday-object-beta) with their default fields and any additional fields requested through `_fields`, and displaying according to any pagination parameters, filters, or searches used.
 
 
@@ -150,7 +150,7 @@ The response will be a list of [holidays](#the-holiday-object-beta) with their d
 
 
 
-## Count Holidays (Beta)
+### Count Holidays (Beta)
 
 ```http
 GET /holidays/count HTTP/1.1
@@ -177,7 +177,7 @@ This request returns a count of [holidays](#the-holiday-object-beta) in a list d
 
 
 
-## Update Holiday (Beta)
+### Update Holiday (Beta)
 
 ```http
 PUT /holidays/{holiday_id} HTTP/1.1
@@ -195,7 +195,7 @@ curl -X PUT \
 
 This request updates and returns a [holiday](#the-holiday-object-beta) specified by its `holiday_id`.
 
-### Configuring the Holiday
+#### Configuring the Holiday
 
 The following fields from the [holiday object](#the-holiday-object-beta) may be updated through this request, (date fields may be sent as unix timestamps, or in ISO8601 format):
 
@@ -209,10 +209,10 @@ The following fields from the [holiday object](#the-holiday-object-beta) may be 
 
 **Note:** you may only update one of `date_end` or `duration_seconds`.
 
-### Configuring the Response
+#### Configuring the Response
 The response may be configuring as per [Get Holiday](#get-holiday-beta)
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated holiday with its default fields and any additional fields requested through `_fields`.
 
 
@@ -220,7 +220,7 @@ The response will be the single, updated holiday with its default fields and any
 
 
 
-## Create Holiday (Beta)
+### Create Holiday (Beta)
 
 ```http
 POST /holidays/ HTTP/1.1
@@ -238,7 +238,7 @@ curl -X POST \
 
 This request creates and returns a [holiday](#the-holiday-object-beta).
 
-### Configuring the Holiday
+#### Configuring the Holiday
 The following fields may be set through this request, (date fields may be sent as unix timestamps, or in ISO8601 format):
 
 | Field |
@@ -251,10 +251,10 @@ The following fields may be set through this request, (date fields may be sent a
 
 **Note:** only one of `date_end` or `duration_seconds` is required; both cannot be sent.
 
-### Handling the Response
+#### Handling the Response
 The response may be configuring as per [Get Holiday](#get-holiday-beta)
 
-### Handling the Response
+#### Handling the Response
 The response will be the new holiday with its default fields and any additional fields requested through `_fields`.
 
 
@@ -262,7 +262,7 @@ The response will be the new holiday with its default fields and any additional 
 
 
 
-## Delete Holiday (Beta)
+### Delete Holiday (Beta)
 
 ```http
 DELETE /holidays/{holiday_id} HTTP/1.1

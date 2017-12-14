@@ -1,10 +1,10 @@
-# Staff
+## Staff
 > Resource URI:  
 `/api/v0/staff`
 
 Staff (or users) are the users registered on the Accelo deployment. They are the company's Accelo users, admins, professionals, and collaborators
 
-## The Staff Object
+### The Staff Object
 The staff object contains the following
 
 | Field | Type | Description |
@@ -28,7 +28,7 @@ The staff object contains the following
 
 
 
-## Get Staff
+### Get Staff
 > Sample Request:   
 
 ```http
@@ -47,10 +47,10 @@ curl -X get \
 
 This requests returns a [staff member](#the-staff-object), specified by their `staff_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [staff object](#the-staff-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response is the single [staff object](#the-staff-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -59,7 +59,7 @@ The response is the single [staff object](#the-staff-object) with its default fi
 
 
 
-## Get Current Staff
+### Get Current Staff
 > Sample Request:   
 
 ```http
@@ -84,7 +84,7 @@ This request returns the [staff object](#the-staff-object) for the current staff
 
 
 
-## List Staff
+### List Staff
 > Sample Request:   
 
 ```http
@@ -103,15 +103,15 @@ curl -X get \
 
 This request returns a list of [staff members](#the-staff-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [staff object](#the-staff-object) using the [`_fields`](#configuring-the-response-fields).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name |
@@ -121,7 +121,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | standing |
 | username |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
@@ -129,7 +129,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | id |
 | rate |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [staff objects](#the-staff-object) with their default fields and any additional fields requested through `_fields`, displayed according to any pagination parameters or filters used.
 
 
@@ -138,7 +138,7 @@ The response will be a list of [staff objects](#the-staff-object) with their def
 
 
 
-## Count Staff
+### Count Staff
 > Sample Request:   
 
 ```http
@@ -167,7 +167,7 @@ This request will return a count of staff in a list defined by any available sea
 
 
 
-## Update a Staff Member
+### Update a Staff Member
 > Sample Request:   
 
 ```http
@@ -188,7 +188,7 @@ curl -X get \
 
 This request updates and returns a [staff member](#the-staff-object), identified by their `staff_id`.
 
-### Configuring the Staff
+#### Configuring the Staff
 The following fields from the [staff object](#the-staff-object) may be updated with this Sample Request:
 
 | Field Name |
@@ -202,10 +202,10 @@ The following fields from the [staff object](#the-staff-object) may be updated w
 | mobile |
 | position |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [staff object](#the-staff-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the update [staff object](#the-staff-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -214,7 +214,7 @@ The response will be the update [staff object](#the-staff-object) with its defau
 
 
 
-## Create a Staff Member
+### Create a Staff Member
 > Sample Request:   
 
 ```http
@@ -235,7 +235,7 @@ curl -X get \
 
 This request creates and returns a new [staff member](#the-staff-object).
 
-### Configuring the Staff
+#### Configuring the Staff
 The following fields from the [staff object](#the-staff-object) may be set through this Sample Request:
 
 | Field Name | Notes |
@@ -251,10 +251,10 @@ The following fields from the [staff object](#the-staff-object) may be set throu
 | mobile ||
 | position ||
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [staff object](#the-staff-object) using the `_fields` parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated [staff object](#the-staff-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -263,7 +263,7 @@ The response will be the single, updated [staff object](#the-staff-object) with 
 
 
 
-## Delete a Staff Member
+### Delete a Staff Member
 > Sample Request:   
 
 ```http
@@ -288,7 +288,7 @@ This request removes a [staff member](#the-staff-object) from the deployment, id
 
 
 
-## List Profile Fields
+### List Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /staff/profiles/fields`
@@ -301,7 +301,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-## List Profile Field Values
+### List Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /staff/{staff_id}/profiles/values`
@@ -314,7 +314,7 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-## Update a Profile Field Value
+### Update a Profile Field Value
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /staff/{staff_id}/profiles/fields/{profile_value_id}`
@@ -328,7 +328,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-## Set a Profile Field Value
+### Set a Profile Field Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request 
 
 `PUT|POST /staff/{staff_id}/profiles/fields/{profile_field_id}`

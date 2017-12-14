@@ -1,4 +1,4 @@
-# Affiliations
+## Affiliations
 > Resources URI:  
 `/api/v0/affiliations`
 
@@ -8,7 +8,7 @@ They are necessary because one contact may be linked to a company in more than o
 
 For example we may have a contact who works as an engineer for one company (imaginatively, call it company A), and an advisor for another company (company B). Then there will be two affiliation objects, both with the same contact object, however, one will have the company object of Company A, and the other of Company B. Furthermore, the contact information (mobile, email etc.) for each affiliation may be different, one will hold the contact information for an engineer working at Company A, the other for an advisor working at Company B.
 
-## The Affiliation Object
+### The Affiliation Object
 > Sample affiliation JSON object:
 
 ```json
@@ -57,7 +57,7 @@ The Affiliation object contains the following:
 
 
 
-## Get Affiliation
+### Get Affiliation
 > Sample request:
 
 ```shell
@@ -78,10 +78,10 @@ Content-Type: application/x-www-form-urlencoded
 
 This request returns an affiliation specified by their unique id.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 If successful, the response will be a single affiliation object containing the default fields and any additional fields requested by `_fields`.
 
 
@@ -89,7 +89,7 @@ If successful, the response will be a single affiliation object containing the d
 
 
 
-## List Affiliations
+### List Affiliations
 > Sample request:
 
 ```http
@@ -116,12 +116,12 @@ curl -X get \
 
 This request returns a list of [affiliation objects](#the-affiliation-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -136,14 +136,14 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | contact | Filter by the `contact_id` of the affiliations. |
 | contact_number | Filter over `phone`, `fax`, and `mobile`. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | date_modified |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -155,7 +155,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_last_interacted ||
 | fullname | Order by the full name of the affiliation, that is "`firstname` `surname`". |
 
-#### Range Filters
+##### Range Filters
 This request supports range filters over the following fields:
 
 | Filter Name | Notes |
@@ -185,7 +185,7 @@ This request supports range filters over the following fields:
 ]
 ```
 
-#### Searching
+##### Searching
 This request supports the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field Name | Notes |
@@ -197,7 +197,7 @@ This request supports the use of the [`_search`](#configuring-the-response-searc
 | mobile |
 | email |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [affiliations](#the-affiliation-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
@@ -205,7 +205,7 @@ The response will be a list of [affiliations](#the-affiliation-object) with thei
 
 
 
-## Count Affiliations
+### Count Affiliations
 > Sample request:
 
 ```shell
@@ -233,7 +233,7 @@ This request will return a count of affiliations in a list defined by any availa
 
 
 
-## Get Affiliation Status
+### Get Affiliation Status
 > Sample request:
 
 
@@ -264,10 +264,10 @@ This request returns the [status object](#statuses) for the affiliation specifie
 }
 ```
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [status object](#statuses) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a [status object](#statuses) for the specified [affiliation](#the-affiliation-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -275,7 +275,7 @@ The response will be a [status object](#statuses) for the specified [affiliation
 
 
 
-## Update an Affiliation
+### Update an Affiliation
 ```http
 PUT /api/v0/affiliations/{affiliation_id} HTTP/1.1
 Host: {deployment}.api.accelo.com
@@ -302,7 +302,7 @@ curl -X put \
 This request will update and return an [affiliation](#the-affiliation-object) identified by its `affiliation_id`.
 
 
-### Configuring the Affiliation.
+#### Configuring the Affiliation.
 
 The following fields may be updated via this request.
 
@@ -335,10 +335,10 @@ The following fields may be updated via this request.
 }
 ```
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single updated [affiliation object](#the-affiliation-object), with its default fields and any additional fields requested through `_fields`
 
 
@@ -346,7 +346,7 @@ The response will be the single updated [affiliation object](#the-affiliation-ob
 
 
 
-## Create an Affiliation
+### Create an Affiliation
 ```http
 POST /api/v0/affiliations/ HTTP/1.1
 Host: {deployment}.api.accelo.com
@@ -365,7 +365,7 @@ curl -X post \
 
 This request will create a new [affiliation](#the-affiliation-object) between a [company](#companies) and [contact](#contacts) (to be specified in the request), and return it.
 
-### Configuring the Affiliation
+#### Configuring the Affiliation
 This request supports setting the following fields:
 
 | Field Name | Notes |
@@ -385,10 +385,10 @@ This request supports setting the following fields:
 | communication | Must be "yes" or "no", whether or not communications, such as updates, newsletters etc. are sent to this affiliation, default "no".|
 | invoice_method | e.g. "email", "fax" or "postal", the method by which invoices should be sent. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, new, [affiliation object](#the-affiliation-object), with its default fields and any additional fields requested through `_fields`
 
 
@@ -396,7 +396,7 @@ The response will be the single, new, [affiliation object](#the-affiliation-obje
 
 
 
-## Delete an Affiliation
+### Delete an Affiliation
 ```http
 DELETE /api/v0/affiliations/{affiliation_id} HTTP/1.1
 Host: {deployment}.api.accelo.com
@@ -418,7 +418,7 @@ This request will delete the affiliation identified by its `affiliation_id`. Thi
 
 
 
-## List Profile Field Values
+### List Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /affiliations/{affiliation_id}/profiles/values`
@@ -430,7 +430,7 @@ This request returns a list of [profile field values](#the-profile-value-object)
 
 
 
-## List Profile Fields
+### List Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /affiliations/profiles/fields`
@@ -443,7 +443,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-## Update a Profile Field Value
+### Update a Profile Field Value
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /affiliations/{affiliation_id}/profiles/values/{profile_value_id}`
@@ -458,7 +458,7 @@ This request updates and returns a [profile field value](#the-profile-value-obje
 
 
 
-## Set a Profile Field Value
+### Set a Profile Field Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /affiliations/{affiliation_id}/profiles/fields/{profile_field_id}`
@@ -473,7 +473,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /affiliations/{affiliation_id}/progressions`
@@ -486,7 +486,7 @@ This request returns a list of available [progressions](#progressions) for an [a
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[PUT | POST] /affiliations/{affiliation_id}/progressions/{progression_id}/auto`

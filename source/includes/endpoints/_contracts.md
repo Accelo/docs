@@ -1,4 +1,4 @@
-# Contracts
+## Contracts
 > Resource URI:  
 `/api/v0/contracts`
 
@@ -6,7 +6,7 @@ Contracts (also known as retainers) are objects for managing recurring client wo
 
 The contracts model integrates flawlessly with the the [issues](#issues) and [jobs](#jobs-projects) modules so that you can even allocate work from those into a contract period. Contracts can also be linked to [service items](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/), allowing for easy handling of things like tax codes and ledger codes.
 
-## The Contract Object
+### The Contract Object
 > Example contract:
 
 ```json
@@ -70,7 +70,7 @@ The contract object contains the following fields and linked objects:
 | job | unsigned or object | The job the contract is against, if any. |
 | company | unsigned or object | The company the contract is against, if any. |
 
-### The Contract Period
+#### The Contract Period
 > Example contract period object:
 
 ```json
@@ -115,7 +115,7 @@ The contract period is a duration of time to track and invoice a contract. The `
 | contract_id | unsigned | The unique identifier of the contract the period belongs to. |
 
 
-### The Contract Type
+#### The Contract Type
 > Example contract type object:
 
 ```json
@@ -159,7 +159,7 @@ which contains the following additional fields:
 
 
 
-## Get Contract
+### Get Contract
 > Sample Request:  
 
 ```http
@@ -178,10 +178,10 @@ curl -X get \
 
 This request returns a single contract from the Accelo deployment, specified by its `contract_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [contract object](#the-contract-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### handling the Response
+#### handling the Response
 The response will be a single [contract object](#the-contract-object), with its default fields and any additional fields requested by `_fields`.
 
 
@@ -189,7 +189,7 @@ The response will be a single [contract object](#the-contract-object), with its 
 
 
 
-## List Contracts
+### List Contracts
 > Sample Request:  
 
 ```http
@@ -208,15 +208,15 @@ curl -X get \
 
 This request returns a list of contracts from the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting any extra fields or linked objects from the [contracts object](#the-contract-object) via the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -232,7 +232,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id | |
 | against_type | |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -242,7 +242,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_expired |
 | date_period_expires |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -257,7 +257,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | title | |
 | date_last_interacted | |
 
-#### Range Filters
+##### Range Filters
 this request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -276,14 +276,14 @@ this request supports [range filters](#filters-range-filters) over the following
 | service_tax | Range by `service_tax_id` from the [service item](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/) linked to the contract, if any. |
 | service_ledger | Rage by `service_ledger_id`.from the [service item](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/) linked to the contract, if any. |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name | Description |
 |:-|:-|
 | against | Filter by contracts against these objects. |
 
-### handling the Response
+#### handling the Response
 The response will be a list of [contract objects](#the-contract-object) containing the default fields and any additional field requested by `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -291,7 +291,7 @@ The response will be a list of [contract objects](#the-contract-object) containi
 
 
 
-## Count Contracts
+### Count Contracts
 > Sample Request:
 
 ```http
@@ -319,7 +319,7 @@ This request will return a count of contracts in a list defined by any available
 
 
 
-## Get Contract Period
+### Get Contract Period
 > Sample Request:  
 
 ```http
@@ -338,10 +338,10 @@ curl -X get \
 
 This request returns a single [contract period](#the-contract-period) object from the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [contract period object](#the-contract-period) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 This response will be a single contract period object, with its default fields and any additional fields requested via `_fields`.
 
 
@@ -349,7 +349,7 @@ This response will be a single contract period object, with its default fields a
 
 
 
-## List Contract Periods
+### List Contract Periods
 > Sample Request:  
 
 ```http
@@ -367,15 +367,15 @@ curl -X get \
 
 This request returns a list of [contract periods](#the-contract-period) for a contract, specified by its `contract_id`.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting extra fields or linked objects from the [contract_period object](#the-contract-period) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -392,7 +392,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | contract | Filter over the `contract_id`. |
 | contract_budget |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#date-filters) over the following fields:
 
 | Filter Name |
@@ -402,7 +402,7 @@ This request supports [date filters](#date-filters) over the following fields:
 | date_expires |
 | date_closed |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -414,7 +414,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | budget | Range over the `budget_id`. |
 | service_item | Range over the `service_item_id`. |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filtering](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -425,7 +425,7 @@ This request supports [order filtering](#filters-order-filters) over the followi
 | date_expires |
 | date_closed |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [contract objects](#the-contract-object) containing the default fields and any additional fields requested by `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -433,7 +433,7 @@ The response will be a list of [contract objects](#the-contract-object) containi
 
 
 
-## List Contract Types
+### List Contract Types
 > Sample Request:  
 
 ```http
@@ -451,15 +451,15 @@ curl -X get \
 
 This request returns a list of contract types on the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [contract type object](#the-contract-type) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic filters
+##### Basic filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Field |
@@ -474,7 +474,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | service_tax_id |
 | service_ledger_id |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Field |
@@ -484,7 +484,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | ordering |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Field |
@@ -492,21 +492,21 @@ This request supports [range filters](#filters-range-filters) over the following
 | id |
 | renew_days |
 
-#### Empty Filters
+##### Empty Filters
 This request supports [empty filters](#filters-empty-filters) over the following fields:
 
 | Field |
 |:-|
 | title |
 
-#### Searching
+##### Searching
 This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of contract types containing the default fields and any additional fields request by `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -514,7 +514,7 @@ This request will return a list of contract types containing the default fields 
 
 
 
-## Count Contract Types
+### Count Contract Types
 > Sample Request:  
 
 ```http
@@ -541,7 +541,7 @@ This request returns a count of [contract types](#the-contract-type) in a list d
 
 
 
-## Get Contract Type
+### Get Contract Type
 > Sample Request:  
 
 ```http
@@ -559,17 +559,17 @@ curl -X get \
 
 This request returns a single [contract type object](#the-contract-type) identified by its `contract_type_id`.
 
-### Configuring the Request
+#### Configuring the Request
 This request supports requesting extra fields or objects from the [contract type object](#the-contract-type) through the `_fields` parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will contain the single contract type with its default fields, and any additional fields requested through `_fields`.
 
 
 
 
 
-## Close a Contract Period (Beta)
+### Close a Contract Period (Beta)
 > Sample Request:
 
 ```http
@@ -594,7 +594,7 @@ This request closes and returns a [contract period](#the-contract-period), see t
 
 
 
-## Reopen a Contract Period (Beta)
+### Reopen a Contract Period (Beta)
 > Sample Request:
 
 ```http
@@ -617,7 +617,7 @@ This request reopens and returns a previously close [contract period](#the-contr
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /contracts/{contract_id}/progressions`
@@ -629,7 +629,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[POST|PUT] /contracts/{contract_id}/progressions/{progression_id}/auto`
@@ -641,7 +641,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-## List Resource Collections
+### List Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
 
 `GET /companies/{company_id}/collections`
@@ -653,7 +653,7 @@ This request returns a list of [collections](#resources) against a [company](#th
 
 
 
-## Upload a Resource (Attachment)
+### Upload a Resource (Attachment)
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
 
 `POST /companies/{company_id}/collections/{collection_id}/resources`
@@ -665,7 +665,7 @@ This request uploads a [resource](#resources) to a collection, specified by its 
 
 
 
-## List Extension Fields
+### List Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example
 
 `GET /contracts/extensions/fields`
@@ -677,7 +677,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-## List Extension Field Values
+### List Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example     
 
 `GET /contracts/{contract_id}/extensions/values`
@@ -689,7 +689,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-## Update an Extension Field Value
+### Update an Extension Field Value
 > See the [extension section](#update-an-extension-value) for an example    
 
 `PUT /contracts/{contract_id}/extensions/values/{extension_value_id}`
@@ -700,7 +700,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-## Set an Extension Value
+### Set an Extension Value
 > See the [extension section](#create-an-extension-value) for an example  
 
 `POST /contracts/{contract_id}/extensions/fields/{extension_field_id}`

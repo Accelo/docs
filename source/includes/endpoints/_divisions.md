@@ -1,10 +1,10 @@
-# Divisions
+## Divisions
 > Resource URI:  
 `/api/v0/divisions`
 
 Divisions allow you manage contacts, companies, and staff under different details, rates, or identities. See the [support documentation](https://www.accelo.com/resources/help/faq/divisions/) for more information.
 
-## The Division Object (Beta)
+### The Division Object (Beta)
 > Sample division JSON object:
 
 ```json
@@ -30,7 +30,7 @@ The division object contains the following:
 
 
 
-## Get Division (Beta)
+### Get Division (Beta)
 > Sample request:
 
 ```shell
@@ -53,17 +53,17 @@ _fields=standing
 
 This request returns a division specified by its unique identifier.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [division object](#the-division-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a single division with its default fields and any additional fields requested through `_fields`.
 
 
 
 
 
-## List Divisions (Beta)
+### List Divisions (Beta)
 > Sample request:
 
 ```shell
@@ -85,12 +85,12 @@ Content-Type: application/x-www-form-urlencoded
 
 This request returns a list of [divisions](#the-division-object-beta) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter Name |
@@ -99,7 +99,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | title |
 | standing |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Field |
@@ -107,21 +107,21 @@ This request supports [order filters](#filters-order-filters) over the following
 | id |
 | ordering |
 
-#### Searching
+##### Searching
 This request supports the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [divisions](#the-division-object-beta) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
 
 
 
-## Count Divisions (Beta)
+### Count Divisions (Beta)
 > Sample request:
 
 ```shell

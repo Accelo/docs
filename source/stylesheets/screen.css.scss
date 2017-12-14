@@ -59,7 +59,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
 
   // language selector for mobile devices
@@ -177,10 +177,20 @@ html, body {
     background-color: $nav-subitem-bg;
     font-weight: 500;
   }
+  
+  .toc-list-h3 {
+    display: none;
+    background-color: $nav-subitem-bg;
+  }
+
+  .toc-h3 {
+    padding-left: $nav-padding + $nav-padding + $nav-indent;
+    font-size: 14px;
+  }
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 2.3;
   }
 
@@ -350,7 +360,7 @@ html, body {
   }
 
   // the div is the tocify hidden div for placeholding stuff
-  &>h1, &>h2, &>div {
+  &>h1, &>h2, &>h3, &>div {
     clear:both;
   }
 

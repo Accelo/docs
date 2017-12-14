@@ -1,7 +1,7 @@
-# Groups
+## Groups
 Groups allow you to categorize your staff for bulk assignments and access controls. See the [support documentation](https://www.accelo.com/resources/help/faq/user-permissions-and-settings/managing-user-groups/) for more information.
 
-## The Group Object (Beta)
+### The Group Object (Beta)
 > Sample JSON group object:
 
 ```json
@@ -27,7 +27,7 @@ The group object contains the following:
 
 
 
-## Get Group (Beta)
+### Get Group (Beta)
 > Sample Request
 
 ```shell
@@ -50,10 +50,10 @@ _fields=standing
 
 This request returns a [group](#the-group-object-beta) specified by its unique `group_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [group object](#the-group-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a single group with its default fields and any additional fields requested through `_fields`.
 
 
@@ -61,7 +61,7 @@ The response will be a single group with its default fields and any additional f
 
 
 
-## List Groups (Beta)
+### List Groups (Beta)
 > Sample Request
 
 ```shell
@@ -86,15 +86,15 @@ _filters=parent_id(3)
 
 This request returns a list of [groups](#the-group-object-beta) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination parameters](#configuring-the-response-pagination).
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [group object](#the-group-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Field | Description |
@@ -103,20 +103,20 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | title |
 | staff_id | Filter group(s) to which the [staff member](#staff) with this id belongs. |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [group objects](#the-group-object-beta) with the default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
 
 
-## Count Groups (Beta)
+### Count Groups (Beta)
  Sample Request
 
 ```shell

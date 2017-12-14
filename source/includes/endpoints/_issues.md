@@ -1,10 +1,10 @@
-# Issues
+## Issues
 > Resource URI:  
 `/api/v0/issues`
 
 Issues (also known as "Tickets") are used for when you need to track billable time against a client, but don’t need the complexity of a full Project and its workflow and components. For example, issues may be used to track support cases where you’re diagnosing and fixing a problem and don’t know beforehand the specific steps which will be required to resolve the Issue. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/tickets/#WhenTickets) for more information on these objects.
 
-## The Issue Object
+### The Issue Object
 > Example issue object:
 
 ```json
@@ -87,7 +87,7 @@ The issue object contains the following:
 | issue_object_budget | unsigned or object | The [object budget](#object-budgets) associated with the issue. |
 | object_budget | unsigned or object | **Deprecated** please use `issue_object_budget`. |
 
-### The Issue Priority
+#### The Issue Priority
 > Example priority object:
 
 ```json
@@ -108,7 +108,7 @@ Issue priorities help you keep track of what needs to be done. They may be set u
 | color | select | The color of the priority when displayed on the deployment. The colors, in order of increasing urgency a "grey", "blue", "green", "orange", "red". |
 | factor | unsigned | A number representing the urgency of the priority. 5 is "Extreme", 1 is "None". |
 
-### The Issue Status
+#### The Issue Status
 > Example issue status object:
 
 ```json
@@ -133,7 +133,7 @@ Statuses may be used to track the progress of an issue. These statuses may be co
 | start | select | Either "yes" or "no", whether an issue may be created with this status. |
 | ordering | unsigned | A number describing the order of the status on the deployment. |
 
-### The Issue Type
+#### The Issue Type
 > Example issue type object:
 
 ```json
@@ -166,7 +166,7 @@ Issue types let you sort your issues according to the type of work the entail. I
 | default_class_id | unsigned | The unique identifier of the default [issue class](#the-issue-class) for this type of issue. Default is `null`. |
 | has_custom_id | boolean | Either "1" or "0", whether the issue type uses custom ids. |
 
-### The Issue Resolution
+#### The Issue Resolution
 > Example issue resolution:
 
 ```json
@@ -191,7 +191,7 @@ Issue resolutions track how certain issues are resolved and may be set up on the
 | report | string | A fixed description of the resolution. |
 | standing | select | Either "active" or "inactive", the standing of the resolution. |
 
-### The Issue Class
+#### The Issue Class
 > Example issue class:
 
 ```json
@@ -220,7 +220,7 @@ Issue classes help to classify symptoms or characteristics of an issue. They can
 
 
 
-## Get Issue
+### Get Issue
 > Sample Request:  
 
 ```http
@@ -239,10 +239,10 @@ curl -X get \
 
 This request returns a single issue, identified by its `issue_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### handling the Response
+#### handling the Response
 The response will be the single requested [issue](#the-issue-object) with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -251,7 +251,7 @@ The response will be the single requested [issue](#the-issue-object) with its de
 
 
 
-## List Issues
+### List Issues
 > Sample Request:  
 
 ```http
@@ -270,13 +270,13 @@ curl -X get \
 
 This request returns a list of [issue objects](#the-issue-object) on the deployment.
 
-### Pagination
+#### Pagination
 This request supports the standard [pagination](#configuring-the-response-pagination) parameters.
 
-### Additional Fields and Linked Objects
+#### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [issues object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -302,7 +302,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | assignee | Filter by the `staff_id` of the assignee. |
 | contract | Filter by the `contract_id` of any linked contracts. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -313,7 +313,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_closed |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -330,7 +330,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing ||
 | status | Order by the `status_id` |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -355,7 +355,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | rate | Range over the `rate_id` of the rate charged. |
 | contract | Range over the `contract_id` of contracts linked to issues. |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 |  Filter Name  | Description |
@@ -363,14 +363,14 @@ This request supports the following [object filters](#filters-object-filters):
 | against | Filter by issues against these objects. |
 | referrer | Filter by issues referred by these objects. |
 
-#### Searching
+##### Searching
 This request supports using the `_search` function to search over the following fields:
 
 | Field |
 |:-|
 | subject |
 
-### handling the Response
+#### handling the Response
 This request will return a list of [issues](#the-issue-object) containing the default fields and any additional fields request by `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -379,7 +379,7 @@ This request will return a list of [issues](#the-issue-object) containing the de
 
 
 
-## Count Issues
+### Count Issues
 > Sample Request:  
 
 ```http
@@ -408,7 +408,7 @@ This request will return a count of issues in a list defined by any available se
 
 
 
-## List Recent Issues
+### List Recent Issues
 > Sample Request:  
 
 ```http
@@ -427,10 +427,10 @@ curl -X get \
 
 This request returns a list of issues on the deployment sorted by most recently submitted, that is, in descending order of `date_submitted`.
 
-### Configuring the Request
+#### Configuring the Request
 This request accepts the same parameters and filters over the same fields as the [`GET /issues`](#list-issues) request, although it will always be ordered in descending order of `date_submitted`.
 
-### handling the Response
+#### handling the Response
 This request will return a list of contacts displayed according to any parameters used, and with their default fields plus any additional fields requested by `_fields`, and ordered in descending order of `date_submitted`.
 
 
@@ -439,7 +439,7 @@ This request will return a list of contacts displayed according to any parameter
 
 
 
-## List Issue Statuses
+### List Issue Statuses
 > Sample Request:  
 
 ```http
@@ -458,15 +458,15 @@ curl -X get \
 
 This request returns a list of issue [statuses](#statuses) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports the standard [pagination](#configuring-the-response-pagination) requests.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the issue [status object](#statuses) through the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter Name |
@@ -476,7 +476,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | standing |
 | color |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter Name |
@@ -487,14 +487,14 @@ This request supports the following [order filters](#filters-order-filters):
 | color |
 | ordering |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of issue [statuses](#statuses) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
@@ -503,7 +503,7 @@ This request will return a list of issue [statuses](#statuses) with their defaul
 
 
 
-## Get Issue Type
+### Get Issue Type
 
 > Sample request:  
 
@@ -523,11 +523,11 @@ curl -X get \
 
 This request returns an [issue type](#issue-type-id) specified by its unique id.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports request additional fields and linked objects from  the issue type using the
 [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 
 The response will contain a single issue type with its default fields and any additional
 fields requested through `_fields`.
@@ -537,7 +537,7 @@ fields requested through `_fields`.
 
 
 
-## List Issue Types
+### List Issue Types
 > Sample Request:  
 
 ```http
@@ -556,15 +556,15 @@ curl -X get \
 
 This request returns a list of [issue types](#the-issue-type) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports the standard [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [issue type object](#the-issue-type) using the [`_fields`](#configuring-the-response-fields) parameter. **Note** this request does not support the `_ALL` argument for this parameter.
 
-### handling the Response
+#### handling the Response
 The response will be a list of [issue types](#the-issue-type) with their default fields and any additional fields requested through `_fields`.
 
 
@@ -573,7 +573,7 @@ The response will be a list of [issue types](#the-issue-type) with their default
 
 
 
-## List Issue Classes
+### List Issue Classes
 > Sample Request:  
 
 
@@ -593,10 +593,10 @@ curl -X get \
 
 This request returns a list of [issue classes](#the-issue-class) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [issue class object](#the-issue-class) using the [`_fields`](#configuring-the-response-fields) parameter. **Note** this request does not support the `_ALL` argument for this parameter.
 
-### handling the Response
+#### handling the Response
 The response will be a list of [issue types](#the-issue-class) with their default fields and any additional fields requested through `_fields`.
 
 
@@ -605,7 +605,7 @@ The response will be a list of [issue types](#the-issue-class) with their defaul
 
 
 
-## List Tasks Against an Issue
+### List Tasks Against an Issue
 > Sample Request:  
 `GET /issues/{issue_id}/tasks`
 
@@ -624,10 +624,10 @@ curl -X get \
 
 This request returns a list of [tasks](#tasks) against an [issue](#the-issue-object) specified by its `issue_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This response may be configuring in the same way as [`GET /tasks`](#list-tasks)
 
-### Handling the Response
+#### Handling the Response
 This response may be handled in the same way as [`GET /tasks`](#list-tasks)
 
 
@@ -636,7 +636,7 @@ This response may be handled in the same way as [`GET /tasks`](#list-tasks)
 
 
 
-## Update an Issue
+### Update an Issue
 > Sample Request:  
 
 ```http
@@ -657,7 +657,7 @@ curl -X get \
 
 This request updates and returns an [issue object](#the-issue-object), identified by its `issue_id`.
 
-### Configuring the Issue
+#### Configuring the Issue
 The following fields from the [issue object](#the-issue-object) may be updated through this request:
 
 || Notes |
@@ -673,10 +673,10 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 | date_due ||
 | assignee | A `staff_id`, must point to a valid [staff](#staff) member. The staff will be assigned and informed of this assigned issue. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### handling the Response
+#### handling the Response
 The response will be the single updated [issue](#the-issue-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -685,7 +685,7 @@ The response will be the single updated [issue](#the-issue-object) with its defa
 
 
 
-## Create an Issue
+### Create an Issue
 > Sample Request:  
 
 ```http
@@ -706,7 +706,7 @@ curl -X get \
 
 This request creates and returns an [issue](#the-issue-object).
 
-### Configuring the Issue
+#### Configuring the Issue
 Values for the following fields from the [issue object](#the-issue-object) may be set through this request:
 
 || Notes |
@@ -724,10 +724,10 @@ Values for the following fields from the [issue object](#the-issue-object) may b
 | class_id | Must point to a valid [issue class](#the-issue-class). You may retrieve a list of classes through [`GET /issues/classes`](#list-issue-classes) |
 | assignee | A `staff_id`, must point to a valid [staff](#staff) member. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked resources from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### handling the Response
+#### handling the Response
 The response will be the created [issue](#the-issue-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -736,7 +736,7 @@ The response will be the created [issue](#the-issue-object) with its default fie
 
 
 
-## Delete an Issue
+### Delete an Issue
 > Sample Request:  
 
 ```http
@@ -761,7 +761,7 @@ This request removes an issue from the deployment, specified by its `issue_id`. 
 
 
 
-## List Profile Fields
+### List Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /issues/profiles/fields`
@@ -774,7 +774,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-## List Profile Field Values
+### List Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /issues/{issue_id}/profiles/values`
@@ -787,7 +787,7 @@ This request returns a list of [profile values](#the-profile-value-object) of an
 
 
 
-## Update a Profile Value
+### Update a Profile Value
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /issues/issue_id/profiles/values/{profile_value_id}`
@@ -800,7 +800,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-## Set a Profile Value
+### Set a Profile Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /issues/{issue_id}/profiles/fields/{profile_field_id}`
@@ -813,7 +813,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-## List Extension Fields
+### List Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example  
 
 `GET /issues/extensions/fields`
@@ -826,7 +826,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-## List Extension Field Values
+### List Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example    
 
 `GET /issues/{issue_id}/extensions/values`
@@ -839,7 +839,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-## Update an Extension Field Value
+### Update an Extension Field Value
 > See the [extension section](#update-an-extension-value) for an example      
 
 `PUT /issues/{issue_id}/extensions/values/{extension_value_id}`
@@ -852,7 +852,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-## Set an Extension Field Value
+### Set an Extension Field Value
 > Sample Request:  
 
 `POST /issues/{issue_id}/extensions/fields/{extension_field_id}`
@@ -866,7 +866,7 @@ This request sets and returns the value of an extension field, specified by its 
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request  
 
 `GET /issues/{issue_id}/progressions`
@@ -879,7 +879,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request  
 
 `[POST|PUT] /issues/{issue_id}/progressions/{progression_id}/auto`
@@ -892,7 +892,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-## List Resource Collections
+### List Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
 
 `GET /issues/{issue_id}/collections`
@@ -905,7 +905,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 
 
-## Upload a Resource (Attachment)
+### Upload a Resource (Attachment)
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
 
 `POST /issues/{issue_id}/collections/{collection_id}/resources`

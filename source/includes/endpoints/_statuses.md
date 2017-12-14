@@ -1,7 +1,7 @@
-# Statuses
+## Statuses
 Statuses are used to track the progress of work. See the [support documentation](https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/) for more information. Since many resources on Accelo track various types and aspects of work, statuses are present in many different resources.
 
-## Status Objects
+### Status Objects
 The a status object may contain the following:
 
 | Fields | Type | Description |

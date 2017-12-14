@@ -1,10 +1,10 @@
-# Invoices
+## Invoices
 > Resource URI:  
 `/api/v0/invoices`
 
 These are invoices for any work done. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/invoices/) for more information on invoices.
 
-## The Invoice Object
+### The Invoice Object
 > Example invoice object:
 
 ```json
@@ -55,7 +55,7 @@ The invoice object contains the following:
 | creator_id | unsigned | The unique identifier for the staff member who created the deployment. |
 | created_by | unsigned or object | The staff member who created the invoice. |
 
-### The Line Item (Beta)
+#### The Line Item (Beta)
 > Example line item:
 
 ```json
@@ -98,7 +98,7 @@ Each line in an invoice is described by a line item object. This object contains
 
 
 
-## Get Invoice
+### Get Invoice
 > Sample Request:
 
 ```http
@@ -117,10 +117,10 @@ curl -X get \
 
 This request returns a single [invoice](#the-invoice-object), specified by its `invoice_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [invoice object](#the-invoice-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single requested [invoice](#the-invoice-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -129,7 +129,7 @@ The response will be the single requested [invoice](#the-invoice-object) with it
 
 
 
-## List Invoices
+### List Invoices
 > Sample Request:
 
 ```http
@@ -148,15 +148,15 @@ curl -X get \
 
 This request returns a list of [invoices](#the-invoice-object) on the deployment.
 
-### Configuring the Request
+#### Configuring the Request
 
-#### Pagination
+##### Pagination
 This request accepts all the standard [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name |
@@ -164,7 +164,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | id |
 | invoice_number |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -173,7 +173,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_modified |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -183,7 +183,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_due |
 | date_modified |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -196,7 +196,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | affiliation | Range by `affiliation_id`. |
 | modified_by | Range by the `staff_id` of the person to last modify the invoice.|
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
 
 | Filter Name |
@@ -204,7 +204,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 | subject |
 | invoice_number |
 
-### handling the Response
+#### handling the Response
 The response will be a list of [invoices](#the-invoice-object) on the Deployment, with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -212,7 +212,7 @@ The response will be a list of [invoices](#the-invoice-object) on the Deployment
 
 
 
-## Count Invoices
+### Count Invoices
 > Sample Request:
 
 ```http
@@ -239,7 +239,7 @@ This request will return a count of invoices in a list defined by any available 
 
 
 
-## Get Line Item (Beta)
+### Get Line Item (Beta)
 > Sample Request:
 
 ```http
@@ -258,10 +258,10 @@ curl -X GET \
 
 This request returns a [line item](#the-line-item-beta) specified by its `line_item_id.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [line item object](#the-line-item-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The request will return the single invoice line item with its default fields and any additional fields requested through `_fields`.
 
 
@@ -269,7 +269,7 @@ The request will return the single invoice line item with its default fields and
 
 
 
-## List Line Items (Beta)
+### List Line Items (Beta)
 > Sample request:
 
 ```http
@@ -286,15 +286,15 @@ curl -X GET \
 
 This request returns a list of [invoice line item](#the-line-item-beta).
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the standard [pagination parameters](#configuring-the-response-pagination)
 
-#### Additional Fields and Linked objects
+##### Additional Fields and Linked objects
 This request supports requesting additional fields and linked objects from the [line item object](#the-line-item-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -304,7 +304,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | ledger_id |
 | tax_id |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter |
@@ -318,7 +318,7 @@ This request supports the following [order filters](#filters-order-filters):
 | total |
 | ordering |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter |
@@ -331,14 +331,14 @@ This request supports [range filters](#filters-range-filters) over the following
 | rate |
 | total |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | description |
 
-### Handling the Response
+#### Handling the Response
 The response will contain a list of invoice line items with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -346,7 +346,7 @@ The response will contain a list of invoice line items with their default fields
 
 
 
-## Count Line Items (Beta)
+### Count Line Items (Beta)
 > Sample request:
 
 ```http

@@ -1,4 +1,4 @@
-# Progressions
+## Progressions
 Progressions allow you and your team to intelligently move records between statuses. The Public API currently supports automatic progressions, which skip over details requiring user interaction. These automatic progressions are currently supported over the following resources:  
 1. [tasks](#tasks)  
 2. [companies](#companies)  
@@ -16,7 +16,7 @@ Progressions allow you and your team to intelligently move records between statu
 See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/) for information on progressions, including how to define new progressions on your deployment.
 
 
-## The Progression Object
+### The Progression Object
 > Example progression object:
 
 ```json
@@ -37,7 +37,7 @@ The progressions object contains the following fields and linked objects:
 | **status** | object | The [status](#status-objects) the progression will move to. Note, the status object here does not contain the `start` field. |
 
 
-### Using Progressions
+#### Using Progressions
 Progressions may be used to perform an automatic status update, this is a three step process:  
 1. Determine which status progressions are available for the given object, this is achieved by a `GET` request which [retrieves a list of available progressions](#retrieve-a-list-of-available-progressions).  
 2. From this list identify the appropriate progressions for your action, keep track of the `progression_id`.  
@@ -49,7 +49,7 @@ Progressions may be used to perform an automatic status update, this is a three 
 
 
 
-## List Available Progressions
+### List Available Progressions
 <a name="retrieve-a-list-of-available-progressions"></a>
 > Example request:
 
@@ -64,7 +64,7 @@ curl -X get \
 
 This request returns a list of [progressions](#the-progression-object) available for a given resource, which may be one of the types [above](#progressions), specified by its unique resource id.
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of [progressions](#the-progression-object) available for the object given, displayed in ascending order of their `progression_id`.
 
 
@@ -73,7 +73,7 @@ This request will return a list of [progressions](#the-progression-object) avail
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 <a name="run-a-status-update-using-a-given-progression"></a>
 > Example request, we wish to move our job to "complete" from the above request we found that the progression with id "8" will do this:
 
@@ -88,5 +88,5 @@ curl -X post \
 
 This request uses the given progression, specified by its `progression_id` to progress the status of the object, specified by its unique id. The object may be any one of those listed [above](#progressions).
 
-### Handling the Response
+#### Handling the Response
 The response will contain the single updated object. Please see the appropriate resource endpoint for handling and configuring the response.

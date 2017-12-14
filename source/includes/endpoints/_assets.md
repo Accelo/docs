@@ -1,10 +1,10 @@
-# Assets
+## Assets
 > Endpoint URI:  
 `/api/v0/assets`
 
 Assets are flexible objects within Accelo, they can represent almost any asset or object you want. For example, you may wish to store information on the computers owned by your company, or the prices of advertising media offered by external companies. For more information see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/assets/).
 
-## The Asset Object
+### The Asset Object
 The asset object contains the following:
 
 > Sample JSON asset:
@@ -46,7 +46,7 @@ The asset object contains the following:
 | address | unsigned or object | The physical [address](#addresses) associated with this asset (if any). |
 | address_id | unsigned | The unique identifier of the physical address assigned to the asset.  |
 
-### The Asset Link (Beta)
+#### The Asset Link (Beta)
 > Sample JSON asset link:
 
 ```json
@@ -84,7 +84,7 @@ An asset may be linked to an [issue](#issues), [job](#jobs-projects), [prospect]
 If any of the fields labelled optional above are empty, they will not be displayed.
 
 
-### The Asset Type (Beta)
+#### The Asset Type (Beta)
 
 > Sample JSON asset type:
 
@@ -112,7 +112,7 @@ If any of the fields labelled optional above are empty, they will not be display
 | has_address | binary | Whether the asset type has an address assigned to it. |
 | ordering  | unsigned | An integer representing the asset type's ordering on the deployment. |
 
-### Asset Object Link Fields (Beta)
+#### Asset Object Link Fields (Beta)
 > Sample json object link fields object:
 
 ```json
@@ -152,7 +152,7 @@ These contain information on the properties of assets of a given type linked to 
 
 
 
-## Get Asset
+### Get Asset
 ```http
 GET /assets/{asset_id} HTTP/1.1
 Host: {deployment}.api.accelo.com
@@ -169,10 +169,10 @@ curl -X get \
 
 This request will return a single asset, specified by its unique identifier.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [asset object](#the-asset-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will contain the single asset object with its default fields and any others included via the `_fields` parameter
 
 
@@ -180,7 +180,7 @@ The response will contain the single asset object with its default fields and an
 
 
 
-## List Assets
+### List Assets
 > Sample Request:  
 
 ```http
@@ -199,15 +199,15 @@ curl -X get \
 
 This request will return a list of assets on the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [asset object](#the-asset-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name |
@@ -221,14 +221,14 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_type |
 | against_id |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | date_created |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -237,7 +237,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_created |
 | standing |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
@@ -249,21 +249,21 @@ This request supports [range filters](#filters-range-filters) over the following
 | manager_id |
 | address_id |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name | Notes |
 |:-|:-|
 | against | Filter by assets against these objects. |
 
-#### Searching
+##### Searching
 This supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|
 | title |
 
-### handling the Response
+#### handling the Response
 The response will be a list of [asset objects](#the-asset-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
@@ -271,7 +271,7 @@ The response will be a list of [asset objects](#the-asset-object) with their def
 
 
 
-## Count Assets
+### Count Assets
 > Sample Request:  
 
 ```http
@@ -299,7 +299,7 @@ This request will return a count of assets in a list defined by any available se
 
 
 
-## Get Asset Type (Beta)
+### Get Asset Type (Beta)
 > Sample request:
 
 ```http
@@ -318,17 +318,17 @@ curl -X get \
 
 This request returns a single [asset type](#the-asset-type-beta) specified by its `type_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [asset type object](#the-asset-type-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single asset type with its default fields and any additional fields requested through `_fields`.
 
 
 
 
 
-## List Asset Types (Beta)
+### List Asset Types (Beta)
 > Sample request:
 
 ```http
@@ -347,15 +347,15 @@ curl -X get \
 
 This request returns a list of [asset types](#the-asset-type-beta).
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination 
+##### Pagination 
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [asset type](#the-asset-type-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Field Name |
@@ -363,7 +363,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | id |
 | standing |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -372,28 +372,28 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | title |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | id |
 
-#### Searching
+##### Searching
 This request supports the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field Name |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of asset types with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
 
 
 
-## List Asset Links (Beta)
+### List Asset Links (Beta)
 
 > Sample request:
 
@@ -411,16 +411,16 @@ curl -X get \
 
 This request returns an array of [asset links](#the-asset-link-beta) and an array of the linked [assets](#the-asset-object).
 
-### Configuring the Response
+#### Configuring the Response
 Any additional parameters requested will be applied to the returned asset links.
 
-#### Pagination 
+##### Pagination 
 This request supports all the [pagination parameters](#configuring-the-response-pagination).
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 All fields of the asset link object are displayed by default. 
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -428,14 +428,14 @@ This request supports the following [basic filters](#filters-basic-filters):
 | asset_link_id |
 | asset_id |
 
-#### Object Filters
+##### Object Filters
 This request supports [object filters](#filters-object-filters) over the following objects:
 
 | Object |
 |:-|
 | linked_object |
 
-#### Date Filters
+##### Date Filters
 This request supports the following [date filters](#filters-date-filters):
 
 | Filter |
@@ -443,7 +443,7 @@ This request supports the following [date filters](#filters-date-filters):
 | date_start |
 | date_end |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter |
@@ -452,21 +452,21 @@ This request supports the following [order filters](#filters-order-filters):
 | date_start |
 | date_end |
 
-#### Range Filters
+##### Range Filters
 This request supports the following [range filters](#filters-range-filters):
 
 | Filter |
 |:-|
 | asset_link_id |
 
-### Handling the Response
+#### Handling the Response
 The response will contain an array, "assets", of [asset](#the-asset-object) with their default fields with the removal of the `latest_asset_link` field, and the addition of the `breadcrumbs` field. The response will also contain an array, "asset_links" of [asset links](#the-asset-link-beta) with all their fields, and displayed according to any pagination parameters or filters used. 
 
 
 
 
 
-## Create Asset Link (Beta)
+### Create Asset Link (Beta)
 > Sample Request:
 
 ```http
@@ -487,7 +487,7 @@ curl -X POST \
 
 This request creates and returns an [asset link](#the-asset-link-beta) between an [asset](#the-asset-object) and an object from one of the supported types.
 
-### Configuring the Link
+#### Configuring the Link
 The following parameters may be sent to set the fields in the asset link:
 
 | Parameter | Type | Notes |
@@ -500,7 +500,7 @@ The following parameters may be sent to set the fields in the asset link:
 | start_date | unix ts | |
 
 
-### Handling the Response
+#### Handling the Response
 The response will be the newly created [asset link](#the-asset-link-beta).
 
 
@@ -508,7 +508,7 @@ The response will be the newly created [asset link](#the-asset-link-beta).
 
 
 
-## Delete Asset Link (Beta)
+### Delete Asset Link (Beta)
 
 > Sample Request:
 
@@ -533,7 +533,7 @@ This request deletes an asset link (and not the asset) specified by its `asset_l
 
 
 
-## List Extension Fields
+### List Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example    
 
 `GET /assets/extensions/fields`
@@ -546,7 +546,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-## List Extension Field Values
+### List Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example     
 
 `GET /assets/{asset_id}/extensions/values`
@@ -559,7 +559,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-## Update an Extension Field Value
+### Update an Extension Field Value
 > See the [extension section](#update-an-extension-value) for an example     
 
 `PUT /assets/{asset_id}/extensions/values/{extension_value_id}`
@@ -572,7 +572,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-## Set an Extension Field Value
+### Set an Extension Field Value
 > See the [extension section](#create-an-extension-value) for an example
 
 `POST /assets/{asset_id}/extensions/fields/{extension_field_id}`

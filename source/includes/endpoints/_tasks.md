@@ -1,10 +1,10 @@
-# Tasks
+## Tasks
 > Resource URI:  
 `/api/v0/tasks`
 
 Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
 
-## The Task Object
+### The Task Object
 The task object contains the following:
 
 | Field | Type | Description |
@@ -45,7 +45,7 @@ The task object contains the following:
 | milestone | unsigned or object | The [milestone](#milestones) object the task is against, if any. |
 | task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any.
 
-### The Task Type
+#### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
 
 | Field | Type | Description |
@@ -57,10 +57,10 @@ Task types allow you to assign type labels to tasks. The task type contains the 
 
 Note: This object does not support the `_ALL` argument when request with [`_fields`](#configuring-the-response-fields).
 
-### The Task Metadata
+#### The Task Metadata
 The metadata object associated with [tasks](#the-task-object) is a list of the following:
 
-#### Task Metadata Managers
+##### Task Metadata Managers
 This is a list of [staff members](#staff) managing tasks on the deployment, the object has the following fields:
 
 | Field | Type | Description |
@@ -69,10 +69,10 @@ This is a list of [staff members](#staff) managing tasks on the deployment, the 
 | **name** | string | The staff member's full name (first name and surname). |
 | **email** | string | The staff member's email address. |
 
-#### Task Metadata Assignees
+##### Task Metadata Assignees
 This is a list of [staff members](#staff) assigned to tasks on the deployment. The object contains the same fields as the [managers metadata object](#task-metadata-managers)
 
-#### Task Metadata Against
+##### Task Metadata Against
 This is a list of object types that have tasks listed against them on the deployment, this object contains the following:
 
 | Field | Type | Description |
@@ -80,7 +80,7 @@ This is a list of object types that have tasks listed against them on the deploy
 | **id** | string | An identifier to identify the object within the API. For example "prospect".|
 | **name** | string | A name for the object. For example "Sale". |
 
-#### Task Metadata Status
+##### Task Metadata Status
 This is a list of [status](#statuses) objects available to tasks on the deployment. Note that this is a status object without the `start` field.
 
 
@@ -89,7 +89,7 @@ This is a list of [status](#statuses) objects available to tasks on the deployme
 
 
 
-## Get Task
+### Get Task
 > Sample Request:   
 
 ```http
@@ -108,10 +108,10 @@ curl -X get \
 
 This request returns a single [task](#the-task-object), identified by its `task_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the single [task object](#the-task-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -120,7 +120,7 @@ The response will be the single [task object](#the-task-object) with its default
 
 
 
-## List Tasks
+### List Tasks
 > Sample Request:   
 
 ```http
@@ -139,15 +139,15 @@ curl -X get \
 
 This request returns a list of [tasks](#the-task-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -163,7 +163,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | child_of_job | Filter by the `job_id` of the [job](#jobs-projects) the task, or its against object, is against. This allows you to find tasks under a certain job, even when they are not created directly against that job, for example if they are created against a [milestone](#milestones) under the job. |
 
 
-#### Date Filters
+##### Date Filters
 This request supports [date_filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -176,7 +176,7 @@ This request supports [date_filters](#filters-date-filters) over the following f
 | date_modified |
 | date_due |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -195,7 +195,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | manager | Range over the `staff_id` of the manager. |
 | contact | Range over the `contact_id` of the associated contact. |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -212,7 +212,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing ||
 | status | Order by the `status_id`. |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name | Description |
@@ -220,7 +220,7 @@ This request supports the following [object filters](#filters-object-filters):
 | against | Filter by tasks against these objects. |
 | creator | Filter by tasks created by these objects. |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
@@ -228,7 +228,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 | description |
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [tasks](#the-task-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -237,7 +237,7 @@ The response will be a list of [tasks](#the-task-object) with their default fiel
 
 
 
-## Count Tasks
+### Count Tasks
 > Sample Request:   
 
 ```http
@@ -266,7 +266,7 @@ This request will return a count of tasks in a list defined by any available sea
 
 
 
-## List Task Statuses
+### List Task Statuses
 > Sample Request:   
 
 ```http
@@ -285,15 +285,15 @@ curl -X get \
 
 This request returns a list of [statuses](#statuses) available for [tasks](#the-task-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [statuses](#statuses) object using the [`_fields`](#configuring-the-response-fields) parameter. Note, this request does not support the `_ALL` argument. Note, the status object for tasks does not contain the `start` field.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter Name |
@@ -303,7 +303,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | standing |
 | color |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter Name |
@@ -314,7 +314,7 @@ This request supports the following [order filters](#filters-order-filters):
 | color |
 | ordering |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
@@ -322,7 +322,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 | title |
 
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [statuses](#statuses) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
@@ -331,7 +331,7 @@ The response will be a list of [statuses](#statuses) with their default fields a
 
 
 
-## List Meta Data
+### List Meta Data
 > Sample Request:   
 
 ```http
@@ -350,7 +350,7 @@ curl -X get \
 
 This request returns a list of [metadata objects](#the-task-metadata) for [tasks](#the-task-object) on the deployment. That is, a list of lists.
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [task managers](#task-metadata-managers), [task assignees](#task-metadata-assignees), [against objects](#task-metadata-against), and [statuses](#task-metadata-status).
 
 
@@ -359,7 +359,7 @@ The response will be a list of [task managers](#task-metadata-managers), [task a
 
 
 
-## Update a Task
+### Update a Task
 > Sample Request:   
 
 ```http
@@ -380,7 +380,7 @@ curl -X get \
 
 This request updates and return a [task](#the-task-object) on the deployment.
 
-### Configuring the Task
+#### Configuring the Task
 The following fields from the [task object](#the-task-object) may be updated through this Sample Request:
 
 | Field Name |
@@ -396,10 +396,10 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | date_due |
 | remaining |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked resources from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated [task](#the-task-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -408,7 +408,7 @@ The response will be the single, updated [task](#the-task-object) with its defau
 
 
 
-## Create a Task
+### Create a Task
 > Sample Request:   
 
 ```http
@@ -429,7 +429,7 @@ curl -X get \
 
 This request creates and returns a [task](#the-task-object).
 
-### Configuring the Task
+#### Configuring the Task
 The following fields from the [task object](#the-task-object) may be set with this Sample Request:
 
 | Field Name | Notes |
@@ -449,10 +449,10 @@ The following fields from the [task object](#the-task-object) may be set with th
 | rate_charged | Only available if the task is against a "job" or "milestone". The rate charged for work on this task, as a decimal. |
 | is_billable | Only available if the task is against a "job" or "milestone". Whether this task is billable, may either by "yes" or "no". |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, created [task](#the-task-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -461,7 +461,7 @@ The response will be the single, created [task](#the-task-object) with its defau
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /tasks/{task_id}/progressions`
@@ -474,7 +474,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request 
 
 `PUT|POST /tasks/{task_id}/progressions/{progression_id}/auto`
@@ -487,7 +487,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-## Auto Progress to Start or End
+### Auto Progress to Start or End
 > Requests:  
 
 `PUT|POST /tasks/{task_id}/progressions/start`  

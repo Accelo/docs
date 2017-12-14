@@ -1,10 +1,10 @@
-# Companies
+## Companies
 > Resource URI:
 `/api/v0/companies`
 
 Companies are the entries in Accelo to note the companies with whom you interact. These can range from partners and vendors to your actual customers, and can even include you! These Client entries also act as the central repository for all information related to that group, including correspondence, project and sales updates, and contact information for their employees. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/) for more information on accessing and using companies on your deployment.
 
-## The Company Object
+### The Company Object
 > Example company object:
 
 ```json
@@ -45,7 +45,7 @@ Companies are the entries in Accelo to note the companies with whom you interact
 | staff_bookmarked | bool | Whether the company has been bookmarked by the current user. |
 | default_affiliation | unsigned | The `affiliation_id`  of the main [affiliation](#affiliations) associated with this company. |
 
-### The Manager Object
+#### The Manager Object
 > Example manager object with default fields:
 
 ```json
@@ -63,7 +63,7 @@ A company may be managed by a [staff member](#staff), this management relationsh
 |:-|:-|:-|
 | relationship_id | unsigned | A unique identifier for the relationship between the company and manager.
 
-### The Segmentation Object
+#### The Segmentation Object
 > Example segmentation:
 
 ```json
@@ -100,7 +100,7 @@ Segmentations may be managed through your Accelo deployment, see the [support do
 
 
 
-## Get Company
+### Get Company
 > Sample Request:  
 
 ```http
@@ -119,10 +119,10 @@ curl -X get \
 
 This request returns a single company from the Accelo deployment, identified by its `company_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [company object](#the-company-object)
 
-### Handling the Response
+#### Handling the Response
 The response will contain a company object with its default fields and any additional fields requested via the `_fields` parameter.
 
 
@@ -131,7 +131,7 @@ The response will contain a company object with its default fields and any addit
 
 
 
-## List Companies
+### List Companies
 > Sample Request:  
 
 ```http
@@ -150,15 +150,15 @@ curl -X get \
 
 This request returns a list of [companies](#the-company-object) from the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [company object](#the-company-object) using the `_fields` parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -173,7 +173,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | custom_id | Filter over the `custom_id`. |
 
 
-#### Date Filters
+##### Date Filters
 This request [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -182,7 +182,7 @@ This request [date filters](#filters-date-filters) over the following fields:
 | date_modified |
 
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -196,7 +196,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | status | Order by the `status_id`. |
 | custom_id ||
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -209,7 +209,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | status | Range over the `status_id`.|
 | custom_id ||
 
-#### Searching
+##### Searching
 This request supports the [`_searching`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field Name | Notes |
@@ -219,7 +219,7 @@ This request supports the [`_searching`](#configuring-the-response-searching) pa
 | phone ||
 | fax ||
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [company objects](#the-company-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -228,7 +228,7 @@ The response will be a list of [company objects](#the-company-object) with their
 
 
 
-## Count Companies
+### Count Companies
 > Sample Request:    
 
 ```http
@@ -257,7 +257,7 @@ This request will return a count of companies in a list defined by any available
 
 
 
-## List Recent Companies
+### List Recent Companies
 > Sample Request:  
 
 ```http
@@ -286,10 +286,10 @@ Authorization: Bearer {access_token}
 
 This request returns the most recently created companies on the Accelo deployment. This request is equivalent to requesting all companies and ordering in descending order of `date_created`.
 
-### Configuring the Response
+#### Configuring the Response
 This request accepts the same parameters and filters as [`GET /companies`](#list-companies), although it will always be ordered in descending order of `date_created`
 
-### handling the Response
+#### handling the Response
 This request will return a list of [company objects](#the-company-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -298,7 +298,7 @@ This request will return a list of [company objects](#the-company-object) with t
 
 
 
-## List Latest Modified Companies
+### List Latest Modified Companies
 > Sample Request:  
 
 ```http
@@ -327,10 +327,10 @@ Authorization: Bearer {access_token}
 
 This request returns the most recently changed companies on the Accelo deployment. This request is equivalent to requesting all companies and ordering in descending order of `date_modified`.
 
-### Configuring the Response
+#### Configuring the Response
 This request accepts the same parameters and filters as [`GET /companies`](#list-companies), although it will always be ordered in descending order of `date_modified`
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of [company objects](#the-company-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -339,7 +339,7 @@ This request will return a list of [company objects](#the-company-object) with t
 
 
 
-## Get Company Status
+### Get Company Status
 > Sample Request:  
 
 
@@ -359,10 +359,10 @@ curl -X get \
 
 This request returns the [status](#statuses) of a [company](#the-company-object) identified by its `company_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [status object](#statuses) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling The Response
+#### Handling The Response
 The response will be a single status object with its default fields and any additional fields requested via `_fields`.
 
 
@@ -371,7 +371,7 @@ The response will be a single status object with its default fields and any addi
 
 
 
-## Get Main Contact
+### Get Main Contact
 > Sample Request:  
 
 ```http
@@ -390,10 +390,10 @@ curl -X get \
 
 This request returns the main [contact](#contacts) of a company identified by its `{company_id}`. This is the contact associated with the company's `default_affiliation`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [contact object](#contacts) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a single [contact](#contact) with its default fields and any other additional fields requested via `_fields`.
 
 
@@ -402,7 +402,7 @@ The response will be a single [contact](#contact) with its default fields and an
 
 
 
-## List Contacts
+### List Contacts
 > Sample Request:  
 
 ```http
@@ -422,7 +422,7 @@ curl -X get \
 
 This request returns a list of [contacts](#contacts) for a company identified by its `{company_id}`.
 
-### Configuring the Response
+#### Configuring the Response
 This request may be configured and handled as per [`GET /contacts`](#list-contacts)
 
 
@@ -431,7 +431,7 @@ This request may be configured and handled as per [`GET /contacts`](#list-contac
 
 
 
-## Count Contacts
+### Count Contacts
 > Sample Request:  
 
 ```http
@@ -461,7 +461,7 @@ This request returns a count of a list of contacts associated with a company spe
 
 
 
-## List Managers
+### List Managers
 > Sample Request:  
 
 ```http
@@ -481,7 +481,7 @@ curl -X get \
 
 This request returns a list of [managers](#the-manager-object) of a company specified by its `company_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request may be configured and handled a per [`GET /staff`](#list-staff)
 
 
@@ -490,7 +490,7 @@ This request may be configured and handled a per [`GET /staff`](#list-staff)
 
 
 
-## List Segmentations
+### List Segmentations
 > Sample Request:   
 
 ```http
@@ -552,7 +552,7 @@ This request returns a list of [segmentations](#the-segmentation-object) for a c
 
 
 
-## Update a Company
+### Update a Company
 > Example request:
 
 ```http
@@ -578,7 +578,7 @@ curl -X put \
 
 This request updates and returns a [company](#the-company-object) identified by its `company_id`.
 
-### Configuring the Company
+#### Configuring the Company
 The following fields from the [company object](#the-company-object) may be updated through this request:
 
 | Field |
@@ -588,10 +588,10 @@ The following fields from the [company object](#the-company-object) may be updat
 | fax |
 | comments |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [company object](#the-company-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Response
+#### Response
 This request returns the single updated company object, with its default fields and any additional fields requesting through `_fields`.
 
 
@@ -600,7 +600,7 @@ This request returns the single updated company object, with its default fields 
 
 
 
-## Create a Company
+### Create a Company
 
 > Sample request:  
 
@@ -631,7 +631,7 @@ curl -X post \
 
 This request creates a new company on the Accelo deployment, and returns it.
 
-### Configuring the Company
+#### Configuring the Company
 Values for the following fields from the [company object](#the-company-object) may be sent with this request:
 
 | Field | Notes |
@@ -645,13 +645,13 @@ Values for the following fields from the [company object](#the-company-object) m
 | fax | |
 | comments | |
 
-#### Setting Profile Field Values
+##### Setting Profile Field Values
 [Profile field values](#profiles) may be set when you create a company, for a given profile value identified by `profile_value_id` you may update it through the field "profile.{`profile_value_id`}".
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [company object](#the-company-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 This request returns the created company object, with its default fields and any additional fields requesting through `_fields`.
 
 
@@ -660,7 +660,7 @@ This request returns the created company object, with its default fields and any
 
 
 
-## Add a Manager
+### Add a Manager
 > Sample Request:  
 
 ```http
@@ -684,7 +684,7 @@ curl -X post \
 
 This request adds a [manager](#the-manager-object), identified by their unique `staff_id`, as a manager to a company, identified by its unique `company_id`. The request returns a list of managers of this company on the Accelo deployment.
 
-### Configuring the Manager
+#### Configuring the Manager
 The following fields may be sent with this request:
 
 | Field | Type | Description |
@@ -692,7 +692,7 @@ The following fields may be sent with this request:
 | **manager_id** | unsigned | The `staff_id` of the staff member to be set as the manager of the company. |
 | nature | select | Nature of the new relationship. Must be "professional","confidential" or "private". Defaults to "professional", see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships) for more information on manager relationships. |
 
-### Configuring the Response
+#### Configuring the Response
 This response may be configured and handled in the same way as [`GET /companies/{company_id}/managers`](#list-managers).
 
 
@@ -700,7 +700,7 @@ This response may be configured and handled in the same way as [`GET /companies/
 
 
 
-## Remove a Company
+### Remove a Company
 > Sample Request:  
 
 ```http
@@ -726,7 +726,7 @@ This request will remove a company, specified by its `company_id`, from the Acce
 
 
 
-## Remove a Manager
+### Remove a Manager
 > Sample Request:  
 
 ```http
@@ -754,7 +754,7 @@ This request returns a staff member, identified via the `relationship_id` of the
 |:-|:-|
 | **relationship_id** | The `relationship_id` of the manager to be removed. |
 
-### handling the Response
+#### handling the Response
 This response returns a list of manager (staff members) for the given company.
 
 
@@ -763,7 +763,7 @@ This response returns a list of manager (staff members) for the given company.
 
 
 
-## List Profile Field Values
+### List Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /companies/{company_id}/profiles/values`
@@ -776,7 +776,7 @@ This request returns a list of [profile field values](#the-profile-value-object)
 
 
 
-## Update the value of a Profile Field
+### Update the value of a Profile Field
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /companies/{company_id}/profiles/values/{profile_value_id}`
@@ -789,7 +789,7 @@ This request updates and returns a [profile field value](#the-profile-value-obje
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request  
 
 `GET /companies/{company_id}/progressions`
@@ -802,7 +802,7 @@ This request returns a list of available [progressions](#progressions) for a [co
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request  
 
 `[PUT|POST] /companies/{company_id}/progressions/{progression_id}/auto`
@@ -816,7 +816,7 @@ This request uses the given [progression](#progressions), specified by its `prog
 
 
 
-## List Profile Fields
+### List Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /companies/profiles/fields`
@@ -829,7 +829,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-## Create a Profile Field Value
+### Create a Profile Field Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /companies/{company_id}/profiles/{profile_field_id}`
@@ -842,7 +842,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-## List Addresses
+### List Addresses
 > Sample Request:  
 
 `GET /companies/{company_id}/addresses`
@@ -855,7 +855,7 @@ This request returns a list of [addresses](#addresses) associated with a [compan
 
 
 
-## Create an Address
+### Create an Address
 > Sample Request:
 
 `POST /companies/{company_id}/addresses`
@@ -868,7 +868,7 @@ This request creates a [address](#addresses) against a [company](#the-company-ob
 
 
 
-## List Resource Collections
+### List Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
 
 `GET /companies/{company_id}/collections`
@@ -881,7 +881,7 @@ This request returns a list of [collections](#resources) against a [company](#th
 
 
 
-## Upload a Resource (Attachment)
+### Upload a Resource (Attachment)
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example  
 
 `POST /companies/{company_id}/collections/{collection_id}/resources`
