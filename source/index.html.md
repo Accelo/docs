@@ -6,9 +6,9 @@ language_tabs:
   - shell: cURL
 
 toc_footers:
-  - <a href='https://login.accelo.com/login'>Login</a>
-  - <a href='https://signup.accelo.com/'>Signup</a>
-  - <a href='https://groups.google.com/forum/#!forum/accelo-devs'>Developer Forum</a>
+  - <a href='https://github.com/Accelo/docs/issues/new'>Report documentation error</a>
+  - <a href='https://github.com/Accelo/docs'>Contribute</a>
+  - <a href='https://groups.google.com/forum/#!forum/accelo-devs'>Need help? Developer Forum</a>
   - <a href='http://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
