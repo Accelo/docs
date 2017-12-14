@@ -1,6 +1,6 @@
 # Accelo API Documentation
 
-Powering the documentation at [api.accelo.com/docs](https://api.accelo.com/docs)
+Powering the documentation at [api.accelo.com/docs/](https://api.accelo.com/docs/)
 
 ## Getting Started
 
