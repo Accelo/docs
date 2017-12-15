@@ -1,10 +1,10 @@
-# Object Budgets
+## Object Budgets
 > Resource URI:  
 `api/v0/object_budgets`
 
 Object budgets are budgets against a specific object, for example a budget against an [issue](#issues) or a [milestone](#milestones). They are able to track the time and money spent by staff and on services, as well as expenses and the cost of materials.
 
-## The Object Budget
+### The Object Budget
 > Exmaple object budget:
 
 ```json
@@ -76,7 +76,7 @@ The object budget resource contains the following:
 
 
 
-## Get Object budget
+### Get Object budget
 > Sample Request:  
 
 ```http
@@ -95,10 +95,10 @@ curl -X get \
 
 This request returns an [object budget](#the-object-budget) identified by its `object_budget_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [object budget](#the-object-budget) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single [object budget](#the-object-budget) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -107,7 +107,7 @@ The response will be the single [object budget](#the-object-budget) with its def
 
 
 
-## List Object Budgets
+### List Object Budgets
 > Sample Request:  
 
 ```http
@@ -126,15 +126,15 @@ curl -X get \
 
 This request returns a list of [object budgets](#the-object-budget) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [object budget](#the-object-budget) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter Name |
@@ -143,21 +143,21 @@ This request supports the following [basic filters](#filters-basic-filters):
 | against_id |
 | against_type |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter Name |
 |:-|
 | id |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name |
 |:-|
 | against | Filter by object budgets against these objects. |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [object budgets](#the-object-budget) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination requests used.
 
 
@@ -166,7 +166,7 @@ The response will be a list of [object budgets](#the-object-budget) with their d
 
 
 
-## Count Object Budgets
+### Count Object Budgets
 > Sample Request:  
 
 ```http

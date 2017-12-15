@@ -1,4 +1,4 @@
-# Milestones
+## Milestones
 > Resource URI:  
 `/api/vo/milestones`
 
@@ -6,7 +6,7 @@ Milestones are the steps on the road to a [Job's](#jobs-projects) (Project's) co
 
 Deleting, creating, and updating milestones is only available through the deployment on the project planning screen, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/creating-a-project-plan/) for more information.
 
-## The Milestone Object
+### The Milestone Object
 > Example milestone object:
 
 ```json
@@ -63,7 +63,7 @@ The milestone object contains the following:
 
 
 
-## Get Milestone
+### Get Milestone
 > Sample Request:  
 
 ```http
@@ -82,10 +82,10 @@ curl -X get \
 
 This request returns a single [milestone](#the-milestone-object), identified by its `milestone_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked resource from the [milestone object](#the-milestone-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 The response will be the single [milestone](#the-milestone-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -94,7 +94,7 @@ The response will be the single [milestone](#the-milestone-object) with its defa
 
 
 
-## List Milestones
+### List Milestones
 > Sample Request:  
 
 ```http
@@ -113,15 +113,15 @@ curl -X get \
 
 This request returns a list of [milestones](#the-milestone-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports request additional fields and linked objects from the [milestone object](#the-milestone-object) using the [`_fields`](#configuring-the-response-fields).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -136,7 +136,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | object_budget | Filter by the `object_budget_id`. |
 | status | Filter by the `status_id`. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -148,7 +148,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_completed |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -161,14 +161,14 @@ This request supports [range filters](#filters-range-filters) over the following
 | rate | Range by the `rate_id`. |
 | rate_charged ||
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [milestones](#the-milestone-object) containing their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -177,7 +177,7 @@ The response will be a list of [milestones](#the-milestone-object) containing th
 
 
 
-## Count Milestones
+### Count Milestones
 > Sample Request:  
 
 ```http
@@ -206,7 +206,7 @@ This request will return a count of milestones in a list defined by any availabl
 
 
 
-## List Profile Fields
+### List Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields)) for a sample request
 
 `GET /milestones/profiles/fields`
@@ -219,7 +219,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-## List Profile Field Values
+### List Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request  
 
 `GET /milestones/{milestone_id}/profiles/values`
@@ -232,7 +232,7 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-## Update a Profile Field Value
+### Update a Profile Field Value
 > See the [profiles section](#update-a-profile-value-link) for a sample request   
 
 `PUT /milestones/{milestone_id}/profiles/values/{profile_value_id}`
@@ -245,7 +245,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-## Set a Profile Field Value
+### Set a Profile Field Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /milestones/{milestone_id}/profiles/fields/{profile_field_id}`
@@ -258,7 +258,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /milestones/{milestone_id}/progressions`
@@ -271,7 +271,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `PUT|POST /milestones/{milestone_id}/progressions/{progression_id}/auto`

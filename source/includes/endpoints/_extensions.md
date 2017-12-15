@@ -1,4 +1,4 @@
-# Extensions (Custom Fields)
+## Extensions (Custom Fields)
 <a name="extensions"></a>
 
 > Resource URI:  
@@ -13,7 +13,7 @@ Extensions, also known as Custom Fields, are similar to [profiles](#profiles). T
 
 Similarly to [profiles](#profiles), extensions are described by [extension fields](#the-extension-field-object) and [extension values](#the-extension-value-object), which store the information of values of an extension field.
 
-## The Extension Field Object
+### The Extension Field Object
 > Sample extension field:
 
 ```json
@@ -56,7 +56,7 @@ These are objects describing the custom field on the deployment, they contain th
 | lookup_type | string | When `field_type` is lookup, this will contain the type of object for the lookup. |
 | information | string | Any extra information about the extension. |
 
-## The Extension Value Object
+### The Extension Value Object
 > Example extension field value:
 
 ```json
@@ -105,7 +105,7 @@ These describe the value of a given [extension field](#the-extension-field-objec
 
 
 
-## List Extension Fields
+### List Extension Fields
 <a name="retrieve-a-list-of-extension-fields"></a>
 > Sample Request:  
 
@@ -125,14 +125,14 @@ curl -X get \
 
 This request request returns a list of [extension fields](#the-extension-field-object) available for the given object
 
-### Configuring the Response
-#### Pagination
+#### Configuring the Response
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [extension field object](#the-extension-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 The response will be a list of [extension field object](#the-extension-field-object) with their default fields, and any additional fields requested using `_fields.`
 
 
@@ -141,7 +141,7 @@ The response will be a list of [extension field object](#the-extension-field-obj
 
 
 
-## List Extension Field Values
+### List Extension Field Values
 <a name="retrieve-a-list-of-extension-field-values"></a>
 > Sample Request:  
 
@@ -161,14 +161,14 @@ curl -X get \
 
 This request returns a list of [extension field values](#the-extension-value-object) for the given `object` identified by its `object_id`.
 
-### Configuring the Response
-#### Pagination
+#### Configuring the Response
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [extension field values](#the-extension-value-object) with their default fields, and any additional fields requested through `_fields`.
 
 
@@ -177,7 +177,7 @@ The response will be a list of [extension field values](#the-extension-value-obj
 
 
 
-## Update an Extension Field Value
+### Update an Extension Field Value
 <a name="update-an-extension-value"></a>
 
 > Sample Request, here we are updating the value of an extension field value of "jobs/56" to be "international":  
@@ -203,7 +203,7 @@ curl -X put \
 
 This request updates and returns a [extension values](#the-extension-value-object), specified by its `extension_value_id`, of a particular object, specified by its `object_id`, of a particular type, specified by `object`.
 
-### Configuring the Extension Value
+#### Configuring the Extension Value
 This request updates the `value` of an extension value, since this object is dynamic the field we send will depend on the type of `value`:
 
 | Field | Type | Description |
@@ -214,10 +214,10 @@ This request updates the `value` of an extension value, since this object is dyn
 | value_type | string | If 'field_type' is "lookup", update the `value_type` with this string.  |
 | value | string | If `field_type` is none of the above, update the `value` with this string. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 This request will return the single, updated [extension value object](#the-extension-value-object) with its default fields, and any additional fields requesting through `_fields`.
 
 
@@ -226,7 +226,7 @@ This request will return the single, updated [extension value object](#the-exten
 
 
 
-## Set an Extension Field Value
+### Set an Extension Field Value
 <a name="create-an-extension-value"></a>
 > Sample Request, here we are setting a value for an extension field value for "jobs/12":  
 
@@ -251,11 +251,11 @@ curl -X put \
 
 This request sets and returns an [extension value](#the-extension-value-object). for an extension field, specified by its `extension_field_id`. The object whose profile field is to be updated is identified by `object` and `object_id`
 
-### Configuring the Extension Value
+#### Configuring the Extension Value
 This request accepts the same fields as the [previous request](#update-an-extension-value), that is, it takes only the relevant value field(s). These fields are required for this request.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 This request will return the newly created [extension value object](#the-extension-value-object) with its default fields and any additional fields requested using `_fields`.

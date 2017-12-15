@@ -1,10 +1,10 @@
-# Quotes
+## Quotes
 > Resource URI:  
 `/api/v0/quotes`
 
 Quotes in Accelo allow you to generate and edit your quotes and proposals. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/sales/quotes/) for information on quotes.
 
-## The Quote Object
+### The Quote Object
 > Example quote object:
 
 ```json
@@ -74,7 +74,7 @@ The quote object contains the following:
 
 
 
-## Get Quote
+### Get Quote
 > Sample Request:
 
 ```http
@@ -93,10 +93,10 @@ curl -X get \
 
 This request returns a single [quote](#the-quote-object), identified by its `quote_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked resources from the [quote object](#the-quote-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single [quote object](#the-quote-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -105,7 +105,7 @@ The response will be the single [quote object](#the-quote-object) with its defau
 
 
 
-## List Quotes
+### List Quotes
 > Sample Request:  
 
 ```http
@@ -124,15 +124,15 @@ curl -X get \
 
 This request returns a list of quotes on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Resources
+##### Additional Fields and Linked Resources
 This request supports requesting additional fields and linked resources from the [quote object](#the-quote-object) using the [`_fields`](#configuring-the-response-fields) paramter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -146,7 +146,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id ||
 | created_by | Filter by the `created_by_staff_id`. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -154,7 +154,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_created |
 | date_expiry |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -167,7 +167,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | material_price_total |
 | total_price |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -183,21 +183,21 @@ This request supports [range filters](#range-filters) over the following fields:
 | material_price_total |
 | total_price ||
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter | Description |
 |:-|:-|
 | against | Filter by quotes against these objects. |
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) request over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [quotes](#the-quote-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -206,7 +206,7 @@ The response will be a list of [quotes](#the-quote-object) with their default fi
 
 
 
-## Count Quotes
+### Count Quotes
 > Sample Request:  
 
 ```http
@@ -235,7 +235,7 @@ This request will return a count of quotes in a list defined by any available se
 
 
 
-## Update a Quote
+### Update a Quote
 > Sample Request:  
 
 ```http
@@ -256,7 +256,7 @@ curl -X get \
 
 This request updates and returns a [quote](#the-quote-object), identified by its `quote_id`.
 
-### Configuring the Quote
+#### Configuring the Quote
 The following fields from the [quote object](#the-quote-object) may be updated with this request:
 
 | Filter Name | Notes |
@@ -271,10 +271,10 @@ The following fields from the [quote object](#the-quote-object) may be updated w
 | terms_and_conditions | Update the HTML of the `terms` of the published quote. |
 | client_portal_access | Update the `portal_access` field. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [quote object](#the-quote-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated [quote](#the-quote-object) with its default fields and any additional fields requested through `_fields`
 
 
@@ -283,7 +283,7 @@ The response will be the single, updated [quote](#the-quote-object) with its def
 
 
 
-## Create a Quote
+### Create a Quote
 > Sample Request:  
 
 ```http
@@ -304,7 +304,7 @@ curl -X get \
 
 This request creates and returns a [quote](#the-quote-object).
 
-### Configuring the Quote
+#### Configuring the Quote
 This request accepts the same fields as [`PUT /quotes/{quote_id}`](#update-a-quote), with the addition of the following required fields:
 
 | Filter Name |
@@ -313,10 +313,10 @@ This request accepts the same fields as [`PUT /quotes/{quote_id}`](#update-a-quo
 | **against_id** |
 | **against_type** |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [quote object](#the-quote-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, created [quote object](#the-quote-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -325,7 +325,7 @@ The response will be the single, created [quote object](#the-quote-object) with 
 
 
 
-## List Resource Collections
+### List Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
 
 `GET /quotes/{quote_id}/collections`
@@ -338,7 +338,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 
 
-## Upload a Resource (Attachment)
+### Upload a Resource (Attachment)
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example  
 
 `POST /quotes/{quote_id}/collections/{collection_id}/resources`

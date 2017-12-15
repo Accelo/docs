@@ -15,6 +15,7 @@ includes:
   - introduction
   - configuring_responses
   - authentication
+  - endpoints
   - endpoints/activities
   - endpoints/addresses
   - endpoints/affiliations

@@ -1,10 +1,10 @@
-# Requests
+## Requests
 > Resource URI:  
 `/api/v0/requests`
 
 These allow you to track request from clients sent to your shared company addresses, such as "@support" or "@sales" addresses. See the [support documentation](https://www.accelo.com/resources/help/learn-the-basics/tickets-and-requests/request-basics/) for more information on requests.
 
-## The Request Object
+### The Request Object
 > Sample request object:
 
 ```json
@@ -49,7 +49,7 @@ The request object contains the following:
 | affiliation_id | unsigned | The unique identifier of the [affiliation](#affiliations) associated with the request. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the request. |
 
-### The Request Type
+#### The Request Type
 > Example request type object:
 
 ```json
@@ -70,7 +70,7 @@ The request type object allows you to assign a type to each request, making them
 | **title** | string | A name for the request type. |
 | standing | select | The standing of the request type, either "active" or "inactive". |
 
-### The Request Priority
+#### The Request Priority
 Issue priorities help you keep track of what needs to be done. They may be set up from the deployment, they contain the following:
 
 | Field | Type | Description |
@@ -80,7 +80,7 @@ Issue priorities help you keep track of what needs to be done. They may be set u
 | color | select | The color of the priority when displayed on the deployment. The colors, in order of increasing urgency a "grey", "blue", "green", "orange", "red". |
 | factor | unsigned | A number representing the urgency of the priority. 5 is "Extreme", 1 is "None". |
 
-### Request Threads
+#### Request Threads
 > Sample request thread:
 
 ```json
@@ -141,7 +141,7 @@ Since request are communications made from the deployment, they each have an ass
 | **senders** | array | An array of senders of the original request, each defined by a "type" an an "id". |
 | **affiliation** | object | As in the [request object](#the-request-object). |
 
-### Request Thread Unresponded Counts
+#### Request Thread Unresponded Counts
 > Example object:
 
 ```json
@@ -170,7 +170,7 @@ These objects track the number of unresponded requests against each request type
 
 
 
-## Get Request
+### Get Request
 > Sample Request:  
 
 ```http
@@ -189,10 +189,10 @@ curl -X get \
 
 This request returns a [request](#the-request-object) specified by its `request_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked from the [request object](#the-request-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single [request](#the-request-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -201,7 +201,7 @@ The response will be the single [request](#the-request-object) with its default 
 
 
 
-## List  Requests
+### List  Requests
 > Sample Request:  
 
 ```http
@@ -220,15 +220,15 @@ curl -X get \
 
 This request returns a list of [requests](#the-request-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [request object](#the-request-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -241,14 +241,14 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | lead | Filter by the `lead_id`. |
 | claimer_id ||
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | date_created |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name
@@ -256,7 +256,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | id |
 | date_created |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 || Notes |
@@ -268,14 +268,14 @@ This request supports [range filters](#filters-range-filters) over the following
 | affiliation | Range over the `affiliation_id`. |
 | priority | Range over the `affiliation_id`. |
 
-### Searching
+#### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [requests](#the-request-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used. s
 
 
@@ -284,7 +284,7 @@ The response will be a list of [requests](#the-request-object) with their defaul
 
 
 
-## Count Requests
+### Count Requests
 > Sample Request:  
 
 ```http
@@ -313,7 +313,7 @@ This request will return a count of requests in a list defined by any available 
 
 
 
-## List Request Threads
+### List Request Threads
 > Sample Request:  
 
 ```http
@@ -332,12 +332,12 @@ curl -X get \
 
 This request returns a list of [request threads](#request-threads) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -346,14 +346,14 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | request_type_id | Filter by the `type_id`. |
 | interact_from_staff | Filter by the `staff_id` of staff who have interacted with the request. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | date_created |
 
-#### Boolean Filters
+##### Boolean Filters
 this request also supports a special kind of filter, the boolean filter. These filters take boolean arguments, the supported filters are:
 
 | Filter Name | Notes |
@@ -363,7 +363,7 @@ this request also supports a special kind of filter, the boolean filter. These f
 | order_by_date_created | Whether to order in ascending order of `date_created`. |
 | order_by_desc_latest_external_interaction | Whether to order in ascending order of `date_last_external_interaction`. |
 
-#### List Unresponded Counts
+##### List Unresponded Counts
 
 > Sample request:
 
@@ -384,7 +384,7 @@ curl -X get \
 
 This request also supports a flag, `include_unresponded_counts` which may be either '0' or '1'. If set to '1' this returns an additional array, `unresponded_counts` 
 
-### Handling the Response
+#### Handling the Response
 The response will be an array of [request threads](#request-threads) labeled "requests", and an array of linked objects labeled "linked_objects". The "linked_objects" array is an array of objects linked to the requests in the "requests" array. Any filters used will be applied to the elements of the "request" array.
 
 
@@ -392,7 +392,7 @@ The response will be an array of [request threads](#request-threads) labeled "re
 
 
 
-## List Request Types (Beta)
+### List Request Types (Beta)
 > Sample Request:  
 
 ```shell
@@ -421,13 +421,13 @@ This request returns a list of `request_type` objects, which contain the followi
 
 Note this is different to the [request type](#the-request-type) object.
 
-### Handling the Response
+#### Handling the Response
 This request does not accept pagination, filtering, or searching. The response will be a list of `request_type` objects on the deployment.
 
 
 
 
-## Update a Request
+### Update a Request
 > Sample Request:  
 
 ```http
@@ -449,7 +449,7 @@ curl -X get \
 
 This request updates and returns a [request](#the-request-object) identified by its `request_id`.
 
-### Configuring the Request
+#### Configuring the Request
 Values for the following fields may be updated through this request:
 
 | Field Name |
@@ -464,10 +464,10 @@ Values for the following fields may be updated through this request:
 | standing |
 | claimer_id |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [request object](#the-request-object) using the [`_fields`](#configuring-the-response-fields) parameter
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated [request](#the-request-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -476,7 +476,7 @@ The response will be the single, updated [request](#the-request-object) with its
 
 
 
-## Create a Request
+### Create a Request
 > Example request:
 
 ```shell
@@ -526,7 +526,7 @@ curl -X post \
 
 This request creates and returns a [request](#the-request-object). Since a request requires an affiliation, and request may not necessarily come from known contacts, using this request you may also create a contact/affiliation, [see](#handling-a-lack-of-affiliation).
 
-### Configuring the Request
+#### Configuring the Request
 The following fields may be set through this request:  
 
 | Field Name | Notes |
@@ -539,7 +539,7 @@ The following fields may be set through this request:
 | source | May either be "email" or "null". |
 | lead_id ||
 
-### Handling a Lack of Affiliation
+#### Handling a Lack of Affiliation
 If no [affiliation](#affiliations) data is available we will attempt to link the given data to a known affiliation, otherwise we will create one. There are three minimum sets of information we can use to create an affiliation:
 
 1. [A firstname and a surname](#requests-first-method)  
@@ -547,15 +547,15 @@ If no [affiliation](#affiliations) data is available we will attempt to link the
 3. [An email address](#requests-third-method)
 
 <a name="requests-first-method"></a>
-#### Given a Firstname and a Surname
+##### Given a Firstname and a Surname
 If an affiliation exists which exactly matches these two names, we will link it. Otherwise, we will create a company and contact with the name "`firstname` `surname`", and then create an affiliation to link the two.
 
 <a name="requests-second-method"></a>
-#### Given a Firstname and a Company Name
+##### Given a Firstname and a Company Name
 If there is no match the company name, a new company with this name will be used, then a contact under this company will be created using the firstname supplied, finally an affiliation will be created to link the two.
 
 <a name="requests-third-method"></a>
-#### Given an Email Address
+##### Given an Email Address
 If there is no match, we will attempt to extract a name from the email provided. Next, a company will be made with the provided email as the name, then a contact will be made under this company, whose name would be the name extracted from the email. Finally an affiliation would link the two.
 
 The following fields may be used to send this information:
@@ -596,8 +596,8 @@ The following fields may be used to send this information:
 
 You may also send contact and company information as a JSON payload. Ensure that the content type is set to `application/json` in this case. [For example](#create-request-json-example) here we have created a contact, company and affiliation in handling a request.
 
-### Configuring the Response
+#### Configuring the Response
 The request supports requesting additional fields and linked objects from the [request object](#the-request-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the new, single, [request](#the-request-object) with its default fields and any fields requested through `_fields`.

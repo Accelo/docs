@@ -1,4 +1,4 @@
-# Activities
+## Activities
 Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/) for more information on activities.
 
 > Resource URI:  
@@ -14,7 +14,7 @@ The Activity object is complex and contains some special objects:
 * [Activity Interactions](#activity-interactions)
 * [Time Allocations](#the-time-allocation-object)
 
-## The Activity Object
+### The Activity Object
 > Sample activity object:
 
 ```json
@@ -88,7 +88,7 @@ The activities object contains the following fields:
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
 
-### Activity Medium
+#### Activity Medium
 Activities are communicative objects, e.g. notes and emails. The type of communication is described by the "medium", Accelo currently supports five types of media for activities:  
 
 | Name | Description |
@@ -100,7 +100,7 @@ Activities are communicative objects, e.g. notes and emails. The type of communi
 | Postal | Log information about letters or packages you have sent to contacts, such as package tracking numbers. |
 
 
-### Activity Visibility
+#### Activity Visibility
 Activities also have a visibility associated with them, which determines how they are viewed by others. The visibility of an activity can be set to one of three values:
 
 | Visibility | Description |
@@ -109,7 +109,7 @@ Activities also have a visibility associated with them, which determines how the
 | Confidential | Hides full content of this activity and replaces with the word "Confidential". Other users see that a Confidential Activity has occurred on the date but will see no other details. |
 | All | Displays full content of this activity to all users. |
 
-### The Activity Class
+#### The Activity Class
 Classes are an additional field for further describing Activities, you may add or remove classes from your deployment through the configuration menu, this process is outlined in the Accelo [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/). By default your Accelo deployment will have three classes:
 
 
@@ -141,7 +141,7 @@ The class object for activities will contain the following:
 
 **Note:** This object does not support the `_ALL` argument with [`_fields`](#configuring-the-response-fields)
 
-### The Activity Priority
+#### The Activity Priority
 > Sample JSON of an activity priority:
 
 ```json
@@ -161,7 +161,7 @@ The activity priority describes the urgency of a given activity, it contains the
 
 **Note:** This object does not support the `_ALL` argument with [`_fields`](#configuring-the-response-fields)
 
-### Activity Threads and Parents
+#### Activity Threads and Parents
 
 > Activity threads and parents:  
 
@@ -175,7 +175,7 @@ Naturally, we expect these communicative objects to build off each other, for ex
 
 We will describe these with an example. Imagine an email is sent out as `activities/56`, then this email is responded to by two new emails `activities/57` and `activity/59`, imagine further that the email `activities/59` is responded to by another email, `activities/62`. In this case, each activity will have a `thread` of `activities/56`, `activities/57` and `activities/59` will have a `parent` of `activities/56`, and `activities/62` will have a parent of `activities/59`.
 
-#### The Activity Thread Object
+##### The Activity Thread Object
 > Sample JSON of an activity thread object:
 
 ```json
@@ -200,13 +200,13 @@ Activity threads are described by the thread object, this contains the following
 | **total_activities** | integer | A count of the number of activities in the thread. |
 
 
-### Activity Interactions
+#### Activity Interactions
 In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal with each case individually:  
 
 1. [Interactions with a list of activities](#get-activities-handling-interacts)   
 2. [List of interactions with a single activity](#get-activities-id-interacts)
 
-### The Time Allocation Object
+#### The Time Allocation Object
 When an activity includes logging time the time logged is described by the time allocation object, this contains the following:
 
 | Field | Type | Description |
@@ -227,7 +227,7 @@ When an activity includes logging time the time logged is described by the time 
 
 
 
-## Get Activity
+### Get Activity
 `GET /activities/{activity_id}`
 
 > Sample request:  
@@ -250,10 +250,10 @@ curl -X get \
 ```
 If successful, this request returns an activity identified by its `activity_id`.
 
-### Configuring the Response
+#### Configuring the Response
 this request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`.
 
 > Sample response, excluding meta:
@@ -275,7 +275,7 @@ The response will be the [activity](#the-activity-object) with its default field
 
 
 
-## List Activities
+### List Activities
 `GET /activities`
 
 > Sample request:  
@@ -303,16 +303,16 @@ curl -X get \
 
 This request will return a list of activities on the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -334,7 +334,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 
 
 
-#### Date Filters
+##### Date Filters
 > Sample response:
 
 ```json
@@ -382,7 +382,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_modified |
 
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -395,7 +395,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | billable |
 | nonbillable |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -409,7 +409,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | class | Range over the `class_id`. |
 | task | Range over the `task_id`. |
 
-#### Object Filters
+##### Object Filters
 This request supports [object filters](#filters-object-filters) over the following linked object:
 
 | Filter Name | Description |
@@ -417,10 +417,10 @@ This request supports [object filters](#filters-object-filters) over the followi
 | owner | Filter by activities owned by these objects. |
 | against | Filter by activities against these objects. |
 
-### Handling the Response
+#### Handling the Response
 The response will be a List of [activities](#the-activity-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
-### Handling Interacts
+#### Handling Interacts
 > Sample response, here we are looking at the interactions of a single activity.
 
 ```json
@@ -491,7 +491,7 @@ That is, each activity has an interaction where each interaction identifies an o
 
 
 
-## Count Activities
+### Count Activities
 > Sample request, here we request the response as xml
 
 ```http
@@ -528,7 +528,7 @@ This request will return a count of activities in a list defined by any availabl
 
 
 
-## List Interactions
+### List Interactions
 
 ```http
 GET /api/v0/activities/{activity_id}/interacts HTTP/1.1
@@ -580,10 +580,10 @@ This request returns an array of activity interactions for the activity identifi
 }
 ```
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [staff](#the-activity-object) and [contact](#the-contact-object) objects using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will contain two arrays:
 
 | Name | Description |
@@ -608,7 +608,7 @@ The staff and contact objects returned will contain their default fields, plus a
 
 
 
-## Count Interactions
+### Count Interactions
 > Sample request:
 
 ```http
@@ -646,7 +646,7 @@ This request will return a count of activity threads in a list defined by any av
 
 
 
-## Get Time Allocated
+### Get Time Allocated
 > Sample Request:  
 
 `GET /activities/allocations`
@@ -678,10 +678,10 @@ This request returns information on timed logged and the value charged against a
 ```
 
 
-### Configuring the Response
+#### Configuring the Response
 This request supports the same filters as [`GET /activities`](#list-activities), these filters are used to define the collection of activities from which the request takes the allocation data.
 
-### handling the Response
+#### handling the Response
 The response will contain the following fields describing the allocations for the activities:
 
 | Field | Type | Description |
@@ -696,7 +696,7 @@ The response will contain the following fields describing the allocations for th
 
 
 
-## Update an Activity
+### Update an Activity
 `PUT /activities/{activity_id}`
 
 > Sample request, we wish to update and return the priority field:
@@ -721,7 +721,7 @@ curl -X put \
 ```
 This request will update, and return, the identified activity.
 
-### Configuring the Activity
+#### Configuring the Activity
 The following fields from the [activity object](#the-activity-object) may be updated through this request:
 
 | Field | Conditions |
@@ -751,10 +751,10 @@ The following fields from the [activity object](#the-activity-object) may be upd
 }
 ```
 
-### Configuring the response
+#### Configuring the response
 This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -763,7 +763,7 @@ The response will be the single, updated [activity](#the-activity-object) with i
 
 
 
-## Create an Activity
+### Create an Activity
 `POST /activities`
 
 > Sample request, here we send the data as json:
@@ -797,7 +797,7 @@ curl -X post \
 
 This request will create, and return, a new [activity](#the-activity-object) on the deployment.
 
-### Configuring the Activity
+#### Configuring the Activity
 Values for the following fields may be set through this request.
 
 | Field | Notes |
@@ -826,7 +826,7 @@ Values for the following fields may be set through this request.
 | billable | As above, but also requires the activity is against an [issue](#issues), [job](#jobs-projects), [milestone](#milestones), [contract](#contracts), or [period](#contract-periods)|
 
 
-### Including "to", "cc" and "bcc" Interactions
+#### Including "to", "cc" and "bcc" Interactions
 > Sample json request segment to add interactions. In this case we would create an activity to staff with id 10, cc'ing affiliations 13 and 14 and bcc'ing the email recipient "bcc-recipient@affinitylive.com".
 
 ```json
@@ -854,18 +854,18 @@ We can create interactions with our activity by sending our request as JSON (see
 
 Each object accepts a staff or affiliation (identified by their id) or a general email.
 
-### Logging time
+#### Logging time
 
 The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no time allocation is created against the new activity. i.e, the user who the time belongs to.
 
-### Logging time against a task
+#### Logging time against a task
 
 To log an activity against a task, you should pass in the task's against_id and against_type as the new activity's against_id and against_type. Essentially you are creating an activity against the object the task is against.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the new [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`
 
 
@@ -875,7 +875,7 @@ The response will be the new [activity](#the-activity-object) with its default f
 
 
 
-## Delete Activity
+### Delete Activity
 > Sample Request:  
 
 ```http
@@ -900,7 +900,7 @@ This request will delete the activity identified by its `activity_id`. This requ
 
 
 
-## List Activity Threads
+### List Activity Threads
 > Sample Request:  
 
 ```http
@@ -922,15 +922,15 @@ curl -X get \
 
 This request returns a list of [activity threads](#the-activity-thread-object).
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 > Sample response of a single thread:  
@@ -956,7 +956,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | staff_involved | Filter by the `staff_id` the staff member(s) who have interacted with activities within the thread. |
 | scope | Takes either "internal" or "external" as arguments, whether the thread is external, such as emails from clients, or internal, such as notes. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -964,7 +964,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_logged_after | Filter by threads that have activities with `date_logged` after this time. |
 | date_logged_before | Filter by threads that have activities with `date_logged` before this time. |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [activity threads](#the-activity-thread-object), displayed according to any pagination parameters or searches used. The activity listed under the `activities` array of the thread will be displayed with its default fields and any additional fields requested through `_fields`.
 
 
@@ -973,7 +973,7 @@ The response will be a list of [activity threads](#the-activity-thread-object), 
 
 
 
-## Count Activity Threads
+### Count Activity Threads
 > Sample Request:  
 
 ```http
@@ -1002,7 +1002,7 @@ This request will return a count of activity threads in a list defined by any av
 
 
 
-## List Activities in a Thread
+### List Activities in a Thread
 > Sample request:  
 
 ```http

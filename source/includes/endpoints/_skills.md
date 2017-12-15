@@ -1,10 +1,10 @@
-# Skills
+## Skills
 > Resource URI:  
 `/api/v0/skills`
 
 Skills are tags assigned to tasks or users which can then be used to appropriately assign work. See the [support documentation](https://www.accelo.com/resources/blog/schedule-tasks-to-the-right-person-with-skills-tagging/) for more information skills and how to use them on the deployment.
 
-## The Skill Object
+### The Skill Object
 > Example skill object:
 
 ```json
@@ -28,7 +28,7 @@ The skills object contains the following:
 
 
 
-## List Skills
+### List Skills
 > Sample Request:   
 
 ```http
@@ -47,15 +47,15 @@ curl -X get \
 
 This request returns a list of [skills](#the-skill-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Resource
+##### Additional Fields and Linked Resource
 This request supports requesting additional fields and linked resources from the [skill object](#the-skill-object) using the `_fields` parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports basic filters over the following fields:
 
 | Filter Name |
@@ -63,21 +63,21 @@ This request supports basic filters over the following fields:
 | id |
 | title |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name | Description |
 |:-|:-|
 | against | Filter by skills applied to this object. |
 
-#### Searching
+##### Searching
 This request supports using the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [skills](#the-skill-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -86,7 +86,7 @@ The response will be a list of [skills](#the-skill-object) with their default fi
 
 
 
-## Count Skills
+### Count Skills
 > Sample Request:   
 
 ```http
@@ -115,7 +115,7 @@ This request will return a count of skills in a list defined by any available se
 
 
 
-## Create a Skill
+### Create a Skill
 > Sample Request:   
 
 ```http
@@ -136,15 +136,15 @@ curl -X get \
 
 This request creates and returns a [skill](#the-skill-object).
 
-### Configuring the Skill
+#### Configuring the Skill
 This request supports setting the following fields from the [skill object](#the-skill-object):
 
 | Field Name |
 |:-|
 | **title** |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked items from the [skill object](#the-skill-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, created [skill](#the-skill-object) with its default fields and any additional fields requested through `_fields`.

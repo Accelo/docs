@@ -1,4 +1,4 @@
-# Filters
+## Filters
 > Resource URI:  
 `/api/v0/filters`
 
@@ -18,7 +18,7 @@ Filters are available on the Accelo deployment that allow you to search through 
 * [Tasks](#tasks)
 
 
-## The Filter Object
+### The Filter Object
 > Example filter object:
 
 ```json
@@ -49,7 +49,7 @@ This object stores information on the filter, such as who created it, and which 
 
 
 
-## List Filters
+### List Filters
 > Sample Request:
 
 ```http
@@ -68,15 +68,15 @@ curl -X get \
 
 This request returns a list of saved [filters](#the-filter-object) on the Accelo deployment. This list will not include any filters created by other users which have not been shared.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports the standard [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects through the [`fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -86,7 +86,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | staff | Filter by `staff_id`. |
 | object_type | |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -95,14 +95,14 @@ This request supports [order filters](#filters-order-filters) over the following
 | title |
 | shared |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | id |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [filter objects](#the-filter-object) containing their default values, and any additional values requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -111,7 +111,7 @@ The response will be a list of [filter objects](#the-filter-object) containing t
 
 
 
-## List Filters Against an Object
+### List Filters Against an Object
 > Sample Request:
 
 ```http
@@ -130,15 +130,15 @@ curl -X get \
 
 This request returns a list of [filters](#the-filter-object) saved against a particular object, specified by `object`. This list will not include any filters created by other users which have not been shared.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports the standard [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -147,7 +147,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | shared | |
 | staff | Filter by `staff_id`. |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -156,14 +156,14 @@ This request supports [order filters](#filters-order-filters) over the following
 | title |
 | shared |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | id |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [filter objects](#the-filter-object) saved against the given object, containing their default values, and any additional values requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -172,7 +172,7 @@ The response will be a list of [filter objects](#the-filter-object) saved agains
 
 
 
-## Update a Filter
+### Update a Filter
 > Sample Request:
 
 ```http
@@ -191,7 +191,7 @@ curl -X get \
 
 This request allows you to update a saved [filter](#the-filter-object) on the Accelo deployment.
 
-### Configuring the Filter
+#### Configuring the Filter
 The following fields from the [filter object](#the-filter-object) may be updated with this request:
 
 | Filter Name |
@@ -199,10 +199,10 @@ The following fields from the [filter object](#the-filter-object) may be updated
 | title |
 | shared |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [filter object](#the-filter-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 The response will be the single, updated [filter object](#the-filter-object) containing its default fields, and any additional fields requested via `_fields`
 
 
@@ -211,7 +211,7 @@ The response will be the single, updated [filter object](#the-filter-object) con
 
 
 
-## Run a Filter
+### Run a Filter
 > Sample Request:
 
 ```http
@@ -230,17 +230,17 @@ curl -X get \
 
 This request allows you to run, and see the output of, a [filter](#the-filter-object).
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request accepts the following [pagination](#configuring-the-response-pagination) parameters:
 
 | Filter Name |
 |:-|
 | _limit |
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-fields) parameter. This parameter will be applied to whatever object the filter is used for, that is, the `object_type`.
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of objects that are of type `object_type`, with their default fields, and any additional fields requested through `_fields`, and displayed according to the value of `_limit` set.

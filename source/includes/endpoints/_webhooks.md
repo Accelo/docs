@@ -1,4 +1,4 @@
-# Webhooks
+## Webhooks
 > Resource URI:  
 `api/v0/webhooks`
 
@@ -6,9 +6,9 @@ Webhooks allow you to build integrations that subscribe to specific Accelo event
 
 There's currently no limit on webhooks and they can be installed per deployment from an individual users account using the webhooks control panel. See [our blog](https://www.accelo.com/resources/updates/2016-nov-27-dec-3/#webhooks) for more information, and how to access webhooks on the deployment. We do enforce a 10 second timeout rule. If your trigger URL takes more than 10 seconds to respond to webhook delivery, we will cancel the request. If this occurs too many times, we will delete your webhook subscription automatically.
 
-## Webhook Subscriptions
+### Webhook Subscriptions
 
-### Webhook Events
+#### Webhook Events
 When subscribing to webhooks you choose an event that you would like to receive payloads for. Each event corresponds to a certain set of actions on a per object basis. The available events are:
 
 | event_id | Description |
@@ -19,7 +19,7 @@ When subscribing to webhooks you choose an event that you would like to receive 
 | create_request | Any time a new [request](#requests) is created. |
 | update_request_status | Any time a request status changes. |
 
-#### Progression Webhooks
+##### Progression Webhooks
 
 [Progression webhooks](https://www.accelo.com/resources/blog/product-priorities-update-q2-of-2017/#progressionwebhooks]) 
 allow you to subscribe to changing statuses for companies, contacts, 
@@ -33,7 +33,7 @@ functionality to the api.
 ![Add Webhook Progression Form](../images/screenshots/add-progression-webhook-form.png)
 [Create Progression Webhook Form]
 
-### Payloads
+#### Payloads
 The payload sent to the callback URL will contain the following:
 
 | Field | Type | Description |
@@ -42,7 +42,7 @@ The payload sent to the callback URL will contain the following:
 | **resource_url** | string | The full URL of the object changed. |
 
 
-### Delivery Headers
+#### Delivery Headers
 As well as the information in the  [payload body](#payloads), the headers of HTTP request sent to  the payload URL will contain special headers:
 
 | Header | Description |
@@ -51,7 +51,7 @@ As well as the information in the  [payload body](#payloads), the headers of HTT
 | X-Hub-Signature | HMAC hex digest of the payload using your configured subscriptions secret. |
 
 
-### The Webhook Subscription
+#### The Webhook Subscription
 The webhook subscription object contains the following:
 
 | Field | Type | Description |
@@ -64,7 +64,7 @@ The webhook subscription object contains the following:
 | **user_deployment** | string | The user's deployment in the form `{deployment}`. |
 | **user_id** | unsigned | The current user's unique identifier, that is, their `staff_id`. |
 
-### Webhook Subscription Types
+#### Webhook Subscription Types
 Each webhook subscription is of a certain type, defined by the following fields from the [webhook subscription object](#webhook-subscriptions):
 
 | Field |
@@ -75,7 +75,7 @@ Each webhook subscription is of a certain type, defined by the following fields 
 | **trigger_type** |
 
 
-### Unsubscribing
+#### Unsubscribing
 Your integration can tell Accelo to automatically unsubscribe by responding with a HTTP Status Gone 410. The dispatcher will respect this and instantly remove the subscription that caused the webhook trigger. Alternatively you can use the [delete subscription endpoint](#delete-webhook-subscription) mentioned below.
 
 
@@ -84,7 +84,7 @@ Your integration can tell Accelo to automatically unsubscribe by responding with
 
 
 
-## List Webhook Subscriptions
+### List Webhook Subscriptions
 > Sample Request:  
 
 ```http
@@ -109,7 +109,7 @@ This request returns a list of [webhook subscriptions](#webhook-subscriptions) f
 
 
 
-## List Webhook Subscription Types
+### List Webhook Subscription Types
 > Sample Request:  
 
 ```http
@@ -134,7 +134,7 @@ This request returns a list of  available [webhook subscription types](#webhook-
 
 
 
-## Create Webhook Subscription
+### Create Webhook Subscription
 > Sample Request:  
 
 ```http
@@ -155,7 +155,7 @@ curl -X get \
 
 This request creates and returns a [webhook subscription](#webhook-subscriptions) for the current user. This request takes no parameters to configure the response.
 
-### Configuring the Subscription
+#### Configuring the Subscription
 The following fields may be set through this Sample Request:  
 
 || Notes |
@@ -171,7 +171,7 @@ The following fields may be set through this Sample Request:
 
 
 
-## Delete Webhook Subscription
+### Delete Webhook Subscription
 > Sample Request:  
 
 ```http
@@ -196,7 +196,7 @@ This request deletes a webhook subscription, identified by its `subscription_id`
 
 
 
-## Trigger a Webhook Subscription
+### Trigger a Webhook Subscription
 > Sample Request:  
 
 ```http
@@ -219,7 +219,7 @@ This request manually triggers a given subscription, identified by its `subscrip
 |:-|:-|:-|
 | **object_id** | unsigned | The unique identifier of the object, of type `trigger_table`, to trigger the subscriptions. |
 
-### Handling the Response
+#### Handling the Response
 This request returns nothing to the user.
 
 
@@ -228,7 +228,7 @@ This request returns nothing to the user.
 
 
 
-## Dispatch a Webhook Subscription
+### Dispatch a Webhook Subscription
 > Sample Request:  
 
 ```http
@@ -251,7 +251,7 @@ This request manually dispatches a given subscription, identified by its `subscr
 |:-|:-|:-|
 | **object_id** | unsigned | The unique identifier of the object, of type `trigger_table` to run the dispatch on. |
 
-### Handling the Response
+#### Handling the Response
 The response will contain a single field:
 
 | Field | Type | Description |

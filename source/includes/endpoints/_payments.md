@@ -1,9 +1,9 @@
-# Payments
+## Payments
 > Resource URI  
 `/api/v0/payments`
 
 Payments made, for example against an invoice, are stored under the `payments` object through the API. Attached to these payments are methods, receipts, and the currency used. 
-## The Payment Object (Beta)
+### The Payment Object (Beta)
 > Sample payment object:
 
 ```json
@@ -42,7 +42,7 @@ The payment object contains the following:
 | payment_method | unsigned or object | The [method](#the-payment-method-object-beta) of the payment. |
 | payment_receipt | unsigned or objects| The [receipt](#the-payment-receipt-object-beta) for the payment. |
 
-### The Payment Receipt Object (Beta)
+#### The Payment Receipt Object (Beta)
 > Sample receipt object:
 
 ```json
@@ -66,7 +66,7 @@ Where a payment object stores the information on a payment made against a single
 | owner_type | select | Either "staff" or "contact", the type of owner of the receipt. |
 
 
-### The Payment Method Object (Beta)
+#### The Payment Method Object (Beta)
 > Sample payment method object:
 
 ```json
@@ -85,7 +85,7 @@ The payment method describes the different methods payment may be given, for exa
 | **title** | string | A name for the method. |
 | standing | select | Either "active" or "inactive", the standing of the method. |
 
-### The Currency Object (Beta)
+#### The Currency Object (Beta)
 > Sample currency object:
 
 ```json
@@ -113,7 +113,7 @@ The different currencies that may be handled by your deployment are stored in th
 
 
 
-## Get Payment (Beta)
+### Get Payment (Beta)
 > Sample request, list payments against a specific invoice:
 
 ```http
@@ -134,10 +134,10 @@ curl -X GET \
 
 This request returns a [payment](#the-payment-object-beta) identified by its unique `payment_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked object from the [payment object](#the-payment-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single payment object with its default fields and any additional fields requested through `_fields`.
 
 
@@ -145,7 +145,7 @@ The response will be the single payment object with its default fields and any a
 
 
 
-## List Payments (Beta)
+### List Payments (Beta)
 > Sample request:
 
 ```http
@@ -164,15 +164,15 @@ curl -X GET \
 
 This request returns a list of [payments](#the-payment-object-beta) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the standard [pagination parameters](#configuring-the-response-pagination).
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked object from the [payment object](#the-payment-object-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -185,14 +185,14 @@ This request supports the following [basic filters](#filters-basic-filters):
 | against_id |
 | against_type |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Field |
 |:-|
 | date_created |
 
-#### Order Filters
+##### Order Filters
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter |
@@ -207,7 +207,7 @@ This request supports the following [order filters](#filters-order-filters):
 | direction |
 | against_id |
 
-#### Range Filters
+##### Range Filters
 This request supports the following [range filters](#filters-range-filters):
 
 | Filter |
@@ -220,14 +220,14 @@ This request supports the following [range filters](#filters-range-filters):
 | amount |
 | against_id |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter | Description |
 |:-|:-|
 | against | Filter by the object the payment is against. |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [payments](#the-payment-object-beta) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -235,7 +235,7 @@ The response will be a list of [payments](#the-payment-object-beta) with their d
 
 
 
-## Count Payments (Beta)
+### Count Payments (Beta)
 > Sample request:
 
 ```http

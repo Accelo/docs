@@ -1,4 +1,4 @@
-# Timers
+## Timers
 > Resource URI:  
 `/api/v0/timers`
 
@@ -6,7 +6,7 @@ Timers are used to log time through Accelo. See the [support documentation](http
 
 **NOTE:** Timer endpoints all operate from the current user and because of this are **not available to service applications**. If this restriction impacts your business model, please contact support and we will consider opening certain timer access up to service applications by requiring a staff id. It also means that a user will only be able to view or edit timers that they own.
 
-## The Timer Object
+### The Timer Object
 The timer object contains the following:
 
 | Field | Type | Description |
@@ -27,7 +27,7 @@ The timer object contains the following:
 
 
 
-## Get Timer
+### Get Timer
 > Sample Request:   
 
 ```http
@@ -46,10 +46,10 @@ curl -X get \
 
 This request returns a [timer](#the-timer-object) identified by its `timer_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [timer object](#the-timer-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the [timer](#the-timer-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -58,7 +58,7 @@ The response will be the [timer](#the-timer-object) with its default fields and 
 
 
 
-## List Timers
+### List Timers
 > Sample Request:   
 
 ```http
@@ -77,15 +77,15 @@ curl -X get \
 
 This request returns a list of [timers](#the-timer-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [timer objects](#the-timer-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -94,7 +94,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | staff | Filter by the `staff_id`. |
 | status ||
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -103,7 +103,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | against_id ||
 | staff | Range by the `staff_id`. |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [timers](#the-timer-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -112,7 +112,7 @@ The response will be a list of [timers](#the-timer-object) with their default fi
 
 
 
-## Update a Timer
+### Update a Timer
 > Sample Request:   
 
 ```http
@@ -133,7 +133,7 @@ curl -X get \
 
 This request updates and returns a [timer](#the-timer-object) identified by its `timer_id`.
 
-### Configuring the Timer
+#### Configuring the Timer
 The following fields from the [timer objects](#the-timer-object) may be updated through this Sample Request:
 
 | Field Name | Notes |
@@ -143,10 +143,10 @@ The following fields from the [timer objects](#the-timer-object) may be updated 
 | against_id ||
 | seconds | Can only be updated for stopped timers. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [timer object](#the-timer-object) using the `_fields` parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response is the single, updated [timer](#the-timer-object) with its default fields and any additional fields requested through `_fields`
 
 
@@ -155,7 +155,7 @@ The response is the single, updated [timer](#the-timer-object) with its default 
 
 
 
-## Create a Timer
+### Create a Timer
 > Sample Request:   
 
 ```http
@@ -176,7 +176,7 @@ curl -X get \
 
 This request creates and returns a [timer](#the-timer-object).
 
-### Configuring the Timer
+#### Configuring the Timer
 The following fields may be set through this Sample Request:
 
 | Field Name | Notes |
@@ -187,10 +187,10 @@ The following fields may be set through this Sample Request:
 | seconds ||
 | auto_start | May be either "1" or "0", whether the timer starts upon creation. If it starts, it will stop any current timers. The default is "0". |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [timer object](#the-timer-object) through the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, created, [timer](#the-timer-object) with its default fields and any additional fields requested through `_fields`
 
 
@@ -199,7 +199,7 @@ The response will be the single, created, [timer](#the-timer-object) with its de
 
 
 
-## Delete a Timer
+### Delete a Timer
 > Sample Request:
 
 ```http
@@ -224,7 +224,7 @@ This request deletes a [timer](#the-timer-object), specified by its `timer_id`. 
 
 
 
-## Pause a Timer
+### Pause a Timer
 > Sample Request:   
 
 ```http
@@ -249,7 +249,7 @@ This request pauses and returns a [timer](#the-timer-object) identified by its `
 
 
 
-## Start a Timer
+### Start a Timer
 > Sample Request:   
 
 ```http
@@ -274,7 +274,7 @@ This request starts and returns a [timer](#the-timer-object) identified by its `
 
 
 
-## Cancel a Timer
+### Cancel a Timer
 > Sample Request:   
 
 ```http

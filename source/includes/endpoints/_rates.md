@@ -1,10 +1,10 @@
-# Rates
+## Rates
 > Resource URI:  
 `/api/v0/rates`
 
 Rates define the hourly rate paid for work done. They may be set up and modified from the deployment, see the [support documentation](https://www.accelo.com/resources/help/faq/setup-rates/) for information.
 
-## The Rate Object
+### The Rate Object
 > Example rate object:
 
 ```json
@@ -33,7 +33,7 @@ The rate object contains the following:
 
 
 
-## Get Rate
+### Get Rate
 > Sample Request:  
 
 ```http
@@ -52,10 +52,10 @@ curl -X get \
 
 This request returns a [rate](#the-rate-object) specified by its `rate_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [rate object](#the-rate-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single [rate](#the-rate-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -64,7 +64,7 @@ The response will be the single [rate](#the-rate-object) with its default fields
 
 
 
-## List Rates
+### List Rates
 > Sample Request:  
 
 ```http
@@ -83,15 +83,15 @@ curl -X get \
 
 This request returns a list of [rates](#the-rate-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [rate object](#the-rate-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [rates](#the-rate-object) with the default fields and any additional fields requested through `_fields`, displayed according to any pagination parameters used.
 
 
@@ -100,7 +100,7 @@ The response will be a list of [rates](#the-rate-object) with the default fields
 
 
 
-## Count Rates
+### Count Rates
 > Sample Request:  
 
 ```http

@@ -1,10 +1,10 @@
-# Addresses
+## Addresses
 > Resource URI:    
 `/api/v0/adddresses`
 
 The Addresses endpoint stores the address information of companies and contacts on the Accelo deployment.
 
-## The Address Object
+### The Address Object
 > Sample address object:
 
 ```json
@@ -41,7 +41,7 @@ The address object contains the following:
 | physical | string | This will be either "yes" or "no", if this address is a physical address of not. |
 
 
-### The Country Object
+#### The Country Object
 > JSON country object for the USA:
 
 ```json
@@ -85,7 +85,7 @@ This object contains the details of a country. It is made up of the following fi
 | state_required | boolean | Whether a state needs to be specified for addresses in this country. |
 | postcode_required | boolean | Whether a postcode needs to be specified for addresses in this country. |
 
-### The State Object
+#### The State Object
 > JSON object for NSW, Australia:
 
 ```json
@@ -123,10 +123,10 @@ This object contains the details of a state within a given country. It is made u
 | ordering | unsigned | The state's order as displayed on the Accelo deployment. |
 | timezone | string | The name of the timezeone the state obeys. For example "Australia/Sydney", "Europe/London". |
 
-### Postal and Physical Addresses
+#### Postal and Physical Addresses
 An address in Accelo may be physical or postal or both. For example, a company may have an office that is both a physical and postal address, but also have a post office box that is only a postal address.
 
-### The Address Object
+#### The Address Object
 
 > Example JSON of full address object:
 
@@ -154,7 +154,7 @@ An address in Accelo may be physical or postal or both. For example, a company m
 
 
 
-## Get Address
+### Get Address
 > Sample Request:    
 
 ```http
@@ -197,10 +197,10 @@ curl -X get \
 
 This request will return the address identified by its `address_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [address object](#the-address-object) through the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be a single address object containing the default fields and any other fields included via the `_fields` parameter.
 
 
@@ -211,7 +211,7 @@ The response will be a single address object containing the default fields and a
 
 
 
-## List Addresses
+### List Addresses
 > Sample request:
 
 ```http
@@ -232,12 +232,12 @@ curl -X get \
 This request returns a list of addresses on the Accelo deployment.
 
 <a name="get-addresses-configuring-the-response"></a>
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following  fields:
 
 | Filter Name | Notes |
@@ -251,7 +251,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | state_id ||
 | zipcode | Filter over the postcode field. |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
@@ -259,7 +259,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | id |
 | against_id |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -269,7 +269,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | suffix |
 | prefix |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [addresses](#the-address-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -279,7 +279,7 @@ The response will be a list of [addresses](#the-address-object) with their defau
 
 
 
-## Count Addresses
+### Count Addresses
 > Sample request:
 
 ```http
@@ -307,7 +307,7 @@ This request will return a count of addresses in a list defined by any available
 
 
 
-## List Addresses Against an Object
+### List Addresses Against an Object
 > Sample request:
 
 
@@ -335,10 +335,10 @@ This request returns all addresses against the object of type `{object}` and uni
 
 For example, the request `GET /companies/39/addresses` would return all addresses registered with the company with id 39.
 
-### Configuring the Response
+#### Configuring the Response
 This request may be configured as [`GET /addresses`](#list-addresses)
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of addresses against the identified object with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
 
 
@@ -347,7 +347,7 @@ The response will be a list of addresses against the identified object with thei
 
 
 
-## Update an Address
+### Update an Address
 `PUT /addresses/{address_id}`
 
 ```http
@@ -379,7 +379,7 @@ curl -X put
 
 This request updates and returns an [address](#the-address-object) on the Accelo deployment specified by its unique `{address_id}`.
 
-### Configuring the Address
+#### Configuring the Address
 The following fields may be updated through this request:
 
 | Field | Notes |
@@ -396,10 +396,10 @@ The following fields may be updated through this request:
 | postal ||
 | physical ||
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [address object](#the-address-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single updated address object with its default fields and any fields added through the `_fields` parameter.
 
 
@@ -409,7 +409,7 @@ The response will be the single updated address object with its default fields a
 
 
 <a name="post-addresses"></a>
-## Create an Address
+### Create an Address
 > Sample request:
 
 ```http
@@ -430,7 +430,7 @@ curl -X post
 
 This request will create a new address and return it.
 
-### Configuring the Address
+#### Configuring the Address
 The address may be configured in the same manner as [`PUT /addresses/{address_id}`](#update-an-address), with the addition of the following fields:
 
 | Field | Type | Description |
@@ -439,10 +439,10 @@ The address may be configured in the same manner as [`PUT /addresses/{address_id
 | **against_id** | unsigned | The unique identifier of the object the address is against. |
 | overwrite | boolean | Whether to overwrite the address if the address to be created already exists. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [address object](#the-address-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single updated address object with its default fields and any fields added through the `_fields` parameter.
 
 
@@ -452,7 +452,7 @@ The response will be the single updated address object with its default fields a
 
 
 
-## Create an Address Against an Object
+### Create an Address Against an Object
 > Sample request:
 
 ```http

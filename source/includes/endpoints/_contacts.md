@@ -1,11 +1,11 @@
-# Contacts
+## Contacts
 > Resource URI:  
 `/api/v0/contacts`
 
 Contacts are the Accelo entries for individual people. Contact entries Provide a central location where you can view all correspondence involving them. A contact is not directly associated with a company but it is with an affiliation. To create a contact against a given company, you should first create the contact and then the affiliation for the new contact against the company.
 
 
-## The Contact Object
+### The Contact Object
 The contact object contains the following fields and linked objects:
 
 | Field | Type | Description |
@@ -32,7 +32,7 @@ The contact object contains the following fields and linked objects:
 
 
 
-## Get Contact
+### Get Contact
 > Sample Request:  
 
 ```http
@@ -51,10 +51,10 @@ curl -X get \
 
 This request returns a single contact, identified by their `contact_id`.
 
-### Configuring the Request
+#### Configuring the Request
 This request supports requesting additional fields and linked objects from the [contact object](#the-contact-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will contain a single contact object with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -63,7 +63,7 @@ The response will contain a single contact object with its default fields, and a
 
 
 
-## List Contacts
+### List Contacts
 > Sample Request:
 
 ```http
@@ -83,15 +83,15 @@ curl -X get \
 
 This request returns a list of contacts on the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting any extra fields or linked objects from the [contacts object](#the-contact-object) object via the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Field | Notes |
@@ -105,7 +105,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | username | |
 | contact_number | Filter over `phone`, `fax`, and `mobile`. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Field |
@@ -113,7 +113,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_created |
 | date_modified |
 
-### Range Filters
+#### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Field | Notes |
@@ -123,7 +123,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | country | Filter by the `country_id` of the default affiliation of the contact. |
 
 
-### Searching
+#### Searching
 This request supports the use of the [`_search`](#configuring-the-response-searching) parameter over the following fields:
 
 | Field | Notes |
@@ -132,7 +132,7 @@ This request supports the use of the [`_search`](#configuring-the-response-searc
 | surname | |
 | email | |
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of contacts containing their default fields and any additional field requested by `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
@@ -141,7 +141,7 @@ This request will return a list of contacts containing their default fields and 
 
 
 
-## Count Contacts
+### Count Contacts
 > Sample Request:  
 
 ```http
@@ -171,7 +171,7 @@ This request will return a count of contacts in a list defined by any available 
 
 
 
-## List Recent Contacts
+### List Recent Contacts
 > Sample Request:  
 
 ```http
@@ -194,10 +194,10 @@ Equivalent request:
 
 This request returns a list of [contacts](#the-contact-object) on the Accelo deployment sorted by the most recently created, that is, in descending order of the their `date_created`.
 
-### Configuring the Response
+#### Configuring the Response
 This request accepts the same parameters and filters as [`GET /contacts`](#list-contacts), although it will always be ordered in descending order of `date_created`.
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of contacts displayed according to any parameters used, and with their default fields plus and additional fields requested by `_fields`, and sorted in descending order of `date_created`.
 
 
@@ -206,7 +206,7 @@ This request will return a list of contacts displayed according to any parameter
 
 
 
-## List Recently Modified Contacts
+### List Recently Modified Contacts
 > Sample Request:  
 
 ```http
@@ -229,10 +229,10 @@ Equivalent request:
 
 This request returns a list of [contacts](#the-contact-object) on the Accelo deployment sorted by most recently modified, that is, in descending order of `date_modified`.
 
-### Configuring the Request
+#### Configuring the Request
 This request accepts the same parameters and filters as [`GET /contacts`](#list-contacts), although it will always be ordered in descending order of `date_modified`.
 
-### Handling the Response
+#### Handling the Response
 This request will return a list of contacts displayed according to any parameters used, and with their default fields plus and additional fields requested by `_fields`, and sorted in descending order of `date_modified`.
 
 
@@ -241,7 +241,7 @@ This request will return a list of contacts displayed according to any parameter
 
 
 
-## Update a Contact
+### Update a Contact
 > Sample Request:  
 
 ```http
@@ -262,7 +262,7 @@ curl -X get \
 
 This request updates and returns a [contact](#the-contact-object) in the Accelo deployment, identified by its `contact_id`. Recall that [affiliations](#affiliations) hold contact information (address, phone numbers etc.) for a contact, so if you wish to update these fields, or do not see the field you are after here, you may need to look at the [affiliation object](#the-affiliation-object).
 
-### Configuring the Contact
+#### Configuring the Contact
 This request allows updating the following fields in the [contact object](#the-contact-object):
 
 | Field | Type | Notes |
@@ -277,10 +277,10 @@ This request allows updating the following fields in the [contact object](#the-c
 | status | unsigned | Must point to a valid `status_id`, otherwise an invalid request will be returned. |
 | standing | string | Please only send one of `status` or `standing`, it both are sent the `standing` of the linked [status object](#statuses) will dominate anything sent through this field. |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the single, updated contact object, with its default fields and any additional fields requested through `_fields`.
 
 
@@ -289,7 +289,7 @@ The response will be the single, updated contact object, with its default fields
 
 
 
-## Create a Contact
+### Create a Contact
 > Sample Request:
 
 ```http
@@ -310,7 +310,7 @@ curl -X get \
 
 This request adds a new contact to the Accelo deployment and returns it. This is a sort of hybrid request, as it also creates an [affiliation](#affiliations) to associate the contact with a company.
 
-### Configuring the Contact
+#### Configuring the Contact
 This request accepts all fields from  the [`PUT \contacts`](#update-a-contact) request, with the `firstname` and `surname` fields being required, as well as the following fields from the [affiliation object](#affiliations-fields-and-linked-objects):
 
 | Field | Type | Notes |
@@ -326,10 +326,10 @@ This request accepts all fields from  the [`PUT \contacts`](#update-a-contact) r
 | communication | string | As in the [affiliation object](#affiliations-fields-and-linked-objects) |
 | invoice_method | string | As in the [affiliation object](#affiliations-fields-and-linked-objects) |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked resources from the [contact object](#the-contact-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 This request will return the single new contact, with its default fields and any additional fields requested through `_fields`
 
 
@@ -338,7 +338,7 @@ This request will return the single new contact, with its default fields and any
 
 
 
-## Deactivate a Contact
+### Deactivate a Contact
 > Sample Request:  
 
 ```http
@@ -369,7 +369,7 @@ This request sets a contact on the Accelo deployment, identified by it's `contac
 
 
 
-## List Addresses
+### List Addresses
 > Sample Request:  
 
 ```http
@@ -395,7 +395,7 @@ This is simply the [`GET /{object}/{object_id}/addresses`](#list-addresses-again
 
 
 
-## Create an Address Against a Contact
+### Create an Address Against a Contact
 > Sample Request (TODO):
 
 `POST /contacts/{contacts_id}/addresses`
@@ -407,17 +407,17 @@ This request creates and returns an [address](#addresses) against a [contact](#t
 
 
 
-## Get Contact Status
+### Get Contact Status
 > Sample Request:  
 
 `GET /contacts/{contact_id}/status`
 
 This request returns the [status](#statuses) of a contact on the Accelo deployment, identified by their `contact_id`.
 
-### Configuring the Request
+#### Configuring the Request
 This request supports requesting additional fields and linked objects from the [status](#statuses) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 This request returns a single status with its default fields and any additional fields requested through `_fields`.
 
 
@@ -425,7 +425,7 @@ This request returns a single status with its default fields and any additional 
 
 
 
-## List Segmentations
+### List Segmentations
 > Sample Request:  
 
 `GET /contacts/{contact_id}/segmentations`
@@ -437,7 +437,7 @@ This request returns a list of [segmentations](#the-segmentation-object) for a [
 
 
 
-## List Profile Values
+### List Profile Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /contacts/{contact_id}/profiles/values`
@@ -450,7 +450,7 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-## Update a Profile Field Value
+### Update a Profile Field Value
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /contacts/{contact_id}/profiles/values/{profile_value_id}`
@@ -463,7 +463,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /contacts/{contact_id}/progressions`
@@ -476,7 +476,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `PUT|POST /contacts/{contact_id}/progressions/{progression_id}/auto`
@@ -489,7 +489,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-## List Profile Fields
+### List Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /contacts/profiles/fields`
@@ -502,7 +502,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-## Create a Profile Field Value
+### Create a Profile Field Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /contacts/{contact_id}/profiles/fields/{profile_field_id}`
@@ -515,7 +515,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-## List Resource Collections
+### List Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
 
 `GET /contacts/{contact_id}/collections`
@@ -528,7 +528,7 @@ This request returns a list of [collections](#resources-attachments) against a [
 
 
 
-## Upload a Resource (Attachment)
+### Upload a Resource (Attachment)
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example  
 
 `POST /contacts/{contact_id}/collections/{collection_id}/resources`

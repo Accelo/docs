@@ -1,10 +1,10 @@
-# Resources (Attachments)
+## Resources (Attachments)
 > Resource URI:  
 `api/v0/resources`
 
 Resources (or attachments) are files uploaded to the deployment. Collections are used to group resources on the deployment, they are similar to a folder system for resources.
 
-## The Resource Object
+### The Resource Object
 > Example resource object:
 
 ```json
@@ -30,7 +30,7 @@ The resource object contains the details on an uploaded file:
 | owner_type | string | The type of object that uploaded the resource. |
 | owner_id | unsigned | The unique identifier of the object that uploaded the resource. |
 
-## The Collection Object
+### The Collection Object
 > Example collection object:
 
 ```json
@@ -55,7 +55,7 @@ The resource object contains the details on an uploaded file:
 
 
 
-## Get Resource
+### Get Resource
 > Sample Request:   
 
 ```http
@@ -74,10 +74,10 @@ curl -X get \
 
 This request returns a [resource](#the-resource-object) identified by its `resource_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [resource objects](#the-resource-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 The response will be the [resource](#the-resource-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -86,7 +86,7 @@ The response will be the [resource](#the-resource-object) with its default field
 
 
 
-## List Resources
+### List Resources
 > Sample Request:   
 
 ```http
@@ -105,15 +105,15 @@ curl -X get \
 
   This request returns a list of [resources](#the-resource-object) on the deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) requests.
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [resource object](#the-resource-object) using the `_fields` parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -123,14 +123,14 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | activity_id | Filter by the `activity_id` of the [activity](#activities) through which the resources was uploaded. |
 | collection_id | Filter by resources belonging to the collections with these IDs. |
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | date_created |
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -140,21 +140,21 @@ This request supports [order filters](#filters-order-filters) over the following
 | filesize |
 | mimetype |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name | Notes |
 |:-|:-|
 | owner | Filter by resources owned by these objects. | 
 
-#### Searching
+##### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [resources](#the-resource-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -163,7 +163,7 @@ The response will be a list of [resources](#the-resource-object) with their defa
 
 
 
-## Count Resources
+### Count Resources
 > Sample Request:   
 
 ```http
@@ -191,7 +191,7 @@ This request will return a count of resources in a list defined by any available
 
 
 
-## List Collections for an Object
+### List Collections for an Object
 <a name="retrieve-an-array-of-collections-for-an-object"></a>
 > Sample Request:
 
@@ -211,12 +211,12 @@ curl -X get \
 
 This request returns a list of [collections](#the-collection-object) against an `object`, identified by its `object_id`.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
-### Handling the Response
+#### Handling the Response
 The response will be a list of [collections](#the-collection-object) with their default fields, and displayed according to any pagination filters used.
 
 
@@ -226,7 +226,7 @@ The response will be a list of [collections](#the-collection-object) with their 
 
 
 <a name="upload-a-resource-to-a-collection-of-an-object"></a>
-## Upload a Resource to a Collection
+### Upload a Resource to a Collection
 > Sample Sample Request:
 
 ```http
@@ -255,14 +255,14 @@ curl -X post \
 
 This request uploads a file to a given collection, identified by its `collection_id`, of a particular object identified through `object` and `object_id`.
 
-### Configuring the Resource
+#### Configuring the Resource
 The file may be uploaded using the following parameter:
 
 | Field | Type | Description |
 |:-|:-|:-|
 | **resource** | file | The file to be uploaded. |
 
-### Handling the Response
+#### Handling the Response
 The response will contain the following fields:
 
 | Field | Type | Description |
@@ -277,7 +277,7 @@ The response will contain the following fields:
 
 
 
-## Download a Resource
+### Download a Resource
 > Sample Request:   
 
 ```http

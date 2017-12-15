@@ -1,10 +1,10 @@
-# Expenses
+## Expenses
 > Resource URI:  
 `/api/v0/expenses`
 
 In the Accelo API, expenses are against objects, such as [jobs](#jobs), or [issues](#issues). For example, an expense may be the cost of some training materials, or the cost of travel expenses for a staff member.
 
-## The Expenses Object
+### The Expenses Object
 > Sample expense:
 
 ```json
@@ -58,7 +58,7 @@ The expense object contains the following fields and linked objects:
 | activity | unsigned or object | The [activity object](#expenses) of the activity against the expense. |
 | resource | unsigned or object | The [resource object](#resources-attachments) (attachment) associated with the expense. |
 
-### The Expense Type
+#### The Expense Type
 > Sample expense type:
 
 ```json
@@ -93,7 +93,7 @@ which contains the following additional fields:
 
 
 
-## Get Expense
+### Get Expense
 > Sample Request:  
 
 ```http
@@ -112,10 +112,10 @@ curl -X get \
 
 This request returns a single [expense object](#the-expense-object) specified by it's `expense_id`.
 
-### Configuring the Request
+#### Configuring the Request
 This request supports requesting additional objects and fields from the [expenses object](#the-expense-object) using the `_fields` parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The response will be a single expense object with its default fields and any additional fields requesting through `_fields`.
 
 
@@ -124,7 +124,7 @@ The response will be a single expense object with its default fields and any add
 
 
 
-## List Expenses
+### List Expenses
 > Sample Request:
 
 ```http
@@ -143,15 +143,15 @@ curl -X get \
 
 This request returns a list of expenses on the Accelo deployment.
 
-### Configuring the Request
+#### Configuring the Request
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters:
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request also supports requesting extra fields or linked objects of the [expenses object](#the-expenses-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -165,14 +165,14 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_type ||
 | against_id ||
 
-#### Date Filters
+##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | date_incurred |
 
-#### Order Filters
+##### Order Filters
 This requesting supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -182,7 +182,7 @@ This requesting supports [order filters](#filters-order-filters) over the follow
 | title |
 | standing |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -196,21 +196,21 @@ This request supports [range filters](#filters-range-filters) over the following
 | unit_cost |
 | cost | Range over the total cost, that is `unit_cost` times `quantity`. |
 
-#### Object Filters
+##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter | Description |
 |:-|:-|
 | against | Filter by expenses against these objects. |
 
-#### Searching
+##### Searching
 This request supports the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### handling the Response
+#### handling the Response
 This request will return a list of expenses containing the default fields and any additional fields request by `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -219,7 +219,7 @@ This request will return a list of expenses containing the default fields and an
 
 
 
-## Count Expenses
+### Count Expenses
 > Sample Request:
 
 ```http
@@ -248,7 +248,7 @@ This request will return a count of expenses in a list defined by any available 
 
 
 
-## Get Expense Type
+### Get Expense Type
 > Sample Request:  
 
 ```http
@@ -267,10 +267,10 @@ curl -X get \
 
 This request returns a single [expenses type](#the-expense-type) object, specified by its `type_id`.
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting extra fields and linked objects from the [expenses type](#the-expense-type) object using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### handling the Response
+#### handling the Response
 The response will be a single [expense type](#the-expense-type) object with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -279,7 +279,7 @@ The response will be a single [expense type](#the-expense-type) object with its 
 
 
 
-## List Expense Types
+### List Expense Types
 > Sample Request:  
 
 ```http
@@ -298,15 +298,15 @@ curl -X get \
 
 This request returns a list of [types of expenses](#the-expense-type) on the Accelo deployment.
 
-### Configuring the Response
+#### Configuring the Response
 
-#### Pagination
+##### Pagination
 This request supports all the [pagination](#configuring-the-response-pagination) parameters:
 
-#### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 This request supports requesting extra fields and linked objects from the [expense type](#the-expense-type) object using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Basic Filters
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name |
@@ -317,7 +317,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | tax_id |
 
 
-#### Order Filters
+##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -326,28 +326,28 @@ This request supports [order filters](#filters-order-filters) over the following
 | title |
 | standing |
 
-#### Range Filters
+##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
 |:-|
 | id |
 
-#### Empty Filters
+##### Empty Filters
 This request supports [empty filters](#filters-empty-filters) over the following fields:
 
 | Field |
 |:-|
 | title |
 
-#### Searching
+##### Searching
 This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-### handling the Response
+#### handling the Response
 The response will contain a list of [expense types](#the-expense-type) with their default fields, and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -356,7 +356,7 @@ The response will contain a list of [expense types](#the-expense-type) with thei
 
 
 
-## Count Expense Types
+### Count Expense Types
 > Sample Request:  
 
 ```http
@@ -385,7 +385,7 @@ This request returns a count of [expense types](#the-expense-type) in a list def
 
 
 
-## Update an Expense
+### Update an Expense
 > Sample Request:  
 
 ```http
@@ -406,7 +406,7 @@ curl -X get \
 
 This request updates and returns an [expense](#the-expense-object), identified by its `expense_id`.
 
-### Configuring the Expense
+#### Configuring the Expense
 The following fields from the [expense object](#the-expense-object) may be updated through this request:
 
 | Field Name |
@@ -420,10 +420,10 @@ The following fields from the [expense object](#the-expense-object) may be updat
 | date_incurred |
 | resource_id |
 
-### Configuring the Response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [expense object](#the-expense-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### handling the Response
+#### handling the Response
 The response will be the single updated [expense object](#the-expense-object) with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -432,7 +432,7 @@ The response will be the single updated [expense object](#the-expense-object) wi
 
 
 
-## Create an Expense
+### Create an Expense
 > Sample Request:  
 
 ```http
@@ -453,7 +453,7 @@ curl -X get \
 
 This request creates and returns an [expense object](#the-expense-object).
 
-### Configuring the Expense
+#### Configuring the Expense
 The following fields from the [expense object](#the-expense-object) may be set with this request:
 
 | Field Name | Notes |
@@ -471,10 +471,10 @@ The following fields from the [expense object](#the-expense-object) may be set w
 | file | Allows you to upload a file with the expense (i.e. a receipt in the form of an image or PDF). If this value is set then it must be POSTed with **multipart/form-data**. |
 | resource_id | The unique identifier of a [resource (attachment)](#resources-attachments) to be sent with the expense. **Note**: you may only pass one of `resource_id` or `file`.|
 
-### Configuring the Response
+#### Configuring the Response
 This response supports requesting extra fields and linked objects from the [expenses object](#the-expense-object) through the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-### Handling the Response
+#### Handling the Response
 The request will return the single new [expense object](#the-expense-object) with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -483,7 +483,7 @@ The request will return the single new [expense object](#the-expense-object) wit
 
 
 
-## Delete an Expense
+### Delete an Expense
 > Sample Request:  
 
 ```http
@@ -509,7 +509,7 @@ This request removes an expense from the deployment. It takes no parameters and 
 
 
 
-## List Available Progressions
+### List Available Progressions
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /companies/{expense_id}/progressions`
@@ -521,7 +521,7 @@ This request returns a list of available [progressions](#progressions) for an [e
 
 
 
-## Auto Run a Progression
+### Auto Run a Progression
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[PUT|POST] /companies/{expense_id}/progressions/{progression_id}/auto`

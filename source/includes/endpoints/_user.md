@@ -1,7 +1,7 @@
-# User
+## User
 This resource contains information about the current user, their deployment, and access token.
 
-## The User Object
+### The User Object
 The user object contains the same fields as the [staff](#staff) object, as well as the following:
 
 | Field | Type | Description |
@@ -15,5 +15,5 @@ The user object contains the same fields as the [staff](#staff) object, as well 
 
 
 
-## GET /user
+### GET /user
 This request returns a [user object](#the-user-object), it takes no parameters.
