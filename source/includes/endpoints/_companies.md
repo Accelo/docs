@@ -587,6 +587,7 @@ The following fields from the [company object](#the-company-object) may be updat
 | phone |
 | fax |
 | comments |
+| title |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [company object](#the-company-object) using the [`_fields`](#configuring-the-response-fields) parameter.
