@@ -532,6 +532,43 @@ This request deletes an asset link (and not the asset) specified by its `asset_l
 
 
 
+### Update an Asset (Beta)
+
+> Sample request:
+
+```http
+PUT /api/v0/assets/{asset_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X PUT \
+  https://{deployment}.api.accelo.com/api/v0/assets/{asset_id} \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`PUT/assets/{asset_id}`
+
+This request updates and returns an [asset](#the-asset-object), specified by its `asset_id`
+
+#### Configuring the Asset
+The following fields from the [asset object](#the-asset-object) may be updated with this request:
+
+| Field | Notes |
+|:-|:-|
+| title |  |
+
+#### Configuring the Response
+This request supports requesting additional fields and linked objects from the [asset](#the-asset-object) through the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+#### Handling the Response
+The response will be the single, updated [asset](#the-asset-object) with its default fields and any additional fields requested through `_fields`
+
+
+
+
 
 ### List Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example    
