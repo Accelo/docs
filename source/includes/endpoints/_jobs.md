@@ -446,6 +446,76 @@ any pagination parameters, filters, or searches used.
 
 
 
+### List Job Statuses (Beta)
+
+> Sample request:
+
+```http
+GET /api/v0/jobs/statuses HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/jobs/statuses \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/jobs/statuses`
+
+This request returns a list of job [statuses](#statuses).
+
+#### Configuring the Response
+
+##### Pagination
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+This request supports requesting additional fields and linked objects from the [status](#statuses) object using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter | Notes |
+|:-|:-|
+| id  | |
+| title | |
+| standing | |
+| color | |
+
+##### Order Filters
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Filter | Notes |
+|:-|:-|
+| id | |
+| title |  |
+| standing |  |
+| color |  |
+| ordering |  |
+
+##### Searching
+This request supports the [`_search`](#configuring-the-response-searching) parameter
+to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+#### Handling the Response
+The response will be a list of [statuses](#statuses) with their default fields
+and any additional fields requested through `_fields`, and displayed according to any
+pagination parameters, filters, or searches used.
+
+
+
+
+
+
+
+
 
 ### List Job Milestones
 > Sample Request:  

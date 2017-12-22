@@ -4,6 +4,14 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Friday 22nd December
+
+#### Misc Updates
+
+The following endpoints have been added:
+
+- ['GET /jobs/statuses'](#list-job-statuses)
+
 ### Friday 13th October
 
 #### Object Types
