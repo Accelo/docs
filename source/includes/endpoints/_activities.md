@@ -679,7 +679,7 @@ This request returns information on timed logged and the value charged against a
 
 
 #### Configuring the Response
-This request supports the same filters as [`GET /activities`](#list-activities), these filters are used to define the collection of activities from which the request takes the allocation data.
+An aggregation that returns the sum of time allocation information from a set of activities. To filter the activities consumed, you may use the same filters supported by [`GET /activities`](#list-activities).
 
 #### handling the Response
 The response will contain the following fields describing the allocations for the activities:
