@@ -533,6 +533,9 @@
                           <a href="#delete-asset-link-beta" class="toc-h3 toc-link" data-title="Endpoints">Delete Asset Link (Beta)</a>
                         </li>
                         <li>
+                          <a href="#update-an-asset-beta" class="toc-h3 toc-link" data-title="Endpoints">Update an Asset (Beta)</a>
+                        </li>
+                        <li>
                           <a href="#list-extension-fields" class="toc-h3 toc-link" data-title="Endpoints">List Extension Fields</a>
                         </li>
                         <li>
@@ -1038,6 +1041,9 @@
                         </li>
                         <li>
                           <a href="#list-job-types" class="toc-h3 toc-link" data-title="Endpoints">List Job Types</a>
+                        </li>
+                        <li>
+                          <a href="#list-job-statuses-beta" class="toc-h3 toc-link" data-title="Endpoints">List Job Statuses (Beta)</a>
                         </li>
                         <li>
                           <a href="#list-job-milestones" class="toc-h3 toc-link" data-title="Endpoints">List Job Milestones</a>
@@ -1717,6 +1723,9 @@
           <li>
             <a href="#change-log" class="toc-h1 toc-link" data-title="Change log">Change log</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#friday-22nd-december" class="toc-h2 toc-link" data-title="Friday 22nd December">Friday 22nd December</a>
+                  </li>
                   <li>
                     <a href="#friday-13th-october" class="toc-h2 toc-link" data-title="Friday 13th October">Friday 13th October</a>
                   </li>
@@ -6466,6 +6475,39 @@ Authorization: Bearer {access_token}
 <p><code>DELETE /assets/links/{asset_link}</code></p>
 
 <p>This request deletes an asset link (and not the asset) specified by its <code>asset_link_id</code>. This request takes no parameters and returns no resources.</p>
+<h3 id='update-an-asset-beta'>Update an Asset (Beta)</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/assets/{asset_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/assets/<span class="o">{</span>asset_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>PUT/assets/{asset_id}</code></p>
+
+<p>This request updates and returns an <a href="#the-asset-object">asset</a>, specified by its <code>asset_id</code></p>
+<h4 id='configuring-the-asset'>Configuring the Asset</h4>
+<p>The following fields from the <a href="#the-asset-object">asset object</a> may be updated with this request:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h4 id='configuring-the-response-6'>Configuring the Response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-asset-object">asset</a> through the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response-7'>Handling the Response</h4>
+<p>The response will be the single, updated <a href="#the-asset-object">asset</a> with its default fields and any additional fields requested through <code>_fields</code></p>
 <h3 id='list-extension-fields'>List Extension Fields</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-extension-fields">extension section</a> for an example    </p>
@@ -7161,6 +7203,9 @@ _fields=comments
 </tr>
 <tr>
 <td style="text-align: left">comments</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
 </tr>
 </tbody></table>
 <h4 id='configuring-the-response-9'>Configuring the Response</h4>
@@ -13602,6 +13647,98 @@ to search over the following fields:</p>
 <p>The response will be a list of <a href="#the-job-type">job types</a> with their default fields
 and any additional fields requested through <code>_fields</code>, and displayed according to
 any pagination parameters, filters, or searches used.</p>
+<h3 id='list-job-statuses-beta'>List Job Statuses (Beta)</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/jobs/statuses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/jobs/statuses <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET/jobs/statuses</code></p>
+
+<p>This request returns a list of job <a href="#statuses">statuses</a>.</p>
+<h4 id='configuring-the-response-7'>Configuring the Response</h4><h5 id='pagination-3'>Pagination</h5>
+<p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h5 id='additional-fields-and-linked-objects-2'>Additional Fields and Linked Objects</h5>
+<p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status</a> object using the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters-3'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">color</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='order-filters-3'>Order Filters</h5>
+<p>This request supports <a href="#filters-order-filters">order filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">color</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='searching-3'>Searching</h5>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter
+to search over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-7'>Handling the Response</h4>
+<p>The response will be a list of <a href="#statuses">statuses</a> with their default fields
+and any additional fields requested through <code>_fields</code>, and displayed according to any
+pagination parameters, filters, or searches used.</p>
 <h3 id='list-job-milestones'>List Job Milestones</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -13690,9 +13827,9 @@ any pagination parameters, filters, or searches used.</p>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h4 id='configuring-the-response-7'>Configuring the Response</h4>
+<h4 id='configuring-the-response-8'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked resources from the <a href="#the-jobs-object">jobs object</a> through the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
-<h4 id='handling-the-response-7'>handling the Response</h4>
+<h4 id='handling-the-response-8'>handling the Response</h4>
 <p>The response will be the single, updated <a href="#the-jobs-object">job</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
 <h3 id='create-a-job'>Create a Job</h3>
 <blockquote>
@@ -13772,9 +13909,9 @@ any pagination parameters, filters, or searches used.</p>
 <td style="text-align: left">If this is not sent it will default to the current time.</td>
 </tr>
 </tbody></table>
-<h4 id='configuring-the-response-8'>Configuring the Response</h4>
+<h4 id='configuring-the-response-9'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked resources from the <a href="#the-jobs-object">jobs object</a> through the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
-<h4 id='handling-the-response-8'>handling the Response</h4>
+<h4 id='handling-the-response-9'>handling the Response</h4>
 <p>The response will be the single, created <a href="#the-job-object">job</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
 <h3 id='delete-a-job'>Delete a Job</h3>
 <blockquote>
@@ -20872,6 +21009,13 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 <p>With the release of the new and easier to maintain documentation, we&#39;re going to do a much better job of tracking changes.</p>
 
 <p><strong>Note - Beta Changes:</strong> New objects or endpoints may be introduced with a <strong>(Beta)</strong> tag, which may last up to a month after introduction. While in beta these are subject to change without notice.</p>
+<h3 id='friday-22nd-december'>Friday 22nd December</h3><h4 id='misc-updates'>Misc Updates</h4>
+<p>The following endpoints have been added:</p>
+
+<ul>
+<li><a href="#list-job-statuses-beta"><code>GET /jobs/statuses</code></a></li>
+<li><a href="#update-an-asset-beta"><code>PUT /assets/{asset_id}</code></a></li>
+</ul>
 <h3 id='friday-13th-october'>Friday 13th October</h3><h4 id='object-types'>Object Types</h4>
 <p>The following objects are to have their <code>type</code> object deprecated and replaced by
 a corresponding <code>_type</code> object:</p>
