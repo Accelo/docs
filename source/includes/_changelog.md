@@ -10,7 +10,8 @@ With the release of the new and easier to maintain documentation, we're going to
 
 The following endpoints have been added:
 
-- ['GET /jobs/statuses'](#list-job-statuses)
+- [`GET /jobs/statuses`](#list-job-statuses-beta)
+- [`PUT /assets/{asset_id}`](#update-an-asset-beta)
 
 ### Friday 13th October
 
