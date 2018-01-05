@@ -45,7 +45,8 @@ The Activity object is complex and contains some special objects:
   "date_logged": "1495762476",
   "billable": "0",
   "date_modified": "1495762476",
-  "date_started": null
+  "date_started": null,
+  "confidential": 0,
 }
 ```
 
@@ -55,6 +56,7 @@ The activities object contains the following fields:
 |:-|:-|:-|
 | **id** | unsigned | The activity's unique identifier. |
 | **subject** | string | String describing the content of the activity. 
+| **confidential** | boolean (0 or 1) | The flag indicates whether the activity has been marked as confidential to the current user. Confidential activities are returned but the content of the subject and body is replaced with a confidential placeholder. You can use this flag to determine whether or not the content has been covered up. If 1, then it has been replaced and the subject and body will be something like "Confidential activity sent to: Bob, Alice". Otherwise 0 indicates the body and subject are returned in full. Don't confuse this with the "visibility" attribute. |
 | parent_id | unsigned | The unique identifier of the parent activity, returns "0" if the activity has no parent. |
 | thread | string | If the activity is part of the response set to another activity, this will be a string describing the original activity, as outlined [below](#activity-threads-and-parents) e.g. "activity/346". Otherwise this will be the current activity. |
 | parent | string | API URI of the parent activity object of the request activity, returns "/activities/0" if the activity has no parent. Example "/activities/347" |
@@ -66,7 +68,9 @@ The activities object contains the following fields:
 | owner_id | unsigned | The unique identifier of the owner object of the activity. |
 | owner | string | API URI of the object representing the owner of the activity.|
 | medium | string | The [activity medium](#activity-medium). |
-| body | string | The main content of the activity. |
+| body | string | The main plaintext content of the activity. |
+| preview_body | string | A preview of the plaintext body. This is the first 250 characters only. |
+| html_body | string | The main content of the activity as HTML. For example, for plain text activities, newlines will be replaced with line breaks (`<br>`). For rich text activities, complete HTML will be returned. |
 | visibility | string | The [activity visibility](#activity-visibility). |
 | details | string | Additional details assigned to an activity. For meetings and postals this is used to store the location/address. For calls this is used to store the number. |
 | date_created | unix ts | The date the activity was created. |
