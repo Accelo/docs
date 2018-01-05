@@ -3021,7 +3021,8 @@ refresh_token=VYfb63__vf
   </span><span class="s2">"date_logged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1495762476"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"billable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1495762476"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_started"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="s2">"date_started"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"confidential"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The activities object contains the following fields:</p>
@@ -3042,6 +3043,11 @@ refresh_token=VYfb63__vf
 <td style="text-align: left"><strong>subject</strong></td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">String describing the content of the activity.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>confidential</strong></td>
+<td style="text-align: left">boolean (0 or 1)</td>
+<td style="text-align: left">The flag indicates whether the activity has been marked as confidential to the current user. Confidential activities are returned but the content of the subject and body is replaced with a confidential placeholder. You can use this flag to determine whether or not the content has been covered up. If 1, then it has been replaced and the subject and body will be something like &quot;Confidential activity sent to: Bob, Alice&quot;. Otherwise 0 indicates the body and subject are returned in full. Don&#39;t confuse this with the &quot;visibility&quot; attribute.</td>
 </tr>
 <tr>
 <td style="text-align: left">parent_id</td>
@@ -3101,7 +3107,17 @@ refresh_token=VYfb63__vf
 <tr>
 <td style="text-align: left">body</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The main content of the activity.</td>
+<td style="text-align: left">The main plaintext content of the activity.</td>
+</tr>
+<tr>
+<td style="text-align: left">preview_body</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A preview of the plaintext body. This is the first 250 characters only.</td>
+</tr>
+<tr>
+<td style="text-align: left">html_body</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The main content of the activity as HTML. For example, for plain text activities, newlines will be replaced with line breaks (<code>&lt;br&gt;</code>). For rich text activities, complete HTML will be returned.</td>
 </tr>
 <tr>
 <td style="text-align: left">visibility</td>
@@ -4038,7 +4054,7 @@ _limit=2
   </span><span class="s2">"charged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21.26"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h4 id='configuring-the-response-4'>Configuring the Response</h4>
-<p>This request supports the same filters as <a href="#list-activities"><code>GET /activities</code></a>, these filters are used to define the collection of activities from which the request takes the allocation data.</p>
+<p>An aggregation that returns the sum of time allocation information from a set of activities. To filter the activities consumed, you may use the same filters supported by <a href="#list-activities"><code>GET /activities</code></a>.</p>
 <h4 id='handling-the-response-4'>handling the Response</h4>
 <p>The response will contain the following fields describing the allocations for the activities:</p>
 
