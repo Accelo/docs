@@ -16,7 +16,9 @@ With the release of the new and easier to maintain documentation, we're going to
  - [`GET /issues/priorities`](#list-issue-priorities)
  - [`GET /issues/priorities/{priority_id`}](#get-issue-priority)
  - [`GET /issues/priorities/count`](#count-issue-priorities)
-- [`PUT /issues/{issue_id}`](#create-issue) supports updating `priority_id` and (`status_id` or `standing`)
+- The following endpoints have been updated:
+ - [`PUT /issues/{issue_id}`](#update-an-issue) supports updating `priority_id` and (`status_id` or `standing`)
+ - [`POST /issues`](#create-an-issue) supports setting `priority_id` and (`status_id` or `standing`) 
 
 ### Friday 22nd December 2017
 
