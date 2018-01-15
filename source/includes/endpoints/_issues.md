@@ -42,7 +42,7 @@ Issues (also known as "Tickets") are used for when you need to track billable ti
   "against_id": "39",
   "id": "7",
   "company": "39",
-  "priority": "1",
+  "issue_priority": "1",
   "date_opened": "1493872605"
 }
 ```
@@ -62,7 +62,8 @@ The issue object contains the following:
 | issue_type | unsigned or object | The [issue type](#the-issue-type) of this issue. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with this issue. |
 | class | unsigned or object | The [issue class](#the-issue-class) of this issue. |
-| priority | unsigned or object | The [priority](#the-issue-priority) of the issue. |
+| priority | unsigned or object | **Deprecated** please use `issue_priority` |
+| issue_priority | unsigned or object | The [priority](#the-issue-priority) of the issue. |
 | resolution | unsigned or object | The [resolution type](#the-issue-resolution) used by the issue, if it has been resolved. |
 | resolution_detail | string | A description of the resolution, if resolved. |
 | status | unsigned or object | The [status](#statuses) of the issue. |
@@ -672,6 +673,9 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 | date_started ||
 | date_due ||
 | assignee | A `staff_id`, must point to a valid [staff](#staff) member. The staff will be assigned and informed of this assigned issue. |
+| priority_id | The [priority](#the-issue-priority) object's id. For available priorities see [`GET /issues/priorities`](#list-issue-priorities) |
+| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-issue-statuses). If you have a `status_id`, please use this instead of `standing`. `standing` will be used to _guess_ the status, thus, `status_id` is more precise. **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
+| standing | The `standing` you want to change the issue to (e.g, 'submitted', 'open', 'resolved', 'closed', or 'inactive'). **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
@@ -715,14 +719,15 @@ Values for the following fields from the [issue object](#the-issue-object) may b
 | **type_id** | Must point to a valid issue type. You may retrieve a list of types through [`GET /issues/types`](#list-issue-types). |
 | **against_type** | Must be a valid type of object. |
 | **against_id** | Must point to a valid object of type `against_type`. |
-| standing | Must be a valid standing. |
-| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-task-statuses). |
+| standing | Must be a valid standing. (e.g, 'submitted', 'open', 'resolved', 'closed', or 'inactive'). If you have a `status_id`, please use this instead of `standing`. `standing` will be used to _guess_ the status, thus, `status_id` is more precise. |
+| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-issue-statuses). |
 | affiliation_id ||
 | date_started ||
 | date_due ||
 | description ||
 | class_id | Must point to a valid [issue class](#the-issue-class). You may retrieve a list of classes through [`GET /issues/classes`](#list-issue-classes) |
 | assignee | A `staff_id`, must point to a valid [staff](#staff) member. |
+| priority_id | The [priority](#the-issue-priority) object's id. For available priorities see [`GET /issues/priorities`](#list-issue-priorities) |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked resources from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
@@ -756,6 +761,25 @@ curl -X get \
 This request removes an issue from the deployment, specified by its `issue_id`. This request takes no parameters and returns no resources.
 
 
+
+
+### List Issue Priorities
+
+`GET /issues/priorities`
+
+This request returns a list of [priorities](#the-issue-priority) available for issues.
+
+### Get Issue Priority
+
+`GET /issues/priorities/{priority_id}`
+
+Returns a single [priority](#the-issue-priority) for the given priority id.
+
+### Count Issue Priorities
+
+`GET /issues/priorities/count`
+
+Returns the number of issue priorities.
 
 
 
