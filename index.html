@@ -978,6 +978,15 @@
                           <a href="#delete-an-issue" class="toc-h3 toc-link" data-title="Endpoints">Delete an Issue</a>
                         </li>
                         <li>
+                          <a href="#list-issue-priorities" class="toc-h3 toc-link" data-title="Endpoints">List Issue Priorities</a>
+                        </li>
+                        <li>
+                          <a href="#get-issue-priority" class="toc-h3 toc-link" data-title="Endpoints">Get Issue Priority</a>
+                        </li>
+                        <li>
+                          <a href="#count-issue-priorities" class="toc-h3 toc-link" data-title="Endpoints">Count Issue Priorities</a>
+                        </li>
+                        <li>
                           <a href="#list-profile-fields" class="toc-h3 toc-link" data-title="Endpoints">List Profile Fields</a>
                         </li>
                         <li>
@@ -1724,7 +1733,10 @@
             <a href="#change-log" class="toc-h1 toc-link" data-title="Change log">Change log</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#friday-22nd-december" class="toc-h2 toc-link" data-title="Friday 22nd December">Friday 22nd December</a>
+                    <a href="#monday-15th-january-2018" class="toc-h2 toc-link" data-title="Monday 15th January 2018">Monday 15th January 2018</a>
+                  </li>
+                  <li>
+                    <a href="#friday-22nd-december-2017" class="toc-h2 toc-link" data-title="Friday 22nd December 2017">Friday 22nd December 2017</a>
                   </li>
                   <li>
                     <a href="#friday-13th-october" class="toc-h2 toc-link" data-title="Friday 13th October">Friday 13th October</a>
@@ -11753,7 +11765,7 @@ _filters=standing(active)
   </span><span class="s2">"against_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"issue_priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_opened"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1493872605"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -11823,6 +11835,11 @@ _filters=standing(active)
 </tr>
 <tr>
 <td style="text-align: left">priority</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left"><strong>Deprecated</strong> please use <code>issue_priority</code></td>
+</tr>
+<tr>
+<td style="text-align: left">issue_priority</td>
 <td style="text-align: left">unsigned or object</td>
 <td style="text-align: left">The <a href="#the-issue-priority">priority</a> of the issue.</td>
 </tr>
@@ -12800,6 +12817,18 @@ fields requested through <code>_fields</code>.</p>
 <td style="text-align: left">assignee</td>
 <td style="text-align: left">A <code>staff_id</code>, must point to a valid <a href="#staff">staff</a> member. The staff will be assigned and informed of this assigned issue.</td>
 </tr>
+<tr>
+<td style="text-align: left">priority_id</td>
+<td style="text-align: left">The <a href="#the-issue-priority">priority</a> object&#39;s id. For available priorities see <a href="#list-issue-priorities"><code>GET /issues/priorities</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left">status_id</td>
+<td style="text-align: left">Must point to a valid <a href="#statuses">issue status</a>. Should not be sent in conjunction with <code>standing</code>, otherwise <code>standing</code> will take priority. You may retrieve a list of statuses through <a href="#list-issue-statuses"><code>GET /issues/statuses</code></a>. If you have a <code>status_id</code>, please use this instead of <code>standing</code>. <code>standing</code> will be used to <em>guess</em> the status, thus, <code>status_id</code> is more precise. <strong>Warning</strong> this will bypass any progressions and should only be used deliberately when automating tasks.</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left">The <code>standing</code> you want to change the issue to (e.g, &#39;submitted&#39;, &#39;open&#39;, &#39;resolved&#39;, &#39;closed&#39;, or &#39;inactive&#39;). <strong>Warning</strong> this will bypass any progressions and should only be used deliberately when automating tasks.</td>
+</tr>
 </tbody></table>
 <h4 id='configuring-the-response-7'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-issue-object">issue object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
@@ -12848,11 +12877,11 @@ fields requested through <code>_fields</code>.</p>
 </tr>
 <tr>
 <td style="text-align: left">standing</td>
-<td style="text-align: left">Must be a valid standing.</td>
+<td style="text-align: left">Must be a valid standing. (e.g, &#39;submitted&#39;, &#39;open&#39;, &#39;resolved&#39;, &#39;closed&#39;, or &#39;inactive&#39;). If you have a <code>status_id</code>, please use this instead of <code>standing</code>. <code>standing</code> will be used to <em>guess</em> the status, thus, <code>status_id</code> is more precise.</td>
 </tr>
 <tr>
 <td style="text-align: left">status_id</td>
-<td style="text-align: left">Must point to a valid <a href="#statuses">issue status</a>. Should not be sent in conjunction with <code>standing</code>, otherwise <code>standing</code> will take priority. You may retrieve a list of statuses through <a href="#list-task-statuses"><code>GET /issues/statuses</code></a>.</td>
+<td style="text-align: left">Must point to a valid <a href="#statuses">issue status</a>. Should not be sent in conjunction with <code>standing</code>, otherwise <code>standing</code> will take priority. You may retrieve a list of statuses through <a href="#list-issue-statuses"><code>GET /issues/statuses</code></a>.</td>
 </tr>
 <tr>
 <td style="text-align: left">affiliation_id</td>
@@ -12878,6 +12907,10 @@ fields requested through <code>_fields</code>.</p>
 <td style="text-align: left">assignee</td>
 <td style="text-align: left">A <code>staff_id</code>, must point to a valid <a href="#staff">staff</a> member.</td>
 </tr>
+<tr>
+<td style="text-align: left">priority_id</td>
+<td style="text-align: left">The <a href="#the-issue-priority">priority</a> object&#39;s id. For available priorities see <a href="#list-issue-priorities"><code>GET /issues/priorities</code></a></td>
+</tr>
 </tbody></table>
 <h4 id='configuring-the-response-8'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked resources from the <a href="#the-issue-object">issue object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
@@ -12897,6 +12930,18 @@ fields requested through <code>_fields</code>.</p>
 <p><code>DELETE /issues/{issue_id}</code></p>
 
 <p>This request removes an issue from the deployment, specified by its <code>issue_id</code>. This request takes no parameters and returns no resources.</p>
+<h3 id='list-issue-priorities'>List Issue Priorities</h3>
+<p><code>GET /issues/priorities</code></p>
+
+<p>This request returns a list of <a href="#the-issue-priority">priorities</a> available for issues.</p>
+<h3 id='get-issue-priority'>Get Issue Priority</h3>
+<p><code>GET /issues/priorities/{priority_id}</code></p>
+
+<p>Returns a single <a href="#the-issue-priority">priority</a> for the given priority id.</p>
+<h3 id='count-issue-priorities'>Count Issue Priorities</h3>
+<p><code>GET /issues/priorities/count</code></p>
+
+<p>Returns the number of issue priorities.</p>
 <h3 id='list-profile-fields'>List Profile Fields</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-profile-fields">profiles section</a> for a sample request  </p>
@@ -21025,7 +21070,27 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 <p>With the release of the new and easier to maintain documentation, we&#39;re going to do a much better job of tracking changes.</p>
 
 <p><strong>Note - Beta Changes:</strong> New objects or endpoints may be introduced with a <strong>(Beta)</strong> tag, which may last up to a month after introduction. While in beta these are subject to change without notice.</p>
-<h3 id='friday-22nd-december'>Friday 22nd December</h3><h4 id='misc-updates'>Misc Updates</h4>
+<h3 id='monday-15th-january-2018'>Monday 15th January 2018</h3><h4 id='deprecations'>Deprecations</h4>
+<ul>
+<li>The <code>priority</code> attribute and object on <a href="#issues">Issues</a> is deprecated. Please use <code>issue_priority</code> instead.</li>
+</ul>
+<h4 id='features'>Features</h4>
+<ul>
+<li>The following endpoints have been added
+
+<ul>
+<li><a href="#list-issue-priorities"><code>GET /issues/priorities</code></a></li>
+<li><a href="#get-issue-priority"><code>GET /issues/priorities/{priority_id</code>}</a></li>
+<li><a href="#count-issue-priorities"><code>GET /issues/priorities/count</code></a></li>
+</ul></li>
+<li>The following endpoints have been updated:
+
+<ul>
+<li><a href="#update-an-issue"><code>PUT /issues/{issue_id}</code></a> supports updating <code>priority_id</code> and (<code>status_id</code> or <code>standing</code>)</li>
+<li><a href="#create-an-issue"><code>POST /issues</code></a> supports setting <code>priority_id</code> and (<code>status_id</code> or <code>standing</code>) </li>
+</ul></li>
+</ul>
+<h3 id='friday-22nd-december-2017'>Friday 22nd December 2017</h3><h4 id='misc-updates'>Misc Updates</h4>
 <p>The following endpoints have been added:</p>
 
 <ul>
