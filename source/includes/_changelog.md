@@ -4,7 +4,21 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
-### Friday 22nd December
+### Monday 15th January 2018
+
+#### Deprecations
+
+- The `priority` attribute and object on [Issues](#issues) is deprecated. Please use `issue_priority` instead.
+
+#### Features
+
+- The following endpoints have been added
+ - [`GET /issues/priorities`](#list-issue-priorities)
+ - [`GET /issues/priorities/{priority_id`}](#get-issue-priority)
+ - [`GET /issues/priorities/count`](#count-issue-priorities)
+- [`PUT /issues/{issue_id}`](#create-issue) supports updating `priority_id` and (`status_id` or `standing`)
+
+### Friday 22nd December 2017
 
 #### Misc Updates
 
