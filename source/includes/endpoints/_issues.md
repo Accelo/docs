@@ -674,7 +674,7 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 | date_due ||
 | assignee | A `staff_id`, must point to a valid [staff](#staff) member. The staff will be assigned and informed of this assigned issue. |
 | priority_id | The [priority](#the-issue-priority) object's id. For available priorities see [`GET /issues/priorities`](#list-issue-priorities) |
-| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-task-statuses). If you have a `status_id`, please use this instead of `standing`. `standing` will be used to _guess_ the status, thus, `status_id` is more precise. **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
+| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-issue-statuses). If you have a `status_id`, please use this instead of `standing`. `standing` will be used to _guess_ the status, thus, `status_id` is more precise. **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
 | standing | The `standing` you want to change the issue to (e.g, 'submitted', 'open', 'resolved', 'closed', or 'inactive'). **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
 
 #### Configuring the Response
@@ -720,7 +720,7 @@ Values for the following fields from the [issue object](#the-issue-object) may b
 | **against_type** | Must be a valid type of object. |
 | **against_id** | Must point to a valid object of type `against_type`. |
 | standing | Must be a valid standing. (e.g, 'submitted', 'open', 'resolved', 'closed', or 'inactive'). If you have a `status_id`, please use this instead of `standing`. `standing` will be used to _guess_ the status, thus, `status_id` is more precise. |
-| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-task-statuses). |
+| status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-issue-statuses). |
 | affiliation_id ||
 | date_started ||
 | date_due ||
@@ -767,7 +767,7 @@ This request removes an issue from the deployment, specified by its `issue_id`. 
 
 `GET /issues/priorities`
 
-This request returns a list of [priority](#the-issue-priority) available for issues.
+This request returns a list of [priorities](#the-issue-priority) available for issues.
 
 ### Get Issue Priority
 
