@@ -617,7 +617,7 @@ This request reopens and returns a previously close [contract period](#the-contr
 
 
 
-### List Available Progressions
+### List Available Progressions on a Contract
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /contracts/{contract_id}/progressions`
@@ -629,7 +629,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on a Contract
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[POST|PUT] /contracts/{contract_id}/progressions/{progression_id}/auto`
@@ -641,7 +641,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-### List Resource Collections
+### List a Contract's Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
 
 `GET /companies/{company_id}/collections`
@@ -653,7 +653,7 @@ This request returns a list of [collections](#resources) against a [company](#th
 
 
 
-### Upload a Resource (Attachment)
+### Upload a Resource (Attachment) to a Collection on a Contract
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
 
 `POST /companies/{company_id}/collections/{collection_id}/resources`
@@ -665,7 +665,7 @@ This request uploads a [resource](#resources) to a collection, specified by its 
 
 
 
-### List Extension Fields
+### List Contract Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example
 
 `GET /contracts/extensions/fields`
@@ -677,7 +677,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-### List Extension Field Values
+### List a Contract's Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example     
 
 `GET /contracts/{contract_id}/extensions/values`
@@ -689,7 +689,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-### Update an Extension Field Value
+### Update an Extension Field Value on a Contract
 > See the [extension section](#update-an-extension-value) for an example    
 
 `PUT /contracts/{contract_id}/extensions/values/{extension_value_id}`
@@ -700,7 +700,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-### Set an Extension Value
+### Set an Extension Value on a Contract
 > See the [extension section](#create-an-extension-value) for an example  
 
 `POST /contracts/{contract_id}/extensions/fields/{extension_field_id}`

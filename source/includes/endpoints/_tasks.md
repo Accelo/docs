@@ -461,7 +461,7 @@ The response will be the single, created [task](#the-task-object) with its defau
 
 
 
-### List Available Progressions
+### List Available Progressions on a Task
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /tasks/{task_id}/progressions`
@@ -474,7 +474,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on a Task
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request 
 
 `PUT|POST /tasks/{task_id}/progressions/{progression_id}/auto`
@@ -487,7 +487,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-### Auto Progress to Start or End
+### Auto Progress a Task to Start or End
 > Requests:  
 
 `PUT|POST /tasks/{task_id}/progressions/start`  

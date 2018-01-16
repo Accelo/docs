@@ -570,7 +570,7 @@ The response will be the single, updated [asset](#the-asset-object) with its def
 
 
 
-### List Extension Fields
+### List Asset Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example    
 
 `GET /assets/extensions/fields`
@@ -583,7 +583,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-### List Extension Field Values
+### List an Asset's Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example     
 
 `GET /assets/{asset_id}/extensions/values`
@@ -596,7 +596,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-### Update an Extension Field Value
+### Update an Extension Field Value on an Asset
 > See the [extension section](#update-an-extension-value) for an example     
 
 `PUT /assets/{asset_id}/extensions/values/{extension_value_id}`
@@ -609,7 +609,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-### Set an Extension Field Value
+### Set an Extension Field Value on an Asset
 > See the [extension section](#create-an-extension-value) for an example
 
 `POST /assets/{asset_id}/extensions/fields/{extension_field_id}`
