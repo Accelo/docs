@@ -369,7 +369,7 @@ This request sets a contact on the Accelo deployment, identified by it's `contac
 
 
 
-### List Addresses
+### List Addresses Against a Contact
 > Sample Request:  
 
 ```http

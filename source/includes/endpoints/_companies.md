@@ -402,7 +402,7 @@ The response will be a single [contact](#contact) with its default fields and an
 
 
 
-### List Contacts
+### List Contacts Against a Company
 > Sample Request:  
 
 ```http
@@ -431,7 +431,7 @@ This request may be configured and handled as per [`GET /contacts`](#list-contac
 
 
 
-### Count Contacts
+### Count Contacts on a Company
 > Sample Request:  
 
 ```http
@@ -844,7 +844,7 @@ This request uses the given [progression](#progressions), specified by its `prog
 
 
 
-### List Addresses
+### List Addresses against a Company
 > Sample Request:  
 
 `GET /companies/{company_id}/addresses`
@@ -857,7 +857,7 @@ This request returns a list of [addresses](#addresses) associated with a [compan
 
 
 
-### Create an Address
+### Create an Address against a Company
 > Sample Request:
 
 `POST /companies/{company_id}/addresses`
