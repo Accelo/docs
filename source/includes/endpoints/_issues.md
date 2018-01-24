@@ -290,11 +290,12 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id ||
 | against_type ||
 | status | Filter by the `status_id` of the issue. |
-| type | Filter by the `type_id` of the issue. Deprecated, please use `issue_type`. |
+| type | Filter by the `type_id` of the issue. **Deprecated**, please use `issue_type`. |
 | issue_type | Filter by the `issue_type_id`. |
 | affiliation | Filter by the `affiliation_id` of the issue. |
 | class | Filter by the `class_id` of the issue. |
-| priority | Filter by the `priority_id` of the issue. |
+| priority | **Deprecated**, please use `issue_priority` |
+| issue_priority | Filter by the `priority_id` of the issue. |
 | resolution | Filter by the `resolution_id` of the issue. |
 | submitted_by | Filter by the `staff_id` of the submitter. |
 | opened_by | Filter by the `staff_id` of the user who opened the issue. |
@@ -347,7 +348,8 @@ This request supports [range filters](#filters-range-filters) over the following
 | affiliation | Range over the  `affiliation_id`. |
 | class | Range over the `class_id`. |
 | resolution | Range over the `range_id`. |
-| priority | Range over the `priority_id`. |
+| priority | **Deprecated**, please use `issue_priority` |
+| issue_priority | Range over the `priority_id`. |
 | submitted_by | Range over the `staff_id` of submitters. |
 | opened_by | Range over the `staff_id` of staff members who opened issues. |
 | resolved_by | Range over the `staff_id` of staff members who resolved issues. |
