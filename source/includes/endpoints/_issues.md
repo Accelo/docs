@@ -823,6 +823,8 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 | priority_id | The [priority](#the-issue-priority) object's id. For available priorities see [`GET /issues/priorities`](#list-issue-priorities) |
 | status_id | Must point to a valid [issue status](#statuses). Should not be sent in conjunction with `standing`, otherwise `standing` will take priority. You may retrieve a list of statuses through [`GET /issues/statuses`](#list-issue-statuses). If you have a `status_id`, please use this instead of `standing`. `standing` will be used to _guess_ the status, thus, `status_id` is more precise. **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
 | standing | The `standing` you want to change the issue to (e.g, 'submitted', 'open', 'resolved', 'closed', or 'inactive'). **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
+| resolution_id | The identifier of the [issue resolution](#the-issue-resolution). The resolution will only show if the issue's standing is `resolved`. This must point to a valid resolution, you may retrieve a list of resolutions through [`GET /issues/resolutions`](#list-issue-resolutions). |
+| resolution_detail | The details of any resolution. If this field is sent with no value. To clear the `resolution_detail` you may send this field with no value. |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
