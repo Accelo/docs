@@ -4,6 +4,17 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Wednesday 31st January 2018
+
+#### Bug Fixes
+
+In addition to the `username` and `password`, the following fields are now required when creating a new staff member via
+[POST /staff](#create-a-staff-member):
+
+- `firstname`
+- `surname`
+- `email`
+
 ### Monday 22nd January 2018
 
 #### Deprecations
