@@ -620,7 +620,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/issues/resolutions/{resolution_id} \
-  -H 'authorization: Bearer {access_token}' \ 
+  -H 'authorization: Bearer {access_token}' \
 ```
 
 `GET/issues/resolutions/{resolution_id}`
@@ -657,7 +657,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/issues/resolutions \
-  -H 'authorization: Bearer {access_token}' \ 
+  -H 'authorization: Bearer {access_token}' \
 ```
 
 `GET/issues/resolutions`
@@ -714,9 +714,14 @@ to search over the following fields:
 | title |
 
 #### Handling the Response
-The response will be a list of [issue resolutions](#the-issue-resolution) with 
-their default fields and any additional fields requested through `_fields`, and 
+The response will be a list of [issue resolutions](#the-issue-resolution) with
+their default fields and any additional fields requested through `_fields`, and
 displayed according to any pagination parameters, filters, or searches used.
+
+
+
+
+
 
 ### Count Issue Resolutions
 
@@ -731,7 +736,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/issues/resolutions/count \
-  -H 'authorization: Bearer {access_token}' \ 
+  -H 'authorization: Bearer {access_token}' \
 ```
 
 `GET/issues/resolutions/count`
