@@ -607,6 +607,151 @@ The response will be a list of [issue types](#the-issue-class) with their defaul
 
 
 
+### Get Issue Resolution
+
+> Sample request:
+
+```http
+GET /api/v0/issues/resolutions/{resolution_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/issues/resolutions/{resolution_id} \
+  -H 'authorization: Bearer {access_token}' \ 
+```
+
+`GET/issues/resolutions/{resolution_id}`
+
+This request returns a single [issue resolution](#the-issue-resolution),
+specified by its `resolution_id`.
+
+#### Configuring the Response
+
+##### Additional Fields and Linked Objects
+this request supports requesting additional fields and linked objects from the
+[issue resolution](#the-issue-resolution) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+#### Handling the Response
+The response will be the single [issue resolution](#the-issue-resolution) with
+its default fields, and any additional fields requested through `_fields`.
+
+
+
+
+
+
+### List Issue Resolutions
+
+> Sample request:
+
+```http
+GET /api/v0/issues/resolutions HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/issues/resolutions \
+  -H 'authorization: Bearer {access_token}' \ 
+```
+
+`GET/issues/resolutions`
+
+Returns a list of [issue resolutions](#the-issue-resolution).
+
+#### Configuring the Response
+
+##### Pagination
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+This request supports requesting additional fields and linked objects from the [issue resolution](#the-issue-resolution) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter | Description |
+|:-|:-|
+| id |  |
+| standing |  |
+| parent_id |  |
+
+##### Order Filters
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter | Description |
+|:-|:-|
+| id |  |
+| standing |  |
+| title |  |
+
+##### Range Filters
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Field |
+|:-|
+| id |
+
+##### Empty Filters
+This request supports [empty filters](#filters-empty-filters) over the following fields:
+
+| Field |
+|:-|
+| title |
+
+##### Searching
+This request supports the [`_search`](#configuring-the-response-searching) parameter
+to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+#### Handling the Response
+The response will be a list of [issue resolutions](#the-issue-resolution) with 
+their default fields and any additional fields requested through `_fields`, and 
+displayed according to any pagination parameters, filters, or searches used.
+
+### Count Issue Resolutions
+
+> Sample request:
+
+```http
+GET /api/v0/issues/resolutions/count HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/issues/resolutions/count \
+  -H 'authorization: Bearer {access_token}' \ 
+```
+
+`GET/issues/resolutions/count`
+
+This request returns a count of [issue resolutions](#the-issue-resolution) in a
+list defined by any available filters or searches. With no searches or filters
+this will be a count of all issue resolutions on the deployment. This request
+returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | Unsigned | A count of issue resolutions listed |
+
+
+
+
+
+
+
+
 
 ### List Tasks Against an Issue
 > Sample Request:  

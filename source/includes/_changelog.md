@@ -6,6 +6,14 @@ With the release of the new and easier to maintain documentation, we're going to
 
 ### Wednesday 31st January 2018
 
+#### Features
+
+The following endpoints have been added to issues:
+
+- [GET /issues/resolutions/{resolution_id}](#get-issue-resolution) - Get issue resolution
+- [GET /issues/resolutions](#list-issue-resolutions) - List issue resolutions
+- [GET /issues/resolutions/count](#count-issue-resolutions) - Count issue resolutions
+
 #### Bug Fixes
 
 In addition to the `username` and `password`, the following fields are now required when creating a new staff member via
