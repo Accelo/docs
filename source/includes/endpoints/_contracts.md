@@ -231,6 +231,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | status | Filter against the `status_id`. |
 | against_id | |
 | against_type | |
+| is_related_to_issue | Filter for contracts related an [issue](#issues) (or list of issues), specified by its `issue_id`. |
 
 ##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
