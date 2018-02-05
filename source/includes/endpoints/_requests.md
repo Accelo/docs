@@ -13,7 +13,7 @@ These allow you to track request from clients sent to your shared company addres
   "id": "31",
   "source": null,
   "standing": "pending",
-  "priority": "1",
+  "request_priority": "1",
   "date_created": "1494823725",
   "type_id": "2",
   "claimer": "23",
@@ -43,7 +43,8 @@ The request object contains the following:
 | type_id | unsigned | The unique identifier of the [request type](#the-request-type). |
 | type | unsigned or object | The [request type](#the-request-type). |
 | priority_id | unsigned | The unique identifier of the [request priority](#the-request-priority). |
-| priority | unsigned or object | The [request priority](#the-request-priority). |
+| priority | unsigned or object | **Deprecated**, please use `request_priority` |
+| request_priority | unsigned or object | The [request priority](#the-request-priority). |
 | claimer_id | unsigned | The unique identifier of the [staff](#staff) who has claimed the request. |
 | claimer | unsigned or object | The [staff](#staff) member who has claimed the request. |
 | affiliation_id | unsigned | The unique identifier of the [affiliation](#affiliations) associated with the request. |
@@ -237,7 +238,8 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | standing ||
 | affiliation | Filter by `affiliation_id`. |
 | type | Filter by the `type_id`. |
-| priority | Filter by the `priority_id`. |
+| priority | **Deprecated**, please use `request_priority` |
+| request_priority | Filter by the `priority_id`.|
 | lead | Filter by the `lead_id`. |
 | claimer_id ||
 
@@ -266,7 +268,8 @@ This request supports [range filters](#filters-range-filters) over the following
 | progressed_by | Range over the `staff_id` of the last staff member to progress the standing of the request. |
 | lead | Range over the `lead_id`. |
 | affiliation | Range over the `affiliation_id`. |
-| priority | Range over the `affiliation_id`. |
+| priority | **Deprecated**, please use request_priority |
+| request_priority | Range over the `affiliation_id`. |
 
 #### Searching
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:

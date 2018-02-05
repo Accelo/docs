@@ -30,7 +30,7 @@ The Activity object is complex and contains some special objects:
   "date_ended": null,
   "staff": "14",
   "task": "0",
-  "priority": "3",
+  "activity_priority": "3",
   "owner_id": "14",
   "parent": "activities/0",
   "details": "Request from jack.black@jack-and-co.com",
@@ -81,9 +81,10 @@ The activities object contains the following fields:
 | billable | unsigned | Amount of billable time logged for the activity, in seconds. |
 | nonbillable | unsigned | Amount of non-billable time logged for the activity, in seconds. |
 | staff | unsigned or object | The [staff](#staff) member that has logged time on the event.|
-| priority | unsigned or object | The [priority](#the-activity-priority) of the activity. Default is "3". |
 | class | unsigned or object | **Deprecated**, please use `activity_class` |
 | activity_class | unsigned or object | The activity's [class](#the-activity-class). The default is "1". |
+| priority | unsigned or object | **Deprecated**, please use `activity_priority` |
+| activity_priority | unsigned or object | The [priority](#the-activity-priority) of the activity. |
 | task | unsigned or object | The [task](#tasks) the activity is against. Returns null if there is no task against the activity. |
 | time_allocation | unsigned or object | The [time allocation](#the-time-allocation-object) for the activity. |
 | rate | unsigned or object | The [rate](#rates) charged for any billable time logged against the activity. |
@@ -150,7 +151,7 @@ The class object for activities will contain the following:
 > Sample JSON of an activity priority:
 
 ```json
-"priority": {
+{
   "id": "3",
   "title": "Medium",
   "level": "3"
@@ -332,9 +333,10 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | medium ||
 | visibility ||
 | staff | Filter by the `staff_id` of any staff who have logged time against the activities. |
-| priority | Filter by the `priority_id` of the activities. |
 | class | **Deprecated**, please use `activity_class` |
 | activity_class | Filter by the `class_id` of the activities. |
+| priority | **Deprecated**, please use `activity_priority` |
+| activity_priority | Filter by the `priority_id` of the activities. |
 | task | Filter by the `task_id` of any tasks the activities are against. |
 | time_allocation | Filter by the `time_allocation_id`. |
 
@@ -411,7 +413,8 @@ This request supports [range filters](#filters-range-filters) over the following
 | thread | Range over the `thread_id`. |
 | owner | Range over the `owner_id`. |
 | staff | Range over the `staff_id`. |
-| priority | Range over the `priority_id`. |
+| priority | **Deprecated**, please use `activity_priority` |
+| activity_priority | Range over the `priority_id`. |
 | class | Range over the `class_id`. |
 | task | Range over the `task_id`. |
 
@@ -714,7 +717,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer {access_token}
 
 priority=4
-_fields=priority()
+_fields=activity_priority()
 ```
 
 ```shell
@@ -723,7 +726,7 @@ curl -X put \
   -H 'authorization: Bearer {access_token}' \
   -H 'content-type: application/x-www-form-urlencoded' \
   -d 'priority_id=3' \
-  -d '_fields=priority()'
+  -d '_fields=activity_priority()'
 ```
 This request will update, and return, the identified activity.
 
@@ -750,7 +753,7 @@ The following fields from the [activity object](#the-activity-object) may be upd
 "response": {
   "subject": "A note on my schedule",
   "id": "1002",
-  "priority": {
+  "activity_priority": {
     "title": "Low",
     "id": "4"
   }

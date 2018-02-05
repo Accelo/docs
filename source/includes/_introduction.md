@@ -116,12 +116,18 @@ The following parameters may be used to suppress parts, or all, of the meta resp
 |:-|:-|
 | \_suppress\_message | Suppresses `message` and `more_info`. |
 | \_suppress\_http\_status | Forces HTTP status to 200 and stores the actual status in `response_code` |
-| suppress\_meta | Suppresses all meta data. This is useful if you wish to purely utilize HTTP headers. |
+| \_suppress\_meta | Suppresses all meta data. This is useful if you wish to purely utilize HTTP headers. |
 
-They make take values of either "1" or "yes", for example to suppress all meta we could use `suppress_meta=yes` or `suppress_meta=1`.
+They make take values of either "1" or "yes", for example to suppress all meta we could use `_suppress_meta=yes` or `_suppress_meta=1`.
 
 ### Default and Required Fields
 A resource will only return a small number of fields by default, these fields will be in bold in the resource's table of fields and linked objects. Similarly, POST request will generally require values for some fields, these fields will be in bold within the endpoint's description.
+
+The following parameter may be used to hide the default fields that would be returned in the response:
+
+| Name | Description |
+|:-|:-|
+| \_hide\_defaults | Hides the default fields from the response. This is useful to reduce the size of the payload to just the fields you need. |
 
 
 
