@@ -1064,3 +1064,108 @@ This request returns a list of activities in a thread, identified by its `thread
 ```
 
 This request returns a list of activities in a thread, identified by its `thread_id`. This request may be configured and handled in the same way as [`GET /activities`](#get-activities).
+
+
+
+
+### List Activity Classes
+> Sample Request:  
+
+```http
+GET /api/v0/activities/classes HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  http://{deployment}.api.accelo.com/api/v0/activities/classes \
+  -H 'authorization: Bearer {access_token}' \
+  -H 'content-type: application/x-www-form-urlencoded'
+```
+
+
+`GET /activities/classes`
+
+This request returns a list of [activity classes](#the-activity-class).
+
+#### Configuring the Response
+
+##### Pagination
+This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+This request supports requesting additional fields and linked objects from the [activity class](#the-activity-class) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+This request supports [basic filters](#filters-basic-filters) over the following fields:
+
+> Sample response of a single class:  
+
+```json
+{
+  "parent": "3",
+  "id": "5",
+  "standing": "active",
+  "title": "Internal"
+}
+```
+
+| Filter Name | Notes |
+|:-|:-|
+| id | Return only the class with this id. |
+| title | Filter by the title of the class. |
+| parent | Return only classes whose parent class is of this id. |
+| standing | Takes either "active" or "inactive" as arguments. |
+
+#### Handling the Response
+The response will be a list of [activity classes](#the-activity-class), displayed according to any pagination parameters or searches used. The activity classes listed will be displayed with its default fields and any additional fields requested through `_fields`.
+
+
+
+
+### Get Activity Class
+> Sample Request:  
+
+```http
+GET /api/v0/activities/classes/{class_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  http://{deployment}.api.accelo.com/api/v0/activities/classes/{class_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /activities/classes/{class_id}`
+
+Returns a single [activity class](#the-activity-class) for the given class id.
+
+
+
+
+### Count Activity Classes
+> Sample Request:  
+
+```http
+GET /api/v0/activities/classes/count HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  http://{deployment}.api.accelo.com/api/v0/activities/classes/count \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /activities/classes/count`
+
+This request will return a count of activity classes in a list defined by any available searches or filters. With no searches or filters this will be a count of all activity classes. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the number of activity classes listed. |
