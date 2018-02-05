@@ -831,6 +831,7 @@ Values for the following fields may be set through this request.
 | send_invites | Only applicable if `medium` is set to "meeting". Either "true" or "false", whether invitations are enabled or not. Defaults to "false". |
 | nonbillable | Requires the owner is a staff member. |
 | billable | As above, but also requires the activity is against an [issue](#issues), [job](#jobs-projects), [milestone](#milestones), [contract](#contracts), or [period](#contract-periods)|
+| block_send | `1` or `0`, whether to block sending the activity. Defaults to `0`, so the activity will be sent if it is eligible. |
 
 
 #### Including "to", "cc" and "bcc" Interactions
