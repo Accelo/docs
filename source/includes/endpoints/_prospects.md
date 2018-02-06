@@ -470,7 +470,7 @@ The response will be the single, updated [prospect object](#the-prospect-object)
 
 
 
-### List Profile Fields
+### List Prospect Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request
 
 `GET /prospects/profiles/fields`
@@ -483,7 +483,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-### List Profile Field Values
+### List a Prospect's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request  
 
 `GET /prospects/{prospect_id}/profiles/values`
@@ -496,7 +496,7 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-### Update a Profile Field Value
+### Update a Profile Field Value on a Prospect
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /prospects/{prospect_id}/profiles/values/{profile_value_id}`
@@ -510,7 +510,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-### Set a Profile Field Value
+### Set a Profile Field Value on a Prospect
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `PUT|POST /prospects/{prospect_id}/profiles/fields/{profile_field_id}`
@@ -523,7 +523,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-### List Extension Fields
+### List Prospect Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example   
 
 `GET /prospects/extensions/fields`
@@ -536,7 +536,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-### List Extension Field Values
+### List a Prospect's Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example    
 
 `GET /prospects/{prospect_id}/extensions/values`
@@ -549,7 +549,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-### Update an Extension Field Value
+### Update an Extension Field Value on a Prospect
 > See the [extension section](#update-an-extension-value) for an example    
 
 `PUT /prospects/{prospect_id}/extensions/values/{extension_value_id}`
@@ -562,7 +562,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-### Set an Extension Field Value
+### Set an Extension Field Value on a Prospect
 > Sample Request:  
 
 `POST /prospects/{prospect_id}/extensions/fields/{extension_field_id}`
@@ -575,7 +575,7 @@ This request sets and returns the value of an extension field, specified by its 
 
 
 
-### List Available Progressions
+### List Available Progressions on a Prospect
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /prospects/{prospect_id}/progressions`
@@ -588,7 +588,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on a Prospect
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `PUT|POST /prospects/{prospect_id}/progressions/{progression_id}/auto`
@@ -601,7 +601,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-### Retrieve a List of Resource Collections for a Prospect
+### List a Prospect's Resource Collections
 > Sample Request:  
 
 `GET /prospects/{prospect_id}/collections`
@@ -614,7 +614,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 
 
-### Upload a Resource (Attachment) to a Collection of a Prospect
+### Upload a Resource (Attachment) to a Collection on a Prospect
 > Sample Request:  
 
 `POST /prospects/{prospect_id}/collections/{collection_id}/resources`

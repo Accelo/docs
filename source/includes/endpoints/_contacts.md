@@ -369,7 +369,7 @@ This request sets a contact on the Accelo deployment, identified by it's `contac
 
 
 
-### List Addresses
+### List Addresses Against a Contact
 > Sample Request:  
 
 ```http
@@ -425,7 +425,7 @@ This request returns a single status with its default fields and any additional 
 
 
 
-### List Segmentations
+### List Contact Segmentations
 > Sample Request:  
 
 `GET /contacts/{contact_id}/segmentations`
@@ -437,7 +437,7 @@ This request returns a list of [segmentations](#the-segmentation-object) for a [
 
 
 
-### List Profile Values
+### List a Contact's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /contacts/{contact_id}/profiles/values`
@@ -450,59 +450,33 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-### Update a Profile Field Value
-> See the [profiles section](#update-a-profile-value-link) for a sample request  
+### List Contact Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for general usage.
+
+`GET /contacts/profiles/fields/`
+
+This request returns a list of [profile fields](#the-profile-field-object)
+available for [contacts](#the-contact-object).
+
+
+
+
+
+
+### Update a Profile Field Value on a Contact
+> See the [profiles section](#update-a-profile-value-link) for general usage.
 
 `PUT /contacts/{contact_id}/profiles/values/{profile_value_id}`
 
-This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular [contact](#the-contact-object), specified by its `contact_id`. This is the request [`PUT /{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "contacts", and whose id is the `contact_id`.
+This request updates and returns a [profile value](#the-profile-value-object),
+specified by its `profile_value_id`, of a particular contact, specified by its
+`contact_id`.
 
 
 
 
 
-
-
-### List Available Progressions
-> See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
-
-`GET /contacts/{contact_id}/progressions`
-
-This request returns a list of available [progressions](#the-progression-object) for a [contact](#the-contact-object), specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "contacts" whose id is `contact_id`.
-
-
-
-
-
-
-
-### Auto Run a Progression
-> See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
-
-`PUT|POST /contacts/{contact_id}/progressions/{progression_id}/auto`
-
-This request uses the given progression, specified by its `progression_id` to progress a [contact](#the-contact-object), specified by its `contact_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the object is "contact" whose id is `contact_id`.
-
-
-
-
-
-
-
-### List Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
-
-`GET /contacts/profiles/fields`
-
-This request returns a list of [profile fields](#the-profile-field-object) available for [contacts](#the-contact-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "contacts".
-
-
-
-
-
-
-
-### Create a Profile Field Value
+### Set a Contact's Profile Field Value
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /contacts/{contact_id}/profiles/fields/{profile_field_id}`
@@ -515,7 +489,33 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-### List Resource Collections
+### List Available Progressions on a Contact
+> See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
+
+`GET /contacts/{contact_id}/progressions`
+
+This request returns a list of available [progressions](#the-progression-object) for a [contact](#the-contact-object), specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "contacts" whose id is `contact_id`.
+
+
+
+
+
+
+
+### Auto Run a Progression on a Contact
+> See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
+
+`PUT|POST /contacts/{contact_id}/progressions/{progression_id}/auto`
+
+This request uses the given progression, specified by its `progression_id` to progress a [contact](#the-contact-object), specified by its `contact_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the object is "contact" whose id is `contact_id`.
+
+
+
+
+
+
+
+### List a Contact's Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
 
 `GET /contacts/{contact_id}/collections`
@@ -528,7 +528,7 @@ This request returns a list of [collections](#resources-attachments) against a [
 
 
 
-### Upload a Resource (Attachment)
+### Upload a Resource (Attachment) to a Collection on a Contact
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example  
 
 `POST /contacts/{contact_id}/collections/{collection_id}/resources`

@@ -206,7 +206,7 @@ This request will return a count of milestones in a list defined by any availabl
 
 
 
-### List Profile Fields
+### List Milestone Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields)) for a sample request
 
 `GET /milestones/profiles/fields`
@@ -219,7 +219,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-### List Profile Field Values
+### List a Milestone's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request  
 
 `GET /milestones/{milestone_id}/profiles/values`
@@ -232,7 +232,7 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-### Update a Profile Field Value
+### Update a Profile Field Value on a Milestone
 > See the [profiles section](#update-a-profile-value-link) for a sample request   
 
 `PUT /milestones/{milestone_id}/profiles/values/{profile_value_id}`
@@ -245,7 +245,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-### Set a Profile Field Value
+### Set a Profile Field Value on a Milestone
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /milestones/{milestone_id}/profiles/fields/{profile_field_id}`
@@ -258,7 +258,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-### List Available Progressions
+### List Available Progressions on a Milestone
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /milestones/{milestone_id}/progressions`
@@ -271,7 +271,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on a Milestone
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `PUT|POST /milestones/{milestone_id}/progressions/{progression_id}/auto`

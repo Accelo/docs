@@ -4,6 +4,12 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Tuesday 6th February 2018
+
+#### Misc
+
+- Rename some sections for clarity and to avoid title duplication.
+
 ### Friday 2nd February 2018
 
 #### Features
