@@ -10,6 +10,13 @@ With the release of the new and easier to maintain documentation, we're going to
 
 - Rename some sections for clarity and to avoid title duplication.
 
+#### Features
+
+- The following endpoints have been added:
+  - [`GET /activities/classes`](#list-activity-classes)
+  - [`GET /activities/classes/{class_id}`](#get-activity-class)
+  - [`GET /activities/classes/count`](#count-activity-classes)
+
 ### Friday 2nd February 2018
 
 #### Features
