@@ -669,7 +669,7 @@ This request deletes a job from the deployment, specified by its `job_id`. This 
 
 
 
-### List Extension Fields
+### List Job Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example
 
 `GET /jobs/extensions/fields`
@@ -682,7 +682,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-### List Extension Field Values
+### List a Job's Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example    
 
 `GET /jobs/{job_id}/extensions/values`
@@ -695,7 +695,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-### Update an Extension Field Value
+### Update an Extension Field Value on a Job
 > See the [extension section](#update-an-extension-value) for an example     
 
 `PUT /jobs/{job_id}/extensions/values/{extension_value_id}`
@@ -708,7 +708,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-### Set an Extension Field Value
+### Set an Extension Field Value on a Job
 > Sample Request:  
 
 `POST /jobs/{job_id}/extensions/fields/{extension_field_id}`
@@ -722,7 +722,7 @@ This request sets and returns the value of an extension field, specified by its 
 
 
 
-### List Available Progressions
+### List Available Progressions on a Job
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /jobs/{jobs_id}/progressions`
@@ -735,7 +735,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-### Auto Run Progression
+### Auto Run Progression on a Job
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[POST|PUT] /jobs/{jobs_id}/progressions/{progression_id}/auto`
@@ -748,7 +748,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-### List Resource Collections
+### List a Job's Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
 
 `GET /jobs/{job_id}/collections`
@@ -761,7 +761,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 
 
-### Upload a resource (Attachment)
+### Upload a Resource (Attachment) to a Collection on a Job
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
 
 `POST jobs/{job_id}/collections/{collection_id}/resources`
