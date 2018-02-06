@@ -4,11 +4,24 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
-### Tuesday 16th January 2018
+### Tuesday 6th February 2018
 
 #### Misc
 
-Rename some sections for clarity and to avoid title duplication.
+- Rename some sections for clarity and to avoid title duplication.
+
+### Friday 2nd February 2018
+
+#### Features
+
+- Add the `block_send` flag to allow blocking [activities created through the API](#create-an-activity)
+from being sent.
+
+### Monday 22nd January 2018
+
+#### Deprecations
+
+- The `priority` attribute and object on [Activities](#activities) and [Requests](#requests) is deprecated. Please use `activity_priority` and `request_priority` instead.
 
 ### Monday 15th January 2018
 

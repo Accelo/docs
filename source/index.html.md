@@ -35,6 +35,7 @@ includes:
   - endpoints/ledgers
   - endpoints/milestones
   - endpoints/object_budgets
+  - endpoints/object_schedules
   - endpoints/payments
   - endpoints/profiles
   - endpoints/progressions

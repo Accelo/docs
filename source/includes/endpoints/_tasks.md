@@ -43,7 +43,9 @@ The task object contains the following:
 | issue | unsigned or object | The [issue](#issues) object the task is against, if any. |
 | job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. |
 | milestone | unsigned or object | The [milestone](#milestones) object the task is against, if any. |
-| task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any.
+| task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any. |
+| task_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the task. |
+| task_object_schedule_id | unsigned | The id of the object schedule linked to the task. |
 
 #### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
