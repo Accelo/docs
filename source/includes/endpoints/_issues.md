@@ -787,7 +787,7 @@ Returns the number of issue priorities.
 
 
 
-### List Profile Fields
+### List Issue Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /issues/profiles/fields`
@@ -800,7 +800,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-### List Profile Field Values
+### List an Issue's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /issues/{issue_id}/profiles/values`
@@ -813,10 +813,10 @@ This request returns a list of [profile values](#the-profile-value-object) of an
 
 
 
-### Update a Profile Value
+### Update a Profile Value on an Issue
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
-`PUT /issues/issue_id/profiles/values/{profile_value_id}`
+`PUT /issues/{issue_id}/profiles/values/{profile_value_id}`
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular issue,specified by its `issue_id`. This is the request [`PUT /{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "issues", and whose id is the `{issue_id}`.
 
@@ -826,7 +826,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-### Set a Profile Value
+### Set a Profile Value on an Issue
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /issues/{issue_id}/profiles/fields/{profile_field_id}`
@@ -839,7 +839,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-### List Extension Fields
+### List Issue Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example  
 
 `GET /issues/extensions/fields`
@@ -852,7 +852,7 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 
 
-### List Extension Field Values
+### List an Issue's Extension Field Values
 > See the [extension section](#retrieve-a-list-of-extension-field-values) for an example    
 
 `GET /issues/{issue_id}/extensions/values`
@@ -865,7 +865,7 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 
 
-### Update an Extension Field Value
+### Update an Extension Field Value on an Issue
 > See the [extension section](#update-an-extension-value) for an example      
 
 `PUT /issues/{issue_id}/extensions/values/{extension_value_id}`
@@ -878,7 +878,7 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 
 
-### Set an Extension Field Value
+### Set an Extension Field Value on an Issue
 > Sample Request:  
 
 `POST /issues/{issue_id}/extensions/fields/{extension_field_id}`
@@ -892,7 +892,7 @@ This request sets and returns the value of an extension field, specified by its 
 
 
 
-### List Available Progressions
+### List Available Progressions on an Issue
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request  
 
 `GET /issues/{issue_id}/progressions`
@@ -905,7 +905,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on an Issue
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request  
 
 `[POST|PUT] /issues/{issue_id}/progressions/{progression_id}/auto`
@@ -918,7 +918,7 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 
-### List Resource Collections
+### List an Issue's Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
 
 `GET /issues/{issue_id}/collections`
@@ -931,7 +931,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 
 
-### Upload a Resource (Attachment)
+### Upload a Resource (Attachment) to a Collection on an Issue
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
 
 `POST /issues/{issue_id}/collections/{collection_id}/resources`

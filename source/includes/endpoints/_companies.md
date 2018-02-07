@@ -402,7 +402,7 @@ The response will be a single [contact](#contact) with its default fields and an
 
 
 
-### List Contacts
+### List Contacts Against a Company
 > Sample Request:  
 
 ```http
@@ -431,7 +431,7 @@ This request may be configured and handled as per [`GET /contacts`](#list-contac
 
 
 
-### Count Contacts
+### Count Contacts on a Company
 > Sample Request:  
 
 ```http
@@ -764,7 +764,7 @@ This response returns a list of manager (staff members) for the given company.
 
 
 
-### List Profile Field Values
+### List a Company's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /companies/{company_id}/profiles/values`
@@ -777,48 +777,8 @@ This request returns a list of [profile field values](#the-profile-value-object)
 
 
 
-### Update the value of a Profile Field
-> See the [profiles section](#update-a-profile-value-link) for a sample request  
-
-`PUT /companies/{company_id}/profiles/values/{profile_value_id}`
-
-This request updates and returns a [profile field value](#the-profile-value-object), specified by its `profile_value_id` of a particular [company](#the-company-object), identified by its `company_id`. This is the request [`PUT /{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "company", and whose id is `{company_id}`.
-
-
-
-
-
-
-
-### List Available Progressions
-> See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request  
-
-`GET /companies/{company_id}/progressions`
-
-This request returns a list of available [progressions](#progressions) for a [company](#the-company-object) identified by its `company_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "companies" whose id is `{company_id}`
-
-
-
-
-
-
-
-### Auto Run a Progression
-> See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request  
-
-`[PUT|POST] /companies/{company_id}/progressions/{progression_id}/auto`
-
-
-This request uses the given [progression](#progressions), specified by its `progression_id` to progress the status of a[company](#the-company-object), specified by its `company_id`. This is the request [`[PUT|POST] /{object}/{object_id}/progressions/{progression_id/auto}`](#run-a-status-update-using-a-given-progression) where the object is "companies" whose id is `{company_id}`.
-
-
-
-
-
-
-
-### List Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
+### List Company Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
 
 `GET /companies/profiles/fields`
 
@@ -830,7 +790,20 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-### Create a Profile Field Value
+### Update a Profile Field Value on a Company
+> See the [profiles section](#update-a-profile-value-link) for a sample request
+
+`PUT /companies/{company_id}/profiles/values/{profile_value_id}`
+
+This request updates and returns a [profile field value](#the-profile-value-object), specified by its `profile_value_id` of a particular [company](#the-company-object), identified by its `company_id`. This is the request [`PUT /{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "company", and whose id is `{company_id}`.
+
+
+
+
+
+
+
+### Set a Profile Field Value on a Company
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /companies/{company_id}/profiles/{profile_field_id}`
@@ -843,7 +816,35 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-### List Addresses
+### List Available Progressions on a Company
+> See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
+
+`GET /companies/{company_id}/progressions`
+
+This request returns a list of available [progressions](#progressions) for a [company](#the-company-object) identified by its `company_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "companies" whose id is `{company_id}`
+
+
+
+
+
+
+
+### Auto Run a Progression on a Company
+> See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
+
+`[PUT|POST] /companies/{company_id}/progressions/{progression_id}/auto`
+
+
+This request uses the given [progression](#progressions), specified by its `progression_id` to progress the status of a [company](#the-company-object), specified by its `company_id`. This is the request [`[PUT|POST] /{object}/{object_id}/progressions/{progression_id/auto}`](#run-a-status-update-using-a-given-progression) where the object is "companies" whose id is `{company_id}`.
+
+
+
+
+
+
+
+
+### List Addresses against a Company
 > Sample Request:  
 
 `GET /companies/{company_id}/addresses`
@@ -856,7 +857,7 @@ This request returns a list of [addresses](#addresses) associated with a [compan
 
 
 
-### Create an Address
+### Create an Address against a Company
 > Sample Request:
 
 `POST /companies/{company_id}/addresses`
@@ -869,8 +870,8 @@ This request creates a [address](#addresses) against a [company](#the-company-ob
 
 
 
-### List Resource Collections
-> See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
+### List a Company's Resource Collections
+> See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
 
 `GET /companies/{company_id}/collections`
 
@@ -882,8 +883,8 @@ This request returns a list of [collections](#resources) against a [company](#th
 
 
 
-### Upload a Resource (Attachment)
-> See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example  
+### Upload a Resource (Attachment) to a Collection on a Company
+> See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example
 
 `POST /companies/{company_id}/collections/{collection_id}/resources`
 
