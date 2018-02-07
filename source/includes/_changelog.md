@@ -26,7 +26,10 @@ The following endpoints have been added to issues:
 
 The following issue endpoints have been updated:
 
-- [PUT /issues/{issue_id}](#update-an-issue) - you may now update an issue's `resolution` and `resolution_details`, you may now also update an issue's `contract_id`
+- [PUT /issues/{issue_id}](#update-an-issue) - you may now update the following:
+  - The issue's resolution, via: `resolution` or `resolution_details`
+  - The issue's contract via: `contract_id`
+
 
 #### Deprecations
 
