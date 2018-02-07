@@ -418,7 +418,7 @@ This request will delete the affiliation identified by its `affiliation_id`. Thi
 
 
 
-### List Profile Field Values
+### List an Affiliation's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /affiliations/{affiliation_id}/profiles/values`
@@ -430,7 +430,7 @@ This request returns a list of [profile field values](#the-profile-value-object)
 
 
 
-### List Profile Fields
+### List Affiliation Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /affiliations/profiles/fields`
@@ -443,7 +443,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-### Update a Profile Field Value
+### Update a Profile Field Value on an Affiliation
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /affiliations/{affiliation_id}/profiles/values/{profile_value_id}`
@@ -458,7 +458,7 @@ This request updates and returns a [profile field value](#the-profile-value-obje
 
 
 
-### Set a Profile Field Value
+### Set a Profile Field Value on an Affiliation
 > See the [profiles section](#create-a-profile-value-link) for a sample request
 
 `POST /affiliations/{affiliation_id}/profiles/fields/{profile_field_id}`
@@ -473,7 +473,7 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 
 
-### List Available Progressions
+### List Available Progressions on an Affiliation
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /affiliations/{affiliation_id}/progressions`
@@ -486,7 +486,7 @@ This request returns a list of available [progressions](#progressions) for an [a
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on an Affiliation
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[PUT | POST] /affiliations/{affiliation_id}/progressions/{progression_id}/auto`

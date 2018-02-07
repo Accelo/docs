@@ -4,19 +4,33 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
-### Wednesday 31st January 2018
+### Tuesday 6th February 2018
+
+#### Misc
+
+- Rename some sections for clarity and to avoid title duplication.
 
 #### Features
 
+The following endpoints have been added to activities:
+
+- [`GET /activities/classes`](#list-activity-classes)
+- [`GET /activities/classes/{class_id}`](#get-activity-class)
+- [`GET /activities/classes/count`](#count-activity-classes)
+
 The following endpoints have been added to issues:
 
-- [GET /issues/resolutions/{resolution_id}](#get-issue-resolution) - Get issue resolution
-- [GET /issues/resolutions](#list-issue-resolutions) - List issue resolutions
-- [GET /issues/resolutions/count](#count-issue-resolutions) - Count issue resolutions
+- [`GET /issues/resolutions/{resolution_id}`](#get-issue-resolution) - Get issue resolution
+- [`GET /issues/resolutions`](#list-issue-resolutions) - List issue resolutions
+- [`GET /issues/resolutions/count`](#count-issue-resolutions) - Count issue resolutions
 
 The following issue endpoints have been updated:
 
 - [PUT /issues/{issue_id}](#update-an-issue) - you may now update an issue's `resolution` and `resolution_details`
+
+#### Deprecations
+
+- The `class` attribute and object on [activities](#activities) is deprecated. Please use `activity_class` instead.
 
 #### Bug Fixes
 
@@ -26,6 +40,13 @@ In addition to the `username` and `password`, the following fields are now requi
 - `firstname`
 - `surname`
 - `email`
+
+### Friday 2nd February 2018
+
+#### Features
+
+- Add the `block_send` flag to allow blocking [activities created through the API](#create-an-activity)
+from being sent.
 
 ### Monday 22nd January 2018
 

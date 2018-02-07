@@ -288,7 +288,7 @@ This request removes a [staff member](#the-staff-object) from the deployment, id
 
 
 
-### List Profile Fields
+### List Staff Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
 
 `GET /staff/profiles/fields`
@@ -301,7 +301,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 
-### List Profile Field Values
+### List a Staff's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /staff/{staff_id}/profiles/values`
@@ -314,7 +314,7 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
-### Update a Profile Field Value
+### Update a Profile Field Value on a Staff
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
 `PUT /staff/{staff_id}/profiles/fields/{profile_value_id}`
@@ -328,7 +328,7 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 
 
-### Set a Profile Field Value
+### Set a Profile Field Value on a Staff
 > See the [profiles section](#create-a-profile-value-link) for a sample request 
 
 `PUT|POST /staff/{staff_id}/profiles/fields/{profile_field_id}`

@@ -509,7 +509,7 @@ This request removes an expense from the deployment. It takes no parameters and 
 
 
 
-### List Available Progressions
+### List Available Progressions on an Expense
 > See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /companies/{expense_id}/progressions`
@@ -521,7 +521,7 @@ This request returns a list of available [progressions](#progressions) for an [e
 
 
 
-### Auto Run a Progression
+### Auto Run a Progression on an Expense
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[PUT|POST] /companies/{expense_id}/progressions/{progression_id}/auto`
