@@ -81,9 +81,10 @@ The activities object contains the following fields:
 | billable | unsigned | Amount of billable time logged for the activity, in seconds. |
 | nonbillable | unsigned | Amount of non-billable time logged for the activity, in seconds. |
 | staff | unsigned or object | The [staff](#staff) member that has logged time on the event.|
+| class | unsigned or object | **Deprecated**, please use `activity_class` |
+| activity_class | unsigned or object | The activity's [class](#the-activity-class). The default is "1". |
 | priority | unsigned or object | **Deprecated**, please use `activity_priority` |
 | activity_priority | unsigned or object | The [priority](#the-activity-priority) of the activity. |
-| class | unsigned or object | The activity's [class](#the-activity-class). The default is "1" |
 | task | unsigned or object | The [task](#tasks) the activity is against. Returns null if there is no task against the activity. |
 | time_allocation | unsigned or object | The [time allocation](#the-time-allocation-object) for the activity. |
 | rate | unsigned or object | The [rate](#rates) charged for any billable time logged against the activity. |
@@ -332,9 +333,10 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | medium ||
 | visibility ||
 | staff | Filter by the `staff_id` of any staff who have logged time against the activities. |
+| class | **Deprecated**, please use `activity_class` |
+| activity_class | Filter by the `class_id` of the activities. |
 | priority | **Deprecated**, please use `activity_priority` |
 | activity_priority | Filter by the `priority_id` of the activities. |
-| class | Filter by the `class_id` of the activities. |
 | task | Filter by the `task_id` of any tasks the activities are against. |
 | time_allocation | Filter by the `time_allocation_id`. |
 
