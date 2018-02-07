@@ -830,6 +830,7 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 | standing | The `standing` you want to change the issue to (e.g, 'submitted', 'open', 'resolved', 'closed', or 'inactive'). **Warning** this will bypass any progressions and should only be used deliberately when automating tasks. |
 | resolution_id | The identifier of the [issue resolution](#the-issue-resolution). The resolution will only show if the issue's standing is `resolved`. This must point to a valid resolution, you may retrieve a list of resolutions through [`GET /issues/resolutions`](#list-issue-resolutions). |
 | resolution_detail | The details of any resolution. To clear the `resolution_detail` you may send this field with no value. |
+| contract_id | The id of the [contract](#contracts) the issue is under, if this field is empty, the `contract_id` will be unset. This must point to a related contract, you can use the `is_related_to_issue` filter on [`GET /contracts`](#list-contracts) to find related contracts. |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
