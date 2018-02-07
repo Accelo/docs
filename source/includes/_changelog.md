@@ -17,6 +17,10 @@ With the release of the new and easier to maintain documentation, we're going to
   - [`GET /activities/classes/{class_id}`](#get-activity-class)
   - [`GET /activities/classes/count`](#count-activity-classes)
 
+#### Deprecations
+
+- The `class` attribute and object on [activities](#activities) is deprecated. Please use `activity_class` instead.
+
 ### Friday 2nd February 2018
 
 #### Features
