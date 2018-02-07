@@ -29,13 +29,11 @@ You can now see the docs at http://localhost:4567.
 
 For those who don't have JavaScript runtime or are experiencing JavaScript runtime issues with ExecJS, it is recommended to add the [rubyracer gem](https://github.com/cowboyd/therubyracer) to your gemfile and run `bundle` again.
 
-## For errors in our documentation
+## Need help?
 
-Please [submit an issue](https://github.com/Accelo/docs/issues) to the Accelo Docs GitHub and, of course, feel free to submit pull requests with fixes and improvements.
+To report problems or ask questions please post to our [development forum](https://groups.google.com/forum/#!forum/accelo-devs) and someone will be happy to help :smiley:
 
-## Need API help?
-
-[Post a question](https://groups.google.com/forum/#!forum/accelo-devs) on our forum and someone will be happy to help.
+If you see issues or would like to make an improvement in the documentation please don't hesitate to contribute with a pull request.
 
 ## Special Thanks
 
