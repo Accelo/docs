@@ -18,6 +18,8 @@ When subscribing to webhooks you choose an event that you would like to receive 
 | create_quote | Anytime a new [quote](#quotes) is created|
 | create_request | Any time a new [request](#requests) is created. |
 | update_request_status | Any time a request status changes. |
+| create_issue | Any time an [issue](#issues) is created. |
+| update_issue | Any time an [issue](#issues) is updated. |
 
 ##### Progression Webhooks
 

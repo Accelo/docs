@@ -28,6 +28,11 @@ The following issue endpoints have been updated:
 
 - [PUT /issues/{issue_id}](#update-an-issue) - you may now update an issue's `resolution` and `resolution_details`
 
+The following [webhook events](#webhook-events) have been added:
+
+- `create_issue`
+- `update_issue`
+
 #### Deprecations
 
 - The `class` attribute and object on [activities](#activities) is deprecated. Please use `activity_class` instead.
