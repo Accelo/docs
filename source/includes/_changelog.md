@@ -12,14 +12,34 @@ With the release of the new and easier to maintain documentation, we're going to
 
 #### Features
 
-- The following endpoints have been added:
-  - [`GET /activities/classes`](#list-activity-classes)
-  - [`GET /activities/classes/{class_id}`](#get-activity-class)
-  - [`GET /activities/classes/count`](#count-activity-classes)
+The following endpoints have been added to activities:
+
+- [`GET /activities/classes`](#list-activity-classes)
+- [`GET /activities/classes/{class_id}`](#get-activity-class)
+- [`GET /activities/classes/count`](#count-activity-classes)
+
+The following endpoints have been added to issues:
+
+- [`GET /issues/resolutions/{resolution_id}`](#get-issue-resolution) - Get issue resolution
+- [`GET /issues/resolutions`](#list-issue-resolutions) - List issue resolutions
+- [`GET /issues/resolutions/count`](#count-issue-resolutions) - Count issue resolutions
+
+The following issue endpoints have been updated:
+
+- [PUT /issues/{issue_id}](#update-an-issue) - you may now update an issue's `resolution` and `resolution_details`
 
 #### Deprecations
 
 - The `class` attribute and object on [activities](#activities) is deprecated. Please use `activity_class` instead.
+
+#### Bug Fixes
+
+In addition to the `username` and `password`, the following fields are now required when creating a new staff member via
+[POST /staff](#create-a-staff-member):
+
+- `firstname`
+- `surname`
+- `email`
 
 ### Friday 2nd February 2018
 

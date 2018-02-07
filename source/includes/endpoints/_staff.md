@@ -242,10 +242,10 @@ The following fields from the [staff object](#the-staff-object) may be set throu
 |:-|:-|
 | **username** ||
 | **password** | A password for the new staff member on the deployment. |
-| firstname ||
-| suranme ||
+| **firstname** ||
+| **surname** ||
+| **email** ||
 | title ||
-| email ||
 | fax ||
 | phone ||
 | mobile ||
