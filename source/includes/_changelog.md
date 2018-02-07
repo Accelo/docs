@@ -31,6 +31,11 @@ The following issue endpoints have been updated:
   - The issue's contract via: `contract_id`
 
 
+The following [webhook events](#webhook-events) have been added:
+
+- `create_issue`
+- `update_issue`
+
 #### Deprecations
 
 - The `class` attribute and object on [activities](#activities) is deprecated. Please use `activity_class` instead.
