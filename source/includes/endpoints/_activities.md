@@ -93,6 +93,8 @@ The activities object contains the following fields:
 | standing | select | The standing of the activity, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
+| is_billable | unsigned | Either 1 or 0, whether billable time can be logged on the activity. |
+| permissions | object | A object containing a list of permisisons for the current user on the activity. |
 
 #### Activity Medium
 Activities are communicative objects, e.g. notes and emails. The type of communication is described by the "medium", Accelo currently supports five types of media for activities:  
@@ -746,6 +748,8 @@ The following fields from the [activity object](#the-activity-object) may be upd
 | date_started | Seconds since UTC |
 | date_ended | Seconds since UTC |
 | date_due |Seconds since UTC |
+| nonbillable | The amount of nonbillable time, in seconds. Requires the user has the `can_edit_time` permission under the `permission` object. |
+| billable | The amount of billable time, in seconds. Requires the user has the `can_edit_billable` permission under the `permission` object, and that the activity is billable (see the `is_billable` flag on the activity). |
 
 > Sample response:  
 
