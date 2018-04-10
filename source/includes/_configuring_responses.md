@@ -88,7 +88,7 @@ Most API endpoints support a `_filter` parameter that allows you to filter the r
 * [Empty Filters](#filters-empty-filters)
 * [Object Filters](#filters-object-filters)
 
-Filters may take any number of arguments, new arguments may be separated by a comma. Appending `_not` to any filter will return results that DO NOT satisfy the filter. Any number of filters may be [combined](#filters-combining-filters) in a single request.
+Filters may take any number of arguments, new arguments may be separated by a comma. Appending `_not` to any filter will return results that DO NOT satisfy the filter, e.g. `standing_not(active)` would return only results whose standing is not 'active'. Any number of filters may be [combined](#filters-combining-filters) in a single request.
 
 <a name="filters-basic-filters"></a>
 
@@ -252,20 +252,21 @@ As with other filters, additional arguments for both fields may be added and sep
 ### Combining Filters
 
 > Filter by activities owned by "staff/17" and created after 2017-03-22 00:00:00 (UTC)
+> and _not_ against a job
 
 ```http
 GET /activities HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 
-_filters=owner(staff(17)),date_created_after(1490140800)
+_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
 ```
 
 ```shell
 curl -X GET \
 	https://{deployment}.api.accelo.com/api/v0/activities \
 	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=owner(staff(17)),date_created_after(1490140800)'
+	-d '_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'
 ```
 
 Any combination of filters may be used to filter response, this is achieved by
