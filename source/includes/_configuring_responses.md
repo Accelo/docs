@@ -220,7 +220,7 @@ curl -X GET \
 	-d '_filters=empty(date_expires)'
 ```
 
-These filter resources which have no value for the given field, the format is `empty(<field_name>)`. For example, the `date_expires` field for [contract](#contracts) supports this filter, so `_filters=empty(date_expires) would display all contracts without an expiry date.
+These filter resources which have no value for the given field, the format is `empty(<field_name>)`. For example, the `date_expires` field for [contract](#contracts) supports this filter, so `_filters=empty(date_expires)` would display all contracts without an expiry date.
 
 <a name="filters-object-filters"></a>
 
