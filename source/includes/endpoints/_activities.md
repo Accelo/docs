@@ -94,7 +94,7 @@ The activities object contains the following fields:
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
 | is_billable | unsigned | Either 1 or 0, whether billable time can be logged on the activity. |
-| permissions | object | A object containing a list of permisisons for the current user on the activity. |
+| permissions | object | An object containing a list of permissions for the current user on the activity. |
 
 #### Activity Medium
 Activities are communicative objects, e.g. notes and emails. The type of communication is described by the "medium", Accelo currently supports five types of media for activities:  
