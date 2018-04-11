@@ -113,6 +113,7 @@ The contract period is a duration of time to track and invoice a contract. The `
 | standing | string | The standing of the period. For example "opened", "closed". |
 | contract | string | The API URI of the contract the period belongs to. |
 | contract_id | unsigned | The unique identifier of the contract the period belongs to. |
+| contract_budget | unsigned or object | The id or object of the [budget](#the-contract-budget) assigned to the period. |
 
 
 #### The Contract Type
@@ -156,8 +157,30 @@ which contains the following additional fields:
 | auto_complete_task | boolean | Either "1" or "0" whether this contract type is set to autocomplete tasks. |
 
 
+#### The Contract Budget
+> Example contract budget object:
 
+```json
+{
+  "id": "1",
+  "value": "25.00",
+  "product_charged": "30.00",
+  "time_charged": "24.00",
+  "time": "1000",
+  "against_type": "contract_period",
+  "against_id": "10"
+}
+```
 
+| Field | Type | Description |
+|:-|:-|:-|
+| id | unsigned | A unique identifier for the contract budget. |
+| value | string | The financial value of the budget (sum of all values within budget). This requires full financial access. |
+| product_charged | string | The financial value charged for the budget's product(s) (sum of all product charges within budget). This requires full financial access. |
+| time_charged | string | The financial value charged for the budget's time (sum of all time charges within budget). This requires full financial access. |
+| time | unsigned | The time spent in seconds on the budget (sum of all time within budget). |
+| against_type | string | The type of object this budget is against. e.g, "contract_period". |
+| against_id | unsigned | The id of the object this budget is against. |
 
 ### Get Contract
 > Sample Request:  
@@ -391,7 +414,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | rollover |
 | standing |
 | contract | Filter over the `contract_id`. |
-| contract_budget |
+| contract_budget | Filter by the id of the [budget](#the-contract-budget) assigned to the period. |
 
 ##### Date Filters
 This request supports [date filters](#date-filters) over the following fields:
