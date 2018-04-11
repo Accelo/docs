@@ -27,7 +27,7 @@ Additional changes:
 - Added the [Contract Budget](#the-contract-budget) object on [Contract
 Periods](#the-contract-period).
 - Added `won_by_id`, `cancelled_by_id`, and `abandoned_by_id` on the [Prospect
-Ojbect](#the-prospect-object).
+Object](#the-prospect-object).
 
 
 ### Tuesday 6th February 2018
