@@ -167,6 +167,8 @@ which contains the following additional fields:
   "product_charged": "30.00",
   "time_charged": "24.00",
   "time": "1000",
+  "against_type": "contract_period",
+  "against_id": "10"
 }
 ```
 
@@ -177,6 +179,8 @@ which contains the following additional fields:
 | product_charged | string | The financial value charged for the budget's product(s) (sum of all product charges within budget). This requires full financial access. |
 | time_charged | string | The financial value charged for the budget's time (sum of all time charges within budget). This requires full financial access. |
 | time | unsigned | The time spent in seconds on the budget (sum of all time within budget). |
+| against_type | string | The type of object this budget is against. e.g, "contract_period". |
+| against_id | unsigned | The id of the object this budget is against. |
 
 ### Get Contract
 > Sample Request:  
