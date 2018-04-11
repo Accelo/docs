@@ -4,6 +4,32 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Wednesday 11th April 2018
+
+#### Misc
+
+Added some extra documentation around `_not` [filters](#configuring-the-response-filtering).
+
+#### Features
+
+Updated the [`PUT /activities/{activity_id}`](#update-an-activity) endpoint:
+
+- You may now update the `billable` or `nonbillable` field when updating an
+activity.
+
+Related to this also update the [Activity Object](#the-activity-object):
+
+- Added the `is_billable` field.
+- Added the `permissions` object.
+
+Additional changes:
+
+- Added the [Contract Budget](#the-contract-budget) object on [Contract
+Periods](#the-contract-period).
+- Add `won_by_id`, `cancelled_by_id`, and `abandoned_by_id` on the [Prospect
+Ojbect](#the-prospect-object).
+
+
 ### Tuesday 6th February 2018
 
 #### Misc
