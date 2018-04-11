@@ -17,7 +17,7 @@ Updated the [`PUT /activities/{activity_id}`](#update-an-activity) endpoint:
 - You may now update the `billable` or `nonbillable` field when updating an
 activity.
 
-Related to this also update the [Activity Object](#the-activity-object):
+New fields added to the [Activity Object](#the-activity-object):
 
 - Added the `is_billable` field.
 - Added the `permissions` object.
@@ -26,7 +26,7 @@ Additional changes:
 
 - Added the [Contract Budget](#the-contract-budget) object on [Contract
 Periods](#the-contract-period).
-- Add `won_by_id`, `cancelled_by_id`, and `abandoned_by_id` on the [Prospect
+- Added `won_by_id`, `cancelled_by_id`, and `abandoned_by_id` on the [Prospect
 Ojbect](#the-prospect-object).
 
 
