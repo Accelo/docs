@@ -93,7 +93,7 @@ The activities object contains the following fields:
 | standing | select | The standing of the activity, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
-| is_billable | unsigned | Either 1 or 0, whether billable time can be logged on the activity. |
+| is_billable | bool | Either 1 or 0, whether billable time can be logged on the activity. |
 | permissions | object | An object containing a list of permissions for the current user on the activity. |
 
 #### Activity Medium
