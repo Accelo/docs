@@ -79,7 +79,9 @@ Some requests support the use of the `_search` parameter to search through certa
 
 ## Filtering
 
-Most API endpoints support a `_filter` parameter that allows you to filter the response. The supported filters will be listed for each endpoint, in general there are several types of filters:
+Most API endpoints support a `_filter` parameter that allows you to filter the
+response. The supported filters will be listed for each endpoint, in general
+there are several types of filters:
 
 * [Basic Filters](#filters-basic-filters)
 * [Date Filters](#filters-date-filters)
@@ -88,7 +90,11 @@ Most API endpoints support a `_filter` parameter that allows you to filter the r
 * [Empty Filters](#filters-empty-filters)
 * [Object Filters](#filters-object-filters)
 
-Filters may take any number of arguments, new arguments may be separated by a comma. Appending `_not` to any filter will return results that DO NOT satisfy the filter. Any number of filters may be [combined](#filters-combining-filters) in a single request.
+Filters may take any number of arguments, new arguments may be separated by a
+comma. Appending `_not` to any filter will return results that DO NOT satisfy
+the filter, e.g. `standing_not(active)` would return only results whose standing
+is not 'active'. Any number of filters may be
+[combined](#filters-combining-filters) in a single request.
 
 <a name="filters-basic-filters"></a>
 
@@ -111,7 +117,12 @@ curl -X GET \
 	-d '_filters=owner_type(staff)'
 ```
 
-These simply filter resources with certain fields for certain values, generally they are requested simply by `<field>(<value>)`. For examples, [activities](#activities) support basic filters on the `owner_type` and `owner_id` fields, so for example if we wanted to search for activities owner by the staff member with id 17 we would use `_filters=owner_type(staff),owner_id(17)`.
+These simply filter resources with certain fields for certain values, generally
+they are requested simply by `<field>(<value>)`. For examples,
+ [activities](#activities) support basic filters on the `owner_type` and
+ `owner_id` fields, so for example if we wanted to search for activities
+ owner by the staff member with id 17 we would use
+ `_filters=owner_type(staff),owner_id(17)`.
 
 <a name="filters-date-filters"></a>
 
@@ -220,7 +231,7 @@ curl -X GET \
 	-d '_filters=empty(date_expires)'
 ```
 
-These filter resources which have no value for the given field, the format is `empty(<field_name>)`. For example, the `date_expires` field for [contract](#contracts) supports this filter, so `_filters=empty(date_expires) would display all contracts without an expiry date.
+These filter resources which have no value for the given field, the format is `empty(<field_name>)`. For example, the `date_expires` field for [contract](#contracts) supports this filter, so `_filters=empty(date_expires)` would display all contracts without an expiry date.
 
 <a name="filters-object-filters"></a>
 
@@ -252,20 +263,21 @@ As with other filters, additional arguments for both fields may be added and sep
 ### Combining Filters
 
 > Filter by activities owned by "staff/17" and created after 2017-03-22 00:00:00 (UTC)
+> and _not_ against a job
 
 ```http
 GET /activities HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 
-_filters=owner(staff(17)),date_created_after(1490140800)
+_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
 ```
 
 ```shell
 curl -X GET \
 	https://{deployment}.api.accelo.com/api/v0/activities \
 	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=owner(staff(17)),date_created_after(1490140800)'
+	-d '_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'
 ```
 
 Any combination of filters may be used to filter response, this is achieved by
