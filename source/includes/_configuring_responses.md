@@ -79,7 +79,9 @@ Some requests support the use of the `_search` parameter to search through certa
 
 ## Filtering
 
-Most API endpoints support a `_filter` parameter that allows you to filter the response. The supported filters will be listed for each endpoint, in general there are several types of filters:
+Most API endpoints support a `_filter` parameter that allows you to filter the
+response. The supported filters will be listed for each endpoint, in general
+there are several types of filters:
 
 * [Basic Filters](#filters-basic-filters)
 * [Date Filters](#filters-date-filters)
@@ -88,7 +90,11 @@ Most API endpoints support a `_filter` parameter that allows you to filter the r
 * [Empty Filters](#filters-empty-filters)
 * [Object Filters](#filters-object-filters)
 
-Filters may take any number of arguments, new arguments may be separated by a comma. Appending `_not` to any filter will return results that DO NOT satisfy the filter, e.g. `standing_not(active)` would return only results whose standing is not 'active'. Any number of filters may be [combined](#filters-combining-filters) in a single request.
+Filters may take any number of arguments, new arguments may be separated by a
+comma. Appending `_not` to any filter will return results that DO NOT satisfy
+the filter, e.g. `standing_not(active)` would return only results whose standing
+is not 'active'. Any number of filters may be
+[combined](#filters-combining-filters) in a single request.
 
 <a name="filters-basic-filters"></a>
 
@@ -111,7 +117,12 @@ curl -X GET \
 	-d '_filters=owner_type(staff)'
 ```
 
-These simply filter resources with certain fields for certain values, generally they are requested simply by `<field>(<value>)`. For examples, [activities](#activities) support basic filters on the `owner_type` and `owner_id` fields, so for example if we wanted to search for activities owner by the staff member with id 17 we would use `_filters=owner_type(staff),owner_id(17)`.
+These simply filter resources with certain fields for certain values, generally
+they are requested simply by `<field>(<value>)`. For examples,
+ [activities](#activities) support basic filters on the `owner_type` and
+ `owner_id` fields, so for example if we wanted to search for activities
+ owner by the staff member with id 17 we would use
+ `_filters=owner_type(staff),owner_id(17)`.
 
 <a name="filters-date-filters"></a>
 
