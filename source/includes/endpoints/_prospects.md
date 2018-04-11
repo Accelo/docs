@@ -50,6 +50,9 @@ The prospect object contains the following:
 | progress | decimal | A decimal representation of the "progress %" associated with the current standing of the prospect. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/#CreateProgression) on setting up progressions for information on this field. |
 | value_weighted | integer | A value incorporating the `progress` and `weighting` values to describe the prospect. |
 | staff_bookmarked | boolean | Whether the current user has bookmarked the prospect on the deployment. |
+| won_by_id | unsigned | The id of the [staff](#staff) who won the prospect. 'null' if the prospect has not been won. |
+| cancelled_by_id | unsigned | The id of the [staff](#staff) who cancelled the prospect. 'null' if the prospect has not been cancelled. |
+| abandoned_by_id | unsigned | The id of the [staff](#staff) who abandoned the prospect. 'null' if the prospect has not been abandoned. |
 | contact | unsigned or object | The [contact](#contacts) associated with the prospect|
 | manager | unsigned or object | The [staff](#staff) assigned to manage the prospect. |
 | type | unsigned or object | The [prospect type](#the-prospect-type). Deprecated, please use `prospect_type`. |
@@ -172,6 +175,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | status | Filter by the `status_id`. |
 | prospect_probability | Filter by the `prospect_probability`. |
 | company | Filter by the `company_id`. |
+| won_by_id | Filter by the id of the staff who won the prospect. |
+| cancelled_by_id | Filter by the id of the staff who cancelled the prospect. |
+| abandoned_by_id | Filter by the id of the staff who abandoned the prospect. |
 
 ##### Date Filters
 This request supports [date filters](#filters-date-filters) over the following fields:
