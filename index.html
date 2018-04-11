@@ -1759,6 +1759,9 @@
             <a href="#change-log" class="toc-h1 toc-link" data-title="Change log">Change log</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#wednesday-11th-april-2018" class="toc-h2 toc-link" data-title="Wednesday 11th April 2018">Wednesday 11th April 2018</a>
+                  </li>
+                  <li>
                     <a href="#tuesday-6th-february-2018" class="toc-h2 toc-link" data-title="Tuesday 6th February 2018">Tuesday 6th February 2018</a>
                   </li>
                   <li>
@@ -2165,7 +2168,9 @@ _fields=website,phone,postal_address(city)
 
 <p><a name="configuring-the-response-filtering"></a></p>
 <h2 id='filtering'>Filtering</h2>
-<p>Most API endpoints support a <code>_filter</code> parameter that allows you to filter the response. The supported filters will be listed for each endpoint, in general there are several types of filters:</p>
+<p>Most API endpoints support a <code>_filter</code> parameter that allows you to filter the
+response. The supported filters will be listed for each endpoint, in general
+there are several types of filters:</p>
 
 <ul>
 <li><a href="#filters-basic-filters">Basic Filters</a></li>
@@ -2176,7 +2181,11 @@ _fields=website,phone,postal_address(city)
 <li><a href="#filters-object-filters">Object Filters</a></li>
 </ul>
 
-<p>Filters may take any number of arguments, new arguments may be separated by a comma. Appending <code>_not</code> to any filter will return results that DO NOT satisfy the filter. Any number of filters may be <a href="#filters-combining-filters">combined</a> in a single request.</p>
+<p>Filters may take any number of arguments, new arguments may be separated by a
+comma. Appending <code>_not</code> to any filter will return results that DO NOT satisfy
+the filter, e.g. <code>standing_not(active)</code> would return only results whose standing
+is not &#39;active&#39;. Any number of filters may be
+<a href="#filters-combining-filters">combined</a> in a single request.</p>
 
 <p><a name="filters-basic-filters"></a></p>
 <h3 id='basic-filters'>Basic Filters</h3>
@@ -2193,7 +2202,12 @@ _filters=owner_type(staff)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=owner_type(staff)'</span>
 </code></pre>
-<p>These simply filter resources with certain fields for certain values, generally they are requested simply by <code>&lt;field&gt;(&lt;value&gt;)</code>. For examples, <a href="#activities">activities</a> support basic filters on the <code>owner_type</code> and <code>owner_id</code> fields, so for example if we wanted to search for activities owner by the staff member with id 17 we would use <code>_filters=owner_type(staff),owner_id(17)</code>.</p>
+<p>These simply filter resources with certain fields for certain values, generally
+they are requested simply by <code>&lt;field&gt;(&lt;value&gt;)</code>. For examples,
+ <a href="#activities">activities</a> support basic filters on the <code>owner_type</code> and
+ <code>owner_id</code> fields, so for example if we wanted to search for activities
+ owner by the staff member with id 17 we would use
+ <code>_filters=owner_type(staff),owner_id(17)</code>.</p>
 
 <p><a name="filters-date-filters"></a></p>
 <h3 id='date-filters'>Date Filters</h3>
@@ -2317,7 +2331,7 @@ _filters=empty(date_expires)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=empty(date_expires)'</span>
 </code></pre>
-<p>These filter resources which have no value for the given field, the format is <code>empty(&lt;field_name&gt;)</code>. For example, the <code>date_expires</code> field for <a href="#contracts">contract</a> supports this filter, so `_filters=empty(date_expires) would display all contracts without an expiry date.</p>
+<p>These filter resources which have no value for the given field, the format is <code>empty(&lt;field_name&gt;)</code>. For example, the <code>date_expires</code> field for <a href="#contracts">contract</a> supports this filter, so <code>_filters=empty(date_expires)</code> would display all contracts without an expiry date.</p>
 
 <p><a name="filters-object-filters"></a></p>
 <h3 id='object-filters'>Object Filters</h3>
@@ -2341,17 +2355,18 @@ _filters=owner(staff(17))
 <p><a name="filters-combining-filters"></a></p>
 <h3 id='combining-filters'>Combining Filters</h3>
 <blockquote>
-<p>Filter by activities owned by &quot;staff/17&quot; and created after 2017-03-22 00:00:00 (UTC)</p>
+<p>Filter by activities owned by &quot;staff/17&quot; and created after 2017-03-22 00:00:00 (UTC)
+and <em>not</em> against a job</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 
-_filters=owner(staff(17)),date_created_after(1490140800)
+_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
     https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=owner(staff(17)),date_created_after(1490140800)'</span>
+    -d <span class="s1">'_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'</span>
 </code></pre>
 <p>Any combination of filters may be used to filter response, this is achieved by
 separating them with a comma. More flexible filter combinations may be achieved
@@ -3289,6 +3304,16 @@ refresh_token=VYfb63__vf
 <td style="text-align: left">contract_period_id</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">The unique identifier of the <a href="#the-contract-period">contract period</a> the activity is attached to, if any.</td>
+</tr>
+<tr>
+<td style="text-align: left">is_billable</td>
+<td style="text-align: left">bool</td>
+<td style="text-align: left">Either 1 or 0, whether billable time can be logged on the activity.</td>
+</tr>
+<tr>
+<td style="text-align: left">permissions</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">An object containing a list of permissions for the current user on the activity.</td>
 </tr>
 </tbody></table>
 <h4 id='activity-medium'>Activity Medium</h4>
@@ -4237,6 +4262,14 @@ _fields=activity_priority()
 <tr>
 <td style="text-align: left">date_due</td>
 <td style="text-align: left">Seconds since UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">nonbillable</td>
+<td style="text-align: left">The amount of nonbillable time, in seconds. Requires the user has the <code>can_edit_time</code> permission under the <code>permission</code> object.</td>
+</tr>
+<tr>
+<td style="text-align: left">billable</td>
+<td style="text-align: left">The amount of billable time, in seconds. Requires the user has the <code>can_edit_billable</code> permission under the <code>permission</code> object, and that the activity is billable (see the <code>is_billable</code> flag on the activity).</td>
 </tr>
 </tbody></table>
 
@@ -8533,6 +8566,11 @@ specified by its <code>profile_value_id</code>, of a particular contact, specifi
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">The unique identifier of the contract the period belongs to.</td>
 </tr>
+<tr>
+<td style="text-align: left">contract_budget</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The id or object of the <a href="#the-contract-budget">budget</a> assigned to the period.</td>
+</tr>
 </tbody></table>
 <h4 id='the-contract-type'>The Contract Type</h4>
 <blockquote>
@@ -8634,6 +8672,63 @@ which contains the following additional fields:</p>
 <td style="text-align: left">auto_complete_task</td>
 <td style="text-align: left">boolean</td>
 <td style="text-align: left">Either &quot;1&quot; or &quot;0&quot; whether this contract type is set to autocomplete tasks.</td>
+</tr>
+</tbody></table>
+<h4 id='the-contract-budget'>The Contract Budget</h4>
+<blockquote>
+<p>Example contract budget object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"product_charged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"time_charged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"against_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_period"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"against_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the contract budget.</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The financial value of the budget (sum of all values within budget). This requires full financial access.</td>
+</tr>
+<tr>
+<td style="text-align: left">product_charged</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The financial value charged for the budget&#39;s product(s) (sum of all product charges within budget). This requires full financial access.</td>
+</tr>
+<tr>
+<td style="text-align: left">time_charged</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The financial value charged for the budget&#39;s time (sum of all time charges within budget). This requires full financial access.</td>
+</tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The time spent in seconds on the budget (sum of all time within budget).</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The type of object this budget is against. e.g, &quot;contract_period&quot;.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the object this budget is against.</td>
 </tr>
 </tbody></table>
 <h3 id='get-contract'>Get Contract</h3>
@@ -8986,7 +9081,7 @@ which contains the following additional fields:</p>
 </tr>
 <tr>
 <td style="text-align: left">contract_budget</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">Filter by the id of the <a href="#the-contract-budget">budget</a> assigned to the period.</td>
 </tr>
 </tbody></table>
 <h5 id='date-filters-2'>Date Filters</h5>
@@ -16228,6 +16323,21 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <td style="text-align: left">Whether the current user has bookmarked the prospect on the deployment.</td>
 </tr>
 <tr>
+<td style="text-align: left">won_by_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the <a href="#staff">staff</a> who won the prospect. &#39;null&#39; if the prospect has not been won.</td>
+</tr>
+<tr>
+<td style="text-align: left">cancelled_by_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the <a href="#staff">staff</a> who cancelled the prospect. &#39;null&#39; if the prospect has not been cancelled.</td>
+</tr>
+<tr>
+<td style="text-align: left">abandoned_by_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the <a href="#staff">staff</a> who abandoned the prospect. &#39;null&#39; if the prospect has not been abandoned.</td>
+</tr>
+<tr>
 <td style="text-align: left">contact</td>
 <td style="text-align: left">unsigned or object</td>
 <td style="text-align: left">The <a href="#contacts">contact</a> associated with the prospect</td>
@@ -16434,6 +16544,18 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <tr>
 <td style="text-align: left">company</td>
 <td style="text-align: left">Filter by the <code>company_id</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left">won_by_id</td>
+<td style="text-align: left">Filter by the id of the staff who won the prospect.</td>
+</tr>
+<tr>
+<td style="text-align: left">cancelled_by_id</td>
+<td style="text-align: left">Filter by the id of the staff who cancelled the prospect.</td>
+</tr>
+<tr>
+<td style="text-align: left">abandoned_by_id</td>
+<td style="text-align: left">Filter by the id of the staff who abandoned the prospect.</td>
 </tr>
 </tbody></table>
 <h5 id='date-filters'>Date Filters</h5>
@@ -21512,11 +21634,36 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 <p>With the release of the new and easier to maintain documentation, we&#39;re going to do a much better job of tracking changes.</p>
 
 <p><strong>Note - Beta Changes:</strong> New objects or endpoints may be introduced with a <strong>(Beta)</strong> tag, which may last up to a month after introduction. While in beta these are subject to change without notice.</p>
-<h3 id='tuesday-6th-february-2018'>Tuesday 6th February 2018</h3><h4 id='misc'>Misc</h4>
+<h3 id='wednesday-11th-april-2018'>Wednesday 11th April 2018</h3><h4 id='misc'>Misc</h4>
+<p>Added some extra documentation around <code>_not</code> <a href="#configuring-the-response-filtering">filters</a>.</p>
+<h4 id='features'>Features</h4>
+<p>Updated the <a href="#update-an-activity"><code>PUT /activities/{activity_id}</code></a> endpoint:</p>
+
+<ul>
+<li>You may now update the <code>billable</code> or <code>nonbillable</code> field when updating an
+activity.</li>
+</ul>
+
+<p>New fields added to the <a href="#the-activity-object">Activity Object</a>:</p>
+
+<ul>
+<li>Added the <code>is_billable</code> field.</li>
+<li>Added the <code>permissions</code> object.</li>
+</ul>
+
+<p>Additional changes:</p>
+
+<ul>
+<li>Added the <a href="#the-contract-budget">Contract Budget</a> object on <a href="#the-contract-period">Contract
+Periods</a>.</li>
+<li>Added <code>won_by_id</code>, <code>cancelled_by_id</code>, and <code>abandoned_by_id</code> on the <a href="#the-prospect-object">Prospect
+Object</a>.</li>
+</ul>
+<h3 id='tuesday-6th-february-2018'>Tuesday 6th February 2018</h3><h4 id='misc-2'>Misc</h4>
 <ul>
 <li>Rename some sections for clarity and to avoid title duplication.</li>
 </ul>
-<h4 id='features'>Features</h4>
+<h4 id='features-2'>Features</h4>
 <p>The following endpoints have been added to activities:</p>
 
 <ul>
@@ -21563,7 +21710,7 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 <li><code>surname</code></li>
 <li><code>email</code></li>
 </ul>
-<h3 id='friday-2nd-february-2018'>Friday 2nd February 2018</h3><h4 id='features-2'>Features</h4>
+<h3 id='friday-2nd-february-2018'>Friday 2nd February 2018</h3><h4 id='features-3'>Features</h4>
 <ul>
 <li>Add the <code>block_send</code> flag to allow blocking <a href="#create-an-activity">activities created through the API</a>
 from being sent.</li>
@@ -21576,7 +21723,7 @@ from being sent.</li>
 <ul>
 <li>The <code>priority</code> attribute and object on <a href="#issues">Issues</a> is deprecated. Please use <code>issue_priority</code> instead.</li>
 </ul>
-<h4 id='features-3'>Features</h4>
+<h4 id='features-4'>Features</h4>
 <ul>
 <li>The following endpoints have been added
 
