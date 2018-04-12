@@ -71,8 +71,8 @@ These are objects describing a value of a given [profile field](#the-profile-fie
 | **field_type** | string | The profile field type for this value, see the [profile field object](#the-profile-field-object) for possible values.|
 | **field_name** | string | The name for the profile field. |
 | **value_type** | string | For fields of type `lookup` this is the type of the lookup object. For example "company", "contact". Otherwise it is `null`. |
-| **value** | dynamic | The value of the profile field. The type will change according to the `field_type`, for example if the field type is "date" this will be a unix ts. |
-| **values**<sup>*</sup> | array | When the field type is "multi_select", this will contain an array of the selected values.|
+| **value** | dynamic | The value of the profile field. The type will change according to the `field_type`, for example if the field type is "date" this will be a unix ts. If it's a "multi_select" this will be all values joined by a comma. e.g, `"one, two"` for `["one", "two"]` |
+| **values**<sup>*</sup> | array | When the field type is "multi_select", this will contain an array of the selected values. e.g, `["one", "two"]`|
 | date_modified | unix ts | The date this profile field value was last modified. |
 | modified_by | unsigned or object | The staff member who last modified this profile field value. |
 | field_id | unsigned | The unique identifier of the profile field this value is for. |
