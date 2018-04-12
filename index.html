@@ -15941,10 +15941,11 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"128"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"field_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09-17"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi_select"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one, two"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"one"</span><span class="p">,</span><span class="w"> </span><span class="s2">"two"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1495669367"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opening Hours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Implementation Phases"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"link_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45"</span><span class="w">
@@ -15982,7 +15983,12 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <tr>
 <td style="text-align: left"><strong>value</strong></td>
 <td style="text-align: left">dynamic</td>
-<td style="text-align: left">The value of the profile field. The type will change according to the <code>field_type</code>, for example if the field type is &quot;date&quot; this will be a unix ts.</td>
+<td style="text-align: left">The value of the profile field. The type will change according to the <code>field_type</code>, for example if the field type is &quot;date&quot; this will be a unix ts. If it&#39;s a &quot;multi_select&quot; this will be all values joined by a comma. e.g, <code>&quot;one, two&quot;</code> for <code>[&quot;one&quot;, &quot;two&quot;]</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>values</strong><sup>*</sup></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">When the field type is &quot;multi_select&quot;, this will contain an array of the selected values. e.g, <code>[&quot;one&quot;, &quot;two&quot;]</code></td>
 </tr>
 <tr>
 <td style="text-align: left">date_modified</td>
@@ -16005,6 +16011,9 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <td style="text-align: left">The unique identifier of the object the profile value is against.</td>
 </tr>
 </tbody></table>
+
+<p><sup>*</sup> The <code>values</code> field is <em>only</em> returned when the <code>field_type</code> is &quot;multi_select&quot;. 
+When it&#39;s &quot;multi_select&quot;, it&#39;s returned by default.</p>
 
 <p><a name="retrieve-a-list-of-profile-fields"></a></p>
 <h3 id='list-profile-fields'>List Profile Fields</h3>
