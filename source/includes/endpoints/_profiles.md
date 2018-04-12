@@ -52,10 +52,11 @@ These are objects describing the custom fields on the deployment, they contain t
 {
   "value_type": null,
   "id": "128",
-  "field_type": "text",
-  "value": "09-17",
+  "field_type": "multi_select",
+  "value": "one, two",
+  "values": ["one", "two"],
   "date_modified": "1495669367",
-  "field_name": "Opening Hours",
+  "field_name": "Implementation Phases",
   "field_id": "12",
   "modified_by": "14",
   "link_id": "45"
@@ -71,13 +72,14 @@ These are objects describing a value of a given [profile field](#the-profile-fie
 | **field_name** | string | The name for the profile field. |
 | **value_type** | string | For fields of type `lookup` this is the type of the lookup object. For example "company", "contact". Otherwise it is `null`. |
 | **value** | dynamic | The value of the profile field. The type will change according to the `field_type`, for example if the field type is "date" this will be a unix ts. |
+| **values**<sup>*</sup> | array | When the field type is "multi_select", this will contain an array of the selected values.|
 | date_modified | unix ts | The date this profile field value was last modified. |
 | modified_by | unsigned or object | The staff member who last modified this profile field value. |
 | field_id | unsigned | The unique identifier of the profile field this value is for. |
 | link_id | unsigned | The unique identifier of the object the profile value is against. |
 
-
-
+<sup>*</sup> The `values` field is _only_ returned when the `field_type` is "multi_select". 
+When it's "multi_select", it's returned by default.
 
 
 
