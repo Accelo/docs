@@ -378,6 +378,7 @@ curl -X get \
 `GET /prospects/types`
 
 This request returns a list of [prospect types](#the-prospect-type) on the deployment.
+The `_filters` parameter is set to `standing_not(inactive)` by default.
 
 #### Configuring the Request
 
