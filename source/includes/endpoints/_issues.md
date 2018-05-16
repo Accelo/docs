@@ -558,6 +558,7 @@ curl -X get \
 `GET /issues/types`
 
 This request returns a list of [issue types](#the-issue-type) on the deployment.
+The `_filters` parameter is set to `standing_not(inactive)` by default.
 
 #### Configuring the Response
 
@@ -570,8 +571,41 @@ This request supports requesting additional fields and linked objects from the [
 #### handling the Response
 The response will be a list of [issue types](#the-issue-type) with their default fields and any additional fields requested through `_fields`.
 
+##### Basic Filters
+This request supports the following [basic filters](#filters-basic-filters):
 
+| Filter |
+|:-|
+| id |
+| standing |
+| budget |
+| default_class_id |
+| parent |
 
+##### Order Filters
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Field |
+|:-|
+| id |
+| title |
+| standing |
+| ordering |
+
+##### Range Filters
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Field |
+|:-|
+| id |
+
+##### Searching
+This request supports the [`_search`](#configuring-the-response-searching) parameter
+to search over the following fields:
+
+| Field |
+|:-|
+| title |
 
 
 
