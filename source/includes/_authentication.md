@@ -126,6 +126,7 @@ The `/token` endpoint to request a token. Since end-user authorization is not re
 |:-|:-|:-|
 | **grant_type** | string | This **must** be set to client_credentials for this request. |
 | scope | string | The scope of access desired for the application. See the [OAuth2 URI](#oauth2-uri) for possible values.|
+| expires_in | unsigned | The lifetime in seconds of the access token. e.g, the value "3600" expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days. |
 
 A successful request will contain the following fields:
 
@@ -144,15 +145,12 @@ A successful request will contain the following fields:
 |:-|:-|:-|
 | access_token | string | Credential used to access Accelo's protected resources. |
 | token_type | string | For service applications this will have the value "bearer". |
-| expires_in | int | Seconds until the token expires. |
+| expires_in | unsigned | The lifetime in seconds of the access token. |
 | deployment | string | The deployment to which the token belongs. |
 | deployment_name | string | A proper name for the deployment |
 | deployment_uri | The full uri of the deployment. |
 | account_id | string | A unique identifier for the Accelo account belonging to the deployment used. |
 | account_details | hash | The details of the user for whom the token has been generated. This contains user information as well as a `user_access` has containing the user's permissions for each resources, and a `user_defined_title` hash containing a list of resource names as defined by the user on the deployment, and a `locale` hash containing information on the currency used by the user. |
-
-
-
 
 
 
@@ -253,6 +251,7 @@ Once you have an authorization code from a successful authorization request you 
 | **grant_type** | string | This **must** be set to `authorization_code` for this request. |
 | **code** | string | The authorization code obtained from the [authorization process](#authorization-response-for-web-applications) |
 | redirect_uri | string | If a `redirect_uri` was provided when [authorizing](#authorization-for-web-applications) this must be the `redirect_uri` provided. Otherwise, this must be one of the redirect URIs provided when you registered your application. |
+| expires_in | unsigned | The lifetime in seconds of the access token. e.g, the value "3600" expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days. |
 
 A successful response will contain the following fields:
 
@@ -283,7 +282,7 @@ A successful response will contain the following fields:
 | access_token | string | The token used to access resources. |
 | refresh_token | string | A refresh token which may be exchanged for a fresh token.  |
 | token_type | string | The type of token returned.  |
-| expires_in | string | Seconds until the granted token expires. |
+| expires_in | unsigned | The lifetime in seconds of the access token. |
 | error | string | For potential errors see the [OAUTH2.0](#token-endpoint-errors) URI |
 | error_description | string | as for above, see [here](#token-endpoint-errors) |
 
@@ -330,6 +329,7 @@ This is done through the `/authorize` endpoint. For authorizing installed applic
 | **client_id** | string | The applications client ID as listed on the API control panel. |
 | **response_type** | string | This **must** be set to `code` for this request |
 | scope | string | The scope of access desired for the application. See the [OAuth2.0 URI](#oauth2-uri) for possible values. |
+| expires_in | unsigned | The lifetime in seconds of the access token. e.g, the value "3600" expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days. |
 
 A successful request will send the end-user a prompt similar to the following:
 
@@ -368,6 +368,7 @@ Returning again to the `/token` endpoint, authenticating using [HTTP Basic](#aut
 | **grant_type** | string | This **must** be set to `authorization_code` for this request. |
 | **code** | string | The authorization code obtained from the user in the [authorization process](#the-authorization-request-for-installed-applications) |
 | redirect_uri | string | If included, this **must** be the redirect URI provided when you registered your application. |
+| expires_in | unsigned | The lifetime in seconds of the access token. e.g, the value "3600" expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days. |
 
 For installed applications, as with web applications, a refresh token is included in the response. Also included in the response are:
 
