@@ -2510,6 +2510,11 @@ scope=read(staff)
 <td style="text-align: left">string</td>
 <td style="text-align: left">The scope of access desired for the application. See the <a href="#oauth2-uri">OAuth2 URI</a> for possible values.</td>
 </tr>
+<tr>
+<td style="text-align: left">expires_in</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The lifetime in seconds of the access token. e.g, the value &quot;3600&quot; expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days.</td>
+</tr>
 </tbody></table>
 
 <p>A successful request will contain the following fields:</p>
@@ -2543,8 +2548,8 @@ scope=read(staff)
 </tr>
 <tr>
 <td style="text-align: left">expires_in</td>
-<td style="text-align: left">int</td>
-<td style="text-align: left">Seconds until the token expires.</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The lifetime in seconds of the access token.</td>
 </tr>
 <tr>
 <td style="text-align: left">deployment</td>
@@ -2717,6 +2722,11 @@ redirect_uri=https://planet-express.com/oauth-callback
 <td style="text-align: left">string</td>
 <td style="text-align: left">If a <code>redirect_uri</code> was provided when <a href="#authorization-for-web-applications">authorizing</a> this must be the <code>redirect_uri</code> provided. Otherwise, this must be one of the redirect URIs provided when you registered your application.</td>
 </tr>
+<tr>
+<td style="text-align: left">expires_in</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The lifetime in seconds of the access token. e.g, the value &quot;3600&quot; expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days.</td>
+</tr>
 </tbody></table>
 
 <p>A successful response will contain the following fields:</p>
@@ -2764,8 +2774,8 @@ redirect_uri=https://planet-express.com/oauth-callback
 </tr>
 <tr>
 <td style="text-align: left">expires_in</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Seconds until the granted token expires.</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The lifetime in seconds of the access token.</td>
 </tr>
 <tr>
 <td style="text-align: left">error</td>
@@ -2825,6 +2835,11 @@ scope=read(companies,contacts),write(staff)
 <td style="text-align: left">string</td>
 <td style="text-align: left">The scope of access desired for the application. See the <a href="#oauth2-uri">OAuth2.0 URI</a> for possible values.</td>
 </tr>
+<tr>
+<td style="text-align: left">expires_in</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The lifetime in seconds of the access token. e.g, the value &quot;3600&quot; expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days.</td>
+</tr>
 </tbody></table>
 
 <p>A successful request will send the end-user a prompt similar to the following:</p>
@@ -2872,6 +2887,11 @@ code=750332955
 <td style="text-align: left">redirect_uri</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">If included, this <strong>must</strong> be the redirect URI provided when you registered your application.</td>
+</tr>
+<tr>
+<td style="text-align: left">expires_in</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The lifetime in seconds of the access token. e.g, the value &quot;3600&quot; expresses that the token will expire in one hour from the time the token was created. This defaults to 30 days.</td>
 </tr>
 </tbody></table>
 
@@ -12995,13 +13015,84 @@ fields requested through <code>_fields</code>.</p>
 </code></pre>
 <p><code>GET /issues/types</code></p>
 
-<p>This request returns a list of <a href="#the-issue-type">issue types</a> on the deployment.</p>
+<p>This request returns a list of <a href="#the-issue-type">issue types</a> on the deployment.
+The <code>_filters</code> parameter is set to <code>standing_not(inactive)</code> by default.</p>
 <h4 id='configuring-the-response-4'>Configuring the Response</h4><h5 id='pagination-3'>Pagination</h5>
 <p>This request supports the standard <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-objects-3'>Additional Fields and Linked Objects</h5>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-issue-type">issue type object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. <strong>Note</strong> this request does not support the <code>_ALL</code> argument for this parameter.</p>
 <h4 id='handling-the-response-6'>handling the Response</h4>
 <p>The response will be a list of <a href="#the-issue-type">issue types</a> with their default fields and any additional fields requested through <code>_fields</code>.</p>
+<h5 id='basic-filters-3'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+</tr>
+<tr>
+<td style="text-align: left">budget</td>
+</tr>
+<tr>
+<td style="text-align: left">default_class_id</td>
+</tr>
+<tr>
+<td style="text-align: left">parent</td>
+</tr>
+</tbody></table>
+<h5 id='order-filters-3'>Order Filters</h5>
+<p>This request supports <a href="#filters-order-filters">order filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+</tr>
+</tbody></table>
+<h5 id='range-filters-2'>Range Filters</h5>
+<p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+</tbody></table>
+<h5 id='searching-3'>Searching</h5>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter
+to search over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+</tbody></table>
 <h3 id='list-issue-classes'>List Issue Classes</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -13061,7 +13152,7 @@ its default fields, and any additional fields requested through <code>_fields</c
 <h5 id='additional-fields-and-linked-objects-5'>Additional Fields and Linked Objects</h5>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-issue-resolution">issue resolution</a> using the
 <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h5 id='basic-filters-3'>Basic Filters</h5>
+<h5 id='basic-filters-4'>Basic Filters</h5>
 <p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
 
 <table><thead>
@@ -13083,7 +13174,7 @@ its default fields, and any additional fields requested through <code>_fields</c
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h5 id='order-filters-3'>Order Filters</h5>
+<h5 id='order-filters-4'>Order Filters</h5>
 <p>This request supports the following <a href="#filters-order-filters">order filters</a>:</p>
 
 <table><thead>
@@ -13105,7 +13196,7 @@ its default fields, and any additional fields requested through <code>_fields</c
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h5 id='range-filters-2'>Range Filters</h5>
+<h5 id='range-filters-3'>Range Filters</h5>
 <p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
 
 <table><thead>
@@ -13129,7 +13220,7 @@ its default fields, and any additional fields requested through <code>_fields</c
 <td style="text-align: left">title</td>
 </tr>
 </tbody></table>
-<h5 id='searching-3'>Searching</h5>
+<h5 id='searching-4'>Searching</h5>
 <p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter
 to search over the following fields:</p>
 
@@ -16834,7 +16925,8 @@ When it&#39;s &quot;multi_select&quot;, it&#39;s returned by default.</p>
 </code></pre>
 <p><code>GET /prospects/types</code></p>
 
-<p>This request returns a list of <a href="#the-prospect-type">prospect types</a> on the deployment.</p>
+<p>This request returns a list of <a href="#the-prospect-type">prospect types</a> on the deployment.
+The <code>_filters</code> parameter is set to <code>standing_not(inactive)</code> by default.</p>
 <h4 id='configuring-the-request'>Configuring the Request</h4><h5 id='pagination-3'>Pagination</h5>
 <p>This request supports all of the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-objects-3'>Additional Fields and Linked Objects</h5>
