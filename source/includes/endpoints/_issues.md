@@ -853,7 +853,6 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 | description ||
 | against_id | **Note:** If supplied, you must also supply an `against_type`.|
 | against_type | **Note:** If supplied, you must also supply an `against_id`. |
-| type_id | Must point to a valid [issue type](#the-issue-type). You may [retrieve a list of types](#list-issue-types) through `GET /issues/types`|
 | class_id | Must point to a valid [issue class](#the-issue-class). You may [retrieve a list of classes](#list-issue-classes) through `GET /issues/classes`. |
 | affiliation_id ||
 | date_started ||
