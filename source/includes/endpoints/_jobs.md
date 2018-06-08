@@ -571,7 +571,6 @@ The following fields from the [job object](#the-jobs-object) may be updated with
 | engagement_table | The `against_type` for the job |
 | engagement_id | The `against_id` for the job. |
 | manager_id | The `staff_id` of the staff member to be assigned manager. |
-| type_id | MUST point to a valid [job type](#the-job-type). |
 | status_id | MUST point to a valid [job status](#the-job-status). |
 | contract_id | The `contract_id` of a [contract](#contracts) to be linked to the job |
 | affiliation_id | The `affiliation_id` of an [affiliation](#affiliations) to be linked to the job. |
