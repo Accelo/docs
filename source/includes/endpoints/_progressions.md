@@ -37,6 +37,23 @@ The progressions object contains the following fields and linked objects:
 | **status** | object | The [status](#status-objects) the progression will move to. Note, the status object here does not contain the `start` field. |
 
 
+
+#### The Progression History
+The history of progressions taken by an object (equivalently, the history of statuses that it has taken) is tracked via
+the progression history. Each of these objects tracks the status the object was moved to, by whom, and when. These
+objects contain:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned  | A unique identifier for the history object |
+| **to_id** | unsigned | The id of the [status](#status-objects) the object was progressed to. |
+| **to_title** | string  | The title of the [status](#status-objects) the object was progressed to. |
+| against_type | string | The type of object the progression was made against. |
+| against_id | unsigned | The unique identifier of the object the progression was made against. |
+| modified_by | unsigned | The unique identifier of the staff who progressed the object. |
+| date_modified | unix ts | The date the object was progressed. |
+
+
 #### Using Progressions
 Progressions may be used to perform an automatic status update, this is a three step process:  
 1. Determine which status progressions are available for the given object, this is achieved by a `GET` request which [retrieves a list of available progressions](#retrieve-a-list-of-available-progressions).  
@@ -66,6 +83,135 @@ This request returns a list of [progressions](#the-progression-object) available
 
 #### Handling the Response
 This request will return a list of [progressions](#the-progression-object) available for the object given, displayed in ascending order of their `progression_id`.
+
+
+
+
+
+
+
+### List Progression History
+
+> Sample request:
+
+```http
+GET /api/v0/progressions/history HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/progressions/history \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/progressions/history`
+
+This request returns a list of [progression history objects](#the-progression-history).
+
+#### Configuring the Response
+
+##### Pagination
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+This request supports requesting additional fields and linked objects from the [progression history
+object](#the-progression-history) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter | Description |
+|:-|:-|
+| id |  |
+| against_type |  |
+| against_id |  |
+| modified_by |  |
+
+##### Order Filters
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter | Description |
+|:-|:-|
+| id |  |
+| date_modified |  |
+
+##### Range Filters
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Field | Description |
+|:-|:-|
+| id |  |
+
+##### Object Filters
+This request supports the following [object filters](#filters-object_filters):
+
+| Filter Name | Description |
+|:-|:-|
+| against | Filter by histories against these objects. |
+
+##### Date Filters
+This request supports [date filters](#filters-date-filters) over the following fields:
+
+| Filter Name | Description |
+|:-|:-|
+| date_modified |  |
+
+#### Handling the Response
+The response will be a list of [progression history objects](#the-progression-history) with their default fields and any
+additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+searches used.
+
+### Get Progression History
+
+> Sample request:
+
+```http
+GET /api/v0/progressions/history/{progression_history_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/progressions/history/{progression_history_id} \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/progressions/history/{progression_history_id}`
+
+This request returns a single [progression history object](#the-progression-history) specified by its unique id.
+
+### Count Progression Histories
+
+> Sample request:
+
+```http
+GET /api/v0/progressions/history/count HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/progressions/history/count \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/progressions/history/count`
+
+This request will return a count of [progression histories](#the-progression-history) in a list defined by any available
+searches or filters. See [`GET /progressions/history`](#list-progression-history) for a list of available filters. With
+no searches or filters this will be a count of all progression histories. The response contains a single fie
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | Unsigned | A count of progression histories listed |
+
+
+
+
 
 
 
