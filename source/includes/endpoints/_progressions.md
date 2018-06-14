@@ -163,6 +163,11 @@ The response will be a list of [progression history objects](#the-progression-hi
 additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
 searches used.
 
+
+
+
+
+
 ### Get Progression History
 
 > Sample request:
@@ -182,6 +187,10 @@ curl -X GET \
 `GET/progressions/history/{progression_history_id}`
 
 This request returns a single [progression history object](#the-progression-history) specified by its unique id.
+
+
+
+
 
 ### Count Progression Histories
 
