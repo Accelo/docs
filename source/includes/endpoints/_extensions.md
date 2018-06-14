@@ -104,6 +104,9 @@ These describe the value of a given [extension field](#the-extension-field-objec
 | is_exported | bool | Whether the related extension field is "exported". |
 | value_id | unsigned | If `field_type` is "lookup" or "contributor" this will be the ID of the lookup object (e.g, the company id) or the contributor id |
 | value_type | string | If `field_type` is "lookup" or "contributor" this will be the type of lookup object (e.g, "company") or "contributor" |
+| field_description | string | Any extra information about the extension field used by the value. |
+| default_value | dynamic | The default value for the extension field use by the value, the type will depend on the `field_type`. |
+| field_name | string | The name of the extension field used by the value. |
 
 <sup>*</sup> The `values` field is _only_ returned when the `field_type` is "multi_select".  When it's "multi_select",
 it's returned by default.
