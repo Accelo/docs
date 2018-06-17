@@ -71,10 +71,10 @@ These are objects describing the custom field on the deployment, they contain th
   "field_type": "multi_select",
   "is_important": "1",
   "field_id": "111",
-  "field_name": "select me",
+  "field_name": "Configuration Values",
   "values": [
-  "one",
-  "two"
+    "one",
+    "two"
   ],
   "is_exported": "0",
   "link_id": "1197",
@@ -90,7 +90,7 @@ These describe the value of a given [extension field](#the-extension-field-objec
 | **id** | unsigned | A unique identifier for the extension value. |
 | **field_type** | string | The `field_type` of the related extension field. |
 | **file_name** | string | The name of the related extension field. |
-| **value** | dynamic | The value for the extension, the type will depend on the `field_type` of the related extension field. If `field_type` is "lookup" then this will be the title of the linked object. If `field_type` is "contributor" it will be the name of the affiliation or staff who is the contributor. If it's a "multi_select" this will be all the values joined by a comma e.g.  `"one, two"` for `["one", "two"]`|
+| **value** | dynamic | The value for the extension, the type will depend on the `field_type` of the related extension field. If `field_type` is "lookup" then this will be the title of the linked object. If `field_type` is "contributor" it will be the name of the affiliation or staff who is the contributor. If it's a "multi_select" this will be all the selected values joined by a comma e.g.  `"one, two"` for `["one", "two"]`|
 | **values**<sup>*</sup> | array | When the field type is "multi_select", this will contain an array of the selected values. e.g, `["one", "two"]`|
 | field_id | unsigned | The unique identifier of the related extension field. |
 | link_id | unsigned | The unique identifier of the object the profile value is against. |
