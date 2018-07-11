@@ -109,6 +109,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | standing |
 | status_id |
 | type_id |
@@ -124,6 +125,7 @@ This request supports [order filters](#filters-order-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | type_id |
 | standing |
 | status_id |
@@ -136,6 +138,7 @@ This request supports [range filters](#filters-range-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | against_id |
 | object_id |
 | type_id |
@@ -145,6 +148,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 
 | Filter Name |
 |:-|
+| id |
 | description |
 
 #### handling the Response
