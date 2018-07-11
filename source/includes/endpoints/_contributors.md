@@ -38,7 +38,7 @@ The contributor object contains the following:
 | object_id | unsiged | The unique id of the object linked by the contributor. |
 | type_id | unsiged | The id of the type of contributor. |
 | auto_link | boolean | Whether the contributor was automatically linked. |
-| auto_cc | boolean | Whether auto_cc has been checked. |
+| auto_cc | boolean | Whether the contributor will be Auto-CC'd on correspondence. |
 
 
 
@@ -94,7 +94,7 @@ curl -X get \
 `GET /contributors`
 
 
-This request returns a list of [contributors]((#the-contributor-object)) on the deployment.
+This request returns a list of [contributors](#the-contributor-object) on the deployment.
 
 #### Configuring the Request
 
@@ -116,6 +116,8 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id |
 | object_id |
 | object_type |
+| auto_cc |
+| auto_link |
 
 ##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
