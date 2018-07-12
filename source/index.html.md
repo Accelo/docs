@@ -23,6 +23,7 @@ includes:
   - endpoints/companies
   - endpoints/contacts
   - endpoints/contracts
+  - endpoints/contributors
   - endpoints/divisions
   - endpoints/expenses
   - endpoints/extensions
