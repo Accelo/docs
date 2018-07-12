@@ -161,7 +161,6 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 
 | Filter Name |
 |:-|
-| id |
 | description |
 
 #### handling the Response  
