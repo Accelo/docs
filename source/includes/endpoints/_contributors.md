@@ -2,8 +2,10 @@
 > Resource URI:  
 `/api/v0/contributors`
 
-Contributors are third party contacts who are involved in your client's work. You can easily keep them in the loop on any project or issue by making them a contributor. 
-See the [support documentation](https://www.accelo.com/resources/help/faq/contributors/) for more information on contributors. Contributors link Staff or Affiliations to work like Jobs or issues.
+Contributors are third party contacts who are involved in your client's work. You can easily keep them in the loop on
+any project or issue by making them a contributor.  See the [support
+documentation](https://www.accelo.com/resources/help/faq/contributors/) for more information on contributors.
+Contributors link Staff or Affiliations to work like Jobs or issues.
 
 ### The Contributor Object
 > Example contributor object:
@@ -62,11 +64,14 @@ curl -X get \
 This request returns a single [contributor](#the-contributor-object), specified by its `id`.
 
 #### Configuring the Response
+
 This request supports requesting additional fields and linked objects from the [contributor](#the-contributor-object)
 using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Handling the Response
-The response will be the single requested [contributor](#the-contributor-object) with its default fields and any additional fields requested through `_fields`.
+#### Handling the Response 
+
+The response will be the single requested [contributor](#the-contributor-object) with its default fields and any
+additional fields requested through `_fields`.
 
 
 
@@ -77,6 +82,7 @@ The response will be the single requested [contributor](#the-contributor-object)
 
 
 ### List Contributors
+
 >Sample Request:
 
 ```http
@@ -99,12 +105,16 @@ This request returns a list of [contributors](#the-contributor-object) on the de
 #### Configuring the Request
 
 ##### Pagination
+
 This request accepts all the standard [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-
+fields) parameter.
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name |
@@ -121,6 +131,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | auto_link |
 
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -134,6 +145,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | auto_cc |
 
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name |
@@ -144,6 +156,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | type_id |
 
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
 
 | Filter Name |
@@ -151,8 +164,11 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 | id |
 | description |
 
-#### handling the Response
-The response will be a list of [contributors](#the-contributor-object) on the Deployment, with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+#### handling the Response  
+
+The response will be a list of [contributors](#the-contributor-object) on the Deployment, with their default fields and
+any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+searches used.
 
 
 
@@ -162,6 +178,7 @@ The response will be a list of [contributors](#the-contributor-object) on the De
 
 
 ### Count Contributors
+
 > Sample Request:
 
 ```
