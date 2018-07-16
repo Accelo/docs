@@ -145,7 +145,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | id |  |
 
 ##### Object Filters
-This request supports the following [object filters](#filters-object_filters):
+This request supports the following [object filters](#filters-object-filters):
 
 | Filter Name | Description |
 |:-|:-|
