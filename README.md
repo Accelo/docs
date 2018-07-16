@@ -1,4 +1,4 @@
-git# Accelo API Documentation
+Accelo API Documentation
 
 Powering the documentation at [api.accelo.com/docs/](https://api.accelo.com/docs/)
 
