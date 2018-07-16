@@ -61,20 +61,25 @@ These are objects describing the custom field on the deployment, they contain th
 
 ```json
 {
-  "field_name": "Project Work Location",
-  "field_type": "fixed_select",
-  "link_type": "job",
+  "value": "one, two",
+  "id": "1684",
   "is_sensitive": "0",
-  "link_type_id": "1",
-  "field_id": "9",
-  "link_id": "2",
-  "date_modified": "1495681796",
-  "default_value": "national",
+  "field_description": null,
+  "link_type": "job",
+  "date_modified": "1528787815",
+  "link_type_id": "5",
+  "field_type": "multi_select",
+  "is_important": "1",
+  "field_id": "111",
+  "field_name": "Configuration Values",
+  "values": [
+    "one",
+    "two"
+  ],
   "is_exported": "0",
-  "modified_by": "14",
-  "id": "6",
-  "value": "national",
-  "is_important": "0"
+  "link_id": "1197",
+  "modified_by": "44",
+  "default_value": ""
 }
 ```
 
@@ -85,7 +90,8 @@ These describe the value of a given [extension field](#the-extension-field-objec
 | **id** | unsigned | A unique identifier for the extension value. |
 | **field_type** | string | The `field_type` of the related extension field. |
 | **file_name** | string | The name of the related extension field. |
-| **value** | dynamic | The value for the extension, the type will depend on the `field_type` of the related extension field. If `field_type` is "lookup" then this will be the title of the linked object. If `field_type` is "contributor" it will be the name of the affiliation or staff who is the contributor |
+| **value** | dynamic | The value for the extension, the type will depend on the `field_type` of the related extension field. If `field_type` is "lookup" then this will be the title of the linked object. If `field_type` is "contributor" it will be the name of the affiliation or staff who is the contributor. If it's a "multi_select" this will be all the selected values joined by a comma e.g.  `"one, two"` for `["one", "two"]`|
+| **values**<sup>*</sup> | array | When the field type is "multi_select", this will contain an array of the selected values. e.g, `["one", "two"]`|
 | field_id | unsigned | The unique identifier of the related extension field. |
 | link_id | unsigned | The unique identifier of the object the profile value is against. |
 | link_type | string | The type of object the related extension field is linked to. |
@@ -98,7 +104,12 @@ These describe the value of a given [extension field](#the-extension-field-objec
 | is_exported | bool | Whether the related extension field is "exported". |
 | value_id | unsigned | If `field_type` is "lookup" or "contributor" this will be the ID of the lookup object (e.g, the company id) or the contributor id |
 | value_type | string | If `field_type` is "lookup" or "contributor" this will be the type of lookup object (e.g, "company") or "contributor" |
+| field_description | string | Any extra information about the extension field used by the value. |
+| default_value | dynamic | The default value for the extension field use by the value, the type will depend on the `field_type`. |
+| field_name | string | The name of the extension field used by the value. |
 
+<sup>*</sup> The `values` field is _only_ returned when the `field_type` is "multi_select".  When it's "multi_select",
+it's returned by default.
 
 
 
