@@ -18,7 +18,6 @@ Contributors link Staff or Affiliations to work like Jobs or issues.
  "against_type": "prospect",
  "description": "Description of work the contributor will do",
  "auto_cc": "0",
- "auto_link": "0",
  "status_id": null,
  "standing": "active",
  "object_type": "affiliation",
@@ -39,7 +38,6 @@ The contributor object contains the following:
 | object_type | string | The type of object linked by the contributor. |
 | object_id | unsiged | The unique id of the object linked by the contributor. |
 | type_id | unsiged | The id of the type of contributor. |
-| auto_link | boolean | Whether the contributor was automatically linked. |
 | auto_cc | boolean | Whether the contributor will be Auto-CC'd on correspondence. |
 
 
@@ -128,7 +126,6 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | object_id |
 | object_type |
 | auto_cc |
-| auto_link |
 
 ##### Order Filters
 
@@ -141,7 +138,6 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | status_id |
 | against_id |
-| auto_link |
 | auto_cc |
 
 ##### Range Filters
