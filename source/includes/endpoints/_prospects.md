@@ -510,6 +510,51 @@ The response will be the single, updated [prospect object](#the-prospect-object)
 
 
 
+### Create a Prospect
+
+> Sample  Request:
+
+```http
+POST /api/v0/jobs HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+Content-Type: application/x-www-form-urlencoded
+
+# Body here
+```
+
+```shell
+curl -X POST \
+  https://{deployment}.api.accelo.com/api/v0/jobs/ \
+  -H 'authorization: Bearer {access_token}' \
+  -H 'Content-Type: application/x-www-form-urlencoded'
+  -d ' ... '
+```
+
+`POST /prospects`
+
+This request creates and returns a new [prospect](#the-prospect-object)
+
+#### Configuring the Prospect
+
+All fields available when [updating a prospect](#update-a-prospect) may also be set here, with the following additions:
+
+| Field | Type | Notes |
+|:-|:-|:-|
+| **title** | string ||
+| **affiliation_id** | int | Must point to a valid [affiliation](#the-affiliation-object). |
+| **type_id** | int | Must point to a valid [prospect type](#the-prospect-type). |
+| status_id | int | The starting status for the progression. Defaults to the status with the lowest `ordering`. |
+
+#### Handling the Response
+
+The response will be the newly created prospect with its default fields and any additional fields requested through
+`_fields`
+
+
+
+
+
 
 ### List Prospect Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request
