@@ -95,6 +95,35 @@ Prospect probabilities are customizable fields you may use to reflect how likely
 | **value** | integer | The value assigned to the prospect probability. |
 | ordering | integer | An integer representing the prospect probability's ordering as displayed on the deployment. |
 
+#### The Prospect Status
+
+> Example Prospect Status object:
+
+```json
+{
+  "standing": "active",
+  "start": "yes",
+  "ordering": "1",
+  "id": "2",
+  "title": "Qualified",
+  "color": "yellow"
+}
+```
+
+Prospect Statuses may be used to track the progress of a Prospect. These may be configured on the deployment, see the
+[support documentation](https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/) for more
+information. The status object contains the following:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the status. |
+| **title** | string | A name for the status. |
+| standing | string | A string describing the standing of the prospect. |
+| color | string | The color of the status shown on the deployment. |
+| start | select | Either "yes" or "no", whether an prospect may be created with this status. |
+| ordering | unsigned | A number describing the order of the status on the deployment. |
+
+
 
 
 
