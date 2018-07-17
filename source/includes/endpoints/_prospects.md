@@ -557,7 +557,7 @@ The response will be the newly created prospect with its default fields and any 
 
 
 ### List Prospect Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request
+> See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request)
 
 `GET /prospects/profiles/fields`
 
