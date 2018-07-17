@@ -226,7 +226,7 @@
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc" class="toc-list-h1">
+      <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
@@ -774,6 +774,23 @@
                         </li>
                     </ul>
                   <li>
+                    <a href="#contributors" class="toc-h2 toc-link" data-title="Contributors">Contributors</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#the-contributor-object" class="toc-h3 toc-link" data-title="Endpoints">The Contributor Object</a>
+                        </li>
+                        <li>
+                          <a href="#get-contributor" class="toc-h3 toc-link" data-title="Endpoints">Get Contributor</a>
+                        </li>
+                        <li>
+                          <a href="#list-contributors" class="toc-h3 toc-link" data-title="Endpoints">List Contributors</a>
+                        </li>
+                        <li>
+                          <a href="#count-contributors" class="toc-h3 toc-link" data-title="Endpoints">Count Contributors</a>
+                        </li>
+                    </ul>
+                  <li>
                     <a href="#divisions" class="toc-h2 toc-link" data-title="Divisions">Divisions</a>
                   </li>
                     <ul class="toc-list-h3">
@@ -1235,6 +1252,15 @@
                         </li>
                         <li>
                           <a href="#list-available-progressions" class="toc-h3 toc-link" data-title="Endpoints">List Available Progressions</a>
+                        </li>
+                        <li>
+                          <a href="#list-progression-history" class="toc-h3 toc-link" data-title="Endpoints">List Progression History</a>
+                        </li>
+                        <li>
+                          <a href="#get-progression-history" class="toc-h3 toc-link" data-title="Endpoints">Get Progression History</a>
+                        </li>
+                        <li>
+                          <a href="#count-progression-histories" class="toc-h3 toc-link" data-title="Endpoints">Count Progression Histories</a>
                         </li>
                         <li>
                           <a href="#auto-run-a-progression" class="toc-h3 toc-link" data-title="Endpoints">Auto Run a Progression</a>
@@ -1796,7 +1822,7 @@
                   </li>
               </ul>
           </li>
-      </div>
+      </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/Accelo/docs/issues/new'>Report documentation error</a></li>
             <li><a href='https://github.com/Accelo/docs'>Contribute</a></li>
@@ -9441,6 +9467,261 @@ which contains the following additional fields:</p>
 <p><code>POST /contracts/{contract_id}/extensions/fields/{extension_field_id}</code></p>
 
 <p>This request sets and returns the value of an extension field, specified by its <code>extension_field_id</code>, of an contract, specified by its <code>contract_id</code>. This request is the request <a href="#create-an-extension-value"><code>POST /{object}/{object_id}/extensions/fields/{extension_field_id}</code></a> where our object is &quot;contracts&quot; whose id is <code>contract_id</code>.</p>
+<h2 id='contributors'>Contributors</h2>
+<blockquote>
+<p>Resource URI:<br>
+<code>/api/v0/contributors</code></p>
+</blockquote>
+
+<p>Contributors are third party contacts who are involved in your client&#39;s work. You can easily keep them in the loop on
+any project or issue by making them a contributor.  See the <a href="https://www.accelo.com/resources/help/faq/contributors/">support
+documentation</a> for more information on contributors.
+Contributors link Staff or Affiliations to work like Jobs or issues.</p>
+<h3 id='the-contributor-object'>The Contributor Object</h3>
+<blockquote>
+<p>Example contributor object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"against_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"against_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospect"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description of work the contributor will do"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"auto_cc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"standing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"object_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"affiliation"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"159"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The contributor object contains the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>description</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The description of the contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">The status of the contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left">status_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the status associated with the contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The object the contributor was created against.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier for the object the contributor was created against.</td>
+</tr>
+<tr>
+<td style="text-align: left">object_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The type of object linked by the contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left">object_id</td>
+<td style="text-align: left">unsiged</td>
+<td style="text-align: left">The unique id of the object linked by the contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left">type_id</td>
+<td style="text-align: left">unsiged</td>
+<td style="text-align: left">The id of the type of contributor.</td>
+</tr>
+<tr>
+<td style="text-align: left">auto_cc</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">Whether the contributor will be Auto-CC&#39;d on correspondence.</td>
+</tr>
+</tbody></table>
+<h3 id='get-contributor'>Get Contributor</h3>
+<blockquote>
+<p>Sample Request: </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/contributors/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/contributors/<span class="o">{</span>id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /contributors/{id}</code></p>
+
+<p>This request returns a single <a href="#the-contributor-object">contributor</a>, specified by its <code>id</code>.</p>
+<h4 id='configuring-the-response'>Configuring the Response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-contributor-object">contributor</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response'>Handling the Response</h4>
+<p>The response will be the single requested <a href="#the-contributor-object">contributor</a> with its default fields and any
+additional fields requested through <code>_fields</code>.</p>
+<h3 id='list-contributors'>List Contributors</h3>
+<blockquote>
+<p>Sample Request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/contributors</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/contributors <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /contributors</code></p>
+
+<p>This request returns a list of <a href="#the-contributor-object">contributors</a> on the deployment.</p>
+<h4 id='configuring-the-request'>Configuring the Request</h4><h5 id='pagination'>Pagination</h5>
+<p>This request accepts all the standard <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h5 id='additional-fields-and-linked-objects'>Additional Fields and Linked Objects</h5>
+<p>This request supports requesting additional fields and linked objects using the <a href="#configuring-the-response-"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters'>Basic Filters</h5>
+<p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+</tr>
+<tr>
+<td style="text-align: left">status_id</td>
+</tr>
+<tr>
+<td style="text-align: left">type_id</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+</tr>
+<tr>
+<td style="text-align: left">object_id</td>
+</tr>
+<tr>
+<td style="text-align: left">object_type</td>
+</tr>
+<tr>
+<td style="text-align: left">auto_cc</td>
+</tr>
+</tbody></table>
+<h5 id='order-filters'>Order Filters</h5>
+<p>This request supports <a href="#filters-order-filters">order filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+<tr>
+<td style="text-align: left">type_id</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+</tr>
+<tr>
+<td style="text-align: left">status_id</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+</tr>
+<tr>
+<td style="text-align: left">auto_cc</td>
+</tr>
+</tbody></table>
+<h5 id='range-filters'>Range Filters</h5>
+<p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+</tr>
+<tr>
+<td style="text-align: left">object_id</td>
+</tr>
+<tr>
+<td style="text-align: left">type_id</td>
+</tr>
+</tbody></table>
+<h5 id='searching'>Searching</h5>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> paramter to search over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">description</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-2'>handling the Response</h4>
+<p>The response will be a list of <a href="#the-contributor-object">contributors</a> on the Deployment, with their default fields and
+any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or
+searches used.</p>
+<h3 id='count-contributors'>Count Contributors</h3>
+<blockquote>
+<p>Sample Request:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /api/v0/contributors/count HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/contributors/count <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /contributors/count</code></p>
+
+<p>This request will return a count of contributors in a list defined by any available searches of filters.
+With no searches or filters this will be a count of all incoivce on the deployment. This request
+returns a single field:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>count</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A count of contributors listed.</td>
+</tr>
+</tbody></table>
 <h2 id='divisions'>Divisions</h2>
 <blockquote>
 <p>Resource URI:<br>
@@ -10454,20 +10735,25 @@ which contains the following additional fields:</p>
 <p>Example extension field value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Work Location"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"field_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed_select"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"link_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one, two"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1684"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_sensitive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"link_type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"link_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1495681796"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"national"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"link_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1528787815"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"link_type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi_select"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_important"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Configuration Values"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"two"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">"is_exported"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"national"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_important"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+  </span><span class="s2">"link_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1197"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>These describe the value of a given <a href="#the-extension-field-object">extension field</a>, identified by the <code>field_id</code>. This object contains the following:</p>
@@ -10497,7 +10783,12 @@ which contains the following additional fields:</p>
 <tr>
 <td style="text-align: left"><strong>value</strong></td>
 <td style="text-align: left">dynamic</td>
-<td style="text-align: left">The value for the extension, the type will depend on the <code>field_type</code> of the related extension field. If <code>field_type</code> is &quot;lookup&quot; then this will be the title of the linked object. If <code>field_type</code> is &quot;contributor&quot; it will be the name of the affiliation or staff who is the contributor</td>
+<td style="text-align: left">The value for the extension, the type will depend on the <code>field_type</code> of the related extension field. If <code>field_type</code> is &quot;lookup&quot; then this will be the title of the linked object. If <code>field_type</code> is &quot;contributor&quot; it will be the name of the affiliation or staff who is the contributor. If it&#39;s a &quot;multi_select&quot; this will be all the selected values joined by a comma e.g.  <code>&quot;one, two&quot;</code> for <code>[&quot;one&quot;, &quot;two&quot;]</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>values</strong><sup>*</sup></td>
+<td style="text-align: left">array</td>
+<td style="text-align: left">When the field type is &quot;multi_select&quot;, this will contain an array of the selected values. e.g, <code>[&quot;one&quot;, &quot;two&quot;]</code></td>
 </tr>
 <tr>
 <td style="text-align: left">field_id</td>
@@ -10559,7 +10850,25 @@ which contains the following additional fields:</p>
 <td style="text-align: left">string</td>
 <td style="text-align: left">If <code>field_type</code> is &quot;lookup&quot; or &quot;contributor&quot; this will be the type of lookup object (e.g, &quot;company&quot;) or &quot;contributor&quot;</td>
 </tr>
+<tr>
+<td style="text-align: left">field_description</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">Any extra information about the extension field used by the value.</td>
+</tr>
+<tr>
+<td style="text-align: left">default_value</td>
+<td style="text-align: left">dynamic</td>
+<td style="text-align: left">The default value for the extension field use by the value, the type will depend on the <code>field_type</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left">field_name</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The name of the extension field used by the value.</td>
+</tr>
 </tbody></table>
+
+<p><sup>*</sup> The <code>values</code> field is <em>only</em> returned when the <code>field_type</code> is &quot;multi_select&quot;.  When it&#39;s &quot;multi_select&quot;,
+it&#39;s returned by default.</p>
 <h3 id='list-extension-fields'>List Extension Fields</h3>
 <p><a name="retrieve-a-list-of-extension-fields"></a></p>
 
@@ -16265,6 +16574,54 @@ When it&#39;s &quot;multi_select&quot;, it&#39;s returned by default.</p>
 <td style="text-align: left">The <a href="#status-objects">status</a> the progression will move to. Note, the status object here does not contain the <code>start</code> field.</td>
 </tr>
 </tbody></table>
+<h4 id='the-progression-history'>The Progression History</h4>
+<p>The history of progressions taken by an object (equivalently, the history of statuses that it has taken) is tracked via
+the progression history. Each of these objects tracks the status the object was moved to, by whom, and when. These
+objects contain:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the history object</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>to_id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the <a href="#status-objects">status</a> the object was progressed to.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>to_title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The title of the <a href="#status-objects">status</a> the object was progressed to.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The type of object the progression was made against.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the object the progression was made against.</td>
+</tr>
+<tr>
+<td style="text-align: left">modified_by</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the staff who progressed the object.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the object was progressed.</td>
+</tr>
+</tbody></table>
 <h4 id='using-progressions'>Using Progressions</h4>
 <p>Progressions may be used to perform an automatic status update, this is a three step process:<br>
 1. Determine which status progressions are available for the given object, this is achieved by a <code>GET</code> request which <a href="#retrieve-a-list-of-available-progressions">retrieves a list of available progressions</a>.<br>
@@ -16285,6 +16642,159 @@ When it&#39;s &quot;multi_select&quot;, it&#39;s returned by default.</p>
 <p>This request returns a list of <a href="#the-progression-object">progressions</a> available for a given resource, which may be one of the types <a href="#progressions">above</a>, specified by its unique resource id.</p>
 <h4 id='handling-the-response'>Handling the Response</h4>
 <p>This request will return a list of <a href="#the-progression-object">progressions</a> available for the object given, displayed in ascending order of their <code>progression_id</code>.</p>
+<h3 id='list-progression-history'>List Progression History</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/progressions/history</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/progressions/history <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET/progressions/history</code></p>
+
+<p>This request returns a list of <a href="#the-progression-history">progression history objects</a>.</p>
+<h4 id='configuring-the-response'>Configuring the Response</h4><h5 id='pagination'>Pagination</h5>
+<p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h5 id='additional-fields-and-linked-objects'>Additional Fields and Linked Objects</h5>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-progression-history">progression history
+object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">modified_by</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='order-filters'>Order Filters</h5>
+<p>This request supports the following <a href="#filters-order-filters">order filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='range-filters'>Range Filters</h5>
+<p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='object-filters'>Object Filters</h5>
+<p>This request supports the following <a href="#filters-object-filters">object filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">against</td>
+<td style="text-align: left">Filter by histories against these objects.</td>
+</tr>
+</tbody></table>
+<h5 id='date-filters'>Date Filters</h5>
+<p>This request supports <a href="#filters-date-filters">date filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">date_modified</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-2'>Handling the Response</h4>
+<p>The response will be a list of <a href="#the-progression-history">progression history objects</a> with their default fields and any
+additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or
+searches used.</p>
+<h3 id='get-progression-history'>Get Progression History</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/progressions/history/{progression_history_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/progressions/history/<span class="o">{</span>progression_history_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET/progressions/history/{progression_history_id}</code></p>
+
+<p>This request returns a single <a href="#the-progression-history">progression history object</a> specified by its unique id.</p>
+<h3 id='count-progression-histories'>Count Progression Histories</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/progressions/history/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/progressions/history/count <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET/progressions/history/count</code></p>
+
+<p>This request will return a count of <a href="#the-progression-history">progression histories</a> in a list defined by any available
+searches or filters. See <a href="#list-progression-history"><code>GET /progressions/history</code></a> for a list of available filters. With
+no searches or filters this will be a count of all progression histories. The response contains a single fie</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>count</strong></td>
+<td style="text-align: left">Unsigned</td>
+<td style="text-align: left">A count of progression histories listed</td>
+</tr>
+</tbody></table>
 <h3 id='auto-run-a-progression'>Auto Run a Progression</h3>
 <p><a name="run-a-status-update-using-a-given-progression"></a></p>
 
@@ -16299,7 +16809,7 @@ When it&#39;s &quot;multi_select&quot;, it&#39;s returned by default.</p>
 <p><code>[POST|PUT] /{resource}/{resource_id}/progressions/{progression_id}/auto</code></p>
 
 <p>This request uses the given progression, specified by its <code>progression_id</code> to progress the status of the object, specified by its unique id. The object may be any one of those listed <a href="#progressions">above</a>.</p>
-<h4 id='handling-the-response-2'>Handling the Response</h4>
+<h4 id='handling-the-response-3'>Handling the Response</h4>
 <p>The response will contain the single updated object. Please see the appropriate resource endpoint for handling and configuring the response.</p>
 <h2 id='prospects-sales'>Prospects (Sales)</h2>
 <blockquote>
