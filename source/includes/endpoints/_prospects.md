@@ -483,14 +483,19 @@ This request updates and returns a [prospect](#the-prospect-object), specified b
 #### Configuring the Prospect
 The following fields may be updated through this request:
 
-| Field Name | Notes |
-|:-|:-|
-| title ||
-| comments ||
-| value ||
-| success ||
-| affiliation_id | MUST point to a valid affiliation. |
-| staff_id | Update the `staff_id` of the manager. MUST point to a valid staff. |
+| Field | Type | Notes |
+|:-|:-|:-|
+| title |string ||
+| comments | string ||
+| value | decimal ||
+| success | select | If provided, must be one of 'yes' or 'no'. |
+| affiliation_id | int | MUST point to a valid affiliation. Updating this may relocate the prospect to a new company. |
+| staff_id | int | Update the `staff_id` of the manager. MUST point to a valid staff. |
+| date_due | unix ts or ISO8601 String ||
+| weighting | int | Must be between 0 and 5. |
+| progress | int  | Must be between 0 and 100. |
+| probability_id | int ||
+| status_id | int | Must point to a valid [prospect status](#the-prospect-status). **Warning** This will bypass any progressions and should only be used deliberately when automating tasks. Please use [progressions](#progressions) otherwise. |
 
 See the [prospect object](#the-prospect-object) for more information on these fields.
 
