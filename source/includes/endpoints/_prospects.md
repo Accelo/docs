@@ -548,7 +548,7 @@ All fields available when [updating a prospect](#update-a-prospect) may also be 
 | **title** | string ||
 | **affiliation_id** | int | Must point to a valid [affiliation](#the-affiliation-object). |
 | **type_id** | int | Must point to a valid [prospect type](#the-prospect-type). |
-| status_id | int | The starting status for the progression. Defaults to the status with the lowest `ordering`. |
+| status_id | int | The starting status for the progression. Defaults to the status with the lowest `ordering`. **Note** this will skip any progressions. |
 
 #### Handling the Response
 
