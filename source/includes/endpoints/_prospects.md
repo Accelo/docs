@@ -520,15 +520,19 @@ HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
 
-# Body here
+title='New Prospect'
+affiliation_id=1421
+type_id=3
 ```
 
 ```shell
 curl -X POST \
   https://{deployment}.api.accelo.com/api/v0/jobs/ \
   -H 'authorization: Bearer {access_token}' \
-  -H 'Content-Type: application/x-www-form-urlencoded'
-  -d ' ... '
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'title=New Prospect' \
+  -d 'affiliation_id=1421' \
+  -d 'type_id=1'
 ```
 
 `POST /prospects`
