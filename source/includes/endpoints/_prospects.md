@@ -95,6 +95,35 @@ Prospect probabilities are customizable fields you may use to reflect how likely
 | **value** | integer | The value assigned to the prospect probability. |
 | ordering | integer | An integer representing the prospect probability's ordering as displayed on the deployment. |
 
+#### The Prospect Status
+
+> Example Prospect Status object:
+
+```json
+{
+  "standing": "active",
+  "start": "yes",
+  "ordering": "1",
+  "id": "2",
+  "title": "Qualified",
+  "color": "yellow"
+}
+```
+
+Prospect Statuses may be used to track the progress of a Prospect. These may be configured on the deployment, see the
+[support documentation](https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/) for more
+information. The status object contains the following:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the status. |
+| **title** | string | A name for the status. |
+| standing | string | A string describing the standing of the prospect. |
+| color | string | The color of the status shown on the deployment. |
+| start | select | Either "yes" or "no", whether an prospect may be created with this status. |
+| ordering | unsigned | A number describing the order of the status on the deployment. |
+
+
 
 
 
@@ -454,14 +483,19 @@ This request updates and returns a [prospect](#the-prospect-object), specified b
 #### Configuring the Prospect
 The following fields may be updated through this request:
 
-| Field Name | Notes |
-|:-|:-|
-| title ||
-| comments ||
-| value ||
-| success ||
-| affiliation_id | MUST point to a valid affiliation. |
-| staff_id | Update the `staff_id` of the manager. MUST point to a valid staff. |
+| Field | Type | Notes |
+|:-|:-|:-|
+| title |string ||
+| comments | string ||
+| value | decimal ||
+| success | select | If provided, must be one of 'yes' or 'no'. |
+| affiliation_id | int | MUST point to a valid affiliation. Updating this may relocate the prospect to a new company. |
+| staff_id | int | Update the `staff_id` of the manager. MUST point to a valid staff. |
+| date_due | unix ts or ISO8601 String ||
+| weighting | int | Must be between 0 and 5. |
+| progress | int  | Must be between 0 and 100. |
+| probability_id | int ||
+| status_id | int | Must point to a valid [prospect status](#the-prospect-status). **Warning** This will bypass any progressions and should only be used deliberately when automating tasks. Please use [progressions](#progressions) otherwise. |
 
 See the [prospect object](#the-prospect-object) for more information on these fields.
 
@@ -476,9 +510,58 @@ The response will be the single, updated [prospect object](#the-prospect-object)
 
 
 
+### Create a Prospect
+
+> Sample  Request:
+
+```http
+POST /api/v0/jobs HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+Content-Type: application/x-www-form-urlencoded
+
+title='New Prospect'
+affiliation_id=1421
+type_id=3
+```
+
+```shell
+curl -X POST \
+  https://{deployment}.api.accelo.com/api/v0/jobs/ \
+  -H 'authorization: Bearer {access_token}' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'title=New Prospect' \
+  -d 'affiliation_id=1421' \
+  -d 'type_id=1'
+```
+
+`POST /prospects`
+
+This request creates and returns a new [prospect](#the-prospect-object)
+
+#### Configuring the Prospect
+
+All fields available when [updating a prospect](#update-a-prospect) may also be set here, with the following additions:
+
+| Field | Type | Notes |
+|:-|:-|:-|
+| **title** | string ||
+| **affiliation_id** | int | Must point to a valid [affiliation](#the-affiliation-object). |
+| **type_id** | int | Must point to a valid [prospect type](#the-prospect-type). |
+| status_id | int | The starting status for the progression. Defaults to the status with the lowest `ordering`. **Note** this will skip any progressions. |
+
+#### Handling the Response
+
+The response will be the newly created prospect with its default fields and any additional fields requested through
+`_fields`
+
+
+
+
+
 
 ### List Prospect Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request
+> See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request)
 
 `GET /prospects/profiles/fields`
 
