@@ -1295,6 +1295,9 @@
                           <a href="#update-a-prospect" class="toc-h3 toc-link" data-title="Endpoints">Update a Prospect</a>
                         </li>
                         <li>
+                          <a href="#create-a-prospect" class="toc-h3 toc-link" data-title="Endpoints">Create a Prospect</a>
+                        </li>
+                        <li>
                           <a href="#list-prospect-profile-fields" class="toc-h3 toc-link" data-title="Endpoints">List Prospect Profile Fields</a>
                         </li>
                         <li>
@@ -17058,6 +17061,61 @@ no searches or filters this will be a count of all progression histories. The re
 <td style="text-align: left">An integer representing the prospect probability&#39;s ordering as displayed on the deployment.</td>
 </tr>
 </tbody></table>
+<h4 id='the-prospect-status'>The Prospect Status</h4>
+<blockquote>
+<p>Example Prospect Status object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"standing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ordering"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qualified"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yellow"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Prospect Statuses may be used to track the progress of a Prospect. These may be configured on the deployment, see the
+<a href="https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/">support documentation</a> for more
+information. The status object contains the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the status.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A name for the status.</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A string describing the standing of the prospect.</td>
+</tr>
+<tr>
+<td style="text-align: left">color</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The color of the status shown on the deployment.</td>
+</tr>
+<tr>
+<td style="text-align: left">start</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">Either &quot;yes&quot; or &quot;no&quot;, whether an prospect may be created with this status.</td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A number describing the order of the status on the deployment.</td>
+</tr>
+</tbody></table>
 <h3 id='get-prospect'>Get Prospect</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -17517,33 +17575,65 @@ to search over the following fields:</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">Field Name</th>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
 <th style="text-align: left">Notes</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">title</td>
+<td style="text-align: left">string</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left">comments</td>
+<td style="text-align: left">string</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left">value</td>
+<td style="text-align: left">decimal</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left">success</td>
-<td style="text-align: left"></td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">If provided, must be one of &#39;yes&#39; or &#39;no&#39;.</td>
 </tr>
 <tr>
 <td style="text-align: left">affiliation_id</td>
-<td style="text-align: left">MUST point to a valid affiliation.</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">MUST point to a valid affiliation. Updating this may relocate the prospect to a new company.</td>
 </tr>
 <tr>
 <td style="text-align: left">staff_id</td>
+<td style="text-align: left">int</td>
 <td style="text-align: left">Update the <code>staff_id</code> of the manager. MUST point to a valid staff.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_due</td>
+<td style="text-align: left">unix ts or ISO8601 String</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">weighting</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">Must be between 0 and 5.</td>
+</tr>
+<tr>
+<td style="text-align: left">progress</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">Must be between 0 and 100.</td>
+</tr>
+<tr>
+<td style="text-align: left">probability_id</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">status_id</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">Must point to a valid <a href="#the-prospect-status">prospect status</a>. <strong>Warning</strong> This will bypass any progressions and should only be used deliberately when automating tasks. Please use <a href="#progressions">progressions</a> otherwise.</td>
 </tr>
 </tbody></table>
 
@@ -17552,9 +17642,66 @@ to search over the following fields:</p>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-prospect-object">prospect object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-6'>Handling the Response</h4>
 <p>The response will be the single, updated <a href="#the-prospect-object">prospect object</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<h3 id='create-a-prospect'>Create a Prospect</h3>
+<blockquote>
+<p>Sample  Request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/jobs</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+title='New Prospect'
+affiliation_id=1421
+type_id=3
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/jobs/ <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  -d <span class="s1">'title=New Prospect'</span> <span class="se">\</span>
+  -d <span class="s1">'affiliation_id=1421'</span> <span class="se">\</span>
+  -d <span class="s1">'type_id=1'</span>
+</code></pre>
+<p><code>POST /prospects</code></p>
+
+<p>This request creates and returns a new <a href="#the-prospect-object">prospect</a></p>
+<h4 id='configuring-the-prospect-2'>Configuring the Prospect</h4>
+<p>All fields available when <a href="#update-a-prospect">updating a prospect</a> may also be set here, with the following additions:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>affiliation_id</strong></td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">Must point to a valid <a href="#the-affiliation-object">affiliation</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>type_id</strong></td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">Must point to a valid <a href="#the-prospect-type">prospect type</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left">status_id</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">The starting status for the progression. Defaults to the status with the lowest <code>ordering</code>. <strong>Note</strong> this will skip any progressions.</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-7'>Handling the Response</h4>
+<p>The response will be the newly created prospect with its default fields and any additional fields requested through
+<code>_fields</code></p>
 <h3 id='list-prospect-profile-fields'>List Prospect Profile Fields</h3>
 <blockquote>
-<p>See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request</p>
+<p>See the <a href="#retrieve-a-list-of-profile-fields%20for%20a%20sample%20request">profiles section</a></p>
 </blockquote>
 
 <p><code>GET /prospects/profiles/fields</code></p>
