@@ -1,4 +1,4 @@
- f# Authentication
+# Authentication
 
 Accelo's API uses the OAuth 2.0 protocol and provides routines that cover web, service and installed application's
 authorization and authentication. It supports authorization code grants and client credential grants as necessary
