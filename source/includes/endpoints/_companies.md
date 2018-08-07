@@ -656,7 +656,7 @@ The following fields from the [company object](#the-company-object) may be updat
 | phone |
 | fax |
 | comments |
-| title |
+| name |
 
 
 #### Configuring the Response
