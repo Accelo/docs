@@ -2413,16 +2413,22 @@ of the filter will be used. For example <code>_filters=_OR(staff(10),staff(11))<
 will just filter by staff with id 11, here the simple filter <code>_filters=staff(10,11)</code>
 should be used.</p>
 <h1 id='authentication'>Authentication</h1>
-<p>Accelo&#39;s API uses the OAuth 2.0 protocol and provides routines that cover web, service and installed application&#39;s authorization and authentication. It supports authorization code grants and client credential grants as necessary between the available API applications.</p>
+<p>Accelo&#39;s API uses the OAuth 2.0 protocol and provides routines that cover web, service and installed application&#39;s
+authorization and authentication. It supports authorization code grants and client credential grants as necessary
+between the available API applications.</p>
 
-<p>Please read OAuth 2.0&#39;s <a href="https://tools.ietf.org/html/rfc6749">final version specification</a> for more information on the protocol.</p>
+<p>Please read OAuth 2.0&#39;s <a href="https://tools.ietf.org/html/rfc6749">final version specification</a> for more information on the
+protocol.</p>
 
 <p>Generally, accessing an Accelo resource protected by OAuth2.0 takes three steps:<br>
 1. Authorize<br>
 2. Acquire token<br>
 3. Access resource  </p>
 
-<p>Before access to a token is granted authorization is achieved for a limited range of requests using the <code>client_id</code> and <code>client_secret</code> which can be found through your Accelo toolbox and are given upon registering your API. To gain an access token your application must first be authorized by the end user, once authorized we are able to send a token request to the OAuth endpoint. We will go through this process for each of the application types support by Accelo.</p>
+<p>Before access to a token is granted authorization is achieved for a limited range of requests using the <code>client_id</code> and
+<code>client_secret</code> which can be found through your Accelo toolbox and are given upon registering your API. To gain an
+access token your application must first be authorized by the end user, once authorized we are able to send a token
+request to the OAuth endpoint. We will go through this process for each of the application types support by Accelo.</p>
 
 <!-- Use html anchor because normal markdown method does not like "."-->
 
@@ -2451,15 +2457,21 @@ should be used.</p>
 </blockquote>
 <pre class="highlight plaintext"><code>scope=write(contacts,staff)
 </code></pre>
-<p>The range of access permissions for a given token is provided by the <code>scope</code> parameter. Currently, the following scopes are available:</p>
+<p>The range of access permissions for a given token is provided by the <code>scope</code> parameter. Currently, the following scopes
+are available:</p>
 
-<p><code>read({resource})</code> - Read only access to data related to the <code>{resource}</code> object, which may be any resource. <code>read(all)</code> gives read only access to all data the user owns or has access to. To provide read access to any collection of resources, <code>{resource_1},{resource_2},...</code> you can simply concatenate, <code>read({resource_1},{resource_2},...)</code></p>
+<p><code>read({resource})</code> - Read only access to data related to the <code>{resource}</code> object, which may be any resource. <code>read(all)</code>
+gives read only access to all data the user owns or has access to. To provide read access to any collection of
+resources, <code>{resource_1},{resource_2},...</code> you can simply concatenate, <code>read({resource_1},{resource_2},...)</code></p>
 
-<p><code>write({resource})</code> - Read and write access related to the resource specified.  <code>write(all)</code> gives read and write access to all data the user owns or has access to. As for read access, write access for a collection of resources is given via concatenation.</p>
+<p><code>write({resource})</code> - Read and write access related to the resource specified.  <code>write(all)</code> gives read and write access
+to all data the user owns or has access to. As for read access, write access for a collection of resources is given via
+concatenation.</p>
 
 <p>The <code>scope</code> field is optional in all requests that use it, and defaults to <code>read(all)</code>.</p>
 <h3 id='oauth2-0-endpoints'>OAUTH2.0 Endpoints</h3>
-<p>There are three endpoints off the OAUTH2.0 URI, they are <code>/authorize</code>, <code>/token</code>, and <code>revoke</code>. These endpoints support the following requests:</p>
+<p>There are three endpoints off the OAUTH2.0 URI, they are <code>/authorize</code>, <code>/token</code>, and <code>revoke</code>. These endpoints support
+the following requests:</p>
 
 <table><thead>
 <tr>
@@ -2481,9 +2493,13 @@ should be used.</p>
 </tr>
 </tbody></table>
 
-<p>We will cover handling the responses on a case-by-case basis for each application type, as the responses vary between them. Note that authorization and token requests should always be encoded, for the purposes of demonstration, our examples are not.</p>
+<p>We will cover handling the responses on a case-by-case basis for each application type, as the responses vary between
+them. Note that authorization and token requests should always be encoded, for the purposes of demonstration, our
+examples are not.</p>
 <h3 id='redirect-uris'>Redirect URIs</h3>
-<p>Redirect URIs are used in the authorization of web and installed applications, these are the URIs to which the end-user&#39;s response to authentication requests are sent. Redirect URIs for an application may be registered through the api control panel. You may register many callback URIs for a web application, but only one for an installed application.</p>
+<p>Redirect URIs are used in the authorization of web and installed applications, these are the URIs to which the end-
+user&#39;s response to authentication requests are sent. Redirect URIs for an application may be registered through the api
+control panel. You may register many callback URIs for a web application, but only one for an installed application.</p>
 <h2 id='authentication-without-a-token'>Authentication Without a Token</h2>
 <p>Authenticating an application before you have been granted an access token is done
 using HTTP Basic authorization. The format is <code>{client_id}:{client_secret}</code> encoded in base64.
@@ -2494,10 +2510,12 @@ secret is <code>zTfFgiyQCVDFk-1EtUerVLRk1is6LgL6</code> then you would authorize
 
 <p>For convenience we will just write <code>{client_credentials}</code></p>
 <h2 id='service-applications'>Service Applications</h2>
-<p>These are not run from the end user&#39;s deployment, and hence do not need to be authorized by the user, so authorization and accessing a token is are combined into one step for these application.</p>
+<p>These are not run from the end user&#39;s deployment, and hence do not need to be authorized by the user, so authorization
+and accessing a token is are combined into one step for these application.</p>
 <h3 id='token-acquisition-for-service-applications'>Token Acquisition for Service Applications</h3>
 <blockquote>
-<p>Example token request for the Planet Express deployment, here <code>{client_credentials}</code> is <code>client_id:client_secret</code> encoded in base64, as described above.</p>
+<p>Example token request for the Planet Express deployment, here <code>{client_credentials}</code> is <code>client_id:client_secret</code>
+encoded in base64, as described above.</p>
 </blockquote>
 
 <!-- This code block will be  in the right column, to change this do not have an empty line before it-->
@@ -2518,9 +2536,12 @@ scope=read(staff)
 
 <p><code>https://{deployment}.api.accelo.com/oauth2/v0/token</code></p>
 
-<p>Please note, access and refresh tokens should <strong>never</strong> be transmitted without being encoded. Further note, all token requests require authorization using HTTP Basic as outlined <a href="#authentication-without-a-token">above</a>.</p>
+<p>Please note, access and refresh tokens should <strong>never</strong> be transmitted without being encoded. Further note, all token
+requests require authorization using HTTP Basic as outlined <a href="#authentication-without-a-token">above</a>.</p>
 
-<p>The <code>/token</code> endpoint to request a token. Since end-user authorization is not required, HTTP basic is used instead, the format as outlined <a href="#authentication-without-a-token">above</a>. For service applications this request supports the following parameters:</p>
+<p>The <code>/token</code> endpoint to request a token. Since end-user authorization is not required, HTTP basic is used instead, the
+format as outlined <a href="#authentication-without-a-token">above</a>. For service applications this request supports the
+following parameters:</p>
 
 <table><thead>
 <tr>
@@ -2607,11 +2628,13 @@ scope=read(staff)
 </tr>
 </tbody></table>
 <h2 id='web-applications'>Web Applications</h2>
-<p>Web applications require the end-user to authorize an application before it can make any requests. Hence token acquisition requires two steps:<br>
+<p>Web applications require the end-user to authorize an application before it can make any requests. Hence token
+acquisition requires two steps:<br>
 1. <a href="#authorization-for-web-applications">Authorization of the application</a><br>
-2. <a href="#token-acquisition-for-web-applications">Token Acquisition</a></p>
+2. <a href="#token-acquisition-for-web-applications">TokenAcquisition</a></p>
 
-<p>Keep in mind for these applications that the host is the deployment for the <em>user</em> and not the web application&#39;s deployment host.</p>
+<p>Keep in mind for these applications that the host is the deployment for the <em>user</em> and not the web application&#39;s
+deployment host.</p>
 <h3 id='authorization-for-web-applications'>Authorization for Web Applications</h3>
 <p>The authorize endpoint URI:<br>
 <code>https://{deployment}.api.accelo.com/oauth2/v0/authorize</code></p>
@@ -2636,7 +2659,8 @@ redirect_uri=https//planet-express.com/oauth-callback
   -d <span class="s1">'scope=read(companies,contacts),write(staff)'</span> <span class="se">\</span>
   -d <span class="s1">'redirect_uri=https//planet-express.com/oauth-callback'</span>
 </code></pre>
-<p>Authorization is achieved through the authorize endpoint. For authorizing web applications, the endpoint takes the following parameters:</p>
+<p>Authorization is achieved through the authorize endpoint. For authorizing web applications, the endpoint takes the
+following parameters:</p>
 
 <table><thead>
 <tr>
@@ -2709,7 +2733,8 @@ redirect_uri=https//planet-express.com/oauth-callback
 </tr>
 </tbody></table>
 <h3 id='token-acquisition-for-web-applications'>Token Acquisition for Web Applications</h3>
-<p>Please note, access and refresh tokens should <strong>never</strong> be transmitted without encryption. Further note, all token requests require authoriztion using HTTP Basic as outlined <a href="#authentication-without-a-token">previously</a></p>
+<p>Please note, access and refresh tokens should <strong>never</strong> be transmitted without encryption. Further note, all token
+requests require authoriztion using HTTP Basic as outlined <a href="#authentication-without-a-token">previously</a></p>
 
 <blockquote>
 <p>Example token request:</p>
@@ -2727,7 +2752,10 @@ redirect_uri=https://planet-express.com/oauth-callback
   -d <span class="s1">'code=frLA0s1m_D'</span> <span class="se">\</span>
   -d <span class="s1">'redirect_uri=https://planet-express.com/oauth-callback'</span>
 </code></pre>
-<p>Once you have an authorization code from a successful authorization request you may exchange it for an access and refresh token. The token request requires that you authenticate using HTTP Basic Authorization as explained <a href="#authentication-without-a-token">here</a>. Token request are sent through the <code>/token</code> endpoint, for web application request this endpoint supports the following parameters:</p>
+<p>Once you have an authorization code from a successful authorization request you may exchange it for an access and
+refresh token. The token request requires that you authenticate using HTTP Basic Authorization as explained <a href="#authentication-without-a-token">here
+</a>. Token request are sent through the <code>/token</code> endpoint, for web application request
+this endpoint supports the following parameters:</p>
 
 <table><thead>
 <tr>
@@ -2818,13 +2846,16 @@ redirect_uri=https://planet-express.com/oauth-callback
 </tr>
 </tbody></table>
 
-<p>Note that an invalid (that is, not one of the one those registered, or not matching that provided when <a href="#authorization-for-web-applications">authorizing</a>) URI will return a &quot;Grant was not found (possibly expired).&quot; error</p>
+<p>Note that an invalid (that is, not one of the one those registered, or not matching that provided when <a href="#authorization-for-web-applications">authorizing
+</a>) URI will return a &quot;Grant was not found (possibly expired).&quot; error</p>
 <h2 id='installed-applications'>Installed Applications</h2>
-<p>Similarly to web applications, to gain a token for installed applications you must first have the end-user authorize the application, so again the two steps are:<br>
-1. <a href="#authorization-for-installed-applications">Authorize the application</a><br>
+<p>Similarly to web applications, to gain a token for installed applications you must first have the end-user authorize the
+application, so again the two steps are:<br>
+1. <a href="#authorization-for-installed-applications">Authorize the application</a>
 2. <a href="#token-acquisition-for-installed-applications">Token Acquisition</a></p>
 
-<p>Keep in mind for these applications that the host is the deployment for the <em>user</em> and not the installed application&#39;s deployment host.</p>
+<p>Keep in mind for these applications that the host is the deployment for the <em>user</em> and not the installed application&#39;s
+deployment host.</p>
 <h3 id='authorization-for-installed-applications'>Authorization for Installed Applications</h3><h4 id='the-authorization-request-for-installed-applications'>The Authorization Request for Installed Applications</h4>
 <blockquote>
 <p>Example authorization request:</p>
@@ -2875,9 +2906,11 @@ scope=read(companies,contacts),write(staff)
 
 <p><img src="images/screenshots/installed-app.png" alt="alt text" /></p>
 <h4 id='authorization-response-for-installed-applications'>Authorization Response for Installed Applications</h4>
-<p>If the user returns to the application and enters the pin, this will be the authorization code to be exchanged for a token.</p>
+<p>If the user returns to the application and enters the pin, this will be the authorization code to be exchanged for a
+token.</p>
 <h3 id='token-acquisition-for-installed-applications'>Token Acquisition for Installed Applications</h3>
-<p>Please note, access and refresh tokens should <strong>never</strong> be transmitted without encryption. Further note, all token requests require authoriztion using HTTP Basic as outlined <a href="#authentication-without-a-token">previously</a></p>
+<p>Please note, access and refresh tokens should <strong>never</strong> be transmitted without encryption. Further note, all token
+requests require authoriztion using HTTP Basic as outlined <a href="#authentication-without-a-token">previously</a></p>
 
 <blockquote>
 <p>Example token request:</p>
@@ -2893,7 +2926,8 @@ code=750332955
   -d <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
   -d <span class="s1">'code=750332955'</span>
 </code></pre>
-<p>Returning again to the <code>/token</code> endpoint, authenticating using <a href="#authentication-without-a-token">HTTP Basic</a>, for installed applications the request accepts the following parameters.</p>
+<p>Returning again to the <code>/token</code> endpoint, authenticating using <a href="#authentication-without-a-token">HTTP Basic</a>, for
+installed applications the request accepts the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -2924,7 +2958,8 @@ code=750332955
 </tr>
 </tbody></table>
 
-<p>For installed applications, as with web applications, a refresh token is included in the response. Also included in the response are:</p>
+<p>For installed applications, as with web applications, a refresh token is included in the response. Also included in the
+response are:</p>
 <h2 id='revoking-a-token'>Revoking a Token</h2>
 <blockquote>
 <p>Sample request:</p>
@@ -2941,7 +2976,9 @@ token={access_token_to_be_revoked}
 </code></pre>
 <p><code>POST /oauth2/revoke</code></p>
 
-<p>Token revocation may be necessary when read/write permissions are no longer required e.g. on log-out, authorization on this request may either be done through Basic authorization as outlined previously, or by including the <code>client_id</code> and <code>client_secret</code> within the query parameters. This request takes the following parameters:</p>
+<p>Token revocation may be necessary when read/write permissions are no longer required e.g. on log-out, authorization on
+this request may either be done through Basic authorization as outlined previously, or by including the <code>client_id</code> and
+<code>client_secret</code> within the query parameters. This request takes the following parameters:</p>
 
 <table><thead>
 <tr>
@@ -2983,7 +3020,8 @@ refresh_token=VYfb63__vf
   -d <span class="s1">'token_type=refresh_token'</span> <span class="se">\</span>
   -d <span class="s1">'refresh_token=VYfb63__vf'</span>
 </code></pre>
-<p>For installed and web applications if you still have a valid token, you may request a new token using the refresh token that came with it. This request uses the <code>/token</code> endpoint and accepts the following parameters:</p>
+<p>For installed and web applications if you still have a valid token, you may request a new token using the refresh token
+that came with it. This request uses the <code>/token</code> endpoint and accepts the following parameters:</p>
 
 <table><thead>
 <tr>
@@ -3004,7 +3042,8 @@ refresh_token=VYfb63__vf
 </tr>
 </tbody></table>
 
-<p>The response to this request will contain an access token and refresh token. Please note that service applications do not use refresh_tokens, if a new token is wanted you will need to generate a new one.</p>
+<p>The response to this request will contain an access token and refresh token. Please note that service applications do
+not use refresh_tokens, if a new token is wanted you will need to generate a new one.</p>
 <h2 id='token-information'>Token Information</h2>
 <p><code>https://{deployment}.api.accelo.com/api/v0/tokeninfo</code></p>
 
@@ -3017,7 +3056,8 @@ refresh_token=VYfb63__vf
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get https://planet-express.api.accelo.com/api/v0/tokeninfo <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
-<p>To obtain the information of any access token the <code>/tokeninfo</code> endpoint is used. Note this endpoint is <em>not</em> located in <code>.../oauth2/v0</code> but rather <code>/api/v0</code>. It takes only a single parameter:</p>
+<p>To obtain the information of any access token the <code>/tokeninfo</code> endpoint is used. Note this endpoint is <em>not</em> located in
+<code>.../oauth2/v0</code> but rather <code>/api/v0</code>. It takes only a single parameter:</p>
 
 <table><thead>
 <tr>
@@ -3082,7 +3122,7 @@ refresh_token=VYfb63__vf
 <blockquote>
 <p>Sample accessing a company resource using access token query:   </p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET http://planet-express.api.accelo.com/api/v0/compaines/1?_bearer_token=Ck9ma73_db
+<pre class="highlight plaintext"><code>GET http://planet-express.api.accelo.com/api/v0/companies/1?_bearer_token=Ck9ma73_db
 </code></pre>
 <blockquote>
 <p>Same request using preferred header method:</p>
@@ -3095,7 +3135,9 @@ refresh_token=VYfb63__vf
   -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
-<p>Once you have access to your token you may use it to access endpoints. This can be done by either including it as a query parameter as <code>_bearer_token</code>, or as a HTTP <code>Authorization: Bearer</code> header. For security reasons the latter is preferred. Note that including both of these will return an error.</p>
+<p>Once you have access to your token you may use it to access endpoints. This can be done by either including it as a
+query parameter as <code>_bearer_token</code>, or as a HTTP <code>Authorization: Bearer</code> header. For security reasons the latter is
+preferred. Note that including both of these will return an error.</p>
 <h1 id='endpoints'>Endpoints</h1><h2 id='activities'>Activities</h2>
 <p>Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes. See the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/">support documentation</a> for more information on activities.</p>
 
@@ -6831,7 +6873,11 @@ Authorization: Bearer {access_token}
 <code>/api/v0/companies</code></p>
 </blockquote>
 
-<p>Companies are the entries in Accelo to note the companies with whom you interact. These can range from partners and vendors to your actual customers, and can even include you! These Client entries also act as the central repository for all information related to that group, including correspondence, project and sales updates, and contact information for their employees. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/">support documentation</a> for more information on accessing and using companies on your deployment.</p>
+<p>Companies are the entries in Accelo to note the companies with whom you interact. These can range from partners and
+vendors to your actual customers, and can even include you! These Client entries also act as the central repository for
+all information related to that group, including correspondence, project and sales updates, and contact information for
+their employees. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/companies-
+and-contacts/">support documentation</a> for more information on accessing and using companies on your deployment.</p>
 <h3 id='the-company-object'>The Company Object</h3>
 <blockquote>
 <p>Example company object:</p>
@@ -6947,7 +6993,8 @@ Authorization: Bearer {access_token}
   </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matthew"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>A company may be managed by a <a href="#staff">staff member</a>, this management relationship is described by the manager object, which contains the fields of a staff object, with the following addition:</p>
+<p>A company may be managed by a <a href="#staff">staff member</a>, this management relationship is described by the manager object,
+which contains the fields of a staff object, with the following addition:</p>
 
 <table><thead>
 <tr>
@@ -6975,7 +7022,8 @@ Authorization: Bearer {access_token}
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Segmentations, or categories, are fields to group companies, contacts, and affiliations. For example, some segmentations for a company may be:</p>
+<p>Segmentations, or categories, are fields to group companies, contacts, and affiliations. For example, some segmentations
+for a company may be:</p>
 
 <table><thead>
 <tr>
@@ -6997,7 +7045,9 @@ Authorization: Bearer {access_token}
 </tr>
 </tbody></table>
 
-<p>Segmentations may be managed through your Accelo deployment, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/">support documentation</a> for information. A <code>segmentation</code> contains the following fields:</p>
+<p>Segmentations may be managed through your Accelo deployment, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-
+contacts/categories/">support
+documentation</a> for information. A <code>segmentation</code> contains the following fields:</p>
 
 <table><thead>
 <tr>
@@ -7044,7 +7094,8 @@ Authorization: Bearer {access_token}
 <h4 id='configuring-the-response'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a></p>
 <h4 id='handling-the-response'>Handling the Response</h4>
-<p>The response will contain a company object with its default fields and any additional fields requested via the <code>_fields</code> parameter.</p>
+<p>The response will contain a company object with its default fields and any additional fields requested via the <code>_fields</code>
+parameter.</p>
 <h3 id='list-companies'>List Companies</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7062,7 +7113,8 @@ Authorization: Bearer {access_token}
 <h4 id='configuring-the-response-2'>Configuring the Response</h4><h5 id='pagination'>Pagination</h5>
 <p>This request supports all of the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-objects'>Additional Fields and Linked Objects</h5>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a> using the <code>_fields</code> parameter.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a>
+using the <code>_fields</code> parameter.</p>
 <h5 id='basic-filters'>Basic Filters</h5>
 <p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
 
@@ -7201,7 +7253,8 @@ Authorization: Bearer {access_token}
 </tr>
 </tbody></table>
 <h5 id='searching'>Searching</h5>
-<p>This request supports the <a href="#configuring-the-response-searching"><code>_searching</code></a> parameter to search over the following fields:</p>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_searching</code></a> parameter to search over the following
+fields:</p>
 
 <table><thead>
 <tr>
@@ -7227,7 +7280,8 @@ Authorization: Bearer {access_token}
 </tr>
 </tbody></table>
 <h4 id='handling-the-response-2'>Handling the Response</h4>
-<p>The response will be a list of <a href="#the-company-object">company objects</a> with their default fields and any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<p>The response will be a list of <a href="#the-company-object">company objects</a> with their default fields and any additional
+fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
 <h3 id='count-companies'>Count Companies</h3>
 <blockquote>
 <p>Sample Request:    </p>
@@ -7241,7 +7295,8 @@ Authorization: Bearer {access_token}
 </code></pre>
 <p><code>GET /companies/count</code></p>
 
-<p>This request will return a count of companies in a list defined by any available searches or filters. With no searches or filters this will be a count of all companies on the deployment. This request returns a single field:</p>
+<p>This request will return a count of companies in a list defined by any available searches or filters. With no searches
+or filters this will be a count of all companies on the deployment. This request returns a single field:</p>
 
 <table><thead>
 <tr>
@@ -7276,11 +7331,14 @@ Authorization: Bearer {access_token}
 <span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre>
-<p>This request returns the most recently created companies on the Accelo deployment. This request is equivalent to requesting all companies and ordering in descending order of <code>date_created</code>.</p>
+<p>This request returns the most recently created companies on the Accelo deployment. This request is equivalent to
+requesting all companies and ordering in descending order of <code>date_created</code>.</p>
 <h4 id='configuring-the-response-3'>Configuring the Response</h4>
-<p>This request accepts the same parameters and filters as <a href="#list-companies"><code>GET /companies</code></a>, although it will always be ordered in descending order of <code>date_created</code></p>
-<h4 id='handling-the-response-3'>handling the Response</h4>
-<p>This request will return a list of <a href="#the-company-object">company objects</a> with their default fields and any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<p>This request accepts the same parameters and filters as <a href="#list-companies"><code>GET /companies</code></a>, although it will always be
+ordered in descending order of <code>date_created</code></p>
+<h4 id='handling-the-response-3'>Handling the Response</h4>
+<p>This request will return a list of <a href="#the-company-object">company objects</a> with their default fields and any additional
+fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
 <h3 id='list-latest-modified-companies'>List Latest Modified Companies</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7301,11 +7359,14 @@ Authorization: Bearer {access_token}
 <span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre>
-<p>This request returns the most recently changed companies on the Accelo deployment. This request is equivalent to requesting all companies and ordering in descending order of <code>date_modified</code>.</p>
+<p>This request returns the most recently changed companies on the Accelo deployment. This request is equivalent to
+requesting all companies and ordering in descending order of <code>date_modified</code>.</p>
 <h4 id='configuring-the-response-4'>Configuring the Response</h4>
-<p>This request accepts the same parameters and filters as <a href="#list-companies"><code>GET /companies</code></a>, although it will always be ordered in descending order of <code>date_modified</code></p>
+<p>This request accepts the same parameters and filters as <a href="#list-companies"><code>GET /companies</code></a>, although it will always be
+ordered in descending order of <code>date_modified</code></p>
 <h4 id='handling-the-response-4'>Handling the Response</h4>
-<p>This request will return a list of <a href="#the-company-object">company objects</a> with their default fields and any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<p>This request will return a list of <a href="#the-company-object">company objects</a> with their default fields and any additional
+fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
 <h3 id='get-company-status'>Get Company Status</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7321,7 +7382,8 @@ Authorization: Bearer {access_token}
 
 <p>This request returns the <a href="#statuses">status</a> of a <a href="#the-company-object">company</a> identified by its <code>company_id</code>.</p>
 <h4 id='configuring-the-response-5'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status object</a> using the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-5'>Handling The Response</h4>
 <p>The response will be a single status object with its default fields and any additional fields requested via <code>_fields</code>.</p>
 <h3 id='get-main-contact'>Get Main Contact</h3>
@@ -7337,11 +7399,14 @@ Authorization: Bearer {access_token}
 </code></pre>
 <p><code>GET /companies/{company_id}/contact</code></p>
 
-<p>This request returns the main <a href="#contacts">contact</a> of a company identified by its <code>{company_id}</code>. This is the contact associated with the company&#39;s <code>default_affiliation</code>.</p>
+<p>This request returns the main <a href="#contacts">contact</a> of a company identified by its <code>{company_id}</code>. This is the contact
+associated with the company&#39;s <code>default_affiliation</code>.</p>
 <h4 id='configuring-the-response-6'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#contacts">contact object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#contacts">contact object</a> using the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-6'>Handling the Response</h4>
-<p>The response will be a single <a href="#contact">contact</a> with its default fields and any other additional fields requested via <code>_fields</code>.</p>
+<p>The response will be a single <a href="#contact">contact</a> with its default fields and any other additional fields requested via
+<code>_fields</code>.</p>
 <h3 id='list-contacts-against-a-company'>List Contacts Against a Company</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7371,7 +7436,9 @@ Authorization: Bearer {access_token}
 </code></pre>
 <p><code>GET /companies/{company_id}/contacts/count</code></p>
 
-<p>This request returns a count of a list of contacts associated with a company specified by its <code>{company_id}</code>. With no searches or filters this will be a count of all contacts associated with  the company. This request returns a single field:</p>
+<p>This request returns a count of a list of contacts associated with a company specified by its <code>{company_id}</code>. With no
+searches or filters this will be a count of all contacts associated with  the company. This request returns a single
+field:</p>
 
 <table><thead>
 <tr>
@@ -7418,7 +7485,8 @@ Authorization: Bearer {access_token}
 <span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre>
-<p>This request returns a list of <a href="#the-segmentation-object">segmentations</a> for a company identified by its <code>company_id</code>. This request takes no parameters and returns a list of segmentations.</p>
+<p>This request returns a list of <a href="#the-segmentation-object">segmentations</a> for a company identified by its <code>company_id</code>.
+This request takes no parameters and returns a list of segmentations.</p>
 
 <blockquote>
 <p>Sample response:  </p>
@@ -7490,13 +7558,15 @@ _fields=comments
 <td style="text-align: left">comments</td>
 </tr>
 <tr>
-<td style="text-align: left">title</td>
+<td style="text-align: left">name</td>
 </tr>
 </tbody></table>
 <h4 id='configuring-the-response-9'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h4 id='response'>Response</h4>
-<p>This request returns the single updated company object, with its default fields and any additional fields requesting through <code>_fields</code>.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response-7'>Handling the Response</h4>
+<p>This request returns the single updated company object, with its default fields and any additional fields requesting
+through <code>_fields</code>.</p>
 <h3 id='create-a-company'>Create a Company</h3>
 <blockquote>
 <p>Sample request:  </p>
@@ -7565,11 +7635,14 @@ profile.12=09-17
 </tr>
 </tbody></table>
 <h5 id='setting-profile-field-values'>Setting Profile Field Values</h5>
-<p><a href="#profiles">Profile field values</a> may be set when you create a company, for a given profile value identified by <code>profile_value_id</code> you may update it through the field &quot;profile.{<code>profile_value_id</code>}&quot;.</p>
+<p><a href="#profiles">Profile field values</a> may be set when you create a company, for a given profile value identified by
+[<code>profile_value_id</code> you may update it through the field &quot;profile.{<code>profile_value_id</code>}&quot;.</p>
 <h4 id='configuring-the-response-10'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h4 id='handling-the-response-7'>handling the Response</h4>
-<p>This request returns the created company object, with its default fields and any additional fields requesting through <code>_fields</code>.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response-8'>Handling the Response</h4>
+<p>This request returns the created company object, with its default fields and any additional fields requesting through
+<code>_fields</code>.</p>
 <h3 id='add-a-manager'>Add a Manager</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7588,7 +7661,8 @@ manager_id=14
 </code></pre>
 <p><code>POST /companies/{company_id}/managers/add</code></p>
 
-<p>This request adds a <a href="#the-manager-object">manager</a>, identified by their unique <code>staff_id</code>, as a manager to a company, identified by its unique <code>company_id</code>. The request returns a list of managers of this company on the Accelo deployment.</p>
+<p>This request adds a <a href="#the-manager-object">manager</a>, identified by their unique <code>staff_id</code>, as a manager to a company,
+identified by its unique <code>company_id</code>. The request returns a list of managers of this company on the Accelo deployment.</p>
 <h4 id='configuring-the-manager'>Configuring the Manager</h4>
 <p>The following fields may be sent with this request:</p>
 
@@ -7625,7 +7699,8 @@ manager_id=14
 </code></pre>
 <p><code>DELETE /companies/{company_id}</code></p>
 
-<p>This request will remove a company, specified by its <code>company_id</code>, from the Accelo deployment. This request takes no parameters and returns no resource.</p>
+<p>This request will remove a company, specified by its <code>company_id</code>, from the Accelo deployment. This request takes no
+parameters and returns no resource.</p>
 <h3 id='remove-a-manager'>Remove a Manager</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7644,7 +7719,9 @@ relationship=23
 </code></pre>
 <p><code>DELETE /companies/{company_id}/managers/delete</code></p>
 
-<p>This request returns a staff member, identified via the <code>relationship_id</code> of their manager object, from the role of manager of a company, identified by its <code>company_id</code>. The <code>manager_id</code> is not used to identify the manager as a manager can have multiple relationships with the same company. Hence this request takes a single parameter:</p>
+<p>This request returns a staff member, identified via the <code>relationship_id</code> of their manager object, from the role of
+manager of a company, identified by its <code>company_id</code>. The <code>manager_id</code> is not used to identify the manager as a manager
+can have multiple relationships with the same company. Hence this request takes a single parameter:</p>
 
 <table><thead>
 <tr>
@@ -7657,7 +7734,7 @@ relationship=23
 <td style="text-align: left">The <code>relationship_id</code> of the manager to be removed.</td>
 </tr>
 </tbody></table>
-<h4 id='handling-the-response-8'>handling the Response</h4>
+<h4 id='handling-the-response-9'>Handling the Response</h4>
 <p>This response returns a list of manager (staff members) for the given company.</p>
 <h3 id='list-a-company-39-s-profile-field-values'>List a Company&#39;s Profile Field Values</h3>
 <blockquote>
@@ -7666,7 +7743,8 @@ relationship=23
 
 <p><code>GET /companies/{company_id}/profiles/values</code></p>
 
-<p>This request returns a list of <a href="#the-profile-value-object">profile field values</a> of a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request <a href="#retrieve-a-list-of-profile-values"><code>GET /{object}/{object_id}/profiles/values</code></a>, where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+<p>This request returns a list of <a href="#the-profile-value-object">profile field values</a> of a <a href="#the-company-object">company</a>,
+specified by its <code>company_id</code>. This is the request <a href="#retrieve-a-list-of-"><code>GET /{object}/{object_id}/profiles/values</code></a>, where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
 <h3 id='list-company-profile-fields'>List Company Profile Fields</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-profile-fields">profiles section</a> for a sample request</p>
@@ -7674,7 +7752,8 @@ relationship=23
 
 <p><code>GET /companies/profiles/fields</code></p>
 
-<p>This request returns a list of <a href="#the-profile-field-object">profile fields</a> available for <a href="#the-company-object">companies</a>. This is the request <a href="#retrieve-a-list-of-profile-fields"><code>GET /{object}/profiles/fields</code></a> where the object is &quot;companies&quot;.</p>
+<p>This request returns a list of <a href="#the-profile-field-object">profile fields</a> available for <a href="#the-company-">companies</a>. This is the request <a href="#retrieve-a-list-of-profile-fields"><code>GET /{object}/profiles/fields</code></a> where the object is
+&quot;companies&quot;.</p>
 <h3 id='update-a-profile-field-value-on-a-company'>Update a Profile Field Value on a Company</h3>
 <blockquote>
 <p>See the <a href="#update-a-profile-value-link">profiles section</a> for a sample request</p>
@@ -7682,7 +7761,10 @@ relationship=23
 
 <p><code>PUT /companies/{company_id}/profiles/values/{profile_value_id}</code></p>
 
-<p>This request updates and returns a <a href="#the-profile-value-object">profile field value</a>, specified by its <code>profile_value_id</code> of a particular <a href="#the-company-object">company</a>, identified by its <code>company_id</code>. This is the request <a href="#update-a-profile-value-link"><code>PUT /{object}/{object_id}/profiles/values/{profile_value_id}</code></a> where the object is &quot;company&quot;, and whose id is <code>{company_id}</code>.</p>
+<p>This request updates and returns a <a href="#the-profile-value-object">profile field value</a>, specified by its <code>profile_value_id</code>
+of a particular <a href="#the-company-object">company</a>, identified by its <code>company_id</code>. This is the request
+<a href="#update-a-profile-value-link"><code>PUT/{object}/{object_id}/profiles/values/{profile_value_id}</code></a> where the object is
+&quot;company&quot;, and whose id is <code>{company_id}</code>.</p>
 <h3 id='set-a-profile-field-value-on-a-company'>Set a Profile Field Value on a Company</h3>
 <blockquote>
 <p>See the <a href="#create-a-profile-value-link">profiles section</a> for a sample request</p>
@@ -7690,7 +7772,9 @@ relationship=23
 
 <p><code>POST /companies/{company_id}/profiles/{profile_field_id}</code></p>
 
-<p>This request sets and returns a <a href="#the-profile-value-object">profile value</a> for a <a href="#the-profile-field-object">profile field</a>, specified by its <code>profile_field_id</code>, for a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request <a href="#update-a-profile-value-link"><code>POST /{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where is object is &quot;companies&quot; and whose id is <code>{company_id}</code></p>
+<p>This request sets and returns a <a href="#the-profile-value-object">profile value</a> for a <a href="#the-profile-field-">profile field</a>, specified by its <code>profile_field_id</code>, for a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This
+is the request <a href="#update-a-profile-value-link"><code>POST /{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where is
+object is &quot;companies&quot; and whose id is <code>{company_id}</code></p>
 <h3 id='list-available-progressions-on-a-company'>List Available Progressions on a Company</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-available-progressions">progressions section</a> for a sample request</p>
@@ -7698,7 +7782,8 @@ relationship=23
 
 <p><code>GET /companies/{company_id}/progressions</code></p>
 
-<p>This request returns a list of available <a href="#progressions">progressions</a> for a <a href="#the-company-object">company</a> identified by its <code>company_id</code>. This is the request <a href="#retrieve-a-list-of-available-progressions"><code>GET /{object}/{object_id}/progressions</code></a> where the object is &quot;companies&quot; whose id is <code>{company_id}</code></p>
+<p>This request returns a list of available <a href="#progressions">progressions</a> for a <a href="#the-company-object">company</a> identified
+by its <code>company_id</code>. This is the request <a href="#retrieve-a-list-of-available-"><code>GET /{object}/{object_id}/progressions</code></a> where the object is &quot;companies&quot; whose id is <code>{company_id}</code></p>
 <h3 id='auto-run-a-progression-on-a-company'>Auto Run a Progression on a Company</h3>
 <blockquote>
 <p>See the <a href="#run-a-status-update-using-a-given-progression">progressions section</a> for a sample request</p>
@@ -7706,7 +7791,10 @@ relationship=23
 
 <p><code>[PUT|POST] /companies/{company_id}/progressions/{progression_id}/auto</code></p>
 
-<p>This request uses the given <a href="#progressions">progression</a>, specified by its <code>progression_id</code> to progress the status of a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request <a href="#run-a-status-update-using-a-given-progression"><code>[PUT|POST] /{object}/{object_id}/progressions/{progression_id/auto}</code></a> where the object is &quot;companies&quot; whose id is <code>{company_id}</code>.</p>
+<p>This request uses the given <a href="#progressions">progression</a>, specified by its <code>progression_id</code> to progress the status of a
+<a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request
+<a href="#run-a-status-update-using-a-given-progression"><code>[PUT|POST]/{object}/{object_id}/progressions/{progression_id/auto}</code></a>
+where the object is &quot;companies&quot; whose id is <code>{company_id}</code>.</p>
 <h3 id='list-addresses-against-a-company'>List Addresses against a Company</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -7714,7 +7802,9 @@ relationship=23
 
 <p><code>GET /companies/{company_id}/addresses</code></p>
 
-<p>This request returns a list of <a href="#addresses">addresses</a> associated with a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request <a href="#list-addresses"><code>GET /{object}/{object_id}/addresses</code></a> where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+<p>This request returns a list of <a href="#addresses">addresses</a> associated with a <a href="#the-company-object">company</a>, specified by
+its <code>company_id</code>. This is the request <a href="#list-addresses"><code>GET /{object}/{object_id}/addresses</code></a> where the object is
+&quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
 <h3 id='create-an-address-against-a-company'>Create an Address against a Company</h3>
 <blockquote>
 <p>Sample Request:</p>
@@ -7722,7 +7812,9 @@ relationship=23
 
 <p><code>POST /companies/{company_id}/addresses</code></p>
 
-<p>This request creates a <a href="#addresses">address</a> against a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request <a href="#create-an-address-against-an-object"><code>POST /{object}/{object_id}/addresses</code></a> where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+<p>This request creates a <a href="#addresses">address</a> against a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>.
+This is the request <a href="#create-an-address-against-an-object"><code>POST /{object}/{object_id}/addresses</code></a> where the object is
+&quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
 <h3 id='list-a-company-39-s-resource-collections'>List a Company&#39;s Resource Collections</h3>
 <blockquote>
 <p>See the <a href="#retrieve-an-array-of-collections-for-an-object">resources (attachments) section</a> for an example</p>
@@ -7730,7 +7822,8 @@ relationship=23
 
 <p><code>GET /companies/{company_id}/collections</code></p>
 
-<p>This request returns a list of <a href="#resources">collections</a> against a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a> where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+<p>This request returns a list of <a href="#resources">collections</a> against a <a href="#the-company-object">company</a>, specified by its
+<code>company_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-"><code>GET /{object}/{object_id}/collections</code></a> where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
 <h3 id='upload-a-resource-attachment-to-a-collection-on-a-company'>Upload a Resource (Attachment) to a Collection on a Company</h3>
 <blockquote>
 <p>See the <a href="#upload-a-resource-to-a-collection-of-an-object">resources (attachments) section</a> for an example</p>
@@ -7738,7 +7831,9 @@ relationship=23
 
 <p><code>POST /companies/{company_id}/collections/{collection_id}/resources</code></p>
 
-<p>This request uploads a <a href="#resources">resource</a> to a collection, specified by its <code>collection_id</code>, of a <a href="#the-company-object">company</a> specified by its <code>company_id</code>. This it the request <a href="#upload-a-resource-to-a-collection-of-an-object"><code>POST /{object}/{object_id}/collections/{collection_id}/resources</code></a> where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+<p>This request uploads a <a href="#resources">resource</a> to a collection, specified by its <code>collection_id</code>, of a <a href="#the-">company</a> specified by its <code>company_id</code>. This it the request
+<a href="#upload-a-resource-to-a-collection-of-an-object"><code>POST/{object}/{object_id}/collections/{collection_id}/resources</code></a>
+where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
 <h2 id='contacts'>Contacts</h2>
 <blockquote>
 <p>Resource URI:<br>
@@ -15801,12 +15896,62 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <tr>
 <td style="text-align: left">date_planned_start</td>
 <td style="text-align: left">unix ts</td>
-<td style="text-align: left">The schedule&#39;s planned start date.</td>
+<td style="text-align: left">The planned start date.</td>
 </tr>
 <tr>
 <td style="text-align: left">date_planned_due</td>
 <td style="text-align: left">unix ts</td>
-<td style="text-align: left">The schedule&#39;s planned due date.</td>
+<td style="text-align: left">The planned due date.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_predicted_start</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The predicted start date computed by Accelo based on current progress, the dates of any dependencies and planned durations.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_predicted_end</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The predicted start date computed by Accelo based on current progress, the dates of any dependencies and planned durations.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_commenced</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The actual commenced date.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_completed</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The actual completed date.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_user_estimated_start</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the assignee has scheduled to start the work.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_user_estimated_due</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the assignee has scheduled to complete the work.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_targeted_start</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the assignee becomes responsible for the work, based on current progress, planned dates, and the planned durations.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_targeted_due</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the assignee becomes responsible for the work, based on current progress, planned dates, and the planned durations.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_fixed_start</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The fixed start date.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_fixed_due</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The fixed deadline for the due date.</td>
 </tr>
 </tbody></table>
 
