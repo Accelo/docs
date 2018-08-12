@@ -1,12 +1,19 @@
-## Profiles
-Profile fields are objects used for tracking extra information from your Accelo deployment. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/profile-fields/) for further information about profile fields. Currently, custom profile fields are supported on the following objects:  
-1. [Companies](#companies)  
-2. [Contacts](#contacts)  
-3. [Affiliations](#affiliations)  
-4. [Prospects](#prospects-sales)  
-5. [Issues](#issues)  
-6. [Milestones](#milestones)  
-7. [Staff](#staff)
+## Profiles 
+
+Profile fields are objects used for tracking extra information from your Accelo deployment. See the [support
+documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-
+processes/custom-fields/profile-fields/) for further information about profile fields. Currently, custom profile fields
+are supported on the following objects: 
+
+* [Affiliations](#affiliations)   
+* [Companies](#companies)   
+* [Contacts](#contacts) 
+* [Invoice](#invoice)  
+* [Issues](#issues)   
+* [Job](#job) 
+* [Milestones](#milestones)
+* [Prospects](#prospects-sales)
+* [Staff](#staff)
 
 ### The Profile Field Object
 > Example profile field:
@@ -50,7 +57,7 @@ These are objects describing the custom fields on the deployment, they contain t
 
 ```json
 {
-  "value_type": null,
+  "value_type": "null",
   "id": "128",
   "field_type": "multi_select",
   "value": "one, two",
@@ -59,11 +66,13 @@ These are objects describing the custom fields on the deployment, they contain t
   "field_name": "Implementation Phases",
   "field_id": "12",
   "modified_by": "14",
-  "link_id": "45"
+  "link_id": "45",
+  "link_type": "company",
 }
 ```
 
-These are objects describing a value of a given [profile field](#the-profile-field-object), identified by the `field_id`, they contain the following:
+These are objects describing a value of a given [profile field](#the-profile-field-object), identified by the
+`field_id`, they contain the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -77,6 +86,7 @@ These are objects describing a value of a given [profile field](#the-profile-fie
 | modified_by | unsigned or object | The staff member who last modified this profile field value. |
 | field_id | unsigned | The unique identifier of the profile field this value is for. |
 | link_id | unsigned | The unique identifier of the object the profile value is against. |
+| link_type | string | The object the profile value is against. |
 
 <sup>*</sup> The `values` field is _only_ returned when the `field_type` is "multi_select". 
 When it's "multi_select", it's returned by default.
@@ -103,11 +113,17 @@ curl -X get \
 
 This request returns a list of [profile fields](#the-profile-field-object) available for the given object.
 
-#### Configuring the Response
-This request supports requesting additional fields and linked objects from the [profile field object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
-This response will be a list of [profile fields](#the-profile-field-object) with their default fields, and any additional fields requested through `_fields`.
+#### Configuring the Response 
+
+This request supports requesting additional fields and linked objects from the [profile
+field object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### handling the Response 
+
+This response will be a list of [profile fields](#the-profile-field-object) with their
+default fields, and any additional fields requested through `_fields`.
 
 
 
@@ -115,7 +131,7 @@ This response will be a list of [profile fields](#the-profile-field-object) with
 
 
 <a name="retrieve-a-list-of-profile-values"></a>
-### List Profile Field Values
+### List Object Profile Values
 > Sample Request:  
 
 ```http
@@ -132,14 +148,61 @@ curl -X get \
 
 `GET /{object}/{object_id}/profiles/values`
 
-This request returns a list of [profile values](#the-profile-value-object) for the given `object` of identified by `object_id`.
+This request returns a list of [profile values](#the-profile-value-object) for the given `object` of identified by
+`object_id`.
 
-#### Configuring the Response
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
-This response will be a list of [profile values](#the-profile-value-object) with their default fields, and any additional fields requested through `_fields`.
+#### Configuring the Response 
 
+This request supports requesting additional fields and linked objects from the [profile
+value object](#the-profile-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response 
+
+This response will be a list of [profile values](#the-profile-value-object) with their
+default fields, and any additional fields requested through `_fields`.
+
+
+
+
+
+
+### List Profile Values
+> Sample Request:
+
+```http
+GET /api/v0/{object}/profiles/values HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \ 
+ https://{deployment}.api.accelo.com/api/v0/{object}/profiles/values \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /{object}/profiles/values`
+
+This request returns a list of all [profile values](#the-profile-value-object) for the given `object`.
+
+
+`GET /{object}/profiles/values/{profile_value_id}`
+
+This request returns a single [profile value](#the-profile-value-object) specified by the `profile_value_id`
+
+
+### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [profilevalue object](#the-profile-value-
+object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+### Handling the Response
+
+This response will be a list of [profile values](#the-profile-value-object) with their
+default fields, and any additional fields requested through `_fields`.
 
 
 
@@ -159,10 +222,14 @@ curl -X put \
 
 `PUT /{object}/{object_id}/profiles/values/{profile_value_id}`
 
-This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular object, specified by its `object_id`, of a particular type, specified by `object`.
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
+particular object, specified by its `object_id`, of a particular type, specified by `object`.
 
-#### Configuring the Profile Value
-This request updates the `value` of a profile value, since this object is dynamic the field we send will depend on the type of `value`:
+#### Configuring the Profile 
+
+Value This request updates the `value` of a profile value, since this object is dynamic the
+field we send will depend on the type of `value`:
+
 
 | Field Name | Type | Description |
 |:-|:-|:-|
@@ -172,11 +239,17 @@ This request updates the `value` of a profile value, since this object is dynami
 | value_type | string | If `field_type` is "lookup", update the `value_type` with this string. |
 | value | string | If `field_type` is none of the above, update the `value` with this string. |
 
-#### Configuring the Response
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Handling the Response
-The response will be the single, updated [profile value](#the-profile-value-object) with its default fields, and any additional fields requested through `_fields`.
+#### Configuring the Response 
+
+This request supports requesting additional fields and linked objects from the [profile
+value object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response 
+
+The response will be the single, updated [profile value](#the-profile-value-object) with its
+default fields, and any additional fields requested through `_fields`.
 
 
 
@@ -197,13 +270,24 @@ curl -X post \
 
 `POST /{object}/{object_id}/profiles/fields/{profile_field_id}`
 
-This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its `profile_field_id`. The object whose profile field is to be update is identified by `object_id` and `object`.
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
+`profile_field_id`. The object whose profile field is to be update is identified by `object_id` and `object`.
 
-#### Configuring the Profile Value
-This request accepts the same fields as the [previous request](#configuring-the-profile-value), that is, it takes only the relevant value field(s). The relevant value field is required for this request.
+
+#### Configuring the Profile Value 
+
+This request accepts the same fields as the [previous request](#configuring-the-
+profile-value), that is, it takes only the relevant value field(s). The relevant value field is required for this
+request.
+
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Handling the Response
-The response will be the newly created [profile value](#the-profile-value-object) with its default fields, and any additional fields requested through `_fields`.
+This request supports requesting additional fields and linked objects from the [profile
+value object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response 
+
+The response will be the newly created [profile value](#the-profile-value-object) with its
+default fields, and any additional fields requested through `_fields`.

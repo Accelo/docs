@@ -4,14 +4,24 @@
 > Resource URI:  
 `/api/v0/extensions`
 
-Extensions, also known as Custom Fields, are similar to [profiles](#profiles). The main difference is in their availability. A given profile may be available to all types of a particular object, for example any type of [issues](#issues), or even across a range of objects. Conversely, an extension is available to only one type of one object at at time, see also the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField). Extensions may be set up through the Accelo deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/custom-fields/) for information on setting them up. Currently the following objects support extensions through the API:  
+Extensions, also known as Custom Fields, are similar to [profiles](#profiles). The main difference is in their
+availability. A given profile may be available to all types of a particular object, for example any type of
+[issues](#issues), or even across a range of objects. Conversely, an extension is available to only one type of one
+object at at time, see also the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-
+configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField). Extensions
+may be set up through the Accelo deployment, see the [support
+documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-
+processes/custom-fields/custom-fields/) for information on setting them up. Currently the following objects support
+extensions through the API:
 
+* [Assets](#assets)
 * [Contracts](#contracts)  
 * [Issues](#issues)  
 * [Jobs](#jobs-projects)  
 * [Prospects](#prospects-sales)
 
-Similarly to [profiles](#profiles), extensions are described by [extension fields](#the-extension-field-object) and [extension values](#the-extension-value-object), which store the information of values of an extension field.
+Similarly to [profiles](#profiles), extensions are described by [extension fields](#the-extension-field-object) and
+[extension values](#the-extension-value-object), which store the information of values of an extension field.
 
 ### The Extension Field Object
 > Sample extension field:
@@ -56,6 +66,7 @@ These are objects describing the custom field on the deployment, they contain th
 | lookup_type | string | When `field_type` is lookup, this will contain the type of object for the lookup. |
 | information | string | Any extra information about the extension. |
 
+
 ### The Extension Value Object
 > Example extension field value:
 
@@ -83,7 +94,8 @@ These are objects describing the custom field on the deployment, they contain th
 }
 ```
 
-These describe the value of a given [extension field](#the-extension-field-object), identified by the `field_id`. This object contains the following:
+These describe the value of a given [extension field](#the-extension-field-object), identified by the `field_id`. This
+object contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -116,6 +128,7 @@ it's returned by default.
 
 
 
+
 ### List Extension Fields
 <a name="retrieve-a-list-of-extension-fields"></a>
 > Sample Request:  
@@ -137,51 +150,108 @@ curl -X get \
 This request request returns a list of [extension fields](#the-extension-field-object) available for the given object
 
 #### Configuring the Response
+
 ##### Pagination
+
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [extension field object](#the-extension-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
-The response will be a list of [extension field object](#the-extension-field-object) with their default fields, and any additional fields requested using `_fields.`
-
+This request supports requesting additional fields and linked objects from the [extension field object](#the-extension-
+field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
+#### Handling the Response
+
+The response will be a list of [extension field object](#the-extension-field-object) with their default fields, and any
+additional fields requested using `_fields.`
 
 
 
 
-### List Extension Field Values
+
+
+
+### List Object Extension Field Values
 <a name="retrieve-a-list-of-extension-field-values"></a>
 > Sample Request:  
 
 ```http
-GET /api/v0/contracts/{contract_id}/extensions/values HTTP/1.1
+GET /api/v0/object/{object_id}/extensions/values HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/contraxts/{contract_id}/extensions/values
+ https://{deployment}.api.accelo.com/api/v0/{object}/{object_id}/extensions/values
   -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /{object}/{object_id}/extensions/values`
 
-This request returns a list of [extension field values](#the-extension-value-object) for the given `object` identified by its `object_id`.
+This request returns a list of [extension field values](#the-extension-value-object) for the given `object` identified
+by its `object_id`.
+
 
 #### Configuring the Response
+
 ##### Pagination
+
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
+value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The response will be a list of [extension field values](#the-extension-value-object) with their default fields, and any additional fields requested through `_fields`.
 
+The response will be a list of [extension field values](#the-extension-value-object) with their default fields, and any
+additional fields requested through `_fields`.
+
+
+
+
+
+
+### List Extension Values
+>Sample Request: 
+
+```http
+GET /api/v0/{object}/extensions/values HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \ 
+ https://{deployment}.api.accelo.com/api/v0/{object}/extensions/values \
+  -H 'authorization: Bearer {access_token}'
+```
+`GET /{object}/extensions/values`
+
+This request returns a list of all [extension values](#the-extension-value-object) for the given 'object'.
+
+
+`GET /{object}/extensions/values/{extension_value_id}`
+
+This request returns a single [extension value](#the-extension-value-object) specified by the `extension_value_id`
+
+
+###Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
+value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+### Handling the Response 
+
+The response will be a list of [extension field values](#the-extension-value-object) with their default fields, and any
+additional fields requested through `_fields`.
 
 
 
@@ -212,10 +282,14 @@ curl -X put \
 
 `PUT /{object}/{object_id}/extensions/values/{extension_value_id}`
 
-This request updates and returns a [extension values](#the-extension-value-object), specified by its `extension_value_id`, of a particular object, specified by its `object_id`, of a particular type, specified by `object`.
+This request updates and returns a [extension values](#the-extension-value-object), specified by its
+`extension_value_id`, of a particular object, specified by its `object_id`, of a particular type, specified by `object`.
+
 
 #### Configuring the Extension Value
-This request updates the `value` of an extension value, since this object is dynamic the field we send will depend on the type of `value`:
+
+This request updates the `value` of an extension value, since this object is dynamic the field we send will depend on
+the type of `value`:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -225,11 +299,17 @@ This request updates the `value` of an extension value, since this object is dyn
 | value_type | string | If 'field_type' is "lookup", update the `value_type` with this string.  |
 | value | string | If `field_type` is none of the above, update the `value` with this string. |
 
-#### Configuring the Response
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
-This request will return the single, updated [extension value object](#the-extension-value-object) with its default fields, and any additional fields requesting through `_fields`.
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
+value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+This request will return the single, updated [extension value object](#the-extension-value-object) with its default
+fields, and any additional fields requesting through `_fields`.
 
 
 
@@ -260,13 +340,23 @@ curl -X put \
 
 `POST /{object}/{object_id}/extensions/fields/{extension_field_id}`
 
-This request sets and returns an [extension value](#the-extension-value-object). for an extension field, specified by its `extension_field_id`. The object whose profile field is to be updated is identified by `object` and `object_id`
+This request sets and returns an [extension value](#the-extension-value-object). for an extension field, specified by
+its `extension_field_id`. The object whose profile field is to be updated is identified by `object` and `object_id`
+
 
 #### Configuring the Extension Value
-This request accepts the same fields as the [previous request](#update-an-extension-value), that is, it takes only the relevant value field(s). These fields are required for this request.
+
+This request accepts the same fields as the [previous request](#update-an-extension-value), that is, it takes only the
+relevant value field(s). These fields are required for this request.
+
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
+value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### handling the Response
-This request will return the newly created [extension value object](#the-extension-value-object) with its default fields and any additional fields requested using `_fields`.
+
+This request will return the newly created [extension value object](#the-extension-value-object) with its default fields
+and any additional fields requested using `_fields`.
