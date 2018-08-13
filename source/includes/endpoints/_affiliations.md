@@ -428,6 +428,16 @@ This request returns a list of [profile field values](#the-profile-value-object)
 
 
 
+### List all Profile Field Values on an Affiliation
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /affiliations/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of an [affiliation](#the-affiliation-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "affiliations".
+
+
+
+
 
 
 ### List Affiliation Profile Fields
