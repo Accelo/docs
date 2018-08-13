@@ -6,6 +6,7 @@
 
 Extensions, also known as Custom Fields, are similar to [profiles](#profiles). The main difference is in their availability. A given profile may be available to all types of a particular object, for example any type of [issues](#issues), or even across a range of objects. Conversely, an extension is available to only one type of one object at at time, see also the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField). Extensions may be set up through the Accelo deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/custom-fields/) for information on setting them up. Currently the following objects support extensions through the API:  
 
+* [Assets](#assets)
 * [Contracts](#contracts)  
 * [Issues](#issues)  
 * [Jobs](#jobs-projects)  
@@ -143,7 +144,7 @@ This request supports all of the [pagination](#configuring-the-response-paginati
 ##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [extension field object](#the-extension-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
+#### Handling the Response
 The response will be a list of [extension field object](#the-extension-field-object) with their default fields, and any additional fields requested using `_fields.`
 
 
@@ -152,9 +153,9 @@ The response will be a list of [extension field object](#the-extension-field-obj
 
 
 
-### List Extension Field Values
+### List Objects Extension Values
 <a name="retrieve-a-list-of-extension-field-values"></a>
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/contracts/{contract_id}/extensions/values HTTP/1.1
@@ -181,6 +182,41 @@ This request supports requesting additional fields and linked objects from the [
 
 #### Handling the Response
 The response will be a list of [extension field values](#the-extension-value-object) with their default fields, and any additional fields requested through `_fields`.
+
+
+
+
+
+### List Extension Values
+>Sample Request:
+
+```http
+GET /api/v0/contracts/extensions/values HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/contracts/{contract_id}/extensions/values
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /{object}/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) for the given `object`.
+
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all of the [pagination](#configuring-the-response-pagination) parameters
+
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 
