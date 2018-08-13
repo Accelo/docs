@@ -170,11 +170,6 @@ curl -X get \
 This request returns a list of [profile values](#the-profile-value-object) for the given `object`.
 
 
-`GET /{object}/profiles/values/{profile_value_id}`
-
-This request returns a single [profile values](#the-profile-value-object) specified by the `profile_value_id`.
-
-
 #### Configuring the Response
 
 ##### Pagination
