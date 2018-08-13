@@ -94,14 +94,14 @@ When it's "multi_select", it's returned by default.
 > Sample Request:  
 
 ```http
-GET /api/v0/{object}/profiles/fields HTTP/1.1
+GET /api/v0/{issues}/profiles/fields HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 ```shell
 curl -X get \ 
- https://{deployment}.api.accelo.com/api/v0/{object}/profiles/fields \
+ https://{deployment}.api.accelo.com/api/v0/issues/profiles/fields \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -125,14 +125,14 @@ This response will be a list of [profile fields](#the-profile-field-object) with
 > Sample Request:  
 
 ```http
-GET /api/v0/{object}/{object_id}/profiles/values HTTP/1.1
+GET /api/v0/issues/{issue_id}/profiles/values HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 ```shell
 curl -X get \ 
- https://{deployment}.api.accelo.com/api/v0/{object}/{object_id}/profiles/values \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id}/profiles/values \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -154,14 +154,14 @@ This response will be a list of [profile values](#the-profile-value-object) with
 > Sample Request:
 
 ```http
-GET /api/v0/{object}/profiles/values HTTP/1.1
+GET /api/v0/issues/profiles/values HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/{object}//profiles/values \
+ https://{deployment}.api.accelo.com/api/v0/issues/profiles/values \
   -H 'authorization: Bearer {access_token}'
 ```
 
