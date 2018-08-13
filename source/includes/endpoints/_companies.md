@@ -873,6 +873,7 @@ profile-values), where the object is "companies" and whose id is `{company_id}`.
 
 
 
+
 ### List all Profile Field Values on a Company
 > See the [profiles section](#list-profile-values)
 
@@ -881,6 +882,18 @@ profile-values), where the object is "companies" and whose id is `{company_id}`.
 This request returns a list of all [profile field values](#the-profile-value-object) of a [company](#the-company-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "companies".
 
 
+
+
+
+
+### List Company Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /companies/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for [companies](#the-company-
+object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
+"companies".
 
 
 
@@ -897,20 +910,6 @@ of a particular [company](#the-company-object), identified by its `company_id`. 
 [`PUT/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is
 "company", and whose id is `{company_id}`.
 
-
-
-
-
-
-
-### List Company Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
-
-`GET /companies/profiles/fields`
-
-This request returns a list of [profile fields](#the-profile-field-object) available for [companies](#the-company-
-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
-"companies".
 
 
 
