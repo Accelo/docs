@@ -448,6 +448,15 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 
 
+### List all Profile Field Values on a Contact
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /contacts/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of a [contact](#the-contact-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contacts".
+
+
+
 
 
 ### List Contact Profile Fields
