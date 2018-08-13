@@ -1,12 +1,16 @@
 ## Profiles
-Profile fields are objects used for tracking extra information from your Accelo deployment. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/profile-fields/) for further information about profile fields. Currently, custom profile fields are supported on the following objects:  
-1. [Companies](#companies)  
-2. [Contacts](#contacts)  
-3. [Affiliations](#affiliations)  
-4. [Prospects](#prospects-sales)  
-5. [Issues](#issues)  
-6. [Milestones](#milestones)  
-7. [Staff](#staff)
+Profile fields are objects used for tracking extra information from your Accelo deployment. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/profile-fields/) for further information about profile fields. Currently, custom profile fields are supported on the following objects:
+
+* [Affiliations](#affiliations)
+* [Companies](#companies)
+* [Contacts](#contacts)
+* [Contracts](#contracts)
+* [Invoices](#invoices)
+* [Issues](#issues)
+* [Jobs](#jobs-projects)
+* [Milestones](#milestones)
+* [Prospects](#prospects-sales)
+* [Staff](#staff)
 
 ### The Profile Field Object
 > Example profile field:
@@ -59,6 +63,7 @@ These are objects describing the custom fields on the deployment, they contain t
   "field_name": "Implementation Phases",
   "field_id": "12",
   "modified_by": "14",
+  "link_type": "issues",
   "link_id": "45"
 }
 ```
@@ -76,6 +81,7 @@ These are objects describing a value of a given [profile field](#the-profile-fie
 | date_modified | unix ts | The date this profile field value was last modified. |
 | modified_by | unsigned or object | The staff member who last modified this profile field value. |
 | field_id | unsigned | The unique identifier of the profile field this value is for. |
+| link_type | string | The object the profile value was created against. |
 | link_id | unsigned | The unique identifier of the object the profile value is against. |
 
 <sup>*</sup> The `values` field is _only_ returned when the `field_type` is "multi_select". 
@@ -106,7 +112,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [profile field object](#the-profile-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
+#### Handling the Response
 This response will be a list of [profile fields](#the-profile-field-object) with their default fields, and any additional fields requested through `_fields`.
 
 
@@ -115,7 +121,7 @@ This response will be a list of [profile fields](#the-profile-field-object) with
 
 
 <a name="retrieve-a-list-of-profile-values"></a>
-### List Profile Field Values
+### List Object Profile Values
 > Sample Request:  
 
 ```http
@@ -137,8 +143,49 @@ This request returns a list of [profile values](#the-profile-value-object) for t
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
+#### Handling the Response
 This response will be a list of [profile values](#the-profile-value-object) with their default fields, and any additional fields requested through `_fields`.
+
+
+
+
+
+### List Profile Values
+> Sample Request:
+
+```http
+GET /api/v0/{object}/profiles/values HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/{object}//profiles/values \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /{object}/profiles/values`
+
+This request returns a list of [profile values](#the-profile-value-object) for the given `object`.
+
+
+`GET /{object}/profiles/values/{profile_value_id}`
+
+This request returns a single [profile values](#the-profile-value-object) specified by the `profile_value_id`.
+
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all of the [pagination](#configuring-the-response-pagination) parameters
+
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 
 
