@@ -875,7 +875,7 @@ profile-values), where the object is "companies" and whose id is `{company_id}`.
 
 
 ### List all Profile Field Values on a Company
-> See the [profiles section](#list-profile-values)
+> See the [profiles section](#list-profile-values) for a sample request
 
 `GET /companies/profiles/values`
 
