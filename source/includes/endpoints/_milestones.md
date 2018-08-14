@@ -206,18 +206,6 @@ This request will return a count of milestones in a list defined by any availabl
 
 
 
-### List Milestone Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields)) for a sample request
-
-`GET /milestones/profiles/fields`
-
-This request returns a list of [profile fields](#the-profile-field-object) available for [milestones](#the-milestone-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "milestones".
-
-
-
-
-
-
 
 ### List a Milestone's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request  
@@ -226,6 +214,29 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 This request returns a list of [profile values](#the-profile-value-object) of a [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "milestones", and whose id is `milestone_id`.
 
+
+
+
+
+
+### List all Profile Field Values on a Milestone
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /milestones/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of a [milestone](#the-milestone-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "milestones".
+
+
+
+
+
+
+### List Milestone Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields)) for a sample request
+
+`GET /milestones/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for [milestones](#the-milestone-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "milestones".
 
 
 

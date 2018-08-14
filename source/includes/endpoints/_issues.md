@@ -973,25 +973,37 @@ Returns the number of issue priorities.
 
 
 
-### List Issue Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
-
-`GET /issues/profiles/fields`
-
-This request returns a list of [profile fields](#the-profile-field-object) available for issues. This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "issues".
-
-
-
-
-
-
 
 ### List an Issue's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
 `GET /issues/{issue_id}/profiles/values`
 
-This request returns a list of [profile values](#the-profile-value-object) of an issue, specified by its `issue_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "issues", and whose id is `{issue_id}`.
+This request returns a list of [profile values](#the-profile-value-object) of an [issue](the-issue-object), specified by its `issue_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "issues", and whose id is `{issue_id}`.
+
+
+
+
+
+
+### List all Profile Field Values on an Issue
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /issues/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of an [issue](the-issue-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "issues".
+
+
+
+
+
+
+### List Issue Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
+
+`GET /issues/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for issues. This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "issues".
 
 
 

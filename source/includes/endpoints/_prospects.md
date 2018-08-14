@@ -560,17 +560,6 @@ The response will be the newly created prospect with its default fields and any 
 
 
 
-### List Prospect Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields for a sample request)
-
-`GET /prospects/profiles/fields`
-
-This request returns a list of [profile fields](#the-profile-field-object) available for [prospects](#the-prospect-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "prospects".
-
-
-
-
-
 
 
 ### List a Prospect's Profile Field Values
@@ -580,6 +569,29 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 This request returns a list of [profile values](#the-profile-value-object) of a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "prospects", and whose id is `prospect_id`.
 
+
+
+
+
+
+### List all Profile Field Values on a Prospect
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /prospects/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of a [prospect](#the-prospect-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "prospects".
+
+
+
+
+
+
+### List Prospect Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request)
+
+`GET /prospects/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for [prospects](#the-prospect-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "prospects".
 
 
 
