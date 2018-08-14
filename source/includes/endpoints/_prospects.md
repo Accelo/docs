@@ -2,7 +2,10 @@
 > Resource URI:  
 `api/v0/prospects`
 
-Prospects (also known as Sales) are a way to keep track of your sales and deals. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/sales/) for more information on the full potential of these, and also information on setting up and configuring them via the deployment.
+Prospects (also known as Sales) are a way to keep track of your sales and deals. See the [support
+documentation](https://www.accelo.com/resources/help/guides/user/modules/sales/) for more information on the full
+potential of these, and also information on setting up and configuring them via the deployment.
+
 
 ### The Prospect Object
 > Example prospects object
@@ -62,6 +65,7 @@ The prospect object contains the following:
 | prospect_probability | unsigned or object | The [prospect probability](#the-prospect-probability) of the prospect. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the prospect. |
 
+
 #### The Prospect Type
 > Example prospect type object:
 
@@ -75,7 +79,9 @@ The prospect object contains the following:
 }
 ```
 
-You may group prospect using prospect types to reflect the different actions taken on different types of prospect. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/prospect/sales-types/) for information on prospect types. The prospect type contains the following:
+You may group prospect using prospect types to reflect the different actions taken on different types of prospect. See
+the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-
+guide/modules/prospect/sales-types/) for information on prospect types. The prospect type contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -85,7 +91,9 @@ You may group prospect using prospect types to reflect the different actions tak
 | standing | select | The standing of the prospect type, may be either "active" or "inactive". |
 | ordering | integer | An integer representing the prospect type's ordering as displayed on the deployment. |
 
+
 #### The Prospect Probability
+
 Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. The prospect probability contains the following:
 
 | Field | Type | Description |
@@ -94,6 +102,7 @@ Prospect probabilities are customizable fields you may use to reflect how likely
 | **title** | string | A name for the prospect probability. |
 | **value** | integer | The value assigned to the prospect probability. |
 | ordering | integer | An integer representing the prospect probability's ordering as displayed on the deployment. |
+
 
 #### The Prospect Status
 
@@ -149,11 +158,17 @@ curl -X get \
 
 This request returns a single prospect, identified by its `prospect_id`.
 
+
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [prospect object](#the-prospect-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [prospect object](#the-prospect-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The response will be the single [prospect](#the-prospect-object) with its default fields and any additional fields requested via `_fields`.
+
+The response will be the single [prospect](#the-prospect-object) with its default fields and any additional fields
+requested via `_fields`.
 
 
 
@@ -183,12 +198,18 @@ This request returns a list of prospects on the deployment.
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [prospects object](#the-prospect-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [prospects object](#the-prospect-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -208,7 +229,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | cancelled_by_id | Filter by the id of the staff who cancelled the prospect. |
 | abandoned_by_id | Filter by the id of the staff who abandoned the prospect. |
 
+
 ##### Date Filters
+
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -218,7 +241,9 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_modified |
 
+
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -233,7 +258,9 @@ This request supports [order filters](#filters-order-filters) over the following
 | status | Order by the `status_id`. |
 | standing ||
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -249,15 +276,20 @@ This request supports [range filters](#filters-range-filters) over the following
 | prospect_type | Range over the `prospect_type_id`. |
 | status | Range over the `status_id`. |
 
+
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|
 | title |
 
+
 #### Handling the Response
-This request will return a list of [prospects](#the-prospect-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+This request will return a list of [prospects](#the-prospect-object) with their default fields and any additional fields
+requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
 
@@ -282,7 +314,8 @@ curl -X get \
 
 `GET /prospects/count`
 
-This request will return a count of prospects in a list defined by any available searches or filters. With no searches or filters this will be a count of all prospects on the deployment. This request returns a single field:
+This request will return a count of prospects in a list defined by any available searches or filters. With no searches
+or filters this will be a count of all prospects on the deployment. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -314,10 +347,15 @@ curl -X get \
 This request returns the [prospect status](#the-prospect-status) of a prospect, identified by its `prospect_id`.
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [prospect status object](#the-prospect-status) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [prospect status object](#the-prospect-
+status) using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The response will be the single [prospect status](#the-prospect-status) with its default fields and any additional fields requested through `_fields`.
+
+The response will be the single [prospect status](#the-prospect-status) with its default fields and any additional
+fields requested through `_fields`.
 
 
 
@@ -347,12 +385,18 @@ This request returns a list of  [statuses](#statuses) for prospects on the deplo
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [status object](#statuses) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter Name |
@@ -362,7 +406,9 @@ This request supports the following [basic filters](#filters-basic-filters):
 | standing |
 | color |
 
+
 ##### Order Filters
+
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter Name |
@@ -373,15 +419,21 @@ This request supports the following [order filters](#filters-order-filters):
 | color |
 | ordering |
 
+
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
+
 #### Handling the Response
-The response will be a list of prospect [statuses](#statuses) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+The response will be a list of prospect [statuses](#statuses) with their default fields and
+any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+searches used.
 
 
 
@@ -409,15 +461,22 @@ curl -X get \
 This request returns a list of [prospect types](#the-prospect-type) on the deployment.
 The `_filters` parameter is set to `standing_not(inactive)` by default.
 
+
 #### Configuring the Request
 
 ##### Pagination
+
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [prospect type](#the-prospect-type) object using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [prospect type](#the-prospect-type)
+object using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -425,7 +484,9 @@ This request supports the following [basic filters](#filters-basic-filters):
 | id |
 | standing |
 
+
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Field |
@@ -435,23 +496,30 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | ordering |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Field |
 |:-|
 | id |
 
+
 ##### Searching
-This request supports the [`_search`](#configuring-the-response-searching) parameter
-to search over the following fields:
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following
+fields:
 
 | Field |
 |:-|
 | title |
 
+
 #### Handling the Response
-The response will be a list of [prospect types](#the-prospect-type) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters used.
+
+The response will be a list of [prospect types](#the-prospect-type) with their default fields and any additional fields
+requested through `_fields`, and displayed according to any pagination parameters used.
 
 
 
@@ -480,7 +548,9 @@ curl -X get \
 
 This request updates and returns a [prospect](#the-prospect-object), specified by its `prospect_id`.
 
+
 #### Configuring the Prospect
+
 The following fields may be updated through this request:
 
 | Field | Type | Notes |
@@ -499,11 +569,17 @@ The following fields may be updated through this request:
 
 See the [prospect object](#the-prospect-object) for more information on these fields.
 
+
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [prospect object](#the-prospect-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [prospect object](#the-prospect-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The response will be the single, updated [prospect object](#the-prospect-object) with its default fields and any additional fields requested through `_fields`.
+
+The response will be the single, updated [prospect object](#the-prospect-object) with its default fields and any
+additional fields requested through `_fields`.
 
 
 
@@ -539,6 +615,7 @@ curl -X POST \
 
 This request creates and returns a new [prospect](#the-prospect-object)
 
+
 #### Configuring the Prospect
 
 All fields available when [updating a prospect](#update-a-prospect) may also be set here, with the following additions:
@@ -549,6 +626,7 @@ All fields available when [updating a prospect](#update-a-prospect) may also be 
 | **affiliation_id** | int | Must point to a valid [affiliation](#the-affiliation-object). |
 | **type_id** | int | Must point to a valid [prospect type](#the-prospect-type). |
 | status_id | int | The starting status for the progression. Defaults to the status with the lowest `ordering`. **Note** this will skip any progressions. |
+
 
 #### Handling the Response
 
@@ -567,7 +645,9 @@ The response will be the newly created prospect with its default fields and any 
 
 `GET /prospects/{prospect_id}/profiles/values`
 
-This request returns a list of [profile values](#the-profile-value-object) of a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "prospects", and whose id is `prospect_id`.
+This request returns a list of [profile values](#the-profile-value-object) of a [prospect](#the-prospect-object),
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
+profile-values), where the object is "prospects", and whose id is `prospect_id`.
 
 
 
@@ -579,7 +659,8 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 `GET /prospects/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [prospect](#the-prospect-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "prospects".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [prospect](#the-prospect-
+object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "prospects".
 
 
 
@@ -591,7 +672,9 @@ This request returns a list of all [profile field values](#the-profile-value-obj
 
 `GET /prospects/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [prospects](#the-prospect-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "prospects".
+This request returns a list of [profile fields](#the-profile-field-object) available for [prospects](#the-prospect-
+object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
+"prospects".
 
 
 
@@ -604,7 +687,10 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 `PUT /prospects/{prospect_id}/profiles/values/{profile_value_id}`
 
 
-This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`PUT /{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "prospects", and whose id is the `prospect_id`.
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
+particular [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request 
+[`PUT/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is
+"prospects", and whose id is the `prospect_id`.
 
 
 
@@ -617,7 +703,10 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 `PUT|POST /prospects/{prospect_id}/profiles/fields/{profile_field_id}`
 
-This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its `profile_field_id`, for a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "prospects", and whose value is `prospects_id`.
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
+`profile_field_id`, for a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is
+"prospects", and whose value is `prospects_id`.
 
 
 
@@ -630,7 +719,9 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 `GET /prospects/extensions/fields`
 
-This request returns a list of [extension fields](#the-extension-field-object) available for any [prospect](#the-prospect-object). This is the request [`GET/{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where the object is "prospects".
+This request returns a list of [extension fields](#the-extension-field-object) available for any [prospect](#the-
+prospect-object). This is the request [`GET/{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where
+the object is "prospects".
 
 
 
@@ -643,7 +734,9 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 `GET /prospects/{prospect_id}/extensions/values`
 
-This request returns a list of [extension values](#the-extension-value-object) for a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-values), where the object is "prospects", and whose id is `prospect_id`.
+This request returns a list of [extension values](#the-extension-value-object) for a [prospect](#the-prospect-object),
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-
+extension-field-values), where the object is "prospects", and whose id is `prospect_id`.
 
 
 
@@ -656,7 +749,10 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 `PUT /prospects/{prospect_id}/extensions/values/{extension_value_id}`
 
-This request updates the value of an [extension field value](#the-extension-value-object), specified by its `extension_value_id`, of a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`PUT {object}/{object_id}/extensions/values/{extension_value_id}`](#update-an-extension-value), where the object is "prospect", and whose id is `prospect_id`
+This request updates the value of an [extension field value](#the-extension-value-object), specified by its
+`extension_value_id`, of a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request 
+[`PUT{object}/{object_id}/extensions/values/{extension_value_id}`](#update-an-extension-value), where the object is
+"prospect", and whose id is `prospect_id`
 
 
 
@@ -669,7 +765,10 @@ This request updates the value of an [extension field value](#the-extension-valu
 
 `POST /prospects/{prospect_id}/extensions/fields/{extension_field_id}`
 
-This request sets and returns the value of an extension field, specified by its `extension_field_id`, of a [prospect](#the-prospect-object), specified by its `prospect_id`. This request is the request [`POST /{object}/{object_id}/extensions/fields/{extension_field_id}`](#create-an-extension-value) where our object is "prospects" whose id is `prospect_id`.
+This request sets and returns the value of an extension field, specified by its `extension_field_id`, of a [prospect
+](#the-prospect-object), specified by its `prospect_id`. This request is the request 
+[`POST/{object}/{object_id}/extensions/fields/{extension_field_id}`](#create-an-extension-value) where our object is
+"prospects" whose id is `prospect_id`.
 
 
 
@@ -682,7 +781,9 @@ This request sets and returns the value of an extension field, specified by its 
 
 `GET /prospects/{prospect_id}/progressions`
 
-This request returns a list of available [progressions](#the-progression-object) for a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "prospects" whose id is `prospect_id`.
+This request returns a list of available [progressions](#the-progression-object) for a [prospect](#the-prospect-object),
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-
+available-progressions) where the object is "prospects" whose id is `prospect_id`.
 
 
 
@@ -695,7 +796,10 @@ This request returns a list of available [progressions](#the-progression-object)
 
 `PUT|POST /prospects/{prospect_id}/progressions/{progression_id}/auto`
 
-This request uses the given progression, specified by its `progression_id` to progress a [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the object is "prospect" whose id is `prospect_id`.
+This request uses the given progression, specified by its `progression_id` to progress a [prospect](#the-prospect-
+object), specified by its `prospect_id`. This is the request
+[`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression)
+where the object is "prospect" whose id is `prospect_id`.
 
 
 
@@ -708,7 +812,9 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 `GET /prospects/{prospect_id}/collections`
 
-This request returns a list of [resource collections](#resources-attachments) against an [prospect](#the-prospect-object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) where the object is "prospects" and hose id is `{prospect_id}`.
+This request returns a list of [resource collections](#resources-attachments) against an [prospect](#the-prospect-
+object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-
+array-of-collections-for-an-object) where the object is "prospects" and hose id is `{prospect_id}`.
 
 
 
@@ -721,4 +827,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 `POST /prospects/{prospect_id}/collections/{collection_id}/resources`
 
-This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of an [prospect](#the-prospect-object) specified by its `prospect_id`. This is the request [`POST /{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the object is "prospects" whose id is `{prospect_id}`.
+This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of an
+[prospect](#the-prospect-object) specified by its `prospect_id`. This is the request 
+[`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the
+object is "prospects" whose id is `{prospect_id}`.

@@ -879,7 +879,8 @@ profile-values), where the object is "companies" and whose id is `{company_id}`.
 
 `GET /companies/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [company](#the-company-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "companies".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [company](#the-company-
+object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "companies".
 
 
 
