@@ -667,6 +667,64 @@ This request deletes a job from the deployment, specified by its `job_id`. This 
 
 
 
+### List a Job's Profile Field Values
+> See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
+
+`GET /jobs/{job_id}/profiles/values`
+
+This request returns a list of [profile values](#the-profile-value-object) of a [job](#the-job-object), specified by its `job_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "jobs", and whose id is `{job_id}`.
+
+
+
+
+
+
+### List all Profile Field Values on a Job
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /jobs/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of a [job](#the-job-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "jobs".
+
+
+
+
+
+
+### List Jobs Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /jobs/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for jobs. This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "jobs".
+
+
+
+
+
+
+### Update a Profile Value on a Job
+> See the [profiles section](#update-a-profile-value-link) for a sample request 
+
+`PUT /jobs/{job_id}/profiles/values/{profile_value_id}`
+
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular job, specified by it's `job_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "jobs", and whose value is `{job_id}`.
+
+
+
+
+
+### Set a Profile Value on a Job
+> See the [profiles section](#create-a-profile-value-link) for a sample request
+
+`POST /jobs/{job_id}/profiles/fields/{profile_field_id}`
+
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its `profile_field_id`, for a "job", specified by it's `job_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "jobs", and whose value is `{job_id}`.
+
+
+
+
+
 
 ### List Job Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example
