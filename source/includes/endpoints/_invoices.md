@@ -239,6 +239,67 @@ This request will return a count of invoices in a list defined by any available 
 
 
 
+
+### List an Invoice's Profile Field Values
+> See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
+
+`GET /invoices/{invoice_id}/profiles/values`
+
+This request returns a list of [profile values](#the-profile-value-object) of an [invoice](#the-invoice-object), specified by its `invoice_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "invoices", and whose id is `{invoice_id}`.
+
+
+
+
+
+
+### List all Profile Field Values on an Invoice
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /invoices/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of an [invoice](#the-invoice-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "invoices".
+
+
+
+
+
+
+### List Invoices Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /invoices/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for invoices. This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "invoices".
+
+
+
+
+
+
+### Update a Profile Value on an Invoice
+> See the [profiles section](#update-a-profile-value-link) for a sample request 
+
+`PUT /invoices/{invoice_id}/profiles/values/{profile_value_id}`
+
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular invoice, specified by its `invoice_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices", and whose value is `{invoice_id}`.
+
+
+
+
+
+
+### Set a Profile Value on an Invoice
+> See the [profiles section](#create-a-profile-value-link) for a sample request
+
+`POST /invoices/{invoice_id}/profiles/fields/{profile_field_id}`
+
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its `profile_field_id`, for an "invoice", specified by it's `invoice_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices", and whose value is `{invoice_id}`.
+
+
+
+
+
+
 ### Get Line Item (Beta)
 > Sample Request:
 
