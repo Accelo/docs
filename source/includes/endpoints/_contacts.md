@@ -462,7 +462,7 @@ This request returns a list of all [profile field values](#the-profile-value-obj
 ### List Contact Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for general usage.
 
-`GET /contacts/profiles/fields/`
+`GET /contacts/profiles/fields`
 
 This request returns a list of [profile fields](#the-profile-field-object)
 available for [contacts](#the-contact-object).
