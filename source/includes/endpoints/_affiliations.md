@@ -26,8 +26,9 @@ For example we may have a contact who works as an engineer for one company (imag
   "email": "joe@example.com",
   "contact": "95",
   "phone": "12345678",
-  "status": "0",
-  "id": "99"
+  "affiliation_status": "0",
+  "id": "99",
+  "portal_access": "1"
 }
 ```
 
@@ -45,12 +46,12 @@ The Affiliation object contains the following:
 | physical_address | unsigned or object | The physical [address](#addresses) of the contact in the role of this affiliation. |
 | company | unsigned or object | The [company](#companies) that the contact is affiliated with. |
 | contact | unsigned or object | The [contact](#contacts) the affiliation is against. |
-| status | unsigned | The contact's [status](#statuses) in the role of this affiliation. |
+| affiliation_status | unsigned | The contact's [status](#statuses) in the role of this affiliation. |
 | standing | string | The standing of the contact's status. See the [status object](#statuses). |
 | date_modified | unix ts | The latest date that this affiliation was modified. |
 | date_last_interacted | unix ts | The latest date that there was interaction with this affiliation. |
 | staff_bookmarked | boolean| Whether the current user has bookmarked the affiliation. |
-
+| portal_access | boolean | Whether the [contact](#contacts) has the portal on. |
 
 
 
