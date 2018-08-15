@@ -157,8 +157,8 @@ This request supports all of the [pagination](#configuring-the-response-paginati
 
 ##### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects from the [extension field object](#the-extension-
-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [extension field object](#the-extension-field-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -203,8 +203,8 @@ This request supports all of the [pagination](#configuring-the-response-paginati
 
 ##### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -229,7 +229,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/contracts/{contract_id}/extensions/values
+ https://{deployment}.api.accelo.com/api/v0/contracts/extensions/values
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -247,8 +247,8 @@ This request supports all of the [pagination](#configuring-the-response-paginati
 
 ##### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 
@@ -299,8 +299,8 @@ This request updates the `value` of an extension value, since this object is dyn
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -349,8 +349,8 @@ relevant value field(s). These fields are required for this request.
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-
-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [extension value object](#the-extension-value-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response

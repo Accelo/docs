@@ -117,8 +117,8 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [profile field object](#the-profile-
-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [profile field object](#the-profile-field-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -154,8 +154,8 @@ This request returns a list of [profile values](#the-profile-value-object) for t
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-
-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-value-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -198,8 +198,8 @@ This request supports all of the [pagination](#configuring-the-response-paginati
 
 ##### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-
-value-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-value-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 
@@ -241,8 +241,8 @@ type of `value`:
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-
-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-field-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -281,8 +281,8 @@ the relevant value field(s). The relevant value field is required for this reque
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-
-field-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [profile value object](#the-profile-field-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
