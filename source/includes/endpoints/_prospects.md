@@ -348,8 +348,8 @@ This request returns the [prospect status](#the-prospect-status) of a prospect, 
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [prospect status object](#the-prospect-
-status) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [prospect status object](#the-prospect-status) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -646,8 +646,8 @@ The response will be the newly created prospect with its default fields and any 
 `GET /prospects/{prospect_id}/profiles/values`
 
 This request returns a list of [profile values](#the-profile-value-object) of a [prospect](#the-prospect-object),
-specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
-profile-values), where the object is "prospects", and whose id is `prospect_id`.
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "prospects", and whose id is `prospect_id`.
 
 
 
@@ -659,8 +659,8 @@ profile-values), where the object is "prospects", and whose id is `prospect_id`.
 
 `GET /prospects/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [prospect](#the-prospect-
-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "prospects".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [prospect](#the-prospect-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "prospects".
 
 
 
@@ -672,9 +672,9 @@ object). This is the request [`GET /{object}/profiles/values`](#list-profile-val
 
 `GET /prospects/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [prospects](#the-prospect-
-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
-"prospects".
+This request returns a list of [profile fields](#the-profile-field-object) available for [prospects](#the-prospect-object). 
+This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "prospects".
+
 
 
 
@@ -719,9 +719,8 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 `GET /prospects/extensions/fields`
 
-This request returns a list of [extension fields](#the-extension-field-object) available for any [prospect](#the-
-prospect-object). This is the request [`GET/{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where
-the object is "prospects".
+This request returns a list of [extension fields](#the-extension-field-object) available for any [prospect](#the-prospect-object). 
+This is the request [`GET/{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where the object is "prospects".
 
 
 
@@ -735,8 +734,8 @@ the object is "prospects".
 `GET /prospects/{prospect_id}/extensions/values`
 
 This request returns a list of [extension values](#the-extension-value-object) for a [prospect](#the-prospect-object),
-specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-
-extension-field-values), where the object is "prospects", and whose id is `prospect_id`.
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-values), 
+where the object is "prospects", and whose id is `prospect_id`.
 
 
 
@@ -782,8 +781,8 @@ This request sets and returns the value of an extension field, specified by its 
 `GET /prospects/{prospect_id}/progressions`
 
 This request returns a list of available [progressions](#the-progression-object) for a [prospect](#the-prospect-object),
-specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-
-available-progressions) where the object is "prospects" whose id is `prospect_id`.
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "prospects" whose id is `prospect_id`.
 
 
 
@@ -796,8 +795,8 @@ available-progressions) where the object is "prospects" whose id is `prospect_id
 
 `PUT|POST /prospects/{prospect_id}/progressions/{progression_id}/auto`
 
-This request uses the given progression, specified by its `progression_id` to progress a [prospect](#the-prospect-
-object), specified by its `prospect_id`. This is the request
+This request uses the given progression, specified by its `progression_id` to progress a [prospect](#the-prospect-object), 
+specified by its `prospect_id`. This is the request
 [`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression)
 where the object is "prospect" whose id is `prospect_id`.
 
@@ -812,9 +811,9 @@ where the object is "prospect" whose id is `prospect_id`.
 
 `GET /prospects/{prospect_id}/collections`
 
-This request returns a list of [resource collections](#resources-attachments) against an [prospect](#the-prospect-
-object), specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-
-array-of-collections-for-an-object) where the object is "prospects" and hose id is `{prospect_id}`.
+This request returns a list of [resource collections](#resources-attachments) against an [prospect](#the-prospect-object), 
+specified by its `prospect_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "prospects" and hose id is `{prospect_id}`.
 
 
 

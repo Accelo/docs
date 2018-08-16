@@ -866,8 +866,8 @@ This response returns a list of manager (staff members) for the given company.
 `GET /companies/{company_id}/profiles/values`
 
 This request returns a list of [profile field values](#the-profile-value-object) of a [company](#the-company-object),
-specified by its `company_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
-profile-values), where the object is "companies" and whose id is `{company_id}`.
+specified by its `company_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "companies" and whose id is `{company_id}`.
 
 
 
@@ -879,8 +879,8 @@ profile-values), where the object is "companies" and whose id is `{company_id}`.
 
 `GET /companies/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [company](#the-company-
-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "companies".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [company](#the-company-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "companies".
 
 
 
@@ -892,9 +892,8 @@ object). This is the request [`GET /{object}/profiles/values`](#list-profile-val
 
 `GET /companies/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [companies](#the-company-
-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
-"companies".
+This request returns a list of [profile fields](#the-profile-field-object) available for [companies](#the-company-object). 
+This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "companies".
 
 
 
@@ -922,8 +921,8 @@ of a particular [company](#the-company-object), identified by its `company_id`. 
 
 `POST /companies/{company_id}/profiles/{profile_field_id}`
 
-This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-
-object), specified by its `profile_field_id`, for a [company](#the-company-object), specified by its `company_id`. This
+This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-object), 
+specified by its `profile_field_id`, for a [company](#the-company-object), specified by its `company_id`. This
 is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where is
 object is "companies" and whose id is `{company_id}`
 
@@ -939,8 +938,8 @@ object is "companies" and whose id is `{company_id}`
 `GET /companies/{company_id}/progressions`
 
 This request returns a list of available [progressions](#progressions) for a [company](#the-company-object) identified
-by its `company_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-
-progressions) where the object is "companies" whose id is `{company_id}`
+by its `company_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "companies" whose id is `{company_id}`
 
 
 
@@ -1002,8 +1001,8 @@ This is the request [`POST /{object}/{object_id}/addresses`](#create-an-address-
 `GET /companies/{company_id}/collections`
 
 This request returns a list of [collections](#resources) against a [company](#the-company-object), specified by its
-`company_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-
-object) where the object is "companies" and whose id is `{company_id}`.
+`company_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "companies" and whose id is `{company_id}`.
 
 
 
@@ -1016,7 +1015,7 @@ object) where the object is "companies" and whose id is `{company_id}`.
 
 `POST /companies/{company_id}/collections/{collection_id}/resources`
 
-This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [company](#the-
-company-object) specified by its `company_id`. This it the request
+This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [company](#the-company-object) 
+specified by its `company_id`. This it the request
 [`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object)
 where the object is "companies" and whose id is `{company_id}`.

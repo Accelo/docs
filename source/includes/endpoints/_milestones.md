@@ -92,8 +92,8 @@ This request returns a single [milestone](#the-milestone-object), identified by 
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked resource from the [milestone object](#the-milestone-
-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked resource from the [milestone object](#the-milestone-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -244,8 +244,8 @@ just a single value:
 `GET /milestones/{milestone_id}/profiles/values`
 
 This request returns a list of [profile values](#the-profile-value-object) of a [milestone](#the-milestone-object),
-specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
-profile-values), where the object is "milestones", and whose id is `milestone_id`.
+specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "milestones", and whose id is `milestone_id`.
 
 
 
@@ -257,8 +257,8 @@ profile-values), where the object is "milestones", and whose id is `milestone_id
 
 `GET /milestones/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [milestone](#the-milestone-
-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "milestones".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [milestone](#the-milestone-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "milestones".
 
 
 
@@ -270,9 +270,8 @@ object). This is the request [`GET /{object}/profiles/values`](#list-profile-val
 
 `GET /milestones/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [milestones](#the-milestone-
-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
-"milestones".
+This request returns a list of [profile fields](#the-profile-field-object) available for [milestones](#the-milestone-object). 
+This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "milestones".
 
 
 
@@ -285,8 +284,8 @@ object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-
 `PUT /milestones/{milestone_id}/profiles/values/{profile_value_id}`
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
-particular [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`PUT
-/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is
+particular [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request 
+[`PUT/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is
 "milestones", and whose id is the `milestone_id`.
 
 
@@ -316,9 +315,9 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 `GET /milestones/{milestone_id}/progressions`
 
-This request returns a list of available [progressions](#the-progression-object) for a [milestone](#the-milestone-
-object), specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a
--list-of-available-progressions) where the object is "milestones" whose id is `milestone_id`.
+This request returns a list of available [progressions](#the-progression-object) for a [milestone](#the-milestone-object), 
+specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "milestones" whose id is `milestone_id`.
 
 
 
@@ -331,7 +330,7 @@ object), specified by its `milestone_id`. This is the request [`GET /{object}/{o
 
 `PUT|POST /milestones/{milestone_id}/progressions/{progression_id}/auto`
 
-This request uses the given progression, specified by its `progression_id` to progress a [milestone](#the-milestone-
-object), specified by its `milestone_id`. This is the request 
-[`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the
-object is "milestone" whose id is `milestone_id`.
+This request uses the given progression, specified by its `progression_id` to progress a [milestone](#the-milestone-object), 
+specified by its `milestone_id`. This is the request 
+[`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
+where theobject is "milestone" whose id is `milestone_id`.

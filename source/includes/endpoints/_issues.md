@@ -197,8 +197,8 @@ guide/modules/tickets/#Types) for more information.
 ```
 
 Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-
-resolutions/) for more information. The issue resolution contains the following:
+documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/) 
+for more information. The issue resolution contains the following:
 
 | Field | Type | Descriptions |
 |:-|:-|:-|
@@ -264,8 +264,7 @@ This request returns a single issue, identified by its `issue_id`.
 #### Configuring the Response
 
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
@@ -307,8 +306,7 @@ This request supports the standard [pagination](#configuring-the-response-pagina
 #### Additional Fields and Linked Objects
 
 This request supports requesting additional fields and linked objects from the [issues object](#the-issue-object) using
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 ##### Basic Filters
@@ -988,8 +986,7 @@ The following fields from the [issue object](#the-issue-object) may be updated t
 #### Configuring the Response
 
 This request supports requesting additional fields and linked objects from the [issue object](#the-issue-object) using
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
@@ -1049,8 +1046,7 @@ Values for the following fields from the [issue object](#the-issue-object) may b
 #### Configuring the Response
 
 This request supports requesting additional fields and linked resources from the [issue object](#the-issue-object) using
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
@@ -1267,8 +1263,7 @@ where the object is "issues" whose id is `{issue_id}`.
 `[POST|PUT] /issues/{issue_id}/progressions/{progression_id}/auto`
 
 This request uses the given progression, specified by its `progression_id` to progress an issue, specified by its
-`issue_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-
-update-using-a-given-progression) where the object is "issues" whose id is `{issue_id}`.
+`issue_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the object is "issues" whose id is `{issue_id}`.
 
 
 
@@ -1282,8 +1277,8 @@ update-using-a-given-progression) where the object is "issues" whose id is `{iss
 `GET /issues/{issue_id}/collections`
 
 This request returns a list of [resource collections](#resources-attachments) against an [issue](#the-issue-object),
-specified by its `issue_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-
-collections-for-an-object) where the object is "issues" and hose id is `{issue_id}`.
+specified by its `issue_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "issues" and hose id is `{issue_id}`.
 
 
 

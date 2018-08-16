@@ -125,8 +125,7 @@ This request returns a single [job](#the-jobs-object), specified by its `job_id`
 #### Configuring the Response
 
 This request supports requesting additional fields and linked resources from the [job object](#the-jobs-object) using
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
@@ -169,8 +168,7 @@ This request supports all the [pagination](#configuring-the-response-pagination)
 ##### Additional Fields and Linked Object
 
 This request supports requesting additional fields and linked objects from the [jobs object](#the-jobs-object) using the
-[`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+[`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 ##### Basic Filters
@@ -329,8 +327,8 @@ in descending order of `date_created`.
 
 #### Configuring the Response
 
-The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-
-order-filters) used will have no impact on the response.
+The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-order-filters) 
+used will have no impact on the response.
 
 
 #### Handling the Response
@@ -368,8 +366,8 @@ is, in descending order of `date_modified`.
 
 #### Configuring the Response
 
-The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-
-order-filters) used will have no impact on the response.
+The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-order-filters) 
+used will have no impact on the response.
 
 
 #### Handling the Response
@@ -659,8 +657,7 @@ The following fields from the [job object](#the-jobs-object) may be updated with
 #### Configuring the Response
 
 This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
@@ -720,8 +717,7 @@ The following fields may be set through this request:
 #### Configuring the Response
 
 This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through
-the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-
-response-breadcrumbs).
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
@@ -850,8 +846,8 @@ This is the request [`GET /{object}/extensions/fields`](#retrieve-a-list-of-exte
 `GET /jobs/{job_id}/extensions/values`
 
 This request returns a list of [extension values](#the-extension-value-object) for a [job](#the-job-object), specified
-by its `job_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-
-field-values), where the object is "jobs", and whose id is the `job_id`.
+by its `job_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-values), 
+where the object is "jobs", and whose id is the `job_id`.
 
 
 
@@ -898,8 +894,8 @@ whose id is `job_id`.
 `GET /jobs/{jobs_id}/progressions`
 
 This request returns a list of available [progressions](#the-progression-object) for a [job](#the-job-object), specified
-by its `job_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-
-progressions) where the object is "jobs" whose id is `job_id`.
+by its `job_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "jobs" whose id is `job_id`.
 
 
 
@@ -913,7 +909,8 @@ progressions) where the object is "jobs" whose id is `job_id`.
 `[POST|PUT] /jobs/{jobs_id}/progressions/{progression_id}/auto`
 
 This request uses the given progression, specified by its `progression_id` to progress a [job](#the-job-object),
-specified by its `jobs_id`. This is the request [`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
+specified by its `jobs_id`. This is the request 
+[`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
 where theobject is "jobs" whose id is `job_id`.
 
 
@@ -928,8 +925,8 @@ where theobject is "jobs" whose id is `job_id`.
 `GET /jobs/{job_id}/collections`
 
 This request returns a list of [resource collections](#resources-attachments) against a [job](#the-job-object),
-specified by its `job_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-
-collections-for-an-object) where the object is "jobs" and hose id is `{job_id}`.
+specified by its `job_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "jobs" and hose id is `{job_id}`.
 
 
 

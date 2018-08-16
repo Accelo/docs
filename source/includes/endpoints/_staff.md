@@ -334,8 +334,8 @@ request takes no parameters and returns no resources.
 `GET /staff/{staff_id}/profiles/values`
 
 This request returns a list of [profile values](#the-profile-value-object) of a [staff object](#the-staff-object),
-specified by its `staff_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
-profile-values), where the object is "staff", and whose id is `staff_id`.
+specified by its `staff_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "staff", and whose id is `staff_id`.
 
 
 
@@ -348,8 +348,8 @@ profile-values), where the object is "staff", and whose id is `staff_id`.
 
 `GET /staff/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [staff object](#the-staff-
-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "staff".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [staff object](#the-staff-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "staff".
 
 
 
@@ -362,9 +362,8 @@ object). This is the request [`GET /{object}/profiles/values`](#list-profile-val
 
 `GET /staff/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for any [staff object](#the-staff-
-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is
-"staff".
+This request returns a list of [profile fields](#the-profile-field-object) available for any [staff object](#the-staff-object). 
+This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "staff".
 
 
 

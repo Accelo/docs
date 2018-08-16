@@ -88,8 +88,8 @@ This request returns an affiliation specified by their unique id.
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-
-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -371,8 +371,8 @@ The following fields may be updated via this request.
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-
-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -430,8 +430,8 @@ This request supports setting the following fields:
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-
-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [affiliation object](#the-affiliation-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
@@ -472,8 +472,8 @@ no resources.
 
 `GET /affiliations/{affiliation_id}/profiles/values`
 
-This request returns a list of [profile field values](#the-profile-value-object) of an [affiliation](#the-affiliation-
-object), specified by its `affiliation_id`. This is the request 
+This request returns a list of [profile field values](#the-profile-value-object) of an [affiliation](#the-affiliation-object), 
+specified by its `affiliation_id`. This is the request 
 [`GET/{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "affiliations" whose id
 is `{affiliation_id}`.
 
@@ -485,9 +485,8 @@ is `{affiliation_id}`.
 
 `GET /affiliations/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of an [affiliation](#the-
-affiliation-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is
-"affiliations".
+This request returns a list of all [profile field values](#the-profile-value-object) of an [affiliation](#the-affiliation-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "affiliations".
 
 
 
@@ -499,9 +498,8 @@ affiliation-object). This is the request [`GET /{object}/profiles/values`](#list
 
 `GET /affiliations/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [affiliations](#the-
-affiliation-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the
-object is "affiliations".
+This request returns a list of [profile fields](#the-profile-field-object) available for [affiliations](#the-affiliation-object). 
+This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "affiliations".
 
 
 
@@ -532,10 +530,10 @@ of a particular [affiliation](#the-affiliation-object), identified by its `affil
 
 `POST /affiliations/{affiliation_id}/profiles/fields/{profile_field_id}`
 
-This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-
-object), specified by its `profile_field_id`, for an [affiliation](#the-affiliation-object), specified by its
-`affiliation_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#create-a
--profile-value) where is object is "affiliations" and whose id is `{affiliation_id}`
+This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-object), 
+specified by its `profile_field_id`, for an [affiliation](#the-affiliation-object), specified by its `affiliation_id`. 
+This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#create-a-profile-value) 
+where is object is "affiliations" and whose id is `{affiliation_id}`
 
 
 
@@ -551,8 +549,8 @@ object), specified by its `profile_field_id`, for an [affiliation](#the-affiliat
 `GET /affiliations/{affiliation_id}/progressions`
 
 This request returns a list of available [progressions](#progressions) for an [affiliation](#the-affiliation-object)
-identified by its `affiliation_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-
-available-progressions) where the object is "affiliations" whose id is `{affiliation_id}`
+identified by its `affiliation_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "affiliations" whose id is `{affiliation_id}`
 
 
 

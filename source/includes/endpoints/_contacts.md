@@ -18,7 +18,7 @@ The contact object contains the following fields and linked objects:
 | **firstname** | string | The contact's first name. |
 | **surname** | string | The contact's surname. |
 | **mobile** | string | The contact's mobile number. __Deprecated__ please use the [affiliation object](#the-affiliation-object) to store and lookup contact information of a contact. |
-| **email** | string | The contact's email address. __Deprecated__ as for `"mobile". |
+| **email** | string | The contact's email address. __Deprecated__ as for "mobile". |
 | username | string | The contact's Accelo username. |
 | middlename | string | The contact's middle name. |
 | title | string | The contact's preferred title. For example "Ms", "Mr", "Dr". |
@@ -322,8 +322,8 @@ This request allows updating the following fields in the [contact object](#the-c
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-
-fields) parameter.
+This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-fields) 
+parameter.
 
 
 #### Handling the Response
@@ -363,8 +363,7 @@ creates an [affiliation](#affiliations) to associate the contact with a company.
 #### Configuring the Contact
 
 This request accepts all fields from  the [`PUT \contacts`](#update-a-contact) request, with the `firstname` and
-`surname` fields being required, as well as the following fields from the [affiliation object](#affiliations-fields-and-
-linked-objects):
+`surname` fields being required, as well as the following fields from the [affiliation object](#affiliations-fields-and-linked-objects):
 
 | Field | Type | Notes |
 |:-|:-|:-|
@@ -514,8 +513,8 @@ by its `contact_id`. This request supports no parameters and returns a list of s
 `GET /contacts/{contact_id}/profiles/values`
 
 This request returns a list of [profile values](#the-profile-value-object) of a [contact](#the-contact-object),
-specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
-profile-values), where the object is "contacts", and whose id is `contact_id`.
+specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "contacts", and whose id is `contact_id`.
 
 
 
@@ -526,8 +525,8 @@ profile-values), where the object is "contacts", and whose id is `contact_id`.
 
 `GET /contacts/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [contact](#the-contact-
-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contacts".
+This request returns a list of all [profile field values](#the-profile-value-object) of a [contact](#the-contact-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contacts".
 
 
 
@@ -538,8 +537,7 @@ object). This is the request [`GET /{object}/profiles/values`](#list-profile-val
 
 `GET /contacts/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [contacts](#the-contact-
-object).
+This request returns a list of [profile fields](#the-profile-field-object) available for [contacts](#the-contact-object).
 
 
 
@@ -580,8 +578,8 @@ and whose value is `contact_id`.
 `GET /contacts/{contact_id}/progressions`
 
 This request returns a list of available [progressions](#the-progression-object) for a [contact](#the-contact-object),
-specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-
-available-progressions) where the object is "contacts" whose id is `contact_id`.
+specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "contacts" whose id is `contact_id`.
 
 
 
@@ -611,8 +609,8 @@ object is "contact" whose id is `contact_id`.
 `GET /contacts/{contact_id}/collections`
 
 This request returns a list of [collections](#resources-attachments) against a [contact](#the-contact-object), specified
-by its `contact_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-
-for-an-object) where the object is "contacts" and whose id is `{contact_id}`.
+by its `contact_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "contacts" and whose id is `{contact_id}`.
 
 
 

@@ -165,8 +165,8 @@ This request accepts all the standard [pagination](#configuring-the-response-pag
 
 ##### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-
-fields) parameter.
+This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-fields) 
+parameter.
 
 
 ##### Basic Filters
@@ -273,8 +273,8 @@ filters this will be a count of all invoices on the deployment. This request ret
 `GET /invoices/{invoice_id}/profiles/values`
 
 This request returns a list of [profile values](#the-profile-value-object) of an [invoice](#the-invoice-object),
-specified by its `invoice_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-
-profile-values), where the object is "invoices", and whose id is `{invoice_id}`.
+specified by its `invoice_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "invoices", and whose id is `{invoice_id}`.
 
 
 
@@ -286,8 +286,8 @@ profile-values), where the object is "invoices", and whose id is `{invoice_id}`.
 
 `GET /invoices/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of an [invoice](#the-invoice-
-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "invoices".
+This request returns a list of all [profile field values](#the-profile-value-object) of an [invoice](#the-invoice-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "invoices".
 
 
 
@@ -313,8 +313,8 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 `PUT /invoices/{invoice_id}/profiles/values/{profile_value_id}`
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
-particular invoice, specified by its `invoice_id`. This is the request [`POST
-/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
+particular invoice, specified by its `invoice_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
 and whose value is `{invoice_id}`.
 
 
@@ -328,8 +328,8 @@ and whose value is `{invoice_id}`.
 `POST /invoices/{invoice_id}/profiles/fields/{profile_field_id}`
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
-`profile_field_id`, for an "invoice", specified by it's `invoice_id`. This is the request [`POST
-/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
+`profile_field_id`, for an "invoice", specified by it's `invoice_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
 and whose value is `{invoice_id}`.
 
 
