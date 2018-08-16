@@ -689,6 +689,42 @@ This request uploads a [resource](#resources) to a collection, specified by its 
 
 
 
+### List a Contract's Profile Field Values
+> See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
+
+`GET /contract/{contract_id}/profiles/values`
+
+This request returns a list of [profile field values](#the-profile-value-object) of a [contract](#the-contract-object), specified by its `contract_id`. This is the request 
+[`GET/{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "contracts" whose id is `{contract_id}`. 
+
+
+
+
+
+
+### List all Profile Field Values on a Contract
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /contracts/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of a [contract](#the-contract-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contracts".
+
+
+
+
+
+### List Affiliation Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /contracts/profiles/fields`
+
+This request returns a list of all [profile field values](#the-profile-value-object) of a [contract](#the-contract-object). This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contracts".
+
+
+
+ 
+
+
 ### List Contract Extension Fields
 > See the [extension section](#retrieve-a-list-of-extension-fields) for an example
 
