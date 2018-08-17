@@ -51,7 +51,7 @@ The Affiliation object contains the following:
 | date_modified | unix ts | The latest date that this affiliation was modified. |
 | date_last_interacted | unix ts | The latest date that there was interaction with this affiliation. |
 | staff_bookmarked | boolean| Whether the current user has bookmarked the affiliation. |
-| portal_access | boolean | Whether the [contact](#contacts) has the portal on. |
+| portal_access | boolean | Whether the affiliation has been granted access to the Client Portal. |
 
 
 
