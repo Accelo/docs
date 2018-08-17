@@ -286,7 +286,7 @@ where the object is "invoices", and whose id is `{invoice_id}`.
 
 `GET /invoices/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of an [invoice](#the-invoice-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [invoices](#the-invoice-object). 
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "invoices".
 
 

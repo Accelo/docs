@@ -94,7 +94,8 @@ guide/modules/prospect/sales-types/) for information on prospect types. The pros
 
 #### The Prospect Probability
 
-Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. The prospect probability contains the following:
+Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. The prospect
+probability contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -659,7 +660,7 @@ where the object is "prospects", and whose id is `prospect_id`.
 
 `GET /prospects/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [prospect](#the-prospect-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [prospects](#the-prospect-object). 
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "prospects".
 
 

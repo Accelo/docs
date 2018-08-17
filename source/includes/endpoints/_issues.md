@@ -1125,7 +1125,7 @@ where the object is "issues", and whose id is `{issue_id}`.
 
 `GET /issues/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of an [issue](the-issue-object).
+This request returns a list of all [profile field values](#the-profile-value-object) on [issues](the-issue-object).
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "issues".
 
 

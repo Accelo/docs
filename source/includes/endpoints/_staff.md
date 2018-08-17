@@ -348,7 +348,7 @@ where the object is "staff", and whose id is `staff_id`.
 
 `GET /staff/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [staff object](#the-staff-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [staff](#the-staff-object). 
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "staff".
 
 

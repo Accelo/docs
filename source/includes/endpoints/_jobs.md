@@ -775,7 +775,7 @@ the object is "jobs", and whose id is `{job_id}`.
 
 `GET /jobs/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [job](#the-job-object). This
+This request returns a list of all [profile field values](#the-profile-value-object) on [jobs](#the-job-object). This
 is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "jobs".
 
 

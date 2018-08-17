@@ -795,7 +795,7 @@ where the object is "companies" and whose id is `{company_id}`.
 
 `GET /contract/{contract_id}/profiles/values`
 
-This request returns a list of [profile field values](#the-profile-value-object) of a [contract](#the-contract-object),
+This request returns a list of [profile field values](#the-profile-value-object) on [contracts](#the-contract-object),
 specified by its `contract_id`. This is the request  
 [`GET/{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "contracts" whose id is `{contract_id}`.
 

@@ -257,7 +257,7 @@ where the object is "milestones", and whose id is `milestone_id`.
 
 `GET /milestones/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [milestone](#the-milestone-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [milestones](#the-milestone-object). 
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "milestones".
 
 

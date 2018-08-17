@@ -525,7 +525,7 @@ where the object is "contacts", and whose id is `contact_id`.
 
 `GET /contacts/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) of a [contact](#the-contact-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [contacts](#the-contact-object). 
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contacts".
 
 
