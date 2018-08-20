@@ -27,6 +27,7 @@ includes:
   - endpoints/divisions
   - endpoints/expenses
   - endpoints/extensions
+  - endpoints/externals_appointments
   - endpoints/filters
   - endpoints/groups
   - endpoints/holidays
