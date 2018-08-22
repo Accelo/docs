@@ -89,6 +89,7 @@ there are several types of filters:
 * [Order Filters](#filters-order-filters)
 * [Empty Filters](#filters-empty-filters)
 * [Object Filters](#filters-object-filters)
+* [Search Filters](#search-filters)
 
 Filters may take any number of arguments, new arguments may be separated by a
 comma. Appending `_not` to any filter will return results that DO NOT satisfy
@@ -259,6 +260,34 @@ These are an extension of basic filters that allow for more compact filtering ov
 As with other filters, additional arguments for both fields may be added and separated by a comma, for example `_filters=owner(staff(17,13),affiliation(22)` would show all activities owned by the staff with id 17 or 13, or owned by the [affiliation](#affiliations) with id 22.
 
 <a name="filters-combining-filters"></a>
+
+
+
+
+### Search Filters
+>Filter contacts by "kurt wagner"
+
+```http
+GET /contacts HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+
+_filters=search(kurt wagner)
+```
+
+```shell
+curl -X GET \
+	https://{deployment}.api.accelo.com/api/v0/contacts \
+	-H 'authorization: Bearer {access_token}' \
+	-d '_filters=search(kurt wagner)'
+```
+
+This filter is similar to the [searching](configuring-the-response-searching) parameter and supports the same requests available to that parameter. Automatically this filter will append an `AND` between multiple search requirements. It will search through the avilable fields and only return results that satify the search. This expands on the searching filter by allowing the use of `_OR` and `_AND`. The `GET /contacts` request supports search over `firstname`, `surname`, `mobile`, and `email`. For example, if we wanted to find contacts with "kurt" or "wagner" in any of the listed fields we could use `_filters=_OR(search(kurt),search(wagner))`.
+
+
+
+
+
 
 ### Combining Filters
 
