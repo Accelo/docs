@@ -816,7 +816,7 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 
 
 
-### List Affiliation Profile Fields
+### List Contract Profile Fields
 > See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
 
 `GET /contracts/profiles/fields`
