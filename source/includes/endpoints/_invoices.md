@@ -2,7 +2,9 @@
 > Resource URI:  
 `/api/v0/invoices`
 
-These are invoices for any work done. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/invoices/) for more information on invoices.
+These are invoices for any work done. See the [support
+documentation](https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/invoices/) for more
+information on invoices.
 
 ### The Invoice Object
 > Example invoice object:
@@ -117,11 +119,17 @@ curl -X get \
 
 This request returns a single [invoice](#the-invoice-object), specified by its `invoice_id`.
 
+
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [invoice object](#the-invoice-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [invoice object](#the-invoice-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The response will be the single requested [invoice](#the-invoice-object) with its default fields and any additional fields requested through `_fields`.
+
+The response will be the single requested [invoice](#the-invoice-object) with its default fields and any additional
+fields requested through `_fields`.
 
 
 
@@ -151,12 +159,18 @@ This request returns a list of [invoices](#the-invoice-object) on the deployment
 #### Configuring the Request
 
 ##### Pagination
+
 This request accepts all the standard [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-fields) 
+parameter.
+
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name |
@@ -164,7 +178,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | id |
 | invoice_number |
 
+
 ##### Date Filters
+
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -173,7 +189,9 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_modified |
 
+
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -183,7 +201,9 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_due |
 | date_modified |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -196,7 +216,9 @@ This request supports [range filters](#filters-range-filters) over the following
 | affiliation | Range by `affiliation_id`. |
 | modified_by | Range by the `staff_id` of the person to last modify the invoice.|
 
+
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
 
 | Filter Name |
@@ -204,8 +226,12 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 | subject |
 | invoice_number |
 
-#### handling the Response
-The response will be a list of [invoices](#the-invoice-object) on the Deployment, with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+#### Handling the Response
+
+The response will be a list of [invoices](#the-invoice-object) on the Deployment, with their default fields and any
+additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+searches used.
 
 
 
@@ -229,11 +255,83 @@ curl -X get \
 
 `GET /invoices/count`
 
-This request will return a count of invoices in a list defined by any available searches or filters. With no searches or filters this will be a count of all invoices on the deployment. This request returns a single field:
+This request will return a count of invoices in a list defined by any available searches or filters. With no searches or
+filters this will be a count of all invoices on the deployment. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of invoices listed. |
+
+
+
+
+
+
+### List an Invoice's Profile Field Values
+> See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
+
+`GET /invoices/{invoice_id}/profiles/values`
+
+This request returns a list of [profile values](#the-profile-value-object) of an [invoice](#the-invoice-object),
+specified by its `invoice_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "invoices", and whose id is `{invoice_id}`.
+
+
+
+
+
+
+### List all Profile Field Values on an Invoice
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /invoices/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) on [invoices](#the-invoice-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "invoices".
+
+
+
+
+
+
+### List Invoices Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /invoices/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for invoices. This is the request
+[`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "invoices".
+
+
+
+
+
+
+### Update a Profile Value on an Invoice
+> See the [profiles section](#update-a-profile-value-link) for a sample request 
+
+`PUT /invoices/{invoice_id}/profiles/values/{profile_value_id}`
+
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
+particular invoice, specified by its `invoice_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
+and whose value is `{invoice_id}`.
+
+
+
+
+
+
+### Set a Profile Value on an Invoice
+> See the [profiles section](#create-a-profile-value-link) for a sample request
+
+`POST /invoices/{invoice_id}/profiles/fields/{profile_field_id}`
+
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
+`profile_field_id`, for an "invoice", specified by it's `invoice_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
+and whose value is `{invoice_id}`.
+
 
 
 
@@ -256,13 +354,19 @@ curl -X GET \
 
 `GET /invoices/line_items/{line_item_id}`
 
-This request returns a [line item](#the-line-item-beta) specified by its `line_item_id.
+This request returns a [line item](#the-line-item-beta) specified by its `line_item_id.`
+
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [line item object](#the-line-item-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [line item object](#the-line-item-beta)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The request will return the single invoice line item with its default fields and any additional fields requested through `_fields`.
+
+The request will return the single invoice line item with its default fields and any additional fields requested through
+`_fields`.
 
 
 
@@ -289,12 +393,18 @@ This request returns a list of [invoice line item](#the-line-item-beta).
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all of the standard [pagination parameters](#configuring-the-response-pagination)
 
+
 ##### Additional Fields and Linked objects
-This request supports requesting additional fields and linked objects from the [line item object](#the-line-item-beta) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [line item object](#the-line-item-beta)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -304,7 +414,9 @@ This request supports the following [basic filters](#filters-basic-filters):
 | ledger_id |
 | tax_id |
 
+
 ##### Order Filters
+
 This request supports the following [order filters](#filters-order-filters):
 
 | Filter |
@@ -318,7 +430,9 @@ This request supports the following [order filters](#filters-order-filters):
 | total |
 | ordering |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter |
@@ -331,15 +445,20 @@ This request supports [range filters](#filters-range-filters) over the following
 | rate |
 | total |
 
+
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | description |
 
+
 #### Handling the Response
-The response will contain a list of invoice line items with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+The response will contain a list of invoice line items with their default fields and any additional fields requested
+through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
 
@@ -363,7 +482,8 @@ curl -X GET \
 
 `GET /invoices/line_items/count`
 
-This request will return a count of line items in a list defined by any available searches or filters. With no searches or filters this will be a count of all line items on the deployment. This request returns a single field:
+This request will return a count of line items in a list defined by any available searches or filters. With no searches
+or filters this will be a count of all line items on the deployment. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|

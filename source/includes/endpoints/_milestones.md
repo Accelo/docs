@@ -2,9 +2,16 @@
 > Resource URI:  
 `/api/vo/milestones`
 
-Milestones are the steps on the road to a [Job's](#jobs-projects) (Project's) completion. They define the schedule of the job, and contain the budget for their respective portion of the job. For information on accessing milestones through the deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/view-a-milestone/), milestones may also be imported through the deployment, see again the [support documentation](https://www.accelo.com/resources/help/faq/importing-clients-contacts-and-sales-data/import-milestones/) for information.
+Milestones are the steps on the road to a [Job's](#jobs-projects) (Project's) completion. They define the schedule of
+the job, and contain the budget for their respective portion of the job. For information on accessing milestones through
+the deployment, see the [support
+documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/view-a-milestone/), milestones may
+also be imported through the deployment, see again the [support documentation](https://www.accelo.com/resources/help/faq
+/importing-clients-contacts-and-sales-data/import-milestones/) for information.
 
-Deleting, creating, and updating milestones is only available through the deployment on the project planning screen, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/creating-a-project-plan/) for more information.
+Deleting, creating, and updating milestones is only available through the deployment on the project planning screen, see
+the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/creating-a-project-plan/)
+for more information.
 
 ### The Milestone Object
 > Example milestone object:
@@ -82,11 +89,17 @@ curl -X get \
 
 This request returns a single [milestone](#the-milestone-object), identified by its `milestone_id`.
 
-#### Configuring the Response
-This request supports requesting additional fields and linked resource from the [milestone object](#the-milestone-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
-The response will be the single [milestone](#the-milestone-object) with its default fields and any additional fields requested through `_fields`.
+#### Configuring the Response
+
+This request supports requesting additional fields and linked resource from the [milestone object](#the-milestone-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be the single [milestone](#the-milestone-object) with its default fields and any additional fields
+requested through `_fields`.
 
 
 
@@ -115,13 +128,19 @@ This request returns a list of [milestones](#the-milestone-object) on the deploy
 
 #### Configuring the Response
 
+
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports request additional fields and linked objects from the [milestone object](#the-milestone-object) using the [`_fields`](#configuring-the-response-fields).
+
+This request supports request additional fields and linked objects from the [milestone object](#the-milestone-object)
+using the [`_fields`](#configuring-the-response-fields).
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -136,7 +155,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | object_budget | Filter by the `object_budget_id`. |
 | status | Filter by the `status_id`. |
 
+
 ##### Date Filters
+
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -148,7 +169,9 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_completed |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -161,15 +184,21 @@ This request supports [range filters](#filters-range-filters) over the following
 | rate | Range by the `rate_id`. |
 | rate_charged ||
 
+
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|
 | title |
 
+
 #### Handling the Response
-The response will be a list of [milestones](#the-milestone-object) containing their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+The response will be a list of [milestones](#the-milestone-object) containing their default
+fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters,
+filters, or searches used.
 
 
 
@@ -194,24 +223,14 @@ curl -X get \
 
 `GET /milestones/count`
 
-This request will return a count of milestones in a list defined by any available searches or filters. With no searches or filters this will be a count of all milestones on the deployment. This request does not return a response object, just a single value:
+This request will return a count of milestones in a list defined by any available searches or filters. With no searches
+or filters this will be a count of all milestones on the deployment. This request does not return a response object,
+just a single value:
 
 | Field | Type | Description |
 |:-|:-|:-|
 | **response** | unsigned | A count of milestones listed. |
 
-
-
-
-
-
-
-### List Milestone Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields)) for a sample request
-
-`GET /milestones/profiles/fields`
-
-This request returns a list of [profile fields](#the-profile-field-object) available for [milestones](#the-milestone-object). This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "milestones".
 
 
 
@@ -224,8 +243,35 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 `GET /milestones/{milestone_id}/profiles/values`
 
-This request returns a list of [profile values](#the-profile-value-object) of a [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "milestones", and whose id is `milestone_id`.
+This request returns a list of [profile values](#the-profile-value-object) of a [milestone](#the-milestone-object),
+specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+where the object is "milestones", and whose id is `milestone_id`.
 
+
+
+
+
+
+### List all Profile Field Values on a Milestone
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /milestones/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) on [milestones](#the-milestone-object). 
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "milestones".
+
+
+
+
+
+
+### List Milestone Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields)) for a sample request
+
+`GET /milestones/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for [milestones](#the-milestone-object). 
+This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "milestones".
 
 
 
@@ -237,7 +283,10 @@ This request returns a list of [profile values](#the-profile-value-object) of a 
 
 `PUT /milestones/{milestone_id}/profiles/values/{profile_value_id}`
 
-This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a particular [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`PUT /{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "milestones", and whose id is the `milestone_id`.
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
+particular [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request 
+[`PUT/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is
+"milestones", and whose id is the `milestone_id`.
 
 
 
@@ -250,7 +299,10 @@ This request updates and returns a [profile value](#the-profile-value-object), s
 
 `POST /milestones/{milestone_id}/profiles/fields/{profile_field_id}`
 
-This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its `profile_field_id`, for a [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "milestones", and whose value is `milestone_id`.
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
+`profile_field_id`, for a [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request
+[`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is
+"milestones", and whose value is `milestone_id`.
 
 
 
@@ -263,7 +315,9 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 
 `GET /milestones/{milestone_id}/progressions`
 
-This request returns a list of available [progressions](#the-progression-object) for a [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "milestones" whose id is `milestone_id`.
+This request returns a list of available [progressions](#the-progression-object) for a [milestone](#the-milestone-object), 
+specified by its `milestone_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "milestones" whose id is `milestone_id`.
 
 
 
@@ -276,4 +330,7 @@ This request returns a list of available [progressions](#the-progression-object)
 
 `PUT|POST /milestones/{milestone_id}/progressions/{progression_id}/auto`
 
-This request uses the given progression, specified by its `progression_id` to progress a [milestone](#the-milestone-object), specified by its `milestone_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the object is "milestone" whose id is `milestone_id`.
+This request uses the given progression, specified by its `progression_id` to progress a [milestone](#the-milestone-object), 
+specified by its `milestone_id`. This is the request 
+[`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
+where theobject is "milestone" whose id is `milestone_id`.

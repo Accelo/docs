@@ -79,7 +79,9 @@ The jobs object contains the following:
 }
 ```
 
-You may set up and configure different job types to suit your business processes, general information on types can be found in the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/types/). For jobs, the type object contains the following:
+You may set up and configure different job types to suit your business processes, general information on types can be
+found in the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide
+/triggers-and-business-processes/types/). For jobs, the type object contains the following:
 
  Field | Type | Description |
 |:-|:-|:-|
@@ -119,10 +121,15 @@ curl -X get \
 
 This request returns a single [job](#the-jobs-object), specified by its `job_id`.
 
-#### Configuring the Response
-This request supports requesting additional fields and linked resources from the [job object](#the-jobs-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### handling the Response
+#### Configuring the Response
+
+This request supports requesting additional fields and linked resources from the [job object](#the-jobs-object) using
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+
+#### Handling the Response
+
 The response will be the single job with its default fields and any additional fields requested through `_fields`.
 
 
@@ -150,15 +157,22 @@ curl -X get \
 
 This request returns a list of [jobs](#the-jobs-object) on the deployment.
 
+
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Object
-This request supports requesting additional fields and linked objects from the [jobs object](#the-jobs-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+This request supports requesting additional fields and linked objects from the [jobs object](#the-jobs-object) using the
+[`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -176,7 +190,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | rate | Filter by the `rate_id`. |
 | affiliation | Filter by the `affiliation_id`. |
 
+
 ##### Date Filters
+
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name |
@@ -188,7 +204,9 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_due |
 | date_completed |
 
+
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -205,7 +223,9 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | status | Order by the `status_id`. |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -223,22 +243,29 @@ This request supports [range filters](#filters-range-filters) over the following
 | contract | Range by the `contract_id` of any contract associated with the job. |
 | plan_modified_by | Range by the `staff_id` of the last staff member to modify the job plan. |
 
+
 ##### Object Filters
+
 This request supports the following [object filters](#filters-object-filters):
 
 | Filter | Description |
 |:-|:-|
 | against | Filter by jobs against these objects. |
 
+
 ##### Searching
+
 This request supports the [`_search`](#configuring-the-response-searching) filter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
+
 #### Handling the Response
-The response will be a list of [job objects](#the-jobs-object) containing the default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
+
+The response will be a list of [job objects](#the-jobs-object) containing the default fields and any additional fields
+requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
 
@@ -264,7 +291,8 @@ curl -X get \
 
 `GET /jobs/count`
 
-This request will return a count of jobs in a list defined by any available searches or filters. With no searches or filters this will be a count of all jobs on the deployment. This request returns a single field:
+This request will return a count of jobs in a list defined by any available searches or filters. With no searches or
+filters this will be a count of all jobs on the deployment. This request returns a single field:
 
 | Field | Type | Value |
 |:-|:-|:-|
@@ -293,13 +321,21 @@ curl -X get \
 
 `GET /jobs/recent`
 
-This request returns a list of [job](#the-jobs-object) on the deployment, sorted by the most recently created, that is in descending order of `date_created`.
+This request returns a list of [job](#the-jobs-object) on the deployment, sorted by the most recently created, that is
+in descending order of `date_created`.
+
 
 #### Configuring the Response
-The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-order-filters) used will have no impact on the response.
 
-#### handling the Response
-This request will return a list of [job objects](#the-jobs-object) on the deployment with their default fields and any additional fields requested through `_fields`, displayed in descending order of `date_created` and according to any pagination parameters, filters, or searches used.
+The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-order-filters) 
+used will have no impact on the response.
+
+
+#### Handling the Response
+
+This request will return a list of [job objects](#the-jobs-object) on the deployment with their default fields and any
+additional fields requested through `_fields`, displayed in descending order of `date_created` and according to any
+pagination parameters, filters, or searches used.
 
 
 
@@ -324,13 +360,21 @@ curl -X get \
 
 `GET /jobs/newest`
 
-This request returns a list of [jobs](#the-jobs-object) on the deployment, sorted by the most recently modified, that is, in descending order of `date_modified`.
+This request returns a list of [jobs](#the-jobs-object) on the deployment, sorted by the most recently modified, that
+is, in descending order of `date_modified`.
+
 
 #### Configuring the Response
-The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-order-filters) used will have no impact on the response.
 
-#### handling the Response
-This request will return a list of [job objects](#the-jobs-object) on the deployment with their default fields and any additional fields requested through `_fields`, displayed in descending order of `date_modified` and according to any pagination parameters, filters, or searches used.
+The response to this response may be configured as per [`GET /jobs`](#list-jobs), although any [order filters](#filters-order-filters) 
+used will have no impact on the response.
+
+
+#### Handling the Response
+
+This request will return a list of [job objects](#the-jobs-object) on the deployment with their default fields and any
+additional fields requested through `_fields`, displayed in descending order of `date_modified` and according to any
+pagination parameters, filters, or searches used.
 
 
 
@@ -359,13 +403,17 @@ curl -X get \
 
 This request returns a [job type](#the-job-type) specified by its unique id.
 
+
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the
-job type object using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the job type object using the 
+[`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
-The response will contain a single job type with its default fields and any additional
-fields requested through `_fields`.
+
+The response will contain a single job type with its default fields and any additional fields requested through
+`_fields`.
 
 
 
@@ -399,13 +447,18 @@ This request returns a list of [job types](#the-job-type).
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the
-job type using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the job type using the 
+[`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter |
@@ -413,7 +466,9 @@ This request supports the following [basic filters](#filters-basic-filters):
 | id |
 | standing |
 
+
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Field |
@@ -422,25 +477,30 @@ This request supports [order filters](#filters-order-filters) over the following
 | title |
 | standing |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Field |
 |:-|
 | id |
 
+
 ##### Searching
-This request supports the [`_search`](#configuring-the-response-searching) parameter
-to search over the following fields:
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following
+fields:
 
 | Field |
 |:-|
 | title |
 
+
 #### Handling the Response
-The response will be a list of [job types](#the-job-type) with their default fields
-and any additional fields requested through `_fields`, and displayed according to
-any pagination parameters, filters, or searches used.
+
+The response will be a list of [job types](#the-job-type) with their default fields and any additional fields requested
+through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
 
@@ -466,16 +526,22 @@ curl -X GET \
 
 This request returns a list of job [statuses](#statuses).
 
+
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
+
 This request supports requesting additional fields and linked objects from the [status](#statuses) object using the
 [`_fields`](#configuring-the-response-fields) parameter.
 
+
 ##### Basic Filters
+
 This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter | Notes |
@@ -485,7 +551,9 @@ This request supports the following [basic filters](#filters-basic-filters):
 | standing | |
 | color | |
 
+
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter | Notes |
@@ -496,18 +564,21 @@ This request supports [order filters](#filters-order-filters) over the following
 | color |  |
 | ordering |  |
 
+
 ##### Searching
-This request supports the [`_search`](#configuring-the-response-searching) parameter
-to search over the following fields:
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following
+fields:
 
 | Field |
 |:-|
 | title |
 
+
 #### Handling the Response
-The response will be a list of [statuses](#statuses) with their default fields
-and any additional fields requested through `_fields`, and displayed according to any
-pagination parameters, filters, or searches used.
+
+The response will be a list of [statuses](#statuses) with their default fields and any additional fields requested
+through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
 
@@ -534,7 +605,8 @@ curl -X get \
 
 `GET /jobs/{job_id}/milestones`
 
-This request returns a list of [milestones](#milestones) of a job, specified by its `job_id`. This request is handled and configured in the same way as [`GET /milestones`](#list-milestones).
+This request returns a list of [milestones](#milestones) of a job, specified by its `job_id`. This request is handled
+and configured in the same way as [`GET /milestones`](#list-milestones).
 
 
 
@@ -562,7 +634,9 @@ curl -X get \
 
 This request updates and returns a [job](#the-jobs-object), specified by its `job_id`.
 
+
 #### Configuring the Job
+
 The following fields from the [job object](#the-jobs-object) may be updated with this request:
 
 | Filter Name | Notes |
@@ -579,11 +653,17 @@ The following fields from the [job object](#the-jobs-object) may be updated with
 | date_due ||
 | date_created ||
 
-#### Configuring the Response
-This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### handling the Response
-The response will be the single, updated [job](#the-jobs-object) with its default fields and any additional fields requested through `_fields`.
+#### Configuring the Response
+
+This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+
+#### Handling the Response
+
+The response will be the single, updated [job](#the-jobs-object) with its default fields and any additional fields
+requested through `_fields`.
 
 
 
@@ -612,7 +692,9 @@ curl -X get \
 
 This request creates and returns a new [job](#the-jobs-object).
 
+
 #### Configuring the Job
+
 The following fields may be set through this request:
 
 | Filter Name | Notes |
@@ -631,11 +713,17 @@ The following fields may be set through this request:
 | date_started ||
 | date_created | If this is not sent it will default to the current time. |
 
-#### Configuring the Response
-This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### handling the Response
-The response will be the single, created [job](#the-job-object) with its default fields and any additional fields requested through `_fields`.
+#### Configuring the Response
+
+This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through
+the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+
+#### Handling the Response
+
+The response will be the single, created [job](#the-job-object) with its default fields and any additional fields
+requested through `_fields`.
 
 
 
@@ -660,8 +748,77 @@ curl -X get \
 
 `DELETE /jobs/{job_id}`
 
-This request deletes a job from the deployment, specified by its `job_id`. This request takes no arguments and returns no resources.
+This request deletes a job from the deployment, specified by its `job_id`. This request takes no arguments and returns
+no resources.
 
+
+
+
+
+
+### List a Job's Profile Field Values
+> See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
+
+`GET /jobs/{job_id}/profiles/values`
+
+This request returns a list of [profile values](#the-profile-value-object) of a [job](#the-job-object), specified by its
+`job_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where
+the object is "jobs", and whose id is `{job_id}`.
+
+
+
+
+
+
+### List all Profile Field Values on a Job
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /jobs/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) on [jobs](#the-job-object). This
+is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "jobs".
+
+
+
+
+
+
+### List Jobs Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /jobs/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for jobs. This is the request 
+[`GET/{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "jobs".
+
+
+
+
+
+
+### Update a Profile Value on a Job
+> See the [profiles section](#update-a-profile-value-link) for a sample request 
+
+`PUT /jobs/{job_id}/profiles/values/{profile_value_id}`
+
+This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
+particular job, specified by it's `job_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "jobs", and
+whose value is `{job_id}`.
+
+
+
+
+
+### Set a Profile Value on a Job
+> See the [profiles section](#create-a-profile-value-link) for a sample request
+
+`POST /jobs/{job_id}/profiles/fields/{profile_field_id}`
+
+This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
+`profile_field_id`, for a "job", specified by it's `job_id`. This is the request 
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "jobs", and
+whose value is `{job_id}`.
 
 
 
@@ -673,7 +830,9 @@ This request deletes a job from the deployment, specified by its `job_id`. This 
 
 `GET /jobs/extensions/fields`
 
-This request returns a list of [extension fields](#the-extension-field-object) available for any [job](#the-job-object). This is the request [`GET /{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where the object is "jobs".
+This request returns a list of [extension fields](#the-extension-field-object) available for any [job](#the-job-object).
+This is the request [`GET /{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where the object is
+"jobs".
 
 
 
@@ -686,7 +845,9 @@ This request returns a list of [extension fields](#the-extension-field-object) a
 
 `GET /jobs/{job_id}/extensions/values`
 
-This request returns a list of [extension values](#the-extension-value-object) for a [job](#the-job-object), specified by its `job_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-values), where the object is "jobs", and whose id is the `job_id`.
+This request returns a list of [extension values](#the-extension-value-object) for a [job](#the-job-object), specified
+by its `job_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-values), 
+where the object is "jobs", and whose id is the `job_id`.
 
 
 
@@ -699,7 +860,10 @@ This request returns a list of [extension values](#the-extension-value-object) f
 
 `PUT /jobs/{job_id}/extensions/values/{extension_value_id}`
 
-This request updates the value of an [extension field value](#the-extension-value-object), specified by its `extension_value_id`, of a [job](#the-job-object), specified by its `job_id`. This is the request [`PUT {object}/{object_id}/extensions/values/{extension_value_id}`](#update-an-extension-value), where the object is "jobs", and whose id is `job_id`
+This request updates the value of an [extension field value](#the-extension-value-object), specified by its
+`extension_value_id`, of a [job](#the-job-object), specified by its `job_id`. This is the request 
+[`PUT{object}/{object_id}/extensions/values/{extension_value_id}`](#update-an-extension-value), where the object is "jobs",
+and whose id is `job_id`
 
 
 
@@ -713,7 +877,10 @@ This request updates the value of an [extension field value](#the-extension-valu
 `POST /jobs/{job_id}/extensions/fields/{extension_field_id}`
 
 
-This request sets and returns the value of an extension field, specified by its `extension_field_id`, of a job, specified by its `job_id`. This request is the request [`POST /{object}/{object_id}/extensions/fields/{extension_field_id}`](#create-an-extension-value) where our object is "jobs" whose id is `job_id`.
+This request sets and returns the value of an extension field, specified by its `extension_field_id`, of a job,
+specified by its `job_id`. This request is the request
+[`POST/{object}/{object_id}/extensions/fields/{extension_field_id}`](#create-an-extension-value) where our object is "jobs"
+whose id is `job_id`.
 
 
 
@@ -726,7 +893,9 @@ This request sets and returns the value of an extension field, specified by its 
 
 `GET /jobs/{jobs_id}/progressions`
 
-This request returns a list of available [progressions](#the-progression-object) for a [job](#the-job-object), specified by its `job_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) where the object is "jobs" whose id is `job_id`.
+This request returns a list of available [progressions](#the-progression-object) for a [job](#the-job-object), specified
+by its `job_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+where the object is "jobs" whose id is `job_id`.
 
 
 
@@ -739,7 +908,10 @@ This request returns a list of available [progressions](#the-progression-object)
 
 `[POST|PUT] /jobs/{jobs_id}/progressions/{progression_id}/auto`
 
-This request uses the given progression, specified by its `progression_id` to progress a [job](#the-job-object), specified by its `jobs_id`. This is the request [`[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the object is "jobs" whose id is `job_id`.
+This request uses the given progression, specified by its `progression_id` to progress a [job](#the-job-object),
+specified by its `jobs_id`. This is the request 
+[`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
+where theobject is "jobs" whose id is `job_id`.
 
 
 
@@ -752,7 +924,9 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 `GET /jobs/{job_id}/collections`
 
-This request returns a list of [resource collections](#resources-attachments) against a [job](#the-job-object), specified by its `job_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) where the object is "jobs" and hose id is `{job_id}`.
+This request returns a list of [resource collections](#resources-attachments) against a [job](#the-job-object),
+specified by its `job_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "jobs" and hose id is `{job_id}`.
 
 
 
@@ -765,4 +939,7 @@ This request returns a list of [resource collections](#resources-attachments) ag
 
 `POST jobs/{job_id}/collections/{collection_id}/resources`
 
-This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of a [job](#the-job-object) specified by its `job_id`. This is the request [`POST /{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the object is "jobs" whose id is `{job_id}.`
+This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of a [job
+](#the-job-object) specified by its `job_id`. This is the request 
+[`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the
+object is "jobs" whose id is `{job_id}.`
