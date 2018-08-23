@@ -94,7 +94,7 @@ order, so the direct parent will be displayed first, then its parent, an so on.
 Some requests support the use of the `_search` parameter to search through certain fields and display only results
 satisfying the search. For example, the `GET /contacts` request supports this filter over the `firstname`,
 `surname`,`mobile` and `email`, so `_search=kurt+wagner` would display any contacts where "kurt" and "wagner" is found
-in the first name, surname, mobile or email.
+in the first name, surname, mobile or email. Another available search method is through the [search filter](search-filter).
 
 
 
@@ -346,11 +346,13 @@ curl -X GET \
 ```
 
 This filter is similar to the [searching](#searching) parameter and supports the same requests available to that
-parameter. Automatically this filter will append an `AND` between multiple search requirements. It will search through
-the avilable fields and only return results that satify the search. This filter expands on the searching parameter by
-allowing the use of `_OR`. The `GET /contacts` request supports search over `firstname`, `surname`, `mobile`, and
-`email`. For example, if we wanted to find contacts with "kurt" or "wagner" in any of the listed fields we could use
-`_filters=_OR(search(kurt),search(wagner))`.
+parameter. Automatically this filter will append an `AND` between multiple search requirements. Search terms are
+separated by `,` or any space. Some characters e.g. `(,)` and `,` will be ignored using this filter whereas these are
+accepted by `_search`.  It will search through the available fields and only return results that satisfy the search. This
+filter expands on the searching parameter by allowing the use of `_OR`. For example, the `GET /contacts` request
+supports search over `firstname`, `surname`, `mobile`, and `email` so if we wanted to find contacts with "kurt" or
+"wagner" in any of the listed fields we could use `_filters=_OR(search(kurt),search(wagner))`.
+
 
 
 
