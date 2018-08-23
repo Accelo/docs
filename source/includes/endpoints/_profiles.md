@@ -202,6 +202,49 @@ This request supports requesting additional fields and linked objects from the [
 using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
+### Basic Filter
+
+This request supports [basic filters](#filters-basic-filters) over the following fields:
+
+| Filter Name |
+|:-|
+| unified |
+| field_id |
+| link_id |
+| link_type |
+
+
+### Order Filters
+
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Filter Name |
+|:-|
+| field_id |
+| link_id |
+| link_type |
+| value_type |
+| date_modified |
+
+
+### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name |
+|:-|
+| field_id |
+| link_id |
+
+
+### Searching 
+
+This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
+
+| Filter Name |
+|:-|
+| title |
+
 
 
 
