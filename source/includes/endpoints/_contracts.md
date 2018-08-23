@@ -804,12 +804,12 @@ specified by its `contract_id`. This is the request
 
 
 
-### List all Profile Field Values on a Contract
+### List all Profile Field Values on Contracts
 > See the [profiles section](#list-profile-values) for a sample request
 
 `GET /contracts/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) on [contract](#the-contract-object).
+This request returns a list of all [profile field values](#the-profile-value-object) on [contracts](#the-contract-object).
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contracts".
 
 
