@@ -156,3 +156,41 @@ This request will return a count of [purchases](#the-purchase-object-beta)) in a
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of the purchases listed. |
+
+
+
+
+
+### List a Purchase's Profile Field Values
+> See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
+
+`GET /purchases/{purchase_id}/profiles/values`
+
+This request returns a list of [profile field values](#the-profile-value-object) on a [purchase](#the-purchase-object-beta)
+specified by its `purchase_id`. This is the request  
+[`GET/{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), where the object is "purchases" whose id
+is `{purchase_id}`
+
+
+
+
+
+### List all Profile Field Values on Purchases
+> See the [profiles section](#list-profile-values) for a sample request
+
+`GET /purchases/profiles/values`
+
+This request returns a list of all [profile field values](#the-profile-value-object) on [purchases](#the-purchase-object-beta)
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "purchases".
+
+
+
+
+
+### List Purchase Profile Fields
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
+
+`GET /purchases/profiles/fields`
+
+This request returns a list of [profile fields](#the-profile-field-object) available for any [purchase](#the-purchase-object-beta)
+This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "purchases".
