@@ -1120,7 +1120,7 @@ where the object is "issues", and whose id is `{issue_id}`.
 
 
 
-### List all Profile Field Values on an Issue
+### List all Profile Field Values on Issues
 > See the [profiles section](#list-profile-values) for a sample request
 
 `GET /issues/profiles/values`
@@ -1203,6 +1203,17 @@ This request returns a list of [extension values](#the-extension-value-object) f
 `issue_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-
 values), where the object is "issues", and whose id is the `{issue_id}`.
 
+
+
+
+
+### List all Extension Field Values on Issues
+> See the [extension section](#list-extension-values) for an example
+
+`GET /issues/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) on [issues](the-issue-object).
+This is the request [`GET /{object}/extensions/values`](#list-profile-values), where the object is "issues".
 
 
 

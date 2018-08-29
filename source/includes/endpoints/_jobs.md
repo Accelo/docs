@@ -853,6 +853,17 @@ where the object is "jobs", and whose id is the `job_id`.
 
 
 
+### List all Extension Field Values on Jobs
+> See the [extension section](#list-extension-values) for an example
+
+`GET /jobs/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) on [jobs](#the-job-object).
+This is the request [`GET /{object}/extensions/values`](#list-profile-values), where the object is "jobs".
+
+
+
+
 
 
 ### Update an Extension Field Value on a Job

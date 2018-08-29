@@ -742,6 +742,17 @@ where the object is "prospects", and whose id is `prospect_id`.
 
 
 
+### List all Extension Field Values on Prospects
+> See the [extension section](#list-extension-values) for an example
+
+`GET /prospects/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) on [prospects](#the-prospect-object).
+This is the request [`GET /{object}/extensions/values`](#list-profile-values), where the object is "prospects".
+
+
+
+
 
 
 ### Update an Extension Field Value on a Prospect
