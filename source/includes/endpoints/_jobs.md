@@ -922,7 +922,7 @@ where the object is "jobs" whose id is `job_id`.
 This request uses the given progression, specified by its `progression_id` to progress a [job](#the-job-object),
 specified by its `jobs_id`. This is the request 
 [`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
-where theobject is "jobs" whose id is `job_id`.
+where the object is "jobs" whose id is `job_id`.
 
 
 

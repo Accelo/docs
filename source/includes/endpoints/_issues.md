@@ -252,7 +252,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id} \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id} \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -289,7 +289,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues \
+ https://{deployment}.api.accelo.com/api/v0/issues \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -439,7 +439,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/count \
+ https://{deployment}.api.accelo.com/api/v0/issues/count \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -469,7 +469,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/recent \
+ https://{deployment}.api.accelo.com/api/v0/issues/recent \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -507,7 +507,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/statuses \
+ https://{deployment}.api.accelo.com/api/v0/issues/statuses \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -622,7 +622,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/types \
+ https://{deployment}.api.accelo.com/api/v0/issues/types \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -710,7 +710,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/classes \
+ https://{deployment}.api.accelo.com/api/v0/issues/classes \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -915,7 +915,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id}/tasks \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id}/tasks \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -950,7 +950,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id} \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
 ```
@@ -1012,7 +1012,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/ \
+ https://{deployment}.api.accelo.com/api/v0/issues/ \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
 ```
@@ -1071,7 +1071,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id} \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id} \
   -H 'authorization: Bearer {access_token}' \
 ```
 
