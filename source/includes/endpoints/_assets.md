@@ -116,7 +116,7 @@ If any of the fields labeled optional above are empty, they will not be displaye
 | has_address | binary | Whether the asset type has an address assigned to it. |
 | ordering  | unsigned | An integer representing the asset type's ordering on the deployment. |
 
-#### Asset Object Link Fields )
+#### Asset Object Link Fields
 > Sample json object link fields object:
 
 ```json
