@@ -739,7 +739,6 @@ The following fields from the [activity object](#the-activity-object) may be upd
 |:-|:-|
 | subject | Updating this is only possible if the user executing the request is the owner. |
 | body | Updating this is only possible if the user executing the request is the owner. |
-| medium | Type of activity to create. This can be: note, meeting, report, email, call, postal, fax, sms, twitter or event_log. |
 | visibility | Updating this is only possible if the user executing has an interaction with the activity. |
 | details | Additional details assigned to an activity. |
 | priority_id | The unique identifier of the [priority](#the-activity-priority) to be linked to the activity.|
