@@ -309,6 +309,9 @@
                           <a href="#object-filters" class="toc-h3 toc-link" data-title="Configuring Responses">Object Filters</a>
                         </li>
                         <li>
+                          <a href="#search-filters" class="toc-h3 toc-link" data-title="Configuring Responses">Search Filters</a>
+                        </li>
+                        <li>
                           <a href="#combining-filters" class="toc-h3 toc-link" data-title="Configuring Responses">Combining Filters</a>
                         </li>
                     </ul>
@@ -1102,7 +1105,7 @@
                   </li>
                     <ul class="toc-list-h3">
                         <li>
-                          <a href="#the-jobs-object" class="toc-h3 toc-link" data-title="Endpoints">The Jobs Object</a>
+                          <a href="#the-job-object" class="toc-h3 toc-link" data-title="Endpoints">The Job Object</a>
                         </li>
                         <li>
                           <a href="#get-job" class="toc-h3 toc-link" data-title="Endpoints">Get Job</a>
@@ -1126,7 +1129,7 @@
                           <a href="#list-job-types" class="toc-h3 toc-link" data-title="Endpoints">List Job Types</a>
                         </li>
                         <li>
-                          <a href="#list-job-statuses-beta" class="toc-h3 toc-link" data-title="Endpoints">List Job Statuses (Beta)</a>
+                          <a href="#list-job-statuses" class="toc-h3 toc-link" data-title="Endpoints">List Job Statuses</a>
                         </li>
                         <li>
                           <a href="#list-job-milestones" class="toc-h3 toc-link" data-title="Endpoints">List Job Milestones</a>
@@ -2188,7 +2191,9 @@ their usage before fully implementing and enforcing any limitations.</p>
 
 <p><a name="configuring-the-response-pagination"></a></p>
 <h2 id='pagination'>Pagination</h2>
-<p>Accelo has the capacity to hold tens of thousands of resources. So, without being careful we could have a hard time returning the required resources. Thankfully, the API also supports pagination to help us work through a resource list. The available parameters are:</p>
+<p>Accelo has the capacity to hold tens of thousands of resources. So, without being careful we could have a hard time
+returning the required resources. Thankfully, the API also supports pagination to help us work through a resource list.
+The available parameters are:</p>
 
 <table><thead>
 <tr>
@@ -2213,7 +2218,8 @@ their usage before fully implementing and enforcing any limitations.</p>
 <p><a name="configuring-the-response-fields"></a></p>
 <h2 id='requesting-additional-fields-and-linked-objects'>Requesting Additional Fields and Linked Objects</h2>
 <blockquote>
-<p>Requesting companies with the &quot;website&quot; and &quot;phone&quot; fields, as well as the linked &quot;postal_address&quot; object and its &quot;city&quot; field:</p>
+<p>Requesting companies with the &quot;website&quot; and &quot;phone&quot; fields, as well as the linked &quot;postal_address&quot; object and its
+&quot;city&quot; field:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -2225,11 +2231,24 @@ _fields=website,phone,postal_address(city)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_fields=website,phone,postal_address(city)'</span>
 </code></pre>
-<p>By default, each resource returns only the minimal required fields, these are displayed in the table describing the object. To request additional fields we can use the <code>_fields</code> parameter. For example, the <a href="#companies">company</a> object has additional fields <code>website</code> and <code>phone</code>, to display these in a request response we would add <code>_fields=website,phones</code> to our request. The keyword <code>_ALL</code> may be used to return all optional fields.</p>
+<p>By default, each resource returns only the minimal required fields, these are displayed in the table describing the
+object. To request additional fields we can use the <code>_fields</code> parameter. For example, the <a href="#companies">company</a> object
+has additional fields <code>website</code> and <code>phone</code>, to display these in a request response we would add
+<code>_fields=website,phones</code> to our request. The keyword <code>_ALL</code> may be used to return all optional fields.</p>
 
-<p>For linked objects (those marked as &quot;unsigned or object&quot;) the <code>_fields</code> parameter may be used to request the linked object by adding parenthesis to the field. For example, the company object contains a link to an <a href="#addresses">address</a> object under the <code>postal_address</code> field, to return this object with its default fields we add <code>_fields=postal_address()</code>. Requesting optional fields from a linked object is done by including the fields within these parenthesis, for example if we wanted the <code>city</code> field from within  the <code>postal_address</code> we would use <code>_fields=postal_address(city)</code>, here the <code>_ALL</code> keyword would return all optional fields from the <code>postal_address</code> object. If a linked object is request without the parenthesis, e.g. <code>_fields=postal_address</code> then the unique identifier for the object will be returned. This process also supports nesting, for example if we wish to return the <code>country</code> object from within the <code>postal_address</code> object here we would use <code>_fields=postal_address(country())</code>.</p>
+<p>For linked objects (those marked as &quot;unsigned or object&quot;) the <code>_fields</code> parameter may be used to request the linked
+object by adding parenthesis to the field. For example, the company object contains a link to an <a href="#addresses">address</a>
+object under the <code>postal_address</code> field, to return this object with its default fields we add
+<code>_fields=postal_address()</code>. Requesting optional fields from a linked object is done by including the fields within these
+parenthesis, for example if we wanted the <code>city</code> field from within  the <code>postal_address</code> we would use
+<code>_fields=postal_address(city)</code>, here the <code>_ALL</code> keyword would return all optional fields from the <code>postal_address</code>
+object. If a linked object is request without the parenthesis, e.g. <code>_fields=postal_address</code> then the unique identifier
+for the object will be returned. This process also supports nesting, for example if we wish to return the <code>country</code>
+object from within the <code>postal_address</code> object here we would use <code>_fields=postal_address(country())</code>.</p>
 <h3 id='breadcrumbs'>Breadcrumbs</h3>
-<p>Breadcrumbs give identifying information on the parent object(s) of the object requested. They may be requested through <code>_fields=breadcrumbs</code>. Requesting breadcrumbs will return an array of breadcrumb objects, these contain the following fields:</p>
+<p>Breadcrumbs give identifying information on the parent object(s) of the object requested. They may be requested through
+<code>_fields=breadcrumbs</code>. Requesting breadcrumbs will return an array of breadcrumb objects, these contain the following
+fields:</p>
 
 <table><thead>
 <tr>
@@ -2255,17 +2274,23 @@ _fields=website,phone,postal_address(city)
 </tr>
 </tbody></table>
 
-<p>For example if a <a href="#jobs">job</a> is created against a <a href="#companies">company</a>, then the job will have a single breadcrumb containing information on the company. If a <a href="#tasks">task</a> is then created against that job the task will have two breadcrumbs, one identifying the job and another identifying the company. Breadcrumbs are always displayed in ascending order, so the direct parent will be displayed first, then its parent, an so on.</p>
+<p>For example if a <a href="#jobs">job</a> is created against a <a href="#companies">company</a>, then the job will have a single breadcrumb
+containing information on the company. If a <a href="#tasks">task</a> is then created against that job the task will have two
+breadcrumbs, one identifying the job and another identifying the company. Breadcrumbs are always displayed in ascending
+order, so the direct parent will be displayed first, then its parent, an so on.</p>
 
 <p><a name="configuring-the-response-searching"></a></p>
 <h2 id='searching'>Searching</h2>
-<p>Some requests support the use of the <code>_search</code> parameter to search through certain fields and display only results satisfying the search. For example, the <code>GET /contacts</code> request supports this filter over the <code>firstname</code>, <code>surname</code>,<code>mobile</code> and <code>email</code>, so <code>_search=kurt+wagner</code> would display any contacts where &quot;kurt&quot; and &quot;wagner&quot; is found in the first name, surname, mobile or email. </p>
+<p>Some requests support the use of the <code>_search</code> parameter to search through certain fields and display only results
+satisfying the search. For example, the <code>GET /contacts</code> request supports this filter over the <code>firstname</code>,
+<code>surname</code>,<code>mobile</code> and <code>email</code>, so <code>_search=kurt+wagner</code> would display any contacts where &quot;kurt&quot; and &quot;wagner&quot; is found
+in the first name, surname, mobile or email. Another available search method is through the
+<a href="#search-filters">search filter</a>.</p>
 
 <p><a name="configuring-the-response-filtering"></a></p>
 <h2 id='filtering'>Filtering</h2>
-<p>Most API endpoints support a <code>_filter</code> parameter that allows you to filter the
-response. The supported filters will be listed for each endpoint, in general
-there are several types of filters:</p>
+<p>Most API endpoints support a <code>_filter</code> parameter that allows you to filter the response. The supported filters will be
+listed for each endpoint, in general there are several types of filters:</p>
 
 <ul>
 <li><a href="#filters-basic-filters">Basic Filters</a></li>
@@ -2274,13 +2299,12 @@ there are several types of filters:</p>
 <li><a href="#filters-order-filters">Order Filters</a></li>
 <li><a href="#filters-empty-filters">Empty Filters</a></li>
 <li><a href="#filters-object-filters">Object Filters</a></li>
+<li><a href="#search-filters">Search Filters</a></li>
 </ul>
 
-<p>Filters may take any number of arguments, new arguments may be separated by a
-comma. Appending <code>_not</code> to any filter will return results that DO NOT satisfy
-the filter, e.g. <code>standing_not(active)</code> would return only results whose standing
-is not &#39;active&#39;. Any number of filters may be
-<a href="#filters-combining-filters">combined</a> in a single request.</p>
+<p>Filters may take any number of arguments, new arguments may be separated by a comma. Appending <code>_not</code> to any filter will
+return results that DO NOT satisfy the filter, e.g. <code>standing_not(active)</code> would return only results whose standing is
+not &#39;active&#39;. Any number of filters may be <a href="#filters-combining-filters">combined</a> in a single request.</p>
 
 <p><a name="filters-basic-filters"></a></p>
 <h3 id='basic-filters'>Basic Filters</h3>
@@ -2319,7 +2343,9 @@ _filters=date_created_after(1490140800)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=date_created_after(1490140800)'</span>
 </code></pre>
-<p>Many endpoints contain fields representing dates, such as <code>date_created</code> under <a href="#activities">activities</a>. Date fields are express as unix timestamps (for brevity we will just use the shorter &quot;unix ts&quot;). The API supports filtering for may of these &quot;date_fields&quot; through the following filters:</p>
+<p>Many endpoints contain fields representing dates, such as <code>date_created</code> under <a href="#activities">activities</a>. Date fields
+are express as unix timestamps (for brevity we will just use the shorter &quot;unix ts&quot;). The API supports filtering for may
+of these &quot;date_fields&quot; through the following filters:</p>
 
 <table><thead>
 <tr>
@@ -2352,7 +2378,8 @@ _filters=id_greater_than(17)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=id_greater_than(17)'</span>
 </code></pre>
-<p>These are similar to <a href="#filters-date-filters">Date Filters</a> except they operate on non-date fields. For a given &quot;field&quot; there are four range filters defined:</p>
+<p>These are similar to <a href="#filters-date-filters">Date Filters</a> except they operate on non-date fields. For a given &quot;field&quot;
+there are four range filters defined:</p>
 
 <table><thead>
 <tr>
@@ -2393,7 +2420,10 @@ _filters=order_by_desc(id)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=order_by_desc(id)'</span>
 </code></pre>
-<p>These change of the order in which the response is displayed, they are not strictly filters in that they will not exclude any objects from the response, but they are called using <code>_filters</code> so we shall list them here. By default a response will be sorted in ascending order of the <code>id</code> of the objects requested. For a given &quot;field&quot; there are two order filters defined:</p>
+<p>These change of the order in which the response is displayed, they are not strictly filters in that they will not
+exclude any objects from the response, but they are called using <code>_filters</code> so we shall list them here. By default a
+response will be sorted in ascending order of the <code>id</code> of the objects requested. For a given &quot;field&quot; there are two order
+filters defined:</p>
 
 <table><thead>
 <tr>
@@ -2426,7 +2456,9 @@ _filters=empty(date_expires)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=empty(date_expires)'</span>
 </code></pre>
-<p>These filter resources which have no value for the given field, the format is <code>empty(&lt;field_name&gt;)</code>. For example, the <code>date_expires</code> field for <a href="#contracts">contract</a> supports this filter, so <code>_filters=empty(date_expires)</code> would display all contracts without an expiry date.</p>
+<p>These filter resources which have no value for the given field, the format is <code>empty(&lt;field_name&gt;)</code>. For example, the
+<code>date_expires</code> field for <a href="#contracts">contract</a> supports this filter, so <code>_filters=empty(date_expires)</code> would display
+all contracts without an expiry date.</p>
 
 <p><a name="filters-object-filters"></a></p>
 <h3 id='object-filters'>Object Filters</h3>
@@ -2443,9 +2475,35 @@ _filters=owner(staff(17))
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=owner(staff(17))'</span>
 </code></pre>
-<p>These are an extension of basic filters that allow for more compact filtering over entire objects, they take both an object and an id as arguments. For example, <a href="#activities">activities</a> support object filtering on the &quot;owner&quot; object. As we saw previously we could specify activities by a certain staff member using <code>_filters=owner_type(staff),owner_id(17)</code> we may achieve the same using the <code>owner</code> object filter on activities, <code>_filters=owner(staff(17))</code>.</p>
+<p>These are an extension of basic filters that allow for more compact filtering over entire objects, they take both an
+object and an id as arguments. For example, <a href="#activities">activities</a> support object filtering on the &quot;owner&quot; object. As
+we saw previously we could specify activities by a certain staff member using <code>_filters=owner_type(staff),owner_id(17)</code>
+we may achieve the same using the <code>owner</code> object filter on activities, <code>_filters=owner(staff(17))</code>.</p>
 
-<p>As with other filters, additional arguments for both fields may be added and separated by a comma, for example <code>_filters=owner(staff(17,13),affiliation(22)</code> would show all activities owned by the staff with id 17 or 13, or owned by the <a href="#affiliations">affiliation</a> with id 22.</p>
+<p>As with other filters, additional arguments for both fields may be added and separated by a comma, for example
+<code>_filters=owner(staff(17,13),affiliation(22)</code> would show all activities owned by the staff with id 17 or 13, or owned by
+the <a href="#affiliations">affiliation</a> with id 22.</p>
+<h3 id='search-filters'>Search Filters</h3>
+<blockquote>
+<p>Filter contacts by &quot;kurt wagner&quot;</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/contacts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+
+_filters=search(kurt wagner)
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/contacts <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+    -d <span class="s1">'_filters=search(kurt wagner)'</span>
+</code></pre>
+<p>This filter is similar to the <a href="#searching">searching</a> parameter and supports the same requests available to that
+parameter. Automatically this filter will append an <code>AND</code> between multiple search requirements. Search terms are
+separated by <code>,</code> or any space. Some characters e.g. <code>(,)</code> and <code>,</code> will be ignored using this filter whereas these are
+accepted by <code>_search</code>.  It will search through the available fields and only return results that satisfy the search. This
+filter expands on the searching parameter by allowing the use of <code>_OR</code>. For example, the <code>GET /contacts</code> request
+supports search over <code>firstname</code>, <code>surname</code>, <code>mobile</code>, and <code>email</code> so if we wanted to find contacts with &quot;kurt&quot; or
+&quot;wagner&quot; in any of the listed fields we could use <code>_filters=_OR(search(kurt),search(wagner))</code>.</p>
 
 <p><a name="filters-combining-filters"></a></p>
 <h3 id='combining-filters'>Combining Filters</h3>
@@ -2463,21 +2521,17 @@ _filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'</span>
 </code></pre>
-<p>Any combination of filters may be used to filter response, this is achieved by
-separating them with a comma. More flexible filter combinations may be achieved
-through the <code>_AND</code> and <code>_OR</code> keywords. For example, if instead of the above we
-wanted to search for activities owned by the specific staff OR created after the
-given date we could use <code>_filters=_OR(staff(17),date_created_after(1490140800))</code>.
-As expected, the original filter is equivalent to
-<code>_filters=_AND(staff(17),date_created_after(1490140800))</code>.These keywords may also
-be nested, for example if we wanted all activities created by the given staff
-member, or after a given date and before another date we could use
+<p>Any combination of filters may be used to filter response, this is achieved by separating them with a comma. More
+flexible filter combinations may be achieved through the <code>_AND</code> and <code>_OR</code> keywords. For example, if instead of the above
+we wanted to search for activities owned by the specific staff OR created after the given date we could use
+<code>_filters=_OR(staff(17),date_created_after(1490140800))</code>. As expected, the original filter is equivalent to
+<code>_filters=_AND(staff(17),date_created_after(1490140800))</code>.These keywords may also be nested, for example if we wanted
+all activities created by the given staff member, or after a given date and before another date we could use
 <code>_filters=_OR(staff(17),_AND(date_created_after(1490140800),date_created_before(1490140800)))</code>.</p>
 
-<p>If the same filter is used more than once in a combination only the final instance
-of the filter will be used. For example <code>_filters=_OR(staff(10),staff(11))</code>
-will just filter by staff with id 11, here the simple filter <code>_filters=staff(10,11)</code>
-should be used.</p>
+<p>If the same filter is used more than once in a combination only the final instance of the filter will be used. For
+example <code>_filters=_OR(staff(10),staff(11))</code> will just filter by staff with id 11, here the simple filter
+<code>_filters=staff(10,11)</code> should be used.</p>
 <h1 id='authentication'>Authentication</h1>
 <p>Accelo&#39;s API uses the OAuth 2.0 protocol and provides routines that cover web, service and installed application&#39;s
 authorization and authentication. It supports authorization code grants and client credential grants as necessary
@@ -4385,10 +4439,6 @@ _fields=activity_priority()
 <td style="text-align: left">Updating this is only possible if the user executing the request is the owner.</td>
 </tr>
 <tr>
-<td style="text-align: left">medium</td>
-<td style="text-align: left">Type of activity to create. This can be: note, meeting, report, email, call, postal, fax, sms, twitter or event_log.</td>
-</tr>
-<tr>
 <td style="text-align: left">visibility</td>
 <td style="text-align: left">Updating this is only possible if the user executing has an interaction with the activity.</td>
 </tr>
@@ -4401,7 +4451,7 @@ _fields=activity_priority()
 <td style="text-align: left">The unique identifier of the <a href="#the-activity-priority">priority</a> to be linked to the activity.</td>
 </tr>
 <tr>
-<td style="text-align: left">class_id</td>
+<td style="text-align: left">class_id<sup>*</sup></td>
 <td style="text-align: left">The unique identifier of the <a href="#the-activity-class">class</a> to be linked to the activity.</td>
 </tr>
 <tr>
@@ -4421,14 +4471,16 @@ _fields=activity_priority()
 <td style="text-align: left">Seconds since UTC</td>
 </tr>
 <tr>
-<td style="text-align: left">nonbillable</td>
+<td style="text-align: left">nonbillable<sup>*</sup></td>
 <td style="text-align: left">The amount of nonbillable time, in seconds. Requires the user has the <code>can_edit_time</code> permission under the <code>permission</code> object.</td>
 </tr>
 <tr>
-<td style="text-align: left">billable</td>
+<td style="text-align: left">billable<sup>*</sup></td>
 <td style="text-align: left">The amount of billable time, in seconds. Requires the user has the <code>can_edit_billable</code> permission under the <code>permission</code> object, and that the activity is billable (see the <code>is_billable</code> flag on the activity).</td>
 </tr>
 </tbody></table>
+
+<p><sup>*</sup> when the <code>medium</code> is &#39;<em>email</em>&#39; only these fields may be updated</p>
 
 <blockquote>
 <p>Sample response:  </p>
@@ -4502,7 +4554,7 @@ _fields=activity_priority()
 </tr>
 <tr>
 <td style="text-align: left">medium</td>
-<td style="text-align: left">Type of activity to create. This can be: note, meeting, report, email, call, postal, fax or sms. This will default to note.</td>
+<td style="text-align: left">Type of activity to create. This can be: &#39;note&#39;, &#39;meeting&#39;, &#39;email&#39;, or &#39;call&#39;. This will default to note.</td>
 </tr>
 <tr>
 <td style="text-align: left">owner_type</td>
@@ -14426,7 +14478,7 @@ object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
 </blockquote>
 
 <p>Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/projects/">support documentation</a> for more information.</p>
-<h3 id='the-jobs-object'>The Jobs Object</h3>
+<h3 id='the-job-object'>The Job Object</h3>
 <blockquote>
 <p>Example job object:</p>
 </blockquote>
@@ -14670,9 +14722,9 @@ request it via <code>job_type()</code>, this object will have an additional fiel
 </code></pre>
 <p><code>GET /jobs/{job_id}</code></p>
 
-<p>This request returns a single <a href="#the-jobs-object">job</a>, specified by its <code>job_id</code>.</p>
+<p>This request returns a single <a href="#the-job-object">job</a>, specified by its <code>job_id</code>.</p>
 <h4 id='configuring-the-response'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked resources from the <a href="#the-jobs-object">job object</a> using
+<p>This request supports requesting additional fields and linked resources from the <a href="#the-job-object">job object</a> using
 the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
 <h4 id='handling-the-response'>Handling the Response</h4>
 <p>The response will be the single job with its default fields and any additional fields requested through <code>_fields</code>.</p>
@@ -14689,11 +14741,11 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 </code></pre>
 <p><code>GET /jobs</code></p>
 
-<p>This request returns a list of <a href="#the-jobs-object">jobs</a> on the deployment.</p>
+<p>This request returns a list of <a href="#the-job-object">jobs</a> on the deployment.</p>
 <h4 id='configuring-the-response-2'>Configuring the Response</h4><h5 id='pagination'>Pagination</h5>
 <p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-object'>Additional Fields and Linked Object</h5>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-jobs-object">jobs object</a> using the
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-job-object">jobs object</a> using the
 <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
 <h5 id='basic-filters'>Basic Filters</h5>
 <p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
@@ -14919,7 +14971,7 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 </tr>
 </tbody></table>
 <h4 id='handling-the-response-2'>Handling the Response</h4>
-<p>The response will be a list of <a href="#the-jobs-object">job objects</a> containing the default fields and any additional fields
+<p>The response will be a list of <a href="#the-job-object">job objects</a> containing the default fields and any additional fields
 requested through <code>_fields</code>, and displayed according to any pagination parameters, filters or searches used.</p>
 <h3 id='count-jobs'>Count Jobs</h3>
 <blockquote>
@@ -14963,13 +15015,13 @@ filters this will be a count of all jobs on the deployment. This request returns
 </code></pre>
 <p><code>GET /jobs/recent</code></p>
 
-<p>This request returns a list of <a href="#the-jobs-object">job</a> on the deployment, sorted by the most recently created, that is
+<p>This request returns a list of <a href="#the-job-object">job</a> on the deployment, sorted by the most recently created, that is
 in descending order of <code>date_created</code>.</p>
 <h4 id='configuring-the-response-3'>Configuring the Response</h4>
 <p>The response to this response may be configured as per <a href="#list-jobs"><code>GET /jobs</code></a>, although any <a href="#filters-order-filters">order filters</a> 
 used will have no impact on the response.</p>
 <h4 id='handling-the-response-3'>Handling the Response</h4>
-<p>This request will return a list of <a href="#the-jobs-object">job objects</a> on the deployment with their default fields and any
+<p>This request will return a list of <a href="#the-job-object">job objects</a> on the deployment with their default fields and any
 additional fields requested through <code>_fields</code>, displayed in descending order of <code>date_created</code> and according to any
 pagination parameters, filters, or searches used.</p>
 <h3 id='list-latest-modified-jobs'>List Latest Modified Jobs</h3>
@@ -14985,13 +15037,13 @@ pagination parameters, filters, or searches used.</p>
 </code></pre>
 <p><code>GET /jobs/newest</code></p>
 
-<p>This request returns a list of <a href="#the-jobs-object">jobs</a> on the deployment, sorted by the most recently modified, that
+<p>This request returns a list of <a href="#the-job-object">jobs</a> on the deployment, sorted by the most recently modified, that
 is, in descending order of <code>date_modified</code>.</p>
 <h4 id='configuring-the-response-4'>Configuring the Response</h4>
 <p>The response to this response may be configured as per <a href="#list-jobs"><code>GET /jobs</code></a>, although any <a href="#filters-order-filters">order filters</a> 
 used will have no impact on the response.</p>
 <h4 id='handling-the-response-4'>Handling the Response</h4>
-<p>This request will return a list of <a href="#the-jobs-object">job objects</a> on the deployment with their default fields and any
+<p>This request will return a list of <a href="#the-job-object">job objects</a> on the deployment with their default fields and any
 additional fields requested through <code>_fields</code>, displayed in descending order of <code>date_modified</code> and according to any
 pagination parameters, filters, or searches used.</p>
 <h3 id='get-job-type'>Get Job Type</h3>
@@ -15102,7 +15154,7 @@ fields:</p>
 <h4 id='handling-the-response-6'>Handling the Response</h4>
 <p>The response will be a list of <a href="#the-job-type">job types</a> with their default fields and any additional fields requested
 through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
-<h3 id='list-job-statuses-beta'>List Job Statuses (Beta)</h3>
+<h3 id='list-job-statuses'>List Job Statuses</h3>
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
@@ -15223,9 +15275,9 @@ and configured in the same way as <a href="#list-milestones"><code>GET /mileston
 </code></pre>
 <p><code>PUT /jobs/{job_id}</code></p>
 
-<p>This request updates and returns a <a href="#the-jobs-object">job</a>, specified by its <code>job_id</code>.</p>
+<p>This request updates and returns a <a href="#the-job-object">job</a>, specified by its <code>job_id</code>.</p>
 <h4 id='configuring-the-job'>Configuring the Job</h4>
-<p>The following fields from the <a href="#the-jobs-object">job object</a> may be updated with this request:</p>
+<p>The following fields from the <a href="#the-job-object">job object</a> may be updated with this request:</p>
 
 <table><thead>
 <tr>
@@ -15279,10 +15331,10 @@ and configured in the same way as <a href="#list-milestones"><code>GET /mileston
 </tr>
 </tbody></table>
 <h4 id='configuring-the-response-8'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked resources from the <a href="#the-jobs-object">jobs object</a> through
+<p>This request supports requesting additional fields and linked resources from the <a href="#the-job-object">jobs object</a> through
 the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
 <h4 id='handling-the-response-8'>Handling the Response</h4>
-<p>The response will be the single, updated <a href="#the-jobs-object">job</a> with its default fields and any additional fields
+<p>The response will be the single, updated <a href="#the-job-object">job</a> with its default fields and any additional fields
 requested through <code>_fields</code>.</p>
 <h3 id='create-a-job'>Create a Job</h3>
 <blockquote>
@@ -15299,7 +15351,7 @@ requested through <code>_fields</code>.</p>
 </code></pre>
 <p><code>POST /jobs</code></p>
 
-<p>This request creates and returns a new <a href="#the-jobs-object">job</a>.</p>
+<p>This request creates and returns a new <a href="#the-job-object">job</a>.</p>
 <h4 id='configuring-the-job-2'>Configuring the Job</h4>
 <p>The following fields may be set through this request:</p>
 
@@ -15363,7 +15415,7 @@ requested through <code>_fields</code>.</p>
 </tr>
 </tbody></table>
 <h4 id='configuring-the-response-9'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked resources from the <a href="#the-jobs-object">jobs object</a> through
+<p>This request supports requesting additional fields and linked resources from the <a href="#the-job-object">jobs object</a> through
 the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
 <h4 id='handling-the-response-9'>Handling the Response</h4>
 <p>The response will be the single, created <a href="#the-job-object">job</a> with its default fields and any additional fields
@@ -16124,7 +16176,7 @@ where theobject is &quot;milestone&quot; whose id is <code>milestone_id</code>.<
 <p>Object budgets are budgets against a specific object, for example a budget against an <a href="#issues">issue</a> or a <a href="#milestones">milestone</a>. They are able to track the time and money spent by staff and on services, as well as expenses and the cost of materials.</p>
 <h3 id='the-object-budget'>The Object Budget</h3>
 <blockquote>
-<p>Exmaple object budget:</p>
+<p>Example object budget:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"charged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45.84"</span><span class="p">,</span><span class="w">
