@@ -686,7 +686,7 @@ and whose id is `asset_id`.
 `GET /assets/extensions/values`
 
 This request returns a list of [extension field values](#the-extension-value-object) on [assets](#the-asset-object) This
-is the request [`GET /{object}/extensions/values`](#list-profile-values), where the object is "assets".
+is the request [`GET /{object}/extensions/values`](#list-extension-values), where the object is "assets".
 
 
 

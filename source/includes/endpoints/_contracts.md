@@ -822,7 +822,7 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 `GET /contracts/profiles/fields`
 
 This request returns a list of [profile fields](#the-profile-field-object) available for any [contract](#the-contract-object).
-This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contracts".
+This is the request [`GET /{object}/profiles/fields`](#list-profile-fields), where the object is "contracts".
 
 
 
@@ -848,7 +848,7 @@ the object is "contracts".
 `GET /contracts/extensions/values`
 
 This request returns a list of [extension field values](#the-extension-value-object) on [contracts](#the-contract-object). This is the request
-[`GET /{object}/extensions/values`](#list-profile-values), where the object is "contracts".
+[`GET /{object}/extensions/values`](#list-extension-values), where the object is "contracts".
 
 
 

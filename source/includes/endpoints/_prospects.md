@@ -748,7 +748,7 @@ where the object is "prospects", and whose id is `prospect_id`.
 `GET /prospects/extensions/values`
 
 This request returns a list of [extension field values](#the-extension-value-object) on [prospects](#the-prospect-object).
-This is the request [`GET /{object}/extensions/values`](#list-profile-values), where the object is "prospects".
+This is the request [`GET /{object}/extensions/values`](#list-extension-values), where the object is "prospects".
 
 
 

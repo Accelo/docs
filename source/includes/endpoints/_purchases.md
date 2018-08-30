@@ -222,4 +222,4 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 `GET /purchases/profiles/fields`
 
 This request returns a list of [profile fields](#the-profile-field-object) available for any [purchase](#the-purchase-object)
-This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "purchases".
+This is the request [`GET /{object}/profiles/fields`](#list-profile-fields), where the object is "purchases".
