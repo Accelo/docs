@@ -739,17 +739,18 @@ The following fields from the [activity object](#the-activity-object) may be upd
 |:-|:-|
 | subject | Updating this is only possible if the user executing the request is the owner. |
 | body | Updating this is only possible if the user executing the request is the owner. |
-| medium | Type of activity to create. This can be: note, meeting, report, email, call, postal, fax, sms, twitter or event_log. |
 | visibility | Updating this is only possible if the user executing has an interaction with the activity. |
 | details | Additional details assigned to an activity. |
 | priority_id | The unique identifier of the [priority](#the-activity-priority) to be linked to the activity.|
-| class_id | The unique identifier of the [class](#the-activity-class) to be linked to the activity.|
+| class_id<sup>*</sup> | The unique identifier of the [class](#the-activity-class) to be linked to the activity.|
 | message_id | A custom message id to be given to the activity.|
 | date_started | Seconds since UTC |
 | date_ended | Seconds since UTC |
 | date_due |Seconds since UTC |
-| nonbillable | The amount of nonbillable time, in seconds. Requires the user has the `can_edit_time` permission under the `permission` object. |
-| billable | The amount of billable time, in seconds. Requires the user has the `can_edit_billable` permission under the `permission` object, and that the activity is billable (see the `is_billable` flag on the activity). |
+| nonbillable<sup>*</sup>  | The amount of nonbillable time, in seconds. Requires the user has the `can_edit_time` permission under the `permission` object. |
+| billable<sup>*</sup>  | The amount of billable time, in seconds. Requires the user has the `can_edit_billable` permission under the `permission` object, and that the activity is billable (see the `is_billable` flag on the activity). |
+
+<sup>*</sup> when the `medium` is '_email_' only these fields may be updated
 
 > Sample response:  
 
@@ -819,7 +820,7 @@ Values for the following fields may be set through this request.
 | **against_id** | The id of the against_table object, the activity is linked against. This will default to the current user's id. |
 | **against_type** | The object the activity is linked against. This can be: affiliation, annex, campaign, account_invoice, campaign_action, component, contract, contract_period, deployment, event, invoice, issue, job, membership, prospect, request, task or staff. This will default to staff. |
 | body | The content of the activity. |
-| medium | Type of activity to create. This can be: note, meeting, report, email, call, postal, fax or sms. This will default to note. |
+| medium | Type of activity to create. This can be: 'note', 'meeting', 'email', or 'call'. This will default to note. |
 | owner_type | The activity can be owned by a staff member or an affiliation. The owner defaults to the current user |
 | owner_id | Owner's id. i.e, the staff or affiliation id of owner_table. |
 | visibility | Defaults to `private` unless you are POSTing from a service application, in which case it defaults to `all`.|
