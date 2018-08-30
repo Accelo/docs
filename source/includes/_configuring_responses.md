@@ -94,7 +94,8 @@ order, so the direct parent will be displayed first, then its parent, an so on.
 Some requests support the use of the `_search` parameter to search through certain fields and display only results
 satisfying the search. For example, the `GET /contacts` request supports this filter over the `firstname`,
 `surname`,`mobile` and `email`, so `_search=kurt+wagner` would display any contacts where "kurt" and "wagner" is found
-in the first name, surname, mobile or email. Another available search method is through the [search filter](search-filter).
+in the first name, surname, mobile or email. Another available search method is through the
+[search filter](#search-filters).
 
 
 
