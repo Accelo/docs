@@ -506,7 +506,7 @@ through `_fields`, and displayed according to any pagination parameters, filters
 
 
 
-### List Job Statuses (Beta)
+### List Job Statuses
 
 > Sample request:
 
