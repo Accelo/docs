@@ -4,7 +4,7 @@
 
  Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/) for more information.
 
-### The Jobs Object
+### The Job Object
 > Example job object:
 
 ```json
@@ -119,12 +119,12 @@ curl -X get \
 
 `GET /jobs/{job_id}`
 
-This request returns a single [job](#the-jobs-object), specified by its `job_id`.
+This request returns a single [job](#the-job-object), specified by its `job_id`.
 
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked resources from the [job object](#the-jobs-object) using
+This request supports requesting additional fields and linked resources from the [job object](#the-job-object) using
 the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
@@ -155,7 +155,7 @@ curl -X get \
 
 `GET /jobs`
 
-This request returns a list of [jobs](#the-jobs-object) on the deployment.
+This request returns a list of [jobs](#the-job-object) on the deployment.
 
 
 #### Configuring the Response
@@ -167,7 +167,7 @@ This request supports all the [pagination](#configuring-the-response-pagination)
 
 ##### Additional Fields and Linked Object
 
-This request supports requesting additional fields and linked objects from the [jobs object](#the-jobs-object) using the
+This request supports requesting additional fields and linked objects from the [jobs object](#the-job-object) using the
 [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
@@ -264,7 +264,7 @@ This request supports the [`_search`](#configuring-the-response-searching) filte
 
 #### Handling the Response
 
-The response will be a list of [job objects](#the-jobs-object) containing the default fields and any additional fields
+The response will be a list of [job objects](#the-job-object) containing the default fields and any additional fields
 requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
@@ -321,7 +321,7 @@ curl -X get \
 
 `GET /jobs/recent`
 
-This request returns a list of [job](#the-jobs-object) on the deployment, sorted by the most recently created, that is
+This request returns a list of [job](#the-job-object) on the deployment, sorted by the most recently created, that is
 in descending order of `date_created`.
 
 
@@ -333,7 +333,7 @@ used will have no impact on the response.
 
 #### Handling the Response
 
-This request will return a list of [job objects](#the-jobs-object) on the deployment with their default fields and any
+This request will return a list of [job objects](#the-job-object) on the deployment with their default fields and any
 additional fields requested through `_fields`, displayed in descending order of `date_created` and according to any
 pagination parameters, filters, or searches used.
 
@@ -360,7 +360,7 @@ curl -X get \
 
 `GET /jobs/newest`
 
-This request returns a list of [jobs](#the-jobs-object) on the deployment, sorted by the most recently modified, that
+This request returns a list of [jobs](#the-job-object) on the deployment, sorted by the most recently modified, that
 is, in descending order of `date_modified`.
 
 
@@ -372,7 +372,7 @@ used will have no impact on the response.
 
 #### Handling the Response
 
-This request will return a list of [job objects](#the-jobs-object) on the deployment with their default fields and any
+This request will return a list of [job objects](#the-job-object) on the deployment with their default fields and any
 additional fields requested through `_fields`, displayed in descending order of `date_modified` and according to any
 pagination parameters, filters, or searches used.
 
@@ -632,12 +632,12 @@ curl -X get \
 
 `PUT /jobs/{job_id}`
 
-This request updates and returns a [job](#the-jobs-object), specified by its `job_id`.
+This request updates and returns a [job](#the-job-object), specified by its `job_id`.
 
 
 #### Configuring the Job
 
-The following fields from the [job object](#the-jobs-object) may be updated with this request:
+The following fields from the [job object](#the-job-object) may be updated with this request:
 
 | Filter Name | Notes |
 |:-|:-|
@@ -656,13 +656,13 @@ The following fields from the [job object](#the-jobs-object) may be updated with
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through
+This request supports requesting additional fields and linked resources from the [jobs object](#the-job-object) through
 the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
 #### Handling the Response
 
-The response will be the single, updated [job](#the-jobs-object) with its default fields and any additional fields
+The response will be the single, updated [job](#the-job-object) with its default fields and any additional fields
 requested through `_fields`.
 
 
@@ -690,7 +690,7 @@ curl -X get \
 
 `POST /jobs`
 
-This request creates and returns a new [job](#the-jobs-object).
+This request creates and returns a new [job](#the-job-object).
 
 
 #### Configuring the Job
@@ -716,7 +716,7 @@ The following fields may be set through this request:
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked resources from the [jobs object](#the-jobs-object) through
+This request supports requesting additional fields and linked resources from the [jobs object](#the-job-object) through
 the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
 
