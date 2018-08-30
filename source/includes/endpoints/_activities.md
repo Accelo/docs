@@ -743,13 +743,15 @@ The following fields from the [activity object](#the-activity-object) may be upd
 | visibility | Updating this is only possible if the user executing has an interaction with the activity. |
 | details | Additional details assigned to an activity. |
 | priority_id | The unique identifier of the [priority](#the-activity-priority) to be linked to the activity.|
-| class_id | The unique identifier of the [class](#the-activity-class) to be linked to the activity.|
+| class_id<sup>*</sup> | The unique identifier of the [class](#the-activity-class) to be linked to the activity.|
 | message_id | A custom message id to be given to the activity.|
 | date_started | Seconds since UTC |
 | date_ended | Seconds since UTC |
 | date_due |Seconds since UTC |
-| nonbillable | The amount of nonbillable time, in seconds. Requires the user has the `can_edit_time` permission under the `permission` object. |
-| billable | The amount of billable time, in seconds. Requires the user has the `can_edit_billable` permission under the `permission` object, and that the activity is billable (see the `is_billable` flag on the activity). |
+| nonbillable<sup>*</sup>  | The amount of nonbillable time, in seconds. Requires the user has the `can_edit_time` permission under the `permission` object. |
+| billable<sup>*</sup>  | The amount of billable time, in seconds. Requires the user has the `can_edit_billable` permission under the `permission` object, and that the activity is billable (see the `is_billable` flag on the activity). |
+
+<sup>*</sup> when the `medium` is '_email_' only these fields may be updated
 
 > Sample response:  
 
