@@ -776,7 +776,6 @@ The response will be the single, updated [activity](#the-activity-object) with i
 
 
 
-
 ### Create an Activity
 `POST /activities`
 
@@ -798,7 +797,7 @@ Authorization: Bearer {access_token}
 ```
 ```shell
 curl -X post \
-  https://{deployment}.api.accleo.com/api/v0/activities \
+  https://{deployment}.api.accelo.com/api/v0/activities \
   -H 'authorization: Bearer {access_token}' \
   -H 'content-type: application/json' \
   -d '{
@@ -884,6 +883,67 @@ This request supports requesting additional fields and linked objects from the [
 The response will be the new [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`
 
 
+
+
+
+### Create a Report
+`POST /activities/reports`
+
+> Sample request
+
+```http
+POST /api/v0/activities/reports HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+
+{
+  "activity_id": "14"
+  "body": "The details of the report"
+  "nonbillable": "3600"
+}
+```
+```shell
+curl -X post \
+  https://{deployment}.api.accelo.com/api/v0/activities/reports \
+  -H 'authorization: Bearer {access_token}' \
+  -H 'content-type: application/json' \
+  -d '{
+      "activity_id": "14"
+      "body": "The details of the report"
+      "nonbillable": "3600"
+  }'
+```
+
+This request will create and return a new report against a scheduled [activity](#the-activity-object)
+
+
+#### Configuring the Report
+
+Values for the following fields may be set through this request.
+
+| Fields | Notes |
+|:-|:-|
+| **activity_id** | The activity the report will be created against. |
+| **body** | The content of the report. |
+| billable | Amount of billable time logged for the activity, in seconds. |
+| nonbillable | Amount of non-billable time logged for the activity, in seconds. |
+| notify_staff_attendees | Flag of '1' or '0', to indicate notifying involved staff members. |
+
+
+### Logging time
+
+The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id). It also checks that the time provided may be logged on the activity specified by it's `activity_id`.
+
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+
+### Handling the Response
+
+The response will be the new report with the the `subject`, `activity_id`, and the `confidential` flag. Any additional fields available to the [activity object](#the-activity-object) may be requested through `_fields`.
 
 
 
