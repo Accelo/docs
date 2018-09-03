@@ -416,6 +416,12 @@
                           <a href="#create-an-activity" class="toc-h3 toc-link" data-title="Endpoints">Create an Activity</a>
                         </li>
                         <li>
+                          <a href="#create-a-report" class="toc-h3 toc-link" data-title="Endpoints">Create a Report</a>
+                        </li>
+                        <li>
+                          <a href="#handling-the-response-7" class="toc-h3 toc-link" data-title="Endpoints">Handling the Response</a>
+                        </li>
+                        <li>
                           <a href="#delete-activity" class="toc-h3 toc-link" data-title="Endpoints">Delete Activity</a>
                         </li>
                         <li>
@@ -3259,7 +3265,9 @@ not use refresh_tokens, if a new token is wanted you will need to generate a new
 query parameter as <code>_bearer_token</code>, or as a HTTP <code>Authorization: Bearer</code> header. For security reasons the latter is
 preferred. Note that including both of these will return an error.</p>
 <h1 id='endpoints'>Endpoints</h1><h2 id='activities'>Activities</h2>
-<p>Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes. See the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/">support documentation</a> for more information on activities.</p>
+<p>Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes.
+See the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/">support documentation</a> 
+for more information on activities.</p>
 
 <blockquote>
 <p>Resource URI:<br>
@@ -3310,6 +3318,7 @@ preferred. Note that including both of these will return an error.</p>
   </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1495762476"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_started"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"confidential"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scheduled"</span><span class="p">:</span><span class="w"> </span><span class="err">'no'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The activities object contains the following fields:</p>
@@ -3502,6 +3511,11 @@ preferred. Note that including both of these will return an error.</p>
 <td style="text-align: left">A list of <a href="#tags">tags</a> associated with the activity.</td>
 </tr>
 <tr>
+<td style="text-align: left">scheduled</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">Either &#39;yes&#39; or &#39;no&#39;, whether the activity is scheduled.</td>
+</tr>
+<tr>
 <td style="text-align: left">standing</td>
 <td style="text-align: left">select</td>
 <td style="text-align: left">The standing of the activity, may be one of &quot;unapproved&quot;, &quot;approved&quot;, &quot;invoiced&quot;, &quot;locked&quot;, or empty.</td>
@@ -3580,7 +3594,10 @@ preferred. Note that including both of these will return an error.</p>
 </tr>
 </tbody></table>
 <h4 id='the-activity-class'>The Activity Class</h4>
-<p>Classes are an additional field for further describing Activities, you may add or remove classes from your deployment through the configuration menu, this process is outlined in the Accelo <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/">support documentation</a>. By default your Accelo deployment will have three classes:</p>
+<p>Classes are an additional field for further describing Activities, you may add or remove classes from your deployment
+through the configuration menu, this process is outlined in the Accelo 
+<a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/">support documentation</a>. 
+By default your Accelo deployment will have three classes:</p>
 
 <table><thead>
 <tr>
@@ -3689,9 +3706,15 @@ preferred. Note that including both of these will return an error.</p>
 activities/56 |
               |------activities/59------activities/62
 </code></pre>
-<p>Naturally, we expect these communicative objects to build off each other, for example a single email may be responded to by several other emails, which may in turn have their own responses. To keep track of these we use the <code>thread</code> and <code>parent</code> objects. The <code>thread</code> object tracks the original activity in the thread the current activity is in response to, and the <code>parent</code> object tracks the activity that the current activity is in direct response to.</p>
+<p>Naturally, we expect these communicative objects to build off each other, for example a single email may be responded to
+by several other emails, which may in turn have their own responses. To keep track of these we use the <code>thread</code> and
+<code>parent</code> objects. The <code>thread</code> object tracks the original activity in the thread the current activity is in response to,
+and the <code>parent</code> object tracks the activity that the current activity is in direct response to.</p>
 
-<p>We will describe these with an example. Imagine an email is sent out as <code>activities/56</code>, then this email is responded to by two new emails <code>activities/57</code> and <code>activity/59</code>, imagine further that the email <code>activities/59</code> is responded to by another email, <code>activities/62</code>. In this case, each activity will have a <code>thread</code> of <code>activities/56</code>, <code>activities/57</code> and <code>activities/59</code> will have a <code>parent</code> of <code>activities/56</code>, and <code>activities/62</code> will have a parent of <code>activities/59</code>.</p>
+<p>We will describe these with an example. Imagine an email is sent out as <code>activities/56</code>, then this email is responded to
+by two new emails <code>activities/57</code> and <code>activity/59</code>, imagine further that the email <code>activities/59</code> is responded to by
+another email, <code>activities/62</code>. In this case, each activity will have a <code>thread</code> of <code>activities/56</code>, <code>activities/57</code> and
+<code>activities/59</code> will have a <code>parent</code> of <code>activities/56</code>, and <code>activities/62</code> will have a parent of <code>activities/59</code>.</p>
 <h5 id='the-activity-thread-object'>The Activity Thread Object</h5>
 <blockquote>
 <p>Sample JSON of an activity thread object:</p>
@@ -3737,14 +3760,18 @@ activities/56 |
 </tr>
 </tbody></table>
 <h4 id='activity-interactions'>Activity Interactions</h4>
-<p>In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal with each case individually:  </p>
+<p>In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or
+affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members
+and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal
+with each case individually:</p>
 
 <ol>
 <li><a href="#get-activities-handling-interacts">Interactions with a list of activities</a><br></li>
 <li><a href="#get-activities-id-interacts">List of interactions with a single activity</a></li>
 </ol>
 <h4 id='the-time-allocation-object'>The Time Allocation Object</h4>
-<p>When an activity includes logging time the time logged is described by the time allocation object, this contains the following:</p>
+<p>When an activity includes logging time the time logged is described by the time allocation object, this contains the
+following:</p>
 
 <table><thead>
 <tr>
@@ -3819,9 +3846,12 @@ _fields=against,owner
 </code></pre>
 <p>If successful, this request returns an activity identified by its <code>activity_id</code>.</p>
 <h4 id='configuring-the-response'>Configuring the Response</h4>
-<p>this request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
+<p>this request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports 
+<a href="#breadcrumbs">breadcrumbs</a>.</p>
 <h4 id='handling-the-response'>Handling the Response</h4>
-<p>The response will be the <a href="#the-activity-object">activity</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<p>The response will be the <a href="#the-activity-object">activity</a> with its default fields and any additional fields requested
+through <code>_fields</code>.</p>
 
 <blockquote>
 <p>Sample response, excluding meta:</p>
@@ -3861,7 +3891,9 @@ _limit=2
 <h4 id='configuring-the-response-2'>Configuring the Response</h4><h5 id='pagination'>Pagination</h5>
 <p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-objects'>Additional Fields and Linked Objects</h5>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports &#39;
+<a href="#breadcrumbs">breadcrumbs</a>.</p>
 <h5 id='basic-filters'>Basic Filters</h5>
 <p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
 
@@ -4138,7 +4170,12 @@ _limit=2
   </span><span class="p">]</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span></code></pre>
-<p>We can investigate the interactions associated with a list of activities via the special field <code>interacts</code>. Given a list of activities, we may investigate the associated interactions by including <code>_fields=interacts</code>. <strong>Note:</strong> if this field is requested the structure of the response is altered. The response will contain three arrays, one labeled &quot;activities&quot;, one labeled &quot;<a href="#staff">staff</a>&quot;, and one labeled &quot;<a href="#affiliations">affiliations</a>&quot;. The objects in the &quot;activities&quot; array will be <a href="#the-activity-object">activity objects</a> with the addition of an array labeled &quot;interacts&quot;. Each interact here contains the following:</p>
+<p>We can investigate the interactions associated with a list of activities via the special field <code>interacts</code>. Given a list
+of activities, we may investigate the associated interactions by including <code>_fields=interacts</code>. <strong>Note:</strong> if this field
+is requested the structure of the response is altered. The response will contain three arrays, one labeled &quot;activities&quot;,
+one labeled &quot;<a href="#staff">staff</a>&quot;, and one labeled &quot;<a href="#affiliations">affiliations</a>&quot;. The objects in the &quot;activities&quot; array
+will be <a href="#the-activity-object">activity objects</a> with the addition of an array labeled &quot;interacts&quot;. Each interact here
+contains the following:</p>
 
 <table><thead>
 <tr>
@@ -4184,7 +4221,9 @@ _limit=2
 </tr>
 </tbody></table>
 
-<p>That is, each activity has an interaction where each interaction identifies an owner (either a staff or affiliation) and recipient(s), if available. The arrays &quot;staff&quot; and &quot;affiliations&quot; contain these owners or recipients, so we can readily identify who interacted with a given activity, and how.</p>
+<p>That is, each activity has an interaction where each interaction identifies an owner (either a staff or affiliation) and
+recipient(s), if available. The arrays &quot;staff&quot; and &quot;affiliations&quot; contain these owners or recipients, so we can readily
+identify who interacted with a given activity, and how.</p>
 <h3 id='count-activities'>Count Activities</h3>
 <blockquote>
 <p>Sample request, here we request the response as xml</p>
@@ -4205,7 +4244,8 @@ _limit=2
     <span class="nt">&lt;response</span> <span class="na">count=</span><span class="s">"1013"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/data&gt;</span>
 </code></pre>
-<p>This request will return a count of activities in a list defined by any available searches or filters. With no searches or filters this will be a count of all activities on the deployment. This request returns a single field:</p>
+<p>This request will return a count of activities in a list defined by any available searches or filters. With no searches
+or filters this will be a count of all activities on the deployment. This request returns a single field</p>
 
 <table><thead>
 <tr>
@@ -4264,7 +4304,8 @@ _limit=2
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h4 id='configuring-the-response-3'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">staff</a> and <a href="#the-contact-object">contact</a> objects using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">staff</a> and
+<a href="#the-contact-object">contact</a> objects using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-3'>Handling the Response</h4>
 <p>The response will contain two arrays:</p>
 
@@ -4284,7 +4325,8 @@ _limit=2
 </tr>
 </tbody></table>
 
-<p>The staff and contact objects returned will contain their default fields, plus any fields added via the <code>_fields</code> parameter, as well as a <code>interact</code> object containing:</p>
+<p>The staff and contact objects returned will contain their default fields, plus any fields added via the <code>_fields</code>
+parameter, as well as a <code>interact</code> object containing:</p>
 
 <table><thead>
 <tr>
@@ -4332,7 +4374,8 @@ _limit=2
   </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This request will return a count of activity threads in a list defined by any available searches or filters. With no searches or filters this will be a count of all interactions against the activity. This request returns a single field:</p>
+<p>This request will return a count of activity threads in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all interactions against the activity. This request returns a single field:</p>
 
 <table><thead>
 <tr>
@@ -4373,8 +4416,9 @@ _limit=2
   </span><span class="s2">"charged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21.26"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h4 id='configuring-the-response-4'>Configuring the Response</h4>
-<p>An aggregation that returns the sum of time allocation information from a set of activities. To filter the activities consumed, you may use the same filters supported by <a href="#list-activities"><code>GET /activities</code></a>.</p>
-<h4 id='handling-the-response-4'>handling the Response</h4>
+<p>An aggregation that returns the sum of time allocation information from a set of activities. To filter the activities
+consumed, you may use the same filters supported by <a href="#list-activities"><code>GET /activities</code></a>.</p>
+<h4 id='handling-the-response-4'>Handling the Response</h4>
 <p>The response will contain the following fields describing the allocations for the activities:</p>
 
 <table><thead>
@@ -4494,9 +4538,12 @@ _fields=activity_priority()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h4 id='configuring-the-response-5'>Configuring the response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports 
+<a href="#breadcrumbs">breadcrumbs</a>.</p>
 <h4 id='handling-the-response-5'>Handling the Response</h4>
-<p>The response will be the single, updated <a href="#the-activity-object">activity</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<p>The response will be the single, updated <a href="#the-activity-object">activity</a> with its default fields and any additional
+fields requested through <code>_fields</code>.</p>
 <h3 id='create-an-activity'>Create an Activity</h3>
 <p><code>POST /activities</code></p>
 
@@ -4516,7 +4563,7 @@ _fields=activity_priority()
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl -X post <span class="se">\</span>
-  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accleo.com/api/v0/activities <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -d <span class="s1">'{
@@ -4646,7 +4693,8 @@ _fields=activity_priority()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>We can create interactions with our activity by sending our request as JSON (see the <a href="#json-content-types">introduction</a> for information on sending JSON requests) and including the following objects:</p>
+<p>We can create interactions with our activity by sending our request as JSON (see the <a href="#json-content-types">introduction</a>
+for information on sending JSON requests) and including the following objects:</p>
 
 <table><thead>
 <tr>
@@ -4670,13 +4718,85 @@ _fields=activity_priority()
 
 <p>Each object accepts a staff or affiliation (identified by their id) or a general email.</p>
 <h4 id='logging-time'>Logging time</h4>
-<p>The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no time allocation is created against the new activity. i.e, the user who the time belongs to.</p>
+<p>The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no
+time allocation is created against the new activity. i.e, the user who the time belongs to.</p>
 <h4 id='logging-time-against-a-task'>Logging time against a task</h4>
-<p>To log an activity against a task, you should pass in the task&#39;s against_id and against_type as the new activity&#39;s against_id and against_type. Essentially you are creating an activity against the object the task is against.</p>
+<p>To log an activity against a task, you should pass in the task&#39;s against_id and against_type as the new activity&#39;s
+against_id and against_type. Essentially you are creating an activity against the object the task is against.</p>
 <h4 id='configuring-the-response-6'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports <a href="#configuring-the-response-breadcrumbs">breadcrumbs</a>.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports 
+<a href="#breadcrumbs">breadcrumbs</a>.</p>
 <h4 id='handling-the-response-6'>Handling the Response</h4>
-<p>The response will be the new <a href="#the-activity-object">activity</a> with its default fields and any additional fields requested through <code>_fields</code></p>
+<p>The response will be the new <a href="#the-activity-object">activity</a> with its default fields and any additional fields
+requested through <code>_fields</code></p>
+<h3 id='create-a-report'>Create a Report</h3>
+<p><code>POST /activities/reports</code></p>
+
+<blockquote>
+<p>Sample request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/activities/reports</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"activity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The details of the report"</span><span class="w">
+  </span><span class="s2">"nonbillable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3600"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl -X post <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities/reports <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "activity_id": "14"
+      "body": "The details of the report"
+      "nonbillable": "3600"
+  }'</span>
+</code></pre>
+<p>This request will create and return a new report against a scheduled <a href="#the-activity-object">activity</a></p>
+<h4 id='configuring-the-report'>Configuring the Report</h4>
+<p>Values for the following fields may be set through this request.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Fields</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>activity_id</strong></td>
+<td style="text-align: left">The activity the report will be created against. This activity <em>must</em> be scheduled.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>body</strong></td>
+<td style="text-align: left">The content of the report.</td>
+</tr>
+<tr>
+<td style="text-align: left">billable</td>
+<td style="text-align: left">Amount of billable time logged for the activity, in seconds.</td>
+</tr>
+<tr>
+<td style="text-align: left">nonbillable</td>
+<td style="text-align: left">Amount of non-billable time logged for the activity, in seconds.</td>
+</tr>
+<tr>
+<td style="text-align: left">notify_staff_attendees</td>
+<td style="text-align: left">Flag of &#39;1&#39; or &#39;0&#39;, to indicate notifying involved staff members.</td>
+</tr>
+</tbody></table>
+<h4 id='logging-time-2'>Logging time</h4>
+<p>The user executing this request will be used as the owner of the report. Hence, any <em>billable</em> or <em>nonbillable</em> time
+set with this request will be logged for this user.</p>
+<h4 id='configuring-the-response-7'>Configuring the Response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter. This request also supports 
+<a href="#breadcrumbs">breadcrumbs</a>.</p>
+<h3 id='handling-the-response-7'>Handling the Response</h3>
+<p>The response will be the new report with the <code>subject</code>, <code>activity_id</code>, and the <code>confidential</code> flag. Any additional
+fields available to the <a href="#the-activity-object">activity object</a> may be requested through <code>_fields</code>.</p>
 <h3 id='delete-activity'>Delete Activity</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -4691,7 +4811,8 @@ _fields=activity_priority()
 </code></pre>
 <p><code>DELETE /activity/{activity_id}</code></p>
 
-<p>This request will delete the activity identified by its <code>activity_id</code>. This request takes no parameters and returns no resources.</p>
+<p>This request will delete the activity identified by its <code>activity_id</code>. This request takes no parameters and returns no
+resources.</p>
 <h3 id='list-activity-threads'>List Activity Threads</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -4708,10 +4829,11 @@ _fields=activity_priority()
 <p><code>GET /activities/threads</code></p>
 
 <p>This request returns a list of <a href="#the-activity-thread-object">activity threads</a>.</p>
-<h4 id='configuring-the-response-7'>Configuring the Response</h4><h5 id='pagination-2'>Pagination</h5>
+<h4 id='configuring-the-response-8'>Configuring the Response</h4><h5 id='pagination-2'>Pagination</h5>
 <p>This request supports all of the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-objects-2'>Additional Fields and Linked Objects</h5>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-object">activity object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h5 id='basic-filters-2'>Basic Filters</h5>
 <p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
 
@@ -4771,8 +4893,10 @@ _fields=activity_priority()
 <td style="text-align: left">Filter by threads that have activities with <code>date_logged</code> before this time.</td>
 </tr>
 </tbody></table>
-<h4 id='handling-the-response-7'>Handling the Response</h4>
-<p>The response will be a list of <a href="#the-activity-thread-object">activity threads</a>, displayed according to any pagination parameters or searches used. The activity listed under the <code>activities</code> array of the thread will be displayed with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<h4 id='handling-the-response-8'>Handling the Response</h4>
+<p>The response will be a list of <a href="#the-activity-thread-object">activity threads</a>, displayed according to any pagination
+parameters or searches used. The activity listed under the <code>activities</code> array of the thread will be displayed with its
+default fields and any additional fields requested through <code>_fields</code>.</p>
 <h3 id='count-activity-threads'>Count Activity Threads</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -4786,7 +4910,8 @@ _fields=activity_priority()
 </code></pre>
 <p><code>GET /activities/threads/count</code></p>
 
-<p>This request will return a count of activity threads in a list defined by any available searches or filters. With no searches or filters this will be a count of all activity threads. This request returns a single field:</p>
+<p>This request will return a count of activity threads in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all activity threads. This request returns a single field:</p>
 
 <table><thead>
 <tr>
@@ -4819,7 +4944,8 @@ _fields=thread,parent
 </code></pre>
 <p><code>GET /activities/threads/{thread_id}</code></p>
 
-<p>This request returns a list of activities in a thread, identified by its <code>thread_id</code>. This request may be configured and handled in the same way as <a href="#list-activities"><code>GET /activities</code></a>.</p>
+<p>This request returns a list of activities in a thread, identified by its <code>thread_id</code>. This request may be configured and
+handled in the same way as <a href="#list-activities"><code>GET /activities</code></a>.</p>
 
 <blockquote>
 <p>Sample response:</p>
@@ -4850,7 +4976,8 @@ _fields=thread,parent
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"278"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This request returns a list of activities in a thread, identified by its <code>thread_id</code>. This request may be configured and handled in the same way as <a href="#get-activities"><code>GET /activities</code></a>.</p>
+<p>This request returns a list of activities in a thread, identified by its <code>thread_id</code>. This request may be configured and
+handled in the same way as <a href="#get-activities"><code>GET /activities</code></a>.</p>
 <h3 id='list-activity-classes'>List Activity Classes</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -4867,10 +4994,11 @@ _fields=thread,parent
 <p><code>GET /activities/classes</code></p>
 
 <p>This request returns a list of <a href="#the-activity-class">activity classes</a>.</p>
-<h4 id='configuring-the-response-8'>Configuring the Response</h4><h5 id='pagination-3'>Pagination</h5>
+<h4 id='configuring-the-response-9'>Configuring the Response</h4><h5 id='pagination-3'>Pagination</h5>
 <p>This request supports all of the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-objects-3'>Additional Fields and Linked Objects</h5>
-<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-class">activity class</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-activity-class">activity class</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h5 id='basic-filters-3'>Basic Filters</h5>
 <p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
 
@@ -4907,8 +5035,10 @@ _fields=thread,parent
 <td style="text-align: left">Takes either &quot;active&quot; or &quot;inactive&quot; as arguments.</td>
 </tr>
 </tbody></table>
-<h4 id='handling-the-response-8'>Handling the Response</h4>
-<p>The response will be a list of <a href="#the-activity-class">activity classes</a>, displayed according to any pagination parameters or searches used. The activity classes listed will be displayed with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<h4 id='handling-the-response-9'>Handling the Response</h4>
+<p>The response will be a list of <a href="#the-activity-class">activity classes</a>, displayed according to any pagination parameters
+or searches used. The activity classes listed will be displayed with its default fields and any additional fields
+requested through <code>_fields</code>.</p>
 <h3 id='get-activity-class'>Get Activity Class</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -4936,7 +5066,8 @@ _fields=thread,parent
 </code></pre>
 <p><code>GET /activities/classes/count</code></p>
 
-<p>This request will return a count of activity classes in a list defined by any available searches or filters. With no searches or filters this will be a count of all activity classes. This request returns a single field:</p>
+<p>This request will return a count of activity classes in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all activity classes. This request returns a single field:</p>
 
 <table><thead>
 <tr>
