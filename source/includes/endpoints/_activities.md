@@ -1039,7 +1039,7 @@ using the [`_fields`](#configuring-the-response-fields) parameter. This request 
 
 ### Handling the Response
 
-The response will be the new report with the the `subject`, `activity_id`, and the `confidential` flag. Any additional
+The response will be the new report with the `subject`, `activity_id`, and the `confidential` flag. Any additional
 fields available to the [activity object](#the-activity-object) may be requested through `_fields`.
 
 
