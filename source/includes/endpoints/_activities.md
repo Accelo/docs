@@ -51,6 +51,7 @@ The Activity object is complex and contains some special objects:
   "date_modified": "1495762476",
   "date_started": null,
   "confidential": 0,
+	"scheduled": 'no'
 }
 ```
 
@@ -94,6 +95,7 @@ The activities object contains the following fields:
 | rate | unsigned or object | The [rate](#rates) charged for any billable time logged against the activity. |
 | rate_charged | unsigned | The rate at which billable time was charged, this is part of the rate object. |
 | tag | array of objects | A list of [tags](#tags) associated with the activity. |
+| scheduled | select | Either 'yes' or 'no', whether the activity is scheduled. |
 | standing | select | The standing of the activity, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
@@ -1016,7 +1018,7 @@ Values for the following fields may be set through this request.
 
 | Fields | Notes |
 |:-|:-|
-| **activity_id** | The activity the report will be created against. |
+| **activity_id** | The activity the report will be created against. This activity _must_ be scheduled. |
 | **body** | The content of the report. |
 | billable | Amount of billable time logged for the activity, in seconds. |
 | nonbillable | Amount of non-billable time logged for the activity, in seconds. |
