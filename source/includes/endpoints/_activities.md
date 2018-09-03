@@ -1025,11 +1025,10 @@ Values for the following fields may be set through this request.
 | notify_staff_attendees | Flag of '1' or '0', to indicate notifying involved staff members. |
 
 
-### Logging time
+#### Logging time
 
-The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id). It also checks
-that the time provided may be logged on the activity specified by it's `activity_id`.
-
+The user executing this request will be used as the owner of the report. Hence, any _billable_ or _nonbillable_ time
+set with this request will be logged for this user.
 
 #### Configuring the Response
 
