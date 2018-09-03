@@ -1,5 +1,8 @@
 ## Activities
-Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/) for more information on activities.
+
+Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes.
+See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/) 
+for more information on activities.
 
 > Resource URI:  
 `api/v0/activities`
@@ -13,6 +16,7 @@ The Activity object is complex and contains some special objects:
 * [Activity Threads and Parents](#activity-threads-and-parents)  
 * [Activity Interactions](#activity-interactions)
 * [Time Allocations](#the-time-allocation-object)
+
 
 ### The Activity Object
 > Sample activity object:
@@ -47,6 +51,7 @@ The Activity object is complex and contains some special objects:
   "date_modified": "1495762476",
   "date_started": null,
   "confidential": 0,
+	"scheduled": 'no'
 }
 ```
 
@@ -90,13 +95,16 @@ The activities object contains the following fields:
 | rate | unsigned or object | The [rate](#rates) charged for any billable time logged against the activity. |
 | rate_charged | unsigned | The rate at which billable time was charged, this is part of the rate object. |
 | tag | array of objects | A list of [tags](#tags) associated with the activity. |
+| scheduled | select | Either 'yes' or 'no', whether the activity is scheduled. |
 | standing | select | The standing of the activity, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
 | is_billable | bool | Either 1 or 0, whether billable time can be logged on the activity. |
 | permissions | object | An object containing a list of permissions for the current user on the activity. |
 
+
 #### Activity Medium
+
 Activities are communicative objects, e.g. notes and emails. The type of communication is described by the "medium", Accelo currently supports five types of media for activities:  
 
 | Name | Description |
@@ -109,6 +117,7 @@ Activities are communicative objects, e.g. notes and emails. The type of communi
 
 
 #### Activity Visibility
+
 Activities also have a visibility associated with them, which determines how they are viewed by others. The visibility of an activity can be set to one of three values:
 
 | Visibility | Description |
@@ -117,8 +126,13 @@ Activities also have a visibility associated with them, which determines how the
 | Confidential | Hides full content of this activity and replaces with the word "Confidential". Other users see that a Confidential Activity has occurred on the date but will see no other details. |
 | All | Displays full content of this activity to all users. |
 
+
 #### The Activity Class
-Classes are an additional field for further describing Activities, you may add or remove classes from your deployment through the configuration menu, this process is outlined in the Accelo [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/). By default your Accelo deployment will have three classes:
+
+Classes are an additional field for further describing Activities, you may add or remove classes from your deployment
+through the configuration menu, this process is outlined in the Accelo 
+[support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/). 
+By default your Accelo deployment will have three classes:
 
 
 | Class | Description |
@@ -149,6 +163,7 @@ The class object for activities will contain the following:
 
 **Note:** This object does not support the `_ALL` argument with [`_fields`](#configuring-the-response-fields)
 
+
 #### The Activity Priority
 > Sample JSON of an activity priority:
 
@@ -169,6 +184,7 @@ The activity priority describes the urgency of a given activity, it contains the
 
 **Note:** This object does not support the `_ALL` argument with [`_fields`](#configuring-the-response-fields)
 
+
 #### Activity Threads and Parents
 
 > Activity threads and parents:  
@@ -178,10 +194,18 @@ The activity priority describes the urgency of a given activity, it contains the
 activities/56 |
               |------activities/59------activities/62
 ```
-Naturally, we expect these communicative objects to build off each other, for example a single email may be responded to by several other emails, which may in turn have their own responses. To keep track of these we use the `thread` and `parent` objects. The `thread` object tracks the original activity in the thread the current activity is in response to, and the `parent` object tracks the activity that the current activity is in direct response to.
+
+Naturally, we expect these communicative objects to build off each other, for example a single email may be responded to
+by several other emails, which may in turn have their own responses. To keep track of these we use the `thread` and
+`parent` objects. The `thread` object tracks the original activity in the thread the current activity is in response to,
+and the `parent` object tracks the activity that the current activity is in direct response to.
 
 
-We will describe these with an example. Imagine an email is sent out as `activities/56`, then this email is responded to by two new emails `activities/57` and `activity/59`, imagine further that the email `activities/59` is responded to by another email, `activities/62`. In this case, each activity will have a `thread` of `activities/56`, `activities/57` and `activities/59` will have a `parent` of `activities/56`, and `activities/62` will have a parent of `activities/59`.
+We will describe these with an example. Imagine an email is sent out as `activities/56`, then this email is responded to
+by two new emails `activities/57` and `activity/59`, imagine further that the email `activities/59` is responded to by
+another email, `activities/62`. In this case, each activity will have a `thread` of `activities/56`, `activities/57` and
+`activities/59` will have a `parent` of `activities/56`, and `activities/62` will have a parent of `activities/59`.
+
 
 ##### The Activity Thread Object
 > Sample JSON of an activity thread object:
@@ -209,13 +233,20 @@ Activity threads are described by the thread object, this contains the following
 
 
 #### Activity Interactions
-In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal with each case individually:  
+
+In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or
+affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members
+and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal
+with each case individually:
 
 1. [Interactions with a list of activities](#get-activities-handling-interacts)   
 2. [List of interactions with a single activity](#get-activities-id-interacts)
 
+
 #### The Time Allocation Object
-When an activity includes logging time the time logged is described by the time allocation object, this contains the following:
+
+When an activity includes logging time the time logged is described by the time allocation object, this contains the
+following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -258,11 +289,18 @@ curl -X get \
 ```
 If successful, this request returns an activity identified by its `activity_id`.
 
+
 #### Configuring the Response
-this request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+this request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
+using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports 
+[breadcrumbs](#breadcrumbs).
+
 
 #### Handling the Response
-The response will be the [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`.
+
+The response will be the [activity](#the-activity-object) with its default fields and any additional fields requested
+through `_fields`.
 
 > Sample response, excluding meta:
 
@@ -315,12 +353,19 @@ This request will return a list of activities on the Accelo deployment.
 
 
 ##### Pagination
+
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
+using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports '
+[breadcrumbs](#breadcrumbs).
+
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -393,6 +438,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 
 
 ##### Order Filters
+
 This request supports [order filters](#filters-order-filters) over the following fields:
 
 | Filter Name |
@@ -405,7 +451,9 @@ This request supports [order filters](#filters-order-filters) over the following
 | billable |
 | nonbillable |
 
+
 ##### Range Filters
+
 This request supports [range filters](#filters-range-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -420,7 +468,9 @@ This request supports [range filters](#filters-range-filters) over the following
 | class | Range over the `class_id`. |
 | task | Range over the `task_id`. |
 
+
 ##### Object Filters
+
 This request supports [object filters](#filters-object-filters) over the following linked object:
 
 | Filter Name | Description |
@@ -428,8 +478,11 @@ This request supports [object filters](#filters-object-filters) over the followi
 | owner | Filter by activities owned by these objects. |
 | against | Filter by activities against these objects. |
 
+
 #### Handling the Response
+
 The response will be a List of [activities](#the-activity-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters or filters used.
+
 
 #### Handling Interacts
 > Sample response, here we are looking at the interactions of a single activity.
@@ -480,7 +533,12 @@ The response will be a List of [activities](#the-activity-object) with their def
 ```
 
 
-We can investigate the interactions associated with a list of activities via the special field `interacts`. Given a list of activities, we may investigate the associated interactions by including `_fields=interacts`. **Note:** if this field is requested the structure of the response is altered. The response will contain three arrays, one labeled "activities", one labeled "[staff](#staff)", and one labeled "[affiliations](#affiliations)". The objects in the "activities" array will be [activity objects](#the-activity-object) with the addition of an array labeled "interacts". Each interact here contains the following:
+We can investigate the interactions associated with a list of activities via the special field `interacts`. Given a list
+of activities, we may investigate the associated interactions by including `_fields=interacts`. **Note:** if this field
+is requested the structure of the response is altered. The response will contain three arrays, one labeled "activities",
+one labeled "[staff](#staff)", and one labeled "[affiliations](#affiliations)". The objects in the "activities" array
+will be [activity objects](#the-activity-object) with the addition of an array labeled "interacts". Each interact here
+contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -493,7 +551,9 @@ We can investigate the interactions associated with a list of activities via the
 | **email** | string | The e-mail associated with the owner. |
 
 
-That is, each activity has an interaction where each interaction identifies an owner (either a staff or affiliation) and recipient(s), if available. The arrays "staff" and "affiliations" contain these owners or recipients, so we can readily identify who interacted with a given activity, and how.
+That is, each activity has an interaction where each interaction identifies an owner (either a staff or affiliation) and
+recipient(s), if available. The arrays "staff" and "affiliations" contain these owners or recipients, so we can readily
+identify who interacted with a given activity, and how.
 
 
 
@@ -526,7 +586,9 @@ curl -X get \
     <response count="1013" />
 </data>
 ```
-This request will return a count of activities in a list defined by any available searches or filters. With no searches or filters this will be a count of all activities on the deployment. This request returns a single field:
+
+This request will return a count of activities in a list defined by any available searches or filters. With no searches
+or filters this will be a count of all activities on the deployment. This request returns a single field
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -591,10 +653,15 @@ This request returns an array of activity interactions for the activity identifi
 }
 ```
 
+
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [staff](#the-activity-object) and [contact](#the-contact-object) objects using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [staff](#the-activity-object) and
+[contact](#the-contact-object) objects using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 #### Handling the Response
+
 The response will contain two arrays:
 
 | Name | Description |
@@ -602,7 +669,8 @@ The response will contain two arrays:
 | staff | Array of staff objects that have an interaction against the activity. |
 | contacts | Array of contact objects that have an interaction against the activity. |
 
-The staff and contact objects returned will contain their default fields, plus any fields added via the `_fields` parameter, as well as a `interact` object containing:
+The staff and contact objects returned will contain their default fields, plus any fields added via the `_fields`
+parameter, as well as a `interact` object containing:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -644,7 +712,9 @@ curl -X -get \
   "count": "2"
 }
 ```
-This request will return a count of activity threads in a list defined by any available searches or filters. With no searches or filters this will be a count of all interactions against the activity. This request returns a single field:
+
+This request will return a count of activity threads in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all interactions against the activity. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -690,9 +760,13 @@ This request returns information on timed logged and the value charged against a
 
 
 #### Configuring the Response
-An aggregation that returns the sum of time allocation information from a set of activities. To filter the activities consumed, you may use the same filters supported by [`GET /activities`](#list-activities).
 
-#### handling the Response
+An aggregation that returns the sum of time allocation information from a set of activities. To filter the activities
+consumed, you may use the same filters supported by [`GET /activities`](#list-activities).
+
+
+#### Handling the Response
+
 The response will contain the following fields describing the allocations for the activities:
 
 | Field | Type | Description |
@@ -732,7 +806,9 @@ curl -X put \
 ```
 This request will update, and return, the identified activity.
 
+
 #### Configuring the Activity
+
 The following fields from the [activity object](#the-activity-object) may be updated through this request:
 
 | Field | Conditions |
@@ -765,12 +841,18 @@ The following fields from the [activity object](#the-activity-object) may be upd
 }
 ```
 
+
 #### Configuring the response
-This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
+using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports 
+[breadcrumbs](#breadcrumbs).
+
 
 #### Handling the Response
-The response will be the single, updated [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`.
 
+The response will be the single, updated [activity](#the-activity-object) with its default fields and any additional
+fields requested through `_fields`.
 
 
 
@@ -798,7 +880,7 @@ Authorization: Bearer {access_token}
 ```
 ```shell
 curl -X post \
-  https://{deployment}.api.accleo.com/api/v0/activities \
+  https://{deployment}.api.accelo.com/api/v0/activities \
   -H 'authorization: Bearer {access_token}' \
   -H 'content-type: application/json' \
   -d '{
@@ -811,7 +893,9 @@ curl -X post \
 
 This request will create, and return, a new [activity](#the-activity-object) on the deployment.
 
+
 #### Configuring the Activity
+
 Values for the following fields may be set through this request.
 
 | Field | Notes |
@@ -859,7 +943,8 @@ Values for the following fields may be set through this request.
 }
 ```
 
-We can create interactions with our activity by sending our request as JSON (see the [introduction](#json-content-types) for information on sending JSON requests) and including the following objects:
+We can create interactions with our activity by sending our request as JSON (see the [introduction](#json-content-types)
+for information on sending JSON requests) and including the following objects:
 
 | Object Name | Description |
 |:-|:-|
@@ -871,19 +956,91 @@ Each object accepts a staff or affiliation (identified by their id) or a general
 
 #### Logging time
 
-The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no time allocation is created against the new activity. i.e, the user who the time belongs to.
+The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no
+time allocation is created against the new activity. i.e, the user who the time belongs to.
 
 #### Logging time against a task
 
-To log an activity against a task, you should pass in the task's against_id and against_type as the new activity's against_id and against_type. Essentially you are creating an activity against the object the task is against.
+To log an activity against a task, you should pass in the task's against_id and against_type as the new activity's
+against_id and against_type. Essentially you are creating an activity against the object the task is against.
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
+
+This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
+using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports 
+[breadcrumbs](#breadcrumbs).
+
 
 #### Handling the Response
-The response will be the new [activity](#the-activity-object) with its default fields and any additional fields requested through `_fields`
+
+The response will be the new [activity](#the-activity-object) with its default fields and any additional fields
+requested through `_fields`
 
 
+
+
+
+### Create a Report
+`POST /activities/reports`
+
+> Sample request
+
+```http
+POST /api/v0/activities/reports HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+
+{
+  "activity_id": "14"
+  "body": "The details of the report"
+  "nonbillable": "3600"
+}
+```
+```shell
+curl -X post \
+  https://{deployment}.api.accelo.com/api/v0/activities/reports \
+  -H 'authorization: Bearer {access_token}' \
+  -H 'content-type: application/json' \
+  -d '{
+      "activity_id": "14"
+      "body": "The details of the report"
+      "nonbillable": "3600"
+  }'
+```
+
+This request will create and return a new report against a scheduled [activity](#the-activity-object)
+
+
+#### Configuring the Report
+
+Values for the following fields may be set through this request.
+
+| Fields | Notes |
+|:-|:-|
+| **activity_id** | The activity the report will be created against. This activity _must_ be scheduled. |
+| **body** | The content of the report. |
+| billable | Amount of billable time logged for the activity, in seconds. |
+| nonbillable | Amount of non-billable time logged for the activity, in seconds. |
+| notify_staff_attendees | Flag of '1' or '0', to indicate notifying involved staff members. |
+
+
+#### Logging time
+
+The user executing this request will be used as the owner of the report. Hence, any _billable_ or _nonbillable_ time
+set with this request will be logged for this user.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
+using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports 
+[breadcrumbs](#breadcrumbs).
+
+
+### Handling the Response
+
+The response will be the new report with the `subject`, `activity_id`, and the `confidential` flag. Any additional
+fields available to the [activity object](#the-activity-object) may be requested through `_fields`.
 
 
 
@@ -907,7 +1064,8 @@ curl -X delete \
 ```
 `DELETE /activity/{activity_id}`
 
-This request will delete the activity identified by its `activity_id`. This request takes no parameters and returns no resources.
+This request will delete the activity identified by its `activity_id`. This request takes no parameters and returns no
+resources.
 
 
 
@@ -937,15 +1095,22 @@ curl -X get \
 
 This request returns a list of [activity threads](#the-activity-thread-object).
 
+
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 > Sample response of a single thread:  
@@ -971,7 +1136,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | staff_involved | Filter by the `staff_id` the staff member(s) who have interacted with activities within the thread. |
 | scope | Takes either "internal" or "external" as arguments, whether the thread is external, such as emails from clients, or internal, such as notes. |
 
+
 ##### Date Filters
+
 This request supports [date filters](#filters-date-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -979,8 +1146,12 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_logged_after | Filter by threads that have activities with `date_logged` after this time. |
 | date_logged_before | Filter by threads that have activities with `date_logged` before this time. |
 
+
 #### Handling the Response
-The response will be a list of [activity threads](#the-activity-thread-object), displayed according to any pagination parameters or searches used. The activity listed under the `activities` array of the thread will be displayed with its default fields and any additional fields requested through `_fields`.
+
+The response will be a list of [activity threads](#the-activity-thread-object), displayed according to any pagination
+parameters or searches used. The activity listed under the `activities` array of the thread will be displayed with its
+default fields and any additional fields requested through `_fields`.
 
 
 
@@ -1005,7 +1176,8 @@ curl -X get \
 
 `GET /activities/threads/count`
 
-This request will return a count of activity threads in a list defined by any available searches or filters. With no searches or filters this will be a count of all activity threads. This request returns a single field:
+This request will return a count of activity threads in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all activity threads. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -1039,7 +1211,8 @@ curl -X get \
 
 `GET /activities/threads/{thread_id}`
 
-This request returns a list of activities in a thread, identified by its `thread_id`. This request may be configured and handled in the same way as [`GET /activities`](#list-activities).
+This request returns a list of activities in a thread, identified by its `thread_id`. This request may be configured and
+handled in the same way as [`GET /activities`](#list-activities).
 
 > Sample response:
 
@@ -1071,7 +1244,8 @@ This request returns a list of activities in a thread, identified by its `thread
 }
 ```
 
-This request returns a list of activities in a thread, identified by its `thread_id`. This request may be configured and handled in the same way as [`GET /activities`](#get-activities).
+This request returns a list of activities in a thread, identified by its `thread_id`. This request may be configured and
+handled in the same way as [`GET /activities`](#get-activities).
 
 
 
@@ -1098,15 +1272,22 @@ curl -X get \
 
 This request returns a list of [activity classes](#the-activity-class).
 
+
 #### Configuring the Response
 
 ##### Pagination
+
 This request supports all of the [pagination](#configuring-the-response-pagination) parameters.
 
+
 ##### Additional Fields and Linked Objects
-This request supports requesting additional fields and linked objects from the [activity class](#the-activity-class) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+This request supports requesting additional fields and linked objects from the [activity class](#the-activity-class)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Basic Filters
+
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 > Sample response of a single class:  
@@ -1127,8 +1308,12 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | parent | Return only classes whose parent class is of this id. |
 | standing | Takes either "active" or "inactive" as arguments. |
 
+
 #### Handling the Response
-The response will be a list of [activity classes](#the-activity-class), displayed according to any pagination parameters or searches used. The activity classes listed will be displayed with its default fields and any additional fields requested through `_fields`.
+
+The response will be a list of [activity classes](#the-activity-class), displayed according to any pagination parameters
+or searches used. The activity classes listed will be displayed with its default fields and any additional fields
+requested through `_fields`.
 
 
 
@@ -1172,7 +1357,8 @@ curl -X get \
 
 `GET /activities/classes/count`
 
-This request will return a count of activity classes in a list defined by any available searches or filters. With no searches or filters this will be a count of all activity classes. This request returns a single field:
+This request will return a count of activity classes in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all activity classes. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
