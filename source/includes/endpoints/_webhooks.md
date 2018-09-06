@@ -35,7 +35,7 @@ a certain set of actions on a per object basis. The available events are:
 
 ##### Progression Webhooks
 
-[Progression webhooks](https://www.accelo.com/resources/blog/product-priorities-update-q2-of-2017/#progressionwebhooks])
+[Progression webhooks](https://www.accelo.com/resources/blog/product-priorities-update-q2-of-2017/#progressionwebhooks)
 allow you to subscribe to changing statuses for companies, contacts,  prospects, jobs, issues and contracts. Currently
 you can only do this from  the web application's administration page but there are plans to expose this  functionality
 to the api.
