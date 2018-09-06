@@ -20,6 +20,8 @@ When subscribing to webhooks you choose an event that you would like to receive 
 | update_request_status | Any time a request status changes. |
 | create_issue | Any time an [issue](#issues) is created. |
 | update_issue | Any time an [issue](#issues) is updated. |
+| create_contact | Any time a [contact](#contacts) is created. |
+| update_contact | Any time a [contact](#contacts) is updated. |
 
 ##### Progression Webhooks
 
