@@ -59,12 +59,12 @@ curl -X get \
 
 This request returns a single [time external](#the-time-external-object), specified by its `id`.
 
-### Configuring the Response
+#### Configuring the Response
 
 This request supports requesting additional fields and linked objects from the [time external](#the-time-external-object) 
 using the [`_fields`](#configuring-the-response-fields) parameter.
 
-### Handling the Response
+#### Handling the Response
 
 The response will be the single requested [time external](#the-time-external-object) with its default fields and any
 additional fields requested through `_fields`.
@@ -93,18 +93,18 @@ curl -X get \
 
 This request returns a list of [time externals](#the-time-external-object) on the deployment.
 
-### Configuring the Request
+#### Configuring the Request
 
-### Pagination
+##### Pagination
 
 This request accepts all the standard [pagination](#configuring-the-response-pagination) parameters.
 
-### Additional Fields and Linked Objects
+##### Additional Fields and Linked Objects
 
 This request supports requesting additional fields and linked objects using the [`_fields`](#configuring-the-response-
 fields) parameter.
 
-### Basic Filters
+##### Basic Filters
 
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
@@ -113,7 +113,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | id |
 | staff_id |
 
-### Order Filters 
+##### Order Filters
 
 This request supports [order filters](#filters-order-filters) over the following fields:
 
@@ -126,7 +126,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_started |
 | date_ended |
 
-### Range Filters
+##### Range Filters
 
 This request supports [range filters](#filters-range-filters) over the following fields:
 
@@ -135,7 +135,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | id |
 | staff_id |
 
-### Searching 
+##### Searching
 
 This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
@@ -144,7 +144,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 | title |
 | description |
 
-### Handling the Response 
+#### Handling the Response
 
 
 The response will be a list of [time externals](#the-time-external-object) on the Deployment, with their default fields and
