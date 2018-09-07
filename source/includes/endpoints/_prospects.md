@@ -94,7 +94,7 @@ guide/modules/prospect/sales-types/) for information on prospect types. The pros
 
 #### The Prospect Probability
 
-Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. The prospect
+Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the [support documentation]https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/sales/probabilities/) for more information. The prospect
 probability contains the following:
 
 | Field | Type | Description |
@@ -521,6 +521,139 @@ fields:
 
 The response will be a list of [prospect types](#the-prospect-type) with their default fields and any additional fields
 requested through `_fields`, and displayed according to any pagination parameters used.
+
+
+
+
+
+### Get Prospect Probability
+> Sample Request
+
+```http
+GET /api/v0/prospects/probabilities/{probability_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/prospects/probabilities/{probability_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /prospects/probabilities/{probability_id}`
+
+This request returns the given [probability](#the-prospect-probability) specified by its `probability_id`.
+
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [prospect probability](#the-prospect-probability) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be the single [prospect probability](#the-prospect-probability) with its default fields and any additional fields requested through `_fields`.
+
+
+
+
+
+
+
+### List Prospect Probabilities
+> Sample Request
+
+```http
+GET /api/v0/prospects/probabilities HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/prospects/probabilities \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /prospect/probabilities`
+
+This request returns a list of all [probabilities](#the-prospect-probability) on the deployment.
+
+#### Configuring the Response
+
+#### Pagination
+
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+
+#### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [probability object](#the-prospect-probability) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name |
+|:-|
+| id |
+| value |
+
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name |
+|:-|
+| title |
+| ordering |
+| value |
+
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
+#### Handling the Response
+
+The response will be a list of prospect [probabilities](#the-prospect-probability) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+searches used.
+
+
+
+
+
+
+### Count Prospect Probabilities
+> Sample Request
+
+```http
+GET /api/v0/prospects/probabilities/count HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/prospects/probabilities/count \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /prospects/probabilities/count`
+
+This request will return a count of prospect probabilities in a list defined by any available searches of filters. With no searches of filters this will be a count of all prospects on the deployment. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the probabilities listed. |
 
 
 
