@@ -548,12 +548,14 @@ This request returns the given [probability](#the-prospect-probability) specifie
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects from the [prospect probability](#the-prospect-probability) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [prospect probability](#the-prospect-probability) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 #### Handling the Response
 
-The response will be the single [prospect probability](#the-prospect-probability) with its default fields and any additional fields requested through `_fields`.
+The response will be the single [prospect probability](#the-prospect-probability) with its default fields and any
+additional fields requested through `_fields`.
 
 
 
@@ -589,7 +591,8 @@ This request supports all the [pagination](#configuring-the-response-pagination)
 
 #### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects from the [probability object](#the-prospect-probability) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [probability object](#the-prospect-probability) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 
 ##### Basic Filters
@@ -624,7 +627,8 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 
 #### Handling the Response
 
-The response will be a list of prospect [probabilities](#the-prospect-probability) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+The response will be a list of prospect [probabilities](#the-prospect-probability) with their default fields and any
+additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
 searches used.
 
 
@@ -649,7 +653,8 @@ curl -X get \
 
 `GET /prospects/probabilities/count`
 
-This request will return a count of prospect probabilities in a list defined by any available searches of filters. With no searches of filters this will be a count of all prospects on the deployment. This request returns a single field:
+This request will return a count of prospect probabilities in a list defined by any available searches of filters. With
+no searches of filters this will be a count of all prospects on the deployment. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
