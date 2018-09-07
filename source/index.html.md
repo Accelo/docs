@@ -52,6 +52,7 @@ includes:
   - endpoints/tags
   - endpoints/tasks
   - endpoints/taxes
+  - endpoints/time_externals
   - endpoints/timers
   - endpoints/user
   - endpoints/webhooks
