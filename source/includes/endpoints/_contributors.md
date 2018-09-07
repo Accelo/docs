@@ -36,8 +36,8 @@ The contributor object contains the following:
 | against_type | string | The object the contributor was created against. |
 | against_id | unsigned | The unique identifier for the object the contributor was created against. |
 | object_type | string | The type of object linked by the contributor. |
-| object_id | unsiged | The unique id of the object linked by the contributor. |
-| type_id | unsiged | The id of the type of contributor. |
+| object_id | unsigned | The unique id of the object linked by the contributor. |
+| type_id | unsigned | The id of the type of contributor. |
 | auto_cc | boolean | Whether the contributor will be Auto-CC'd on correspondence. |
 
 
@@ -66,7 +66,7 @@ This request returns a single [contributor](#the-contributor-object), specified 
 This request supports requesting additional fields and linked objects from the [contributor](#the-contributor-object)
 using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Handling the Response 
+#### Handling the Response
 
 The response will be the single requested [contributor](#the-contributor-object) with its default fields and any
 additional fields requested through `_fields`.
@@ -153,13 +153,13 @@ This request supports [range filters](#filters-range-filters) over the following
 
 ##### Searching
 
-This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|
 | description |
 
-#### handling the Response  
+#### Handling the Response
 
 The response will be a list of [contributors](#the-contributor-object) on the Deployment, with their default fields and
 any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
@@ -191,7 +191,7 @@ curl -X get \
 `GET /contributors/count`
 
 This request will return a count of contributors in a list defined by any available searches of filters.
-With no searches or filters this will be a count of all incoivce on the deployment. This request
+With no searches or filters this will be a count of all contributors on the deployment. This request
 returns a single field:
 
 | Field | Type | Description |
