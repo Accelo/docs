@@ -252,7 +252,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id} \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id} \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -289,7 +289,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues \
+ https://{deployment}.api.accelo.com/api/v0/issues \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -439,7 +439,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/count \
+ https://{deployment}.api.accelo.com/api/v0/issues/count \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -469,7 +469,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/recent \
+ https://{deployment}.api.accelo.com/api/v0/issues/recent \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -507,7 +507,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/statuses \
+ https://{deployment}.api.accelo.com/api/v0/issues/statuses \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -622,7 +622,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/types \
+ https://{deployment}.api.accelo.com/api/v0/issues/types \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -710,7 +710,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/classes \
+ https://{deployment}.api.accelo.com/api/v0/issues/classes \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -915,7 +915,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id}/tasks \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id}/tasks \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -950,7 +950,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id} \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
 ```
@@ -1012,7 +1012,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/ \
+ https://{deployment}.api.accelo.com/api/v0/issues/ \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
 ```
@@ -1071,7 +1071,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deplyoment}.api.accelo.com/api/v0/issues/{issue_id} \
+ https://{deployment}.api.accelo.com/api/v0/issues/{issue_id} \
   -H 'authorization: Bearer {access_token}' \
 ```
 
@@ -1120,7 +1120,7 @@ where the object is "issues", and whose id is `{issue_id}`.
 
 
 
-### List all Profile Field Values on an Issue
+### List all Profile Field Values on Issues
 > See the [profiles section](#list-profile-values) for a sample request
 
 `GET /issues/profiles/values`
@@ -1203,6 +1203,17 @@ This request returns a list of [extension values](#the-extension-value-object) f
 `issue_id`. This is the request [`GET /{object}/{object_id}/extensions/values`](#retrieve-a-list-of-extension-field-
 values), where the object is "issues", and whose id is the `{issue_id}`.
 
+
+
+
+
+### List all Extension Field Values on Issues
+> See the [extension section](#list-extension-values) for an example
+
+`GET /issues/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) on [issues](#the-issue-object).
+This is the request [`GET /{object}/extensions/values`](#list-extension-values), where the object is "issues".
 
 
 

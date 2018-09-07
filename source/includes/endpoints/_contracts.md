@@ -6,7 +6,7 @@ Contracts (also known as retainers) are objects for managing recurring client wo
 invoicing - such as license fee. A contract is created against a company/client record (that is, an
 [affiliation](#affiliations)), and work is tracked against the contract through [periods](#the-contract-period). You can
 configure your contract to automatically create periods at certain intervals, and invoice up-front for a fixed amount or
-at the end of the period for the work done. See the [supportdocumentation](#https://www.accelo.com/resources/help/guides/user/modules/retainers/) 
+at the end of the period for the work done. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/retainers/)
 for more information on contracts/retainers.
 
 The contracts model integrates flawlessly with the the [issues](#issues) and [jobs](#jobs-projects) modules so that you
@@ -804,12 +804,12 @@ specified by its `contract_id`. This is the request
 
 
 
-### List all Profile Field Values on a Contract
+### List all Profile Field Values on Contracts
 > See the [profiles section](#list-profile-values) for a sample request
 
 `GET /contracts/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) on [contract](#the-contract-object).
+This request returns a list of all [profile field values](#the-profile-value-object) on [contracts](#the-contract-object).
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contracts".
 
 
@@ -822,7 +822,7 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 `GET /contracts/profiles/fields`
 
 This request returns a list of [profile fields](#the-profile-field-object) available for any [contract](#the-contract-object).
-This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contracts".
+This is the request [`GET /{object}/profiles/fields`](#list-profile-fields), where the object is "contracts".
 
 
 
@@ -837,6 +837,18 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 This request returns a list of [extension fields](#the-extension-field-object) available for an contract, specified by
 its `contract_id`. This is the request [`GET /{object}/extensions/fields`](#retrieve-a-list-of-extension-fields), where
 the object is "contracts".
+
+
+
+
+
+### List all Extensions Field Values on Contracts
+> See the [extension section](#list-extension-values) for an example
+
+`GET /contracts/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) on [contracts](#the-contract-object). This is the request
+[`GET /{object}/extensions/values`](#list-extension-values), where the object is "contracts".
 
 
 

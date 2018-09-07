@@ -853,6 +853,17 @@ where the object is "jobs", and whose id is the `job_id`.
 
 
 
+### List all Extension Field Values on Jobs
+> See the [extension section](#list-extension-values) for an example
+
+`GET /jobs/extensions/values`
+
+This request returns a list of [extension field values](#the-extension-value-object) on [jobs](#the-job-object).
+This is the request [`GET /{object}/extensions/values`](#list-extension-values), where the object is "jobs".
+
+
+
+
 
 
 ### Update an Extension Field Value on a Job
@@ -911,7 +922,7 @@ where the object is "jobs" whose id is `job_id`.
 This request uses the given progression, specified by its `progression_id` to progress a [job](#the-job-object),
 specified by its `jobs_id`. This is the request 
 [`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) 
-where theobject is "jobs" whose id is `job_id`.
+where the object is "jobs" whose id is `job_id`.
 
 
 

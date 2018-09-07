@@ -61,7 +61,7 @@ These are objects describing the custom field on the deployment, they contain th
 | required | select | Either "yes" or "no", whether this extension is required for the object it is linked to. |
 | archived | select | Either "yes" or "no", whether this extension is no longer in use and has been archived. |
 | exported | select | Either "yes" or "no", whether this extension is exported when the linked object is exported. |
-| important | select | Either "yes" or "no", whether this extension has been marked as "important" on the Accleo deployment. |
+| important | select | Either "yes" or "no", whether this extension has been marked as "important" on the Accelo deployment. |
 | default_value | dynamic | The default value for the field, the type will depend on the `field_type`. |
 | lookup_type | string | When `field_type` is lookup, this will contain the type of object for the lookup. |
 | information | string | Any extra information about the extension. |
@@ -139,7 +139,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/contraxts/extensions/fields
+ https://{deployment}.api.accelo.com/api/v0/contracts/extensions/fields
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -184,7 +184,7 @@ Authorization: Bearer {access_token}
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/contraxts/{contract_id}/extensions/values
+ https://{deployment}.api.accelo.com/api/v0/contracts/{contract_id}/extensions/values
   -H 'authorization: Bearer {access_token}'
 ```
 
