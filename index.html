@@ -10083,12 +10083,12 @@ Contributors link Staff or Affiliations to work like Jobs or issues.</p>
 </tr>
 <tr>
 <td style="text-align: left">object_id</td>
-<td style="text-align: left">unsiged</td>
+<td style="text-align: left">unsigned</td>
 <td style="text-align: left">The unique id of the object linked by the contributor.</td>
 </tr>
 <tr>
 <td style="text-align: left">type_id</td>
-<td style="text-align: left">unsiged</td>
+<td style="text-align: left">unsigned</td>
 <td style="text-align: left">The id of the type of contributor.</td>
 </tr>
 <tr>
@@ -10220,7 +10220,7 @@ additional fields requested through <code>_fields</code>.</p>
 </tr>
 </tbody></table>
 <h5 id='searching'>Searching</h5>
-<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> paramter to search over the following fields:</p>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter to search over the following fields:</p>
 
 <table><thead>
 <tr>
@@ -10231,7 +10231,7 @@ additional fields requested through <code>_fields</code>.</p>
 <td style="text-align: left">description</td>
 </tr>
 </tbody></table>
-<h4 id='handling-the-response-2'>handling the Response</h4>
+<h4 id='handling-the-response-2'>Handling the Response</h4>
 <p>The response will be a list of <a href="#the-contributor-object">contributors</a> on the Deployment, with their default fields and
 any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or
 searches used.</p>
@@ -10249,7 +10249,7 @@ Authorization: Bearer {access_token}
 <p><code>GET /contributors/count</code></p>
 
 <p>This request will return a count of contributors in a list defined by any available searches of filters.
-With no searches or filters this will be a count of all incoivce on the deployment. This request
+With no searches or filters this will be a count of all contributors on the deployment. This request
 returns a single field:</p>
 
 <table><thead>
@@ -22987,11 +22987,19 @@ and whose value is <code>staff_id</code>.</p>
 <code>api/v0/webhooks</code></p>
 </blockquote>
 
-<p>Webhooks allow you to build integrations that subscribe to specific Accelo events. Once an event is triggered, we will HTTP POST a payload to your registered callback URL containing event meta data and a resource URL. The resource URL can be used by your application to query the individual resource that fired the event. This is commonly referred to as Notification Webhooks.</p>
+<p>Webhooks allow you to build integrations that subscribe to specific Accelo events. Once an event is triggered, we will
+HTTP POST a payload to your registered callback URL containing event meta data and a resource URL. The resource URL can
+be used by your application to query the individual resource that fired the event. This is commonly referred to as
+Notification Webhooks.</p>
 
-<p>There&#39;s currently no limit on webhooks and they can be installed per deployment from an individual users account using the webhooks control panel. See <a href="https://www.accelo.com/resources/updates/2016-nov-27-dec-3/#webhooks">our blog</a> for more information, and how to access webhooks on the deployment. We do enforce a 10 second timeout rule. If your trigger URL takes more than 10 seconds to respond to webhook delivery, we will cancel the request. If this occurs too many times, we will delete your webhook subscription automatically.</p>
+<p>There&#39;s currently no limit on webhooks and they can be installed per deployment from an individual users account using
+the webhooks control panel. See <a href="https://www.accelo.com/resources/updates/2016-nov-27-dec-3/#webhooks">our blog</a> for
+more information, and how to access webhooks on the deployment. We do enforce a 10 second timeout rule. If your trigger
+URL takes more than 10 seconds to respond to webhook delivery, we will cancel the request. If this occurs too many
+times, we will delete your webhook subscription automatically.</p>
 <h3 id='webhook-subscriptions'>Webhook Subscriptions</h3><h4 id='webhook-events'>Webhook Events</h4>
-<p>When subscribing to webhooks you choose an event that you would like to receive payloads for. Each event corresponds to a certain set of actions on a per object basis. The available events are:</p>
+<p>When subscribing to webhooks you choose an event that you would like to receive payloads for. Each event corresponds to
+a certain set of actions on a per object basis. The available events are:</p>
 
 <table><thead>
 <tr>
@@ -23027,13 +23035,20 @@ and whose value is <code>staff_id</code>.</p>
 <td style="text-align: left">update_issue</td>
 <td style="text-align: left">Any time an <a href="#issues">issue</a> is updated.</td>
 </tr>
+<tr>
+<td style="text-align: left">create_contact</td>
+<td style="text-align: left">Any time a <a href="#contacts">contact</a> is created.</td>
+</tr>
+<tr>
+<td style="text-align: left">update_contact</td>
+<td style="text-align: left">Any time a <a href="#contacts">contact</a> is updated.</td>
+</tr>
 </tbody></table>
 <h5 id='progression-webhooks'>Progression Webhooks</h5>
-<p><a href="https://www.accelo.com/resources/blog/product-priorities-update-q2-of-2017/#progressionwebhooks]">Progression webhooks</a> 
-allow you to subscribe to changing statuses for companies, contacts, 
-prospects, jobs, issues and contracts. Currently you can only do this from 
-the web application&#39;s administration page but there are plans to expose this 
-functionality to the api.</p>
+<p><a href="https://www.accelo.com/resources/blog/product-priorities-update-q2-of-2017/#progressionwebhooks">Progression webhooks</a>
+allow you to subscribe to changing statuses for companies, contacts,  prospects, jobs, issues and contracts. Currently
+you can only do this from  the web application&#39;s administration page but there are plans to expose this  functionality
+to the api.</p>
 
 <p><img src="images/screenshots/add-progression-webhook-button-annotated.png" alt="Add Webhook Progression Button" />
 [Create Progression Action Button]</p>
@@ -23062,7 +23077,8 @@ functionality to the api.</p>
 </tr>
 </tbody></table>
 <h4 id='delivery-headers'>Delivery Headers</h4>
-<p>As well as the information in the  <a href="#payloads">payload body</a>, the headers of HTTP request sent to  the payload URL will contain special headers:</p>
+<p>As well as the information in the <a href="#payloads">payload body</a>, the headers of HTTP request sent to  the payload URL will
+contain special headers:</p>
 
 <table><thead>
 <tr>
@@ -23147,7 +23163,9 @@ functionality to the api.</p>
 </tr>
 </tbody></table>
 <h4 id='unsubscribing'>Unsubscribing</h4>
-<p>Your integration can tell Accelo to automatically unsubscribe by responding with a HTTP Status Gone 410. The dispatcher will respect this and instantly remove the subscription that caused the webhook trigger. Alternatively you can use the <a href="#delete-webhook-subscription">delete subscription endpoint</a> mentioned below.</p>
+<p>Your integration can tell Accelo to automatically unsubscribe by responding with a HTTP Status Gone 410. The dispatcher
+will respect this and instantly remove the subscription that caused the webhook trigger. Alternatively you can use the
+<a href="#delete-webhook-subscription">delete subscription endpoint</a> mentioned below.</p>
 <h3 id='list-webhook-subscriptions'>List Webhook Subscriptions</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -23161,7 +23179,8 @@ functionality to the api.</p>
 </code></pre>
 <p><code>GET /webhooks/subscriptions</code></p>
 
-<p>This request returns a list of <a href="#webhook-subscriptions">webhook subscriptions</a> for the current user. This request takes no parameters.</p>
+<p>This request returns a list of <a href="#webhook-subscriptions">webhook subscriptions</a> for the current user. This request takes
+no parameters.</p>
 <h3 id='list-webhook-subscription-types'>List Webhook Subscription Types</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -23175,7 +23194,8 @@ functionality to the api.</p>
 </code></pre>
 <p><code>GET /webhooks/subscriptions/types</code></p>
 
-<p>This request returns a list of  available <a href="#webhook-subscription-types">webhook subscription types</a>. This request takes no parameters.</p>
+<p>This request returns a list of  available <a href="#webhook-subscription-types">webhook subscription types</a>. This request takes
+no parameters.</p>
 <h3 id='create-webhook-subscription'>Create Webhook Subscription</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -23191,7 +23211,8 @@ functionality to the api.</p>
 </code></pre>
 <p><code>POST /webhooks/subscriptions</code></p>
 
-<p>This request creates and returns a <a href="#webhook-subscriptions">webhook subscription</a> for the current user. This request takes no parameters to configure the response.</p>
+<p>This request creates and returns a <a href="#webhook-subscriptions">webhook subscription</a> for the current user. This request
+takes no parameters to configure the response.</p>
 <h4 id='configuring-the-subscription'>Configuring the Subscription</h4>
 <p>The following fields may be set through this Sample Request:  </p>
 
@@ -23231,7 +23252,8 @@ functionality to the api.</p>
 </code></pre>
 <p><code>DELETE /webhooks/subscriptions/{subscription_id}</code></p>
 
-<p>This request deletes a webhook subscription, identified by its <code>subscription_id</code>. It takes no parameters and returns no resources.</p>
+<p>This request deletes a webhook subscription, identified by its <code>subscription_id</code>. It takes no parameters and returns no
+resources.</p>
 <h3 id='trigger-a-webhook-subscription'>Trigger a Webhook Subscription</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -23245,7 +23267,10 @@ functionality to the api.</p>
 </code></pre>
 <p><code>POST /webhooks/subscription/{subscription_id}/trigger</code></p>
 
-<p>This request manually triggers a given subscription, identified by its <code>subscription_id</code>.  This will queue the event to all other subscriptions and execute asynchronously. Use this if you want to trigger a subscription for an event for others, otherwise see <a href="#dispatch-a-webhook-subscription">dispatch a webhook subscription</a>. This request takes the following parameter:</p>
+<p>This request manually triggers a given subscription, identified by its <code>subscription_id</code>.  This will queue the event to
+all other subscriptions and execute asynchronously. Use this if you want to trigger a subscription for an event for
+others, otherwise see <a href="#dispatch-a-webhook-subscription">dispatch a webhook subscription</a>. This request takes the
+following parameter:</p>
 
 <table><thead>
 <tr>
@@ -23275,7 +23300,10 @@ functionality to the api.</p>
 </code></pre>
 <p><code>POST /webhooks/subscriptions/{subscription_id}/dispatch</code></p>
 
-<p>This request manually dispatches a given subscription, identified by its <code>subscription_id</code>. This will dispatch synchronously, and unlike triggering, this will only execute the current subscription so other subscriptions of the event will not be affected. As this is performed synchronously you will get the HTTP status of the webhook result. This request takes the following parameter:</p>
+<p>This request manually dispatches a given subscription, identified by its <code>subscription_id</code>. This will dispatch
+synchronously, and unlike triggering, this will only execute the current subscription so other subscriptions of the
+event will not be affected. As this is performed synchronously you will get the HTTP status of the webhook result. This
+request takes the following parameter:</p>
 
 <table><thead>
 <tr>
