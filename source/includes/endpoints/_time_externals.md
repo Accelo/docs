@@ -3,7 +3,7 @@
 `/api/v0/time_externals`
 
 Time Externals are imported appointments from calendars such as Google, Exchange, or Outlook. Once they are
-imported and turned into [activities](the-activity-object) you can use them on your schedule and entries on your
+imported and turned into [activities](#the-activity-object) you can use them on your schedule and entries on your
 timesheet. See the [support documentation](https://www.accelo.com/resources/help/guides/user/timers-timesheets-and-
 scheduling/schedules/external-appointments-in-your-schedule/) for more information on time externals.
 
@@ -229,6 +229,6 @@ curl -X get \
 
 `POST /time/externals/:time_external_id/convert_to_meeting` 
 
-This request will convert the external into an [activity](the-activity-object) as a [meeting](activity-medium). It will
-also create a second [activity](the-activity-object) as a [report](activity-medium) on the meeting. This is the process
+This request will convert the external into an [activity](#the-activity-object) as a [meeting](#activity-medium). It will
+also create a second [activity](#the-activity-object) as a [report](#activity-medium) on the meeting. This is the process
 to converting the external appointment as a workable entry to use in Accelo.
