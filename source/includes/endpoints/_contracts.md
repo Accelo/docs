@@ -6,7 +6,7 @@ Contracts (also known as retainers) are objects for managing recurring client wo
 invoicing - such as license fee. A contract is created against a company/client record (that is, an
 [affiliation](#affiliations)), and work is tracked against the contract through [periods](#the-contract-period). You can
 configure your contract to automatically create periods at certain intervals, and invoice up-front for a fixed amount or
-at the end of the period for the work done. See the [support documentation](#https://www.accelo.com/resources/help/guides/user/modules/retainers/)
+at the end of the period for the work done. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/retainers/)
 for more information on contracts/retainers.
 
 The contracts model integrates flawlessly with the the [issues](#issues) and [jobs](#jobs-projects) modules so that you
