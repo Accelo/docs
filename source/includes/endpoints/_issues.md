@@ -1212,7 +1212,7 @@ values), where the object is "issues", and whose id is the `{issue_id}`.
 
 `GET /issues/extensions/values`
 
-This request returns a list of [extension field values](#the-extension-value-object) on [issues](the-issue-object).
+This request returns a list of [extension field values](#the-extension-value-object) on [issues](#the-issue-object).
 This is the request [`GET /{object}/extensions/values`](#list-extension-values), where the object is "issues".
 
 
