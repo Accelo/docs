@@ -901,8 +901,8 @@ Values for the following fields may be set through this request.
 | Field | Notes |
 |:-|:-|
 | **subject** | Activity's subject that will appear in the title of the activity. |
-| **against_id** | The id of the against_table object, the activity is linked against. This will default to the current user's id. |
-| **against_type** | The object the activity is linked against. This can be: affiliation, annex, campaign, account_invoice, campaign_action, component, contract, contract_period, deployment, event, invoice, issue, job, membership, prospect, request, task or staff. This will default to staff. |
+| **against_id** | The id of the against_table object, the activity is linked against. |
+| **against_type** | The object the activity is linked against. This can be: affiliation, annex, campaign, account_invoice, campaign_action, component, contract, contract_period, deployment, event, invoice, issue, job, membership, prospect, request, task or staff. |
 | body | The content of the activity. |
 | medium | Type of activity to create. This can be: 'note', 'meeting', 'email', or 'call'. This will default to note. |
 | owner_type | The activity can be owned by a staff member or an affiliation. The owner defaults to the current user |
