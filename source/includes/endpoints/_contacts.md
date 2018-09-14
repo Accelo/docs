@@ -129,7 +129,26 @@ This request supports [date filters](#filters-date-filters) over the following f
 |:-|
 | date_created |
 | date_modified |
+| date_last_modified |
 
+
+#### Order Filters
+
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Filter Name |
+|:-|
+| id |
+| fullname |
+| firstname |
+| username |
+| surname |
+| title |
+| contact_status_id |
+| standing |
+| date_modified |
+| date_created |
+| date_last_modified |
 
 #### Range Filters
 
