@@ -387,7 +387,7 @@ This request accepts all fields from  the [`PUT \contacts`](#update-a-contact) r
 | Field | Type | Notes |
 |:-|:-|:-|
 | **company_id** | unsigned | Must point to a valid company. This is the company the new affiliated contact will be associated with. |
-| country_id | usigned | Must point to a valid country |
+| country_id | unsigned | Must point to a valid country |
 | physical_address_id | unsigned | Must point to a valid address. |
 | postal_address_id | unsigned | Must point to a valid address. |
 | phone | string | The contact's phone number in their role in the associated company. For example, their work number. |
