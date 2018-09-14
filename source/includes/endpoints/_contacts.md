@@ -25,6 +25,7 @@ The contact object contains the following fields and linked objects:
 | timezone | string | The contact's timezone. |
 | date_created | unix ts | The date the contact was added on the Accelo deployment. |
 | date_modified | unix ts | The date the contact was last modified. |
+| date_last_interacted | unix ts | The most recent date of interaction with the contact. |
 | comments | string | Any comments or notes made against the contact. |
 | default_affiliation | unsigned | The unique identifier of the default [affiliation](#affiliations) associated with the contact. |
 | status | unsigned or object | The [status](#statuses) of the contact. |
@@ -129,7 +130,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 |:-|
 | date_created |
 | date_modified |
-| date_last_modified |
+| date_last_interacted |
 
 
 #### Order Filters
@@ -148,7 +149,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | date_modified |
 | date_created |
-| date_last_modified |
+| date_last_interacted |
 
 #### Range Filters
 
