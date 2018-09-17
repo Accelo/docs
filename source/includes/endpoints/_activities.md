@@ -1062,7 +1062,7 @@ curl -X delete \
   https://{deployment}.api.accelo.com/api/v0/activities/{activity_id} \
   -H 'authorization: Bearer {access_token}'
 ```
-`DELETE /activity/{activity_id}`
+`DELETE /activities/{activity_id}`
 
 This request will delete the activity identified by its `activity_id`. This request takes no parameters and returns no
 resources.
