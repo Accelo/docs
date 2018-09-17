@@ -907,7 +907,7 @@ Values for the following fields may be set through this request.
 | medium | Type of activity to create. This can be: 'note', 'meeting', 'email', or 'call'. This will default to note. |
 | owner_type | The activity can be owned by a staff member or an affiliation. The owner defaults to the current user |
 | owner_id | Owner's id. i.e, the staff or affiliation id of owner_table. |
-| visibility | Defaults to `private` unless you are POSTing from a service application, in which case it defaults to `all`.|
+| visibility | Defaults to `private`. |
 | details | Additional details assigned to an activity. For meetings and postals this is used to store the location/address. For calls this is used to store the number. |
 | priority_id | The unique identifier of the [priority](#the-activity-priority) to be linked to the new activity. |
 | class_id | The unique identifier of the [class](#the-activity-class) to be linked to the new activity. |
@@ -956,8 +956,9 @@ Each object accepts a staff or affiliation (identified by their id) or a general
 
 #### Logging time
 
-The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no
-time allocation is created against the new activity. i.e, the user who the time belongs to.
+In order to log time when creating an activity visibility must be set to `all`. The owner_id of the activty and time logged
+will default to the current user. You can changed this by setting the `owner_type` and `owner_id`.
+
 
 #### Logging time against a task
 
