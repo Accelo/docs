@@ -1,9 +1,9 @@
 # Introduction
 Welcome to Accelo's Public REST API documentation. Here you will find resources and information to help you use the API.
 
-**Want to contribute?** - to contribute or [report errors](https://github.com/Accelo/docs/issues/new) in documentation, please visit our [github repository](https://github.com/Accelo/docs). 
+**Developer Forum** - Connect with other developers on our [developer forum / mailing list](https://groups.google.com/forum/#!forum/accelo-devs).
+Use this space to ask any questions and report errors in the documentation.
 
-**Need help?** - try asking on the [developer forum / mailing list](https://groups.google.com/forum/#!forum/accelo-devs'>Developer Forum).
 
 ## Registering your Application
 Before doing anything, you will need to register your application with Accelo. This is done from your deployment under "Configuration" → "API" → "Register Application". Accelo currently offers three types of applications:
