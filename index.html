@@ -1385,6 +1385,15 @@
                           <a href="#list-prospect-types" class="toc-h3 toc-link" data-title="Endpoints">List Prospect Types</a>
                         </li>
                         <li>
+                          <a href="#get-prospect-probability" class="toc-h3 toc-link" data-title="Endpoints">Get Prospect Probability</a>
+                        </li>
+                        <li>
+                          <a href="#list-prospect-probabilities" class="toc-h3 toc-link" data-title="Endpoints">List Prospect Probabilities</a>
+                        </li>
+                        <li>
+                          <a href="#count-prospect-probabilities" class="toc-h3 toc-link" data-title="Endpoints">Count Prospect Probabilities</a>
+                        </li>
+                        <li>
                           <a href="#update-a-prospect" class="toc-h3 toc-link" data-title="Endpoints">Update a Prospect</a>
                         </li>
                         <li>
@@ -1973,11 +1982,12 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to Accelo&#39;s Public REST API documentation. Here you will find resources and information to help you use the API.</p>
 
-<p><strong>Want to contribute?</strong> - to contribute or <a href="https://github.com/Accelo/docs/issues/new">report errors</a> in documentation, please visit our <a href="https://github.com/Accelo/docs">github repository</a>. </p>
-
-<p><strong>Need help?</strong> - try asking on the <a href="https://groups.google.com/forum/#!forum/accelo-devs'&gt;Developer%20Forum">developer forum / mailing list</a>.</p>
+<p><strong>Developer Forum</strong> - Connect with other developers on our <a href="https://groups.google.com/forum/#!forum/accelo-devs">developer forum / mailing list</a>.
+Use this space to ask any questions and report errors in the documentation.</p>
 <h2 id='registering-your-application'>Registering your Application</h2>
-<p>Before doing anything, you will need to register your application with Accelo. This is done from your deployment under &quot;Configuration&quot; → &quot;API&quot; → &quot;Register Application&quot;. Accelo currently offers three types of applications:</p>
+<p>Before doing anything, you will need to register your application with Accelo. This is
+done from your deployment under &quot;Configuration&quot; → &quot;API&quot; → &quot;Register Application&quot;. Accelo currently offers three types of
+applications:</p>
 
 <ul>
 <li>Installed Application</li>
@@ -1994,7 +2004,8 @@
 </blockquote>
 <pre class="highlight plaintext"><code>https://planet-express.api.accelo.com/api/v0
 </code></pre>
-<p>Your Accelo deployment will be given a unique deployment (or hostname), from this we can form the URI for each resource, which will have a form like:</p>
+<p>Your Accelo deployment will be given a unique deployment (or hostname), from this we can form the URI for each resource,
+which will have a form like:</p>
 
 <p><code>https://{deployment}.api.accelo.com/api/v0</code></p>
 
@@ -2007,14 +2018,18 @@
 </blockquote>
 <pre class="highlight plaintext"><code>https://planet-express.api.accelo.com/api/v0/staff
 </code></pre>
-<p>Keep in mind, for an installed or web application we will want to use the end-user&#39;s deployment, not the API&#39;s deployment. Note, all authorization endpoints are accessed through the OAuth2.0 base URI, which is different from the resource base URI, see the <a href="#oauth2-uri">authentication section</a> for more information.</p>
+<p>Keep in mind, for an installed or web application we will want to use the end-user&#39;s deployment, not the API&#39;s
+deployment. Note, all authorization endpoints are accessed through the OAuth2.0 base URI, which is different from the
+resource base URI, see the <a href="#oauth2-uri">authentication section</a> for more information.</p>
 <h2 id='response-and-request-structure'>Response and Request Structure</h2>
 <blockquote>
 <p>Sample request to return a list of <a href="#staff">staff</a> as XML:  </p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://{deployment}.api.accelo.com/api/v0/staff.xml
 </code></pre>
-<p>By default, all resource requests return JSON <code>(application/json)</code>. You may also request the response in XML or YAML by either setting the <code>Accept-Type</code> header to <code>text/xml</code> or <code>text/x-yaml</code>, or by appending the extension type to the end of the request resource.</p>
+<p>By default, all resource requests return JSON <code>(application/json)</code>. You may also request the response in XML or YAML by
+either setting the <code>Accept-Type</code> header to <code>text/xml</code> or <code>text/x-yaml</code>, or by appending the extension type to the end of
+the request resource.</p>
 
 <blockquote>
 <p>Sample response with no suppression:  </p>
@@ -2040,7 +2055,8 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='the-meta-object'>The Meta Object</h3>
-<p>Each request made will return two objects, a meta object, and a response object. The response object contains the requested response data. The meta object contains the following:</p>
+<p>Each request made will return two objects, a meta object, and a response object. The response object contains the
+requested response data. The meta object contains the following:</p>
 
 <table><thead>
 <tr>
@@ -2101,7 +2117,9 @@
 
 <p>They make take values of either &quot;1&quot; or &quot;yes&quot;, for example to suppress all meta we could use <code>_suppress_meta=yes</code> or <code>_suppress_meta=1</code>.</p>
 <h3 id='default-and-required-fields'>Default and Required Fields</h3>
-<p>A resource will only return a small number of fields by default, these fields will be in bold in the resource&#39;s table of fields and linked objects. Similarly, POST request will generally require values for some fields, these fields will be in bold within the endpoint&#39;s description.</p>
+<p>A resource will only return a small number of fields by default, these fields will be in bold in the resource&#39;s table of
+fields and linked objects. Similarly, POST request will generally require values for some fields, these fields will be
+in bold within the endpoint&#39;s description.</p>
 
 <p>The following parameter may be used to hide the default fields that would be returned in the response:</p>
 
@@ -2117,7 +2135,8 @@
 </tr>
 </tbody></table>
 <h2 id='overriding-the-request-method'>Overriding the Request Method</h2>
-<p>We understand that certain types of requests are not always available to the client. In response to this we allow you to override the request method using the <code>_method</code> parameter, this can take one of four values:</p>
+<p>We understand that certain types of requests are not always available to the client. In response to this we allow you to
+override the request method using the <code>_method</code> parameter, this can take one of four values:</p>
 
 <table><thead>
 <tr>
@@ -2150,17 +2169,22 @@
 GET /companies/10?_method=delete
 POST /companies/10?_method=delete
 </code></pre><h2 id='json-content-types'>JSON Content Types</h2>
-<p>Requests may also be sent as JSON. This can greatly simplify the client side implementation as it offers filters and fields that translate well to programmatic structures. This may also be necessary when you wish to search or filter using non-alphanumeric characters e.g &quot;@&quot;, &quot;.&quot; or special or accented characters e.g. &quot;à&quot;, &quot;ç&quot;, &quot;ö&quot;.</p>
+<p>Requests may also be sent as JSON. This can greatly simplify the client side implementation as it offers filters and
+fields that translate well to programmatic structures. This may also be necessary when you wish to search or filter
+using non-alphanumeric characters e.g &quot;@&quot;, &quot;.&quot; or special or accented characters e.g. &quot;à&quot;, &quot;ç&quot;, &quot;ö&quot;.</p>
 <h3 id='parsing-_fields-as-json'>Parsing _fields as JSON</h3>
 <blockquote>
-<p>Translating &quot;_fields&quot; from query to json, query:<br>
-`_fields=status(color),username,company(_ALL)</p>
+<p>Translating &quot;_fields&quot; from query to json, query:
+<code>_fields=status(color),username,company(_ALL)</code></p>
 
-<p>Equivalent JSON &quot;_fields&quot; object:  </p>
+<p>Equivalent JSON &quot;_fields&quot; object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="s2">"_fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status(color), username, company(_ALL)"</span><span class="w">
 </span></code></pre>
-<p>When sending JSON data with your request, the <code>&quot;_fields&quot;</code> key should hold a string of the desired fields and linked objects, separated by a comma. For example, the query <code>_fields=status</code> would be equivalent to including <code>&quot;_fields&quot;: &quot;status&quot;</code> in the JSON body. The same method is used to request additional objects and their fields as for queries, the &quot;_ALL&quot; value also works as for queries.. </p>
+<p>When sending JSON data with your request, the <code>&quot;_fields&quot;</code> key should hold a string of the desired fields and linked
+objects, separated by a comma. For example, the query <code>_fields=status</code> would be equivalent to including <code>&quot;_fields&quot;:
+&quot;status&quot;</code> in the JSON body. The same method is used to request additional objects and their fields as for queries, the
+&quot;_ALL&quot; value also works as for queries..</p>
 <h3 id='parsing-_filters-as-json'>Parsing _filters as JSON</h3>
 <blockquote>
 <p>Example, converting a query list of filters to JSON:<br>
@@ -2168,7 +2192,7 @@ POST /companies/10?_method=delete
 rate_charged_greater_than(10),order_by_desc(status)
 </code></p>
 
-<p>Equivalent JSON &quot;_filters&quot; object:</p>
+<p>Equivalent JSON &quot;_filters&quot; object</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"_filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">],</span><span class="w">
@@ -2177,7 +2201,10 @@ rate_charged_greater_than(10),order_by_desc(status)
   </span><span class="s2">"order_by_desc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Filters are sent through JSON bodies using the <code>_filters</code> key, which hold a hash of keys (filter names) and values (the values to be filtered). For example applying the filter <code>_filters=id(12,13),status(3,1)</code> would be equivalent to including in the value of <code>&quot;_filters&quot;</code> the pair <code>&quot;id&quot;: [12,13], &quot;status&quot;: [3,1]</code>. This basic key-value pairing works for all filters outside of object filters.</p>
+<p>Filters are sent through JSON bodies using the <code>_filters</code> key, which hold a hash of keys (filter names) and values (the
+values to be filtered). For example applying the filter <code>_filters=id(12,13),status(3,1)</code> would be equivalent to
+including in the value of <code>&quot;_filters&quot;</code> the pair <code>&quot;id&quot;: [12,13], &quot;status&quot;: [3,1]</code>. This basic key-value pairing works for
+all filters outside of object filters.</p>
 
 <blockquote>
 <p>Example object filter query and json. Here we are using the against and referrer filters of issues.</p>
@@ -2195,9 +2222,14 @@ rate_charged_greater_than(10),order_by_desc(status)
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>There are two ways to generate object filters though JSON bodies. The first is by simply building them from the corresponding basic filters, for example the filter <code>against(company(32))</code> is equivalent to <code>against_type(company),against_id(32)</code>, which can be parsed into JSON as shown above. The other is to build a nested JSON object of the form <code>&quot;&lt;object_filter&gt;&quot;: [{ &quot;&lt;object_type&gt;&quot;: [&quot;&lt;object id&gt;&quot;] }]</code>.</p>
+<p>There are two ways to generate object filters though JSON bodies. The first is by simply building them from the
+corresponding basic filters, for example the filter <code>against(company(32))</code> is equivalent to
+<code>against_type(company),against_id(32)</code>, which can be parsed into JSON as shown above. The other is to build a nested
+JSON object of the form <code>&quot;&lt;object_filter&gt;&quot;: [{ &quot;&lt;object_type&gt;&quot;: [&quot;&lt;object id&gt;&quot;] }]</code>.</p>
 <h3 id='parsing-_search-as-json'>Parsing _search as JSON</h3>
-<p>Parsing a search through <code>_search</code> in JSON is simply a matter of assigning a string to be searched to the key &quot;_search&quot;. For example searching for a contact with name &quot;Hubert Farnsworth&quot; may be done in a query through <code>_search=(Hubert+Farnsworth)</code>, or in a JSON request by adding <code>&quot;_search&quot;: &quot;Hubert Farnsworth&quot;</code>.</p>
+<p>Parsing a search through <code>_search</code> in JSON is simply a matter of assigning a string to be searched to the key
+&quot;_search&quot;. For example searching for a contact with name &quot;Hubert Farnsworth&quot; may be done in a query through
+<code>_search=(Hubert+Farnsworth)</code>, or in a JSON request by adding <code>&quot;_search&quot;: &quot;Hubert Farnsworth&quot;</code>.</p>
 <h2 id='rate-limiting'>Rate Limiting</h2>
 <blockquote>
 <p>Meta object for a 429 response:</p>
@@ -2209,11 +2241,9 @@ rate_charged_greater_than(10),order_by_desc(status)
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Requests to the API will be limited to 5000/hour per deployment, this is to protect
-the quality of the service offered by the API. Authentication or authorization requests
-(those made to <code>/ouath2</code> endpoints) will not be limited and will not be counted
-against this limit.
-Requests made after exceeding this limit  will return a <code>429</code> error.</p>
+<p>Requests to the API will be limited to 5000/hour per deployment, this is to protect the quality of the service offered
+by the API. Authentication or authorization requests (those made to <code>/ouath2</code> endpoints) will not be limited and will
+not be counted against this limit. Requests made after exceeding this limit  will return a <code>429</code> error.</p>
 
 <p>The following headers have also been added to track usage rates:</p>
 
@@ -2241,9 +2271,8 @@ Requests made after exceeding this limit  will return a <code>429</code> error.<
 </tr>
 </tbody></table>
 
-<p><strong>Note:</strong> Rate limiting is currently in a monitoring stage and not enforced. We
-will look to see if any deployments are exceeding this limit and look to optimise
-their usage before fully implementing and enforcing any limitations.</p>
+<p><strong>Note:</strong> Rate limiting is currently in a monitoring stage and not enforced. We will look to see if any deployments are
+exceeding this limit and look to optimise their usage before fully implementing and enforcing any limitations.</p>
 <h1 id='configuring-responses'>Configuring Responses</h1>
 <p>There are several tools available to configure the response from the API:</p>
 
@@ -18166,7 +18195,7 @@ guide/modules/prospect/sales-types/">support documentation</a> for information o
 </tr>
 </tbody></table>
 <h4 id='the-prospect-probability'>The Prospect Probability</h4>
-<p>Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. The prospect
+<p>Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/sales/probabilities/">support documentation</a> for more information. The prospect
 probability contains the following:</p>
 
 <table><thead>
@@ -18702,6 +18731,123 @@ fields:</p>
 <h4 id='handling-the-response-5'>Handling the Response</h4>
 <p>The response will be a list of <a href="#the-prospect-type">prospect types</a> with their default fields and any additional fields
 requested through <code>_fields</code>, and displayed according to any pagination parameters used.</p>
+<h3 id='get-prospect-probability'>Get Prospect Probability</h3>
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/prospects/probabilities/{probability_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/prospects/probabilities/<span class="o">{</span>probability_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /prospects/probabilities/{probability_id}</code></p>
+
+<p>This request returns the given <a href="#the-prospect-probability">probability</a> specified by its <code>probability_id</code>.</p>
+<h4 id='configuring-the-response-5'>Configuring the Response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-prospect-probability">prospect probability</a> 
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response-6'>Handling the Response</h4>
+<p>The response will be the single <a href="#the-prospect-probability">prospect probability</a> with its default fields and any
+additional fields requested through <code>_fields</code>.</p>
+<h3 id='list-prospect-probabilities'>List Prospect Probabilities</h3>
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/prospects/probabilities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/prospects/probabilities <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /prospect/probabilities</code></p>
+
+<p>This request returns a list of all <a href="#the-prospect-probability">probabilities</a> on the deployment.</p>
+<h4 id='configuring-the-response-6'>Configuring the Response</h4><h4 id='pagination-4'>Pagination</h4>
+<p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h4 id='additional-fields-and-linked-objects-4'>Additional Fields and Linked Objects</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-prospect-probability">probability object</a> 
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters-4'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+</tr>
+</tbody></table>
+<h5 id='order-filters-4'>Order Filters</h5>
+<p>This request supports the following <a href="#filters-order-filters">order filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+</tr>
+</tbody></table>
+<h5 id='searching-4'>Searching</h5>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter to search over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-7'>Handling the Response</h4>
+<p>The response will be a list of prospect <a href="#the-prospect-probability">probabilities</a> with their default fields and any
+additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or
+searches used.</p>
+<h3 id='count-prospect-probabilities'>Count Prospect Probabilities</h3>
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/prospects/probabilities/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/prospects/probabilities/count <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /prospects/probabilities/count</code></p>
+
+<p>This request will return a count of prospect probabilities in a list defined by any available searches of filters. With
+no searches of filters this will be a count of all prospects on the deployment. This request returns a single field:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>count</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A count of the probabilities listed.</td>
+</tr>
+</tbody></table>
 <h3 id='update-a-prospect'>Update a Prospect</h3>
 <blockquote>
 <p>Sample Request:  </p>
@@ -18786,10 +18932,10 @@ requested through <code>_fields</code>, and displayed according to any paginatio
 </tbody></table>
 
 <p>See the <a href="#the-prospect-object">prospect object</a> for more information on these fields.</p>
-<h4 id='configuring-the-response-5'>Configuring the Response</h4>
+<h4 id='configuring-the-response-7'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-prospect-object">prospect object</a>
 using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h4 id='handling-the-response-6'>Handling the Response</h4>
+<h4 id='handling-the-response-8'>Handling the Response</h4>
 <p>The response will be the single, updated <a href="#the-prospect-object">prospect object</a> with its default fields and any
 additional fields requested through <code>_fields</code>.</p>
 <h3 id='create-a-prospect'>Create a Prospect</h3>
@@ -18846,7 +18992,7 @@ type_id=3
 <td style="text-align: left">The starting status for the progression. Defaults to the status with the lowest <code>ordering</code>. <strong>Note</strong> this will skip any progressions.</td>
 </tr>
 </tbody></table>
-<h4 id='handling-the-response-7'>Handling the Response</h4>
+<h4 id='handling-the-response-9'>Handling the Response</h4>
 <p>The response will be the newly created prospect with its default fields and any additional fields requested through
 <code>_fields</code></p>
 <h3 id='list-a-prospect-39-s-profile-field-values'>List a Prospect&#39;s Profile Field Values</h3>
