@@ -94,7 +94,7 @@ guide/modules/prospect/sales-types/) for information on prospect types. The pros
 
 #### The Prospect Probability
 
-Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the [support documentation]https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/sales/probabilities/) for more information. The prospect
+Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/sales/probabilities/) for more information. The prospect
 probability contains the following:
 
 | Field | Type | Description |
