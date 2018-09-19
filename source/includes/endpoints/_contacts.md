@@ -25,6 +25,7 @@ The contact object contains the following fields and linked objects:
 | timezone | string | The contact's timezone. |
 | date_created | unix ts | The date the contact was added on the Accelo deployment. |
 | date_modified | unix ts | The date the contact was last modified. |
+| date_last_interacted | unix ts | The most recent date of interaction with the contact. |
 | comments | string | Any comments or notes made against the contact. |
 | default_affiliation | unsigned | The unique identifier of the default [affiliation](#affiliations) associated with the contact. |
 | status | unsigned or object | The [status](#statuses) of the contact. |
@@ -129,7 +130,26 @@ This request supports [date filters](#filters-date-filters) over the following f
 |:-|
 | date_created |
 | date_modified |
+| date_last_interacted |
 
+
+#### Order Filters
+
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Filter Name |
+|:-|
+| id |
+| fullname |
+| firstname |
+| username |
+| surname |
+| title |
+| contact_status_id |
+| standing |
+| date_modified |
+| date_created |
+| date_last_interacted |
 
 #### Range Filters
 
@@ -368,7 +388,7 @@ This request accepts all fields from  the [`PUT \contacts`](#update-a-contact) r
 | Field | Type | Notes |
 |:-|:-|:-|
 | **company_id** | unsigned | Must point to a valid company. This is the company the new affiliated contact will be associated with. |
-| country_id | usigned | Must point to a valid country |
+| country_id | unsigned | Must point to a valid country |
 | physical_address_id | unsigned | Must point to a valid address. |
 | postal_address_id | unsigned | Must point to a valid address. |
 | phone | string | The contact's phone number in their role in the associated company. For example, their work number. |
