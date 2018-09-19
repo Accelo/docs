@@ -324,6 +324,147 @@ The response will be the single, created [quote object](#the-quote-object) with 
 
 
 
+### Get Quote Status
+> Sample Request:
+
+```http
+GET /api/v0/quotes/statuses/{status_id} HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/quotes/statuses/{status_id} \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET /quotes/statuses/{status_id}`
+
+This request returns the quote [status](#statuses) specified by its `status_id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be a quote [status object](#statuses) for the specified status with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
+
+### List Quote Statuses
+> Sample Request:
+
+```http
+GET /api/v0/quotes/statuses HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/quotes/statuses \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /quotes/statuses`
+
+This request returns a list of [statuses](#statuses) for quotes on the deployment.
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+| ordering |
+
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
+#### Handling the Response
+
+The request will return a list of quote [statuses](#statuses) with their default fields and
+any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
+searches used.
+
+
+
+
+
+### Count Prospect Statuses
+> Sample Request:
+
+```http
+GET /api/v0/quotes/statuses/count HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/quotes/statuses/count \
+  -H 'authorization: Bearer {access_token}'
+```
+
+
+`GET /quotes/statuses/count`
+
+This request will return a count of quote statuses in a list defined by any available searches or filters. With no
+searches or filters this will be a count of all quote statuses on the deployment. This request returns a single field:
+
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the listed quote statuses. |
+
+
+
+
+
 
 ### List Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
