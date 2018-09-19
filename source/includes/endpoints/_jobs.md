@@ -506,6 +506,43 @@ through `_fields`, and displayed according to any pagination parameters, filters
 
 
 
+### Get Job Status
+> Sample Request:
+
+```http
+GET /api/v0/jobs/statuses/{status_id} HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/jobs/statuses/{status_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /jobs/statuses/{status_id}`
+
+
+This request returns the job [status](#statuses) specified by its  `status_id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be a job [status object](#statuses) for the specified status with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
+
+
 ### List Job Statuses
 
 > Sample request:
@@ -580,6 +617,34 @@ fields:
 The response will be a list of [statuses](#statuses) with their default fields and any additional fields requested
 through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
+
+
+
+
+
+### Count Job Statuses
+> Sample Request:
+
+```http
+GET /api/v0/jobs/statuses/count HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/jobs/statuses/count \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET /jobs/statuses/count`
+
+This request will return a count of job statuses in a list defined by any available searches or filters. 
+With no searches or filters this will be a count of all job statuses on the deployment. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the listed job statuses. |
 
 
 
