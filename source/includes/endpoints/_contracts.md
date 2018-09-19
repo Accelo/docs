@@ -816,7 +816,7 @@ With no searches or filters this will be a count of all contract statuses on the
 
 
 
-### Close a Contract Period (Beta)
+### Close a Contract Period
 > Sample Request:
 
 ```http
@@ -844,7 +844,7 @@ a contract period via the Web App, including closing tickets/issues if the contr
 
 
 
-### Reopen a Contract Period (Beta)
+### Reopen a Contract Period
 > Sample Request:
 
 ```http
