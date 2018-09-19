@@ -388,7 +388,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 
-### Get Company Status
+### Get a Company's Status
 > Sample Request:  
 
 
@@ -453,7 +453,7 @@ This request supports requesting additional fields and linked objects from the [
 
 #### Handling the Response
 
-The response will be a company [status object](#statuses) for the specified status with its default fields and any 
+The response will be a company [status object](#statuses) for the specified status with its default fields and any
 additional fields requested through `_fields`.
 
 
