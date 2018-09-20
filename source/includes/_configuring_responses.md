@@ -123,6 +123,10 @@ Filters may take any number of arguments, new arguments may be separated by a co
 return results that DO NOT satisfy the filter, e.g. `standing_not(active)` would return only results whose standing is
 not 'active'. Any number of filters may be [combined](#filters-combining-filters) in a single request.
 
+For example if we wanted to find all activities that were NOT created against a [job](#jobs-projects) we would use
+`_filters=engagement_table_not(job)`.
+
+
 <a name="filters-basic-filters"></a>
 
 ### Basic Filters
