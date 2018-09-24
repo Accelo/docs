@@ -75,9 +75,81 @@ The object budget resource contains the following:
 
 
 
+#### The Item Template Object
+
+These are templates for [expenses](#the-expense-object), [materials](#the-material-object),
+and [services](#the-service-object). These templates allow you to easily add items to your budgets. The template object
+contains:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the template. |
+| **title** | string | The title of the template. |
+| description | string | A description of the template. |
+| price | decimal | The sale price. |
+| type | select | Either 'expense', 'material', or 'service', the type of item described by the template. |
+| code | string | The code given for the template |
+| standing | select | Either 'active' or 'inactive', the standing of the template. |
+| quantity | decimal | The default quantity used with this template. |
+| cost | Decimal | The cost (or purchase price) of the template. |
+| cost_rate_id | unsigned | The id of the cost [rate](#the-rate-object) associated with the template (if any).  |
+| cost_tax_id | unsigned | The id of  the cost [tax](#the-tax-object) (or purchase tax) associated with the template. |
+| cost_ledger_id | unsigned | The id of the cost [ledger](#the-ledger-object) (or purchase ledger) associated with the template.|
+| price | decimal | The sale price of the template. |
+| price_rate_id | unsigned | The id of the price [rate](#the-rate-object) associated with the template (if any). |
+| tax_id | unsigned | The id of the sale [tax](#the-tax-object) associated with the template. |
+| ledger_id | unsigned | Then id of the sale [ledger](#the-ledger-object) associated  with the template. |
+| line_item_ledger | unsigned or object | |
+| expense_type_ledger | unsigned or object | Where `type` is `expense`, the [ledger](#the-ledger-object) associated with the template. |
+| cost_tax | unsigned or object | The cost [tax](#the-tax-object) (or purchase tax) associated with the template. |
+| cost_ledger | unsigned or object  | The cost [ledger](#the-ledger-object) (or purchase ledger) associated with the template. |
+
+
+#### The Material Object
+
+These describe instances of material templates as items on a budget. These contain the following:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the material. |
+| **title** | string | A title for the material. |
+| against_type | string | The type of object the material has be added against. |
+| against_id | unsigned | The id of the object the material has been added against. |
+| quantity | decimal | The quantity of the material added. |
+| cost | decimal | The cost (or purchase price) of the material. |
+| price | decimal | The sale price of the material |
+| date_created | unix ts | The date the material was created. |
+| material_ledger_id | unsigned | The unique identifier of the [ledger](#the-ledger-object) used by the material. |
+| material_template_id | unsigned | The unique identifier of the [item template](#the-item-template-object) the material is based off. |
+| tax_id | unsigned | The unique identifier of the [tax](#the-tax-object) on the material. |
+| material_ledger | unsigned or object | The [ledger](#the-ledger-object) used by the material. |
+| material_template | unsigned or object | The [item template](#the-item-template-object) the material is based off. |
+| ordering | unsigned | A number describing the order the material is displayed. |
+
+#### The Service Object
+
+These describe instances of service templates as items on a budget. These contain the following:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the service. |
+| against_type | string | The type of object the service has been added against. |
+| against_id | unsigned | The id of the object the service has been added against. |
+| service_ledger_id | unsigned | The unique identifier of the [ledger](#the-ledger-object) used by the service. |
+| service_template_id | unsigned | The unique identifier of the [template](#the-item-object-template) used by the service. |
+| tax_id | unsigned  | The unique identifier of the [tax](#the-tax-object) used by the service. |
+| service_ledger | unsigned or object | The [ledger](#the-ledger-object) used by the service. |
+| service_template | unsigned of object | The [template](#the-item-object-template) used by the service. |
+
+
+
+
+
+
+
 
 ### Get Object budget
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/object_budgets/{object_budget_id} HTTP/1.1
@@ -108,7 +180,7 @@ The response will be the single [object budget](#the-object-budget) with its def
 
 
 ### List Object Budgets
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/object_budgets HTTP/1.1
@@ -167,7 +239,7 @@ The response will be a list of [object budgets](#the-object-budget) with their d
 
 
 ### Count Object Budgets
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/object_budgets/count HTTP/1.1
@@ -188,3 +260,282 @@ This request will return a count of object budgets in a list defined by any avai
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of object budgets listed. |
+
+
+
+
+
+
+
+
+### List Item Templates
+
+> Sample request:
+
+```http
+GET /api/v0/object_budgets/templates HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/object_budgets/templates \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/object_budgets/templates`
+
+This request returns a list of [item templates](#the-item-template-object) on the deployment.
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the
+[item template object](#the-item-template-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| type | |
+| standing | |
+| ledger_id | |
+| cost_ledger_id | |
+| cost_tax_id | |
+| tax_id | |
+
+##### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| price | |
+| cost | |
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| cost | |
+| title | |
+| price | |
+| standing | |
+
+##### Empty Filters
+
+This request supports [empty filters](#filters-empty-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| title | |
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter
+to search over the following fields:
+
+| Field |
+|:-|
+| title |
+| description |
+| code |
+
+#### Handling the Response
+
+The response will be a list of [item templates](#the-item-template-object) with their default fields and any additional
+fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+
+
+
+
+
+
+
+
+
+
+
+### List Materials
+
+> Sample request:
+
+```http
+GET /api/v0/object_budgets/materials HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/object_budgets/materials \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/object_budgets/materials`
+
+This request returns a list of [materials](#the-material-object) on the deployment.
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [material object](#the-material-object) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| against_id | |
+| against_type | |
+| material_ledger_id | |
+| material_template_id | |
+| quantity | |
+| cost | |
+| price | |
+| tax_id | |
+
+##### Date Filters
+
+This request supports [date filters](#filters-date-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| date_created | |
+
+##### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| cost | |
+| price | |
+| quantity | |
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| quantity | |
+| price | |
+| cost | |
+| date_created | |
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter
+to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+#### Handling the Response
+
+The response will be a list of [materials](#the-material-object) with their default fields and any additional fields
+requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+
+
+
+
+
+### List Services
+
+> Sample request:
+
+```http
+GET /api/v0/object_budgets/services HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X GET \
+  https://{deployment}.api.accelo.com/api/v0/object_budgets/services \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET/object_budgets/services`
+
+This request returns a list of [services](#the-service-object) on the deployment.
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [service object](#the-service-object) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| against_id | |
+| against_type | |
+| service_template_id | |
+| service_ledger_id | |
+| tax_id | |
+
+##### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+
+##### Object Filters
+
+This request supports the following [object filters](#filters-object_filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| against | |
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+
+#### Handling the Response
+
+The response will be a list of [services](#the-service-object) with their default fields and any additional fields
+requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
