@@ -723,6 +723,7 @@ Values for the following fields from the [company object](#the-company-object) m
 | phone | |
 | fax | |
 | comments | |
+| custom_id | |
 
 
 ##### Setting Profile Field Values
