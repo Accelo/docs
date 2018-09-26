@@ -195,7 +195,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | manager_id | Filter by the `staff_id` of the [staff](#staff) set as manager of the company. |
 | contact_number | Filter over `phone` and `fax`. |
 | custom_id | Filter over the `custom_id`. |
-| website | |
+| website |
 
 
 
@@ -724,7 +724,7 @@ Values for the following fields from the [company object](#the-company-object) m
 | phone | |
 | fax | |
 | comments | |
-| custom_id | |
+| custom_id | `custom_id` will only show when you have custom id enabled on the web app|
 
 
 ##### Setting Profile Field Values
