@@ -284,7 +284,7 @@ curl -X GET \
   -H 'authorization: Bearer {access_token}' \
 ```
 
-`GET/object_budgets/templates`
+`GET /object_budgets/templates`
 
 This request returns a list of [item templates](#the-item-template-object) on the deployment.
 
@@ -386,7 +386,7 @@ curl -X GET \
   -H 'authorization: Bearer {access_token}' \
 ```
 
-`GET/object_budgets/materials`
+`GET /object_budgets/materials`
 
 This request returns a list of [materials](#the-material-object) on the deployment.
 
