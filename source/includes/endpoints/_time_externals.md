@@ -186,7 +186,7 @@ With no searches or filters this will be a count of all time externals on the de
 
 
 
-### Delete an External Appointment
+### Delete a Time External
 > Sample Request: 
 
 ```http
@@ -211,7 +211,7 @@ is linked to, specified by its `time_external_id`.
 
 
 
-### Convert an External Appointment to an Activity
+### Convert a Time External to an Activity
 >Sample Request:
 
 ```http
@@ -229,6 +229,7 @@ curl -X get \
 
 `POST /time/externals/:time_external_id/convert_to_meeting` 
 
-This request will convert the external into an [activity](#the-activity-object) as a [meeting](#activity-medium). It will
-also create a second [activity](#the-activity-object) as a [report](#activity-medium) on the meeting. This is the process
+This request will convert the external into an [activity](#the-activity-object) as a [meeting](#activity-medium). This 
+request requires a valid `engagement_table` and `engagement_id` for the activity to be created against. It will also 
+create a second [activity](#the-activity-object) as a [report](#activity-medium) on the meeting. This is the process
 to converting the external appointment as a workable entry to use in Accelo.
