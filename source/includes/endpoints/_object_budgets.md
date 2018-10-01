@@ -99,7 +99,7 @@ contains:
 | price_rate_id | unsigned | The id of the price [rate](#the-rate-object) associated with the template (if any). |
 | tax_id | unsigned | The id of the sale [tax](#the-tax-object) associated with the template. |
 | ledger_id | unsigned | Then id of the sale [ledger](#the-ledger-object) associated  with the template. |
-| line_item_ledger | unsigned or object | |
+| line_item_ledger | unsigned or object | The [ledger](#the-ledger-object) associated with the template.  |
 | expense_type_ledger | unsigned or object | Where `type` is `expense`, the [ledger](#the-ledger-object) associated with the template. |
 | cost_tax | unsigned or object | The cost [tax](#the-tax-object) (or purchase tax) associated with the template. |
 | cost_ledger | unsigned or object  | The cost [ledger](#the-ledger-object) (or purchase ledger) associated with the template. |
