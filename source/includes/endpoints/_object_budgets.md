@@ -76,6 +76,27 @@ The object budget resource contains the following:
 
 
 #### The Item Template Object
+> Example template object:
+
+```json
+{
+    "code": "260",
+    "cost": "0.0000",
+    "cost_rate_id": null,
+    "description": "Other Revenue GST on Income",
+    "expense_type_ledger": "20",
+    "id": "8",
+    "ledger_id": "20",
+    "line_item_ledger": "20",
+    "price": "0.0000",
+    "price_rate_id": null,
+    "quantity": "1.0000",
+    "standing": "active",
+    "tax_id": "12",
+    "title": "Other Revenue GST on Income",
+    "type": "service"
+}
+```
 
 These are templates for [expenses](#the-expense-object), [materials](#the-material-object),
 and [services](#the-service-object). These templates allow you to easily add items to your budgets. The template object
@@ -106,6 +127,26 @@ contains:
 
 
 #### The Material Object
+> Example material object:
+
+```json
+{
+    "against_id": "201",
+    "against_type": "milestone",
+    "budget_item_template": "0",
+    "budget_item_template_id": "0",
+    "cost": "24.0000",
+    "date_created": "1457523796",
+    "id": "10",
+    "material_item_ledger": "0",
+    "material_item_ledger_id": null,
+    "ordering": "0",
+    "price": "0.9900",
+    "quantity": "1.0000",
+    "tax_id": null,
+    "title": "Design Tools"
+}
+```
 
 These describe instances of material templates as items on a budget. These contain the following:
 
@@ -127,6 +168,20 @@ These describe instances of material templates as items on a budget. These conta
 | ordering | unsigned | A number describing the order the material is displayed. |
 
 #### The Service Object
+> Example service object:
+
+```json
+{
+    "against_id": "22",
+    "against_type": "contract",
+    "budget_item_template": "8",
+    "budget_item_template_id": "8",
+    "id": "92",
+    "service_item_ledger": "20",
+    "service_item_ledger_id": "20",
+    "tax_id": "12"
+}
+```
 
 These describe instances of service templates as items on a budget. These contain the following:
 
