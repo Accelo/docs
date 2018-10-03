@@ -1272,6 +1272,18 @@
                         <li>
                           <a href="#count-object-budgets" class="toc-h3 toc-link" data-title="Endpoints">Count Object Budgets</a>
                         </li>
+                        <li>
+                          <a href="#list-item-templates" class="toc-h3 toc-link" data-title="Endpoints">List Item Templates</a>
+                        </li>
+                        <li>
+                          <a href="#list-materials" class="toc-h3 toc-link" data-title="Endpoints">List Materials</a>
+                        </li>
+                        <li>
+                          <a href="#list-services" class="toc-h3 toc-link" data-title="Endpoints">List Services</a>
+                        </li>
+                        <li>
+                          <a href="#update-a-material" class="toc-h3 toc-link" data-title="Endpoints">Update a Material</a>
+                        </li>
                     </ul>
                   <li>
                     <a href="#object-schedules" class="toc-h2 toc-link" data-title="Object Schedules">Object Schedules</a>
@@ -16692,9 +16704,309 @@ where theobject is &quot;milestone&quot; whose id is <code>milestone_id</code>.<
 <td style="text-align: left">If <code>object_table</code> is <code>tasks</code> the remaining budget for the task, otherwise the sum of the remaining subtotal of all the object&#39;s children&#39;s.</td>
 </tr>
 </tbody></table>
+<h4 id='the-item-template-object'>The Item Template Object</h4>
+<blockquote>
+<p>Example template object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"260"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cost_rate_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other Revenue GST on Income"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expense_type_ledger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ledger_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_item_ledger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_rate_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"standing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other Revenue GST on Income"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>These are templates for <a href="#the-expense-object">expenses</a>, <a href="#the-material-object">materials</a>,
+and <a href="#the-service-object">services</a>. These templates allow you to easily add items to your budgets. The template object
+contains:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the template.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The title of the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">description</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A description of the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The sale price.</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">Either &#39;expense&#39;, &#39;material&#39;, or &#39;service&#39;, the type of item described by the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The code given for the template</td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">Either &#39;active&#39; or &#39;inactive&#39;, the standing of the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The default quantity used with this template.</td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left">Decimal</td>
+<td style="text-align: left">The cost (or purchase price) of the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">cost_rate_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the cost <a href="#the-rate-object">rate</a> associated with the template (if any).</td>
+</tr>
+<tr>
+<td style="text-align: left">cost_tax_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of  the cost <a href="#the-tax-object">tax</a> (or purchase tax) associated with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">cost_ledger_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the cost <a href="#the-ledger-object">ledger</a> (or purchase ledger) associated with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The sale price of the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">price_rate_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the price <a href="#the-rate-object">rate</a> associated with the template (if any).</td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the sale <a href="#the-tax-object">tax</a> associated with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">ledger_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">Then id of the sale <a href="#the-ledger-object">ledger</a> associated  with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">line_item_ledger</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#the-ledger-object">ledger</a> associated with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">expense_type_ledger</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">Where <code>type</code> is <code>expense</code>, the <a href="#the-ledger-object">ledger</a> associated with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">cost_tax</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The cost <a href="#the-tax-object">tax</a> (or purchase tax) associated with the template.</td>
+</tr>
+<tr>
+<td style="text-align: left">cost_ledger</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The cost <a href="#the-ledger-object">ledger</a> (or purchase ledger) associated with the template.</td>
+</tr>
+</tbody></table>
+<h4 id='the-material-object'>The Material Object</h4>
+<blockquote>
+<p>Example material object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"against_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"against_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"milestone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"budget_item_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"budget_item_template_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1457523796"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_item_ledger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_item_ledger_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ordering"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.9900"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design Tools"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>These describe instances of material templates as items on a budget. These contain the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the material.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A title for the material.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The type of object the material has be added against.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the object the material has been added against.</td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The quantity of the material added.</td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The cost (or purchase price) of the material.</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The sale price of the material</td>
+</tr>
+<tr>
+<td style="text-align: left">date_created</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the material was created.</td>
+</tr>
+<tr>
+<td style="text-align: left">material_ledger_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the <a href="#the-ledger-object">ledger</a> used by the material.</td>
+</tr>
+<tr>
+<td style="text-align: left">material_template_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the <a href="#the-item-template-object">item template</a> the material is based off.</td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the <a href="#the-tax-object">tax</a> on the material.</td>
+</tr>
+<tr>
+<td style="text-align: left">material_ledger</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#the-ledger-object">ledger</a> used by the material.</td>
+</tr>
+<tr>
+<td style="text-align: left">material_template</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#the-item-template-object">item template</a> the material is based off.</td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A number describing the order the material is displayed.</td>
+</tr>
+</tbody></table>
+<h4 id='the-service-object'>The Service Object</h4>
+<blockquote>
+<p>Example service object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"against_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"against_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"budget_item_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"budget_item_template_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service_item_ledger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service_item_ledger_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>These describe instances of service templates as items on a budget. These contain the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the service.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The type of object the service has been added against.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The id of the object the service has been added against.</td>
+</tr>
+<tr>
+<td style="text-align: left">service_ledger_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the <a href="#the-ledger-object">ledger</a> used by the service.</td>
+</tr>
+<tr>
+<td style="text-align: left">service_template_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the <a href="#the-item-object-template">template</a> used by the service.</td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the <a href="#the-tax-object">tax</a> used by the service.</td>
+</tr>
+<tr>
+<td style="text-align: left">service_ledger</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#the-ledger-object">ledger</a> used by the service.</td>
+</tr>
+<tr>
+<td style="text-align: left">service_template</td>
+<td style="text-align: left">unsigned of object</td>
+<td style="text-align: left">The <a href="#the-item-object-template">template</a> used by the service.</td>
+</tr>
+</tbody></table>
 <h3 id='get-object-budget'>Get Object budget</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/object_budgets/{object_budget_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -16712,7 +17024,7 @@ where theobject is &quot;milestone&quot; whose id is <code>milestone_id</code>.<
 <p>The response will be the single <a href="#the-object-budget">object budget</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
 <h3 id='list-object-budgets'>List Object Budgets</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/object_budgets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -16774,7 +17086,7 @@ where theobject is &quot;milestone&quot; whose id is <code>milestone_id</code>.<
 <p>The response will be a list of <a href="#the-object-budget">object budgets</a> with their default fields and any additional fields requested through <code>_fields</code>, and displayed according to any pagination requests used.</p>
 <h3 id='count-object-budgets'>Count Object Budgets</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/object_budgets/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -16800,6 +17112,454 @@ where theobject is &quot;milestone&quot; whose id is <code>milestone_id</code>.<
 <td style="text-align: left">A count of object budgets listed.</td>
 </tr>
 </tbody></table>
+<h3 id='list-item-templates'>List Item Templates</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/object_budgets/templates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/object_budgets/templates <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET /object_budgets/templates</code></p>
+
+<p>This request returns a list of <a href="#the-item-template-object">item templates</a> on the deployment.</p>
+<h4 id='configuring-the-response-3'>Configuring the Response</h4><h5 id='pagination-2'>Pagination</h5>
+<p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h5 id='additional-fields-and-linked-objects-2'>Additional Fields and Linked Objects</h5>
+<p>This request supports requesting additional fields and linked objects from the
+<a href="#the-item-template-object">item template object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters-2'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ledger_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost_ledger_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost_tax_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='range-filters'>Range Filters</h5>
+<p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='order-filters-2'>Order Filters</h5>
+<p>This request supports the following <a href="#filters-order-filters">order filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">standing</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='empty-filters'>Empty Filters</h5>
+<p>This request supports <a href="#filters-empty-filters">empty filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='searching'>Searching</h5>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter
+to search over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+<tr>
+<td style="text-align: left">description</td>
+</tr>
+<tr>
+<td style="text-align: left">code</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-3'>Handling the Response</h4>
+<p>The response will be a list of <a href="#the-item-template-object">item templates</a> with their default fields and any additional
+fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<h3 id='list-materials'>List Materials</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/object_budgets/materials</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/object_budgets/materials <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET /object_budgets/materials</code></p>
+
+<p>This request returns a list of <a href="#the-material-object">materials</a> on the deployment.</p>
+<h4 id='configuring-the-response-4'>Configuring the Response</h4><h5 id='pagination-3'>Pagination</h5>
+<p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h5 id='additional-fields-and-linked-objects-3'>Additional Fields and Linked Objects</h5>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-material-object">material object</a> using the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters-3'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">material_ledger_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">material_template_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='date-filters'>Date Filters</h5>
+<p>This request supports <a href="#filters-date-filters">date filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">date_created</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='range-filters-2'>Range Filters</h5>
+<p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='order-filters-3'>Order Filters</h5>
+<p>This request supports the following <a href="#filters-order-filters">order filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">date_created</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='searching-2'>Searching</h5>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter
+to search over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-4'>Handling the Response</h4>
+<p>The response will be a list of <a href="#the-material-object">materials</a> with their default fields and any additional fields
+requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<h3 id='list-services'>List Services</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/object_budgets/services</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/object_budgets/services <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET/object_budgets/services</code></p>
+
+<p>This request returns a list of <a href="#the-service-object">services</a> on the deployment.</p>
+<h4 id='configuring-the-response-5'>Configuring the Response</h4><h5 id='pagination-4'>Pagination</h5>
+<p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h5 id='additional-fields-and-linked-objects-4'>Additional Fields and Linked Objects</h5>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-service-object">service object</a> using the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters-4'>Basic Filters</h5>
+<p>This request supports the following <a href="#filters-basic-filters">basic filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">service_template_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">service_ledger_id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='range-filters-3'>Range Filters</h5>
+<p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='object-filters-2'>Object Filters</h5>
+<p>This request supports the following <a href="#filters-object_filters">object filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">against</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='order-filters-4'>Order Filters</h5>
+<p>This request supports the following <a href="#filters-order-filters">order filters</a>:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-5'>Handling the Response</h4>
+<p>The response will be a list of <a href="#the-service-object">services</a> with their default fields and any additional fields
+requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<h3 id='update-a-material'>Update a Material</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/object_budgets/materials/{material_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+
+quantity=10
+price=20
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/object_budgets/materials/<span class="o">{</span>material_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -d <span class="s1">'quantity=10'</span>
+  -d <span class="s1">'price=20'</span>
+</code></pre>
+<p><code>PUT /object_budgets/materials/{material_id}</code></p>
+
+<p>This request updates and returns the <a href="#the-material-object">material</a> with the given <code>material_id</code></p>
+<h4 id='configuring-the-response-6'>Configuring the Response</h4>
+<p>The following fields may be used to update the material:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">template_id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h4 id='configuring-the-response-7'>Configuring the Response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-material-object">material object</a>
+using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response-6'>Handling the Response</h4>
+<p>The response will be the update material with its default fields and any additional fields requested through<code>_fields</code>.</p>
 <h2 id='object-schedules'>Object Schedules</h2>
 <p>An object schedule is a schedule against a specific object. For example, the
 schedule on a given <a href="#tasks">task</a>.</p>
