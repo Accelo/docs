@@ -594,3 +594,54 @@ This request supports the following [order filters](#filters-order-filters):
 
 The response will be a list of [services](#the-service-object) with their default fields and any additional fields
 requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+
+
+
+
+
+### Update a Material
+
+> Sample request:
+
+```http
+PUT /api/v0/object_budgets/materials/{material_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+
+quantity=10
+price=20
+```
+
+```shell
+curl -X PUT \
+  https://{deployment}.api.accelo.com/api/v0/object_budgets/materials/{material_id} \
+  -H 'authorization: Bearer {access_token}' \
+  -d 'quantity=10'
+  -d 'price=20'
+```
+
+`PUT /object_budgets/materials/{material_id}`
+
+This request updates and returns the [material](#the-material-object) with the given `material_id`
+
+#### Configuring the Response
+
+The following fields may be used to update the material:
+
+| Field Name | Notes |
+|:-|:-|
+| title ||
+| quantity ||
+| price ||
+| cost ||
+| template_id ||
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [material object](#the-material-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
+#### Handling the Response
+
+The response will be the update material with its default fields and any additional fields requested through`_fields`.
