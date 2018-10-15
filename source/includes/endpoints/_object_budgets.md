@@ -645,3 +645,46 @@ using the [`_fields`](#configuring-the-response-fields) parameter.
 #### Handling the Response
 
 The response will be the update material with its default fields and any additional fields requested through`_fields`.
+
+
+
+
+
+
+### Create a Material
+
+> Sample request:
+
+```http
+POST /api/v0/object_budgets/materials HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X POST \
+  https://{deployment}.api.accelo.com/api/v0/object_budgets/materials \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`POST /object_budgets/materials`
+
+This request creates and returns a [material](#the-material-object).
+
+#### Configuring the Response
+
+The following fields may be set when creating the material:
+
+| Field Name | Notes |
+|:-|:-|
+| **against_type** ||
+| **against_id** ||
+| **title** ||
+| quantity ||
+| price ||
+| cost ||
+| template_id ||
+
+#### Handling the Response
+
+The response will be the newly created material with its default fields and any additional fields requested through`_fields`.
