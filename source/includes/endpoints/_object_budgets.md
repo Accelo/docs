@@ -693,7 +693,7 @@ The following fields may be set when creating the material:
 
 | Field Name | Notes |
 |:-|:-|
-| **against_type** ||
+| **against_type** | Supports: 'job', 'issue', 'milestone', 'contract_period' |
 | **against_id** ||
 | **title** ||
 | quantity ||
