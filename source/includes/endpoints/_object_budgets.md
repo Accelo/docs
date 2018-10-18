@@ -659,12 +659,28 @@ The response will be the update material with its default fields and any additio
 POST /api/v0/object_budgets/materials HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
+
+authorization: Bearer {access_token}
+against_type=contract_period
+against_id=123
+title=Shovels for digging
+quantity=12
+cost=10
+price=2
+template_id=4
 ```
 
 ```shell
 curl -X POST \
   https://{deployment}.api.accelo.com/api/v0/object_budgets/materials \
   -H 'authorization: Bearer {access_token}' \
+  -d 'against_type=contract_period' \
+  -d 'against_id=123' \
+  -d 'title=Shovels for digging' \
+  -d 'quantity=12' \
+  -d 'cost=10' \
+  -d 'price=2' \
+  -d 'template_id=4'
 ```
 
 `POST /object_budgets/materials`
