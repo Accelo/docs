@@ -1284,6 +1284,9 @@
                         <li>
                           <a href="#update-a-material" class="toc-h3 toc-link" data-title="Endpoints">Update a Material</a>
                         </li>
+                        <li>
+                          <a href="#create-a-material" class="toc-h3 toc-link" data-title="Endpoints">Create a Material</a>
+                        </li>
                     </ul>
                   <li>
                     <a href="#object-schedules" class="toc-h2 toc-link" data-title="Object Schedules">Object Schedules</a>
@@ -17560,6 +17563,76 @@ price=20
 using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-6'>Handling the Response</h4>
 <p>The response will be the update material with its default fields and any additional fields requested through<code>_fields</code>.</p>
+<h3 id='create-a-material'>Create a Material</h3>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/object_budgets/materials</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+
+authorization: Bearer {access_token}
+against_type=contract_period
+against_id=123
+title=Shovels for digging
+quantity=12
+cost=10
+price=2
+template_id=4
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/object_budgets/materials <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -d <span class="s1">'against_type=contract_period'</span> <span class="se">\</span>
+  -d <span class="s1">'against_id=123'</span> <span class="se">\</span>
+  -d <span class="s1">'title=Shovels for digging'</span> <span class="se">\</span>
+  -d <span class="s1">'quantity=12'</span> <span class="se">\</span>
+  -d <span class="s1">'cost=10'</span> <span class="se">\</span>
+  -d <span class="s1">'price=2'</span> <span class="se">\</span>
+  -d <span class="s1">'template_id=4'</span>
+</code></pre>
+<p><code>POST /object_budgets/materials</code></p>
+
+<p>This request creates and returns a <a href="#the-material-object">material</a>.</p>
+<h4 id='configuring-the-response-8'>Configuring the Response</h4>
+<p>The following fields may be set when creating the material:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>against_type</strong></td>
+<td style="text-align: left">Supports: &#39;job&#39;, &#39;issue&#39;, &#39;milestone&#39;, &#39;contract_period&#39;</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>against_id</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cost</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">template_id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-7'>Handling the Response</h4>
+<p>The response will be the newly created material with its default fields and any additional fields requested through<code>_fields</code>.</p>
 <h2 id='object-schedules'>Object Schedules</h2>
 <p>An object schedule is a schedule against a specific object. For example, the
 schedule on a given <a href="#tasks">task</a>.</p>
