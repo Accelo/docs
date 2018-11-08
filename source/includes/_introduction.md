@@ -286,5 +286,3 @@ The following headers have also been added to track usage rates:
 | X-RateLimit-Remaining | int | Number of requests remaining in the current rate limit window. |
 | X-RateLimit-Limit | int | Maximum number of requests allowed in each rate limit window. |
 
-**Note:** Rate limiting is currently in a monitoring stage and not enforced. We will look to see if any deployments are
-exceeding this limit and look to optimise their usage before fully implementing and enforcing any limitations.
