@@ -144,7 +144,8 @@ contains:
     "price": "0.9900",
     "quantity": "1.0000",
     "tax_id": null,
-    "title": "Design Tools"
+    "title": "Design Tools",
+    "contract_period_id": null,
 }
 ```
 
@@ -166,6 +167,7 @@ These describe instances of material templates as items on a budget. These conta
 | material_ledger | unsigned or object | The [ledger](#the-ledger-object) used by the material. |
 | material_template | unsigned or object | The [item template](#the-item-template-object) the material is based off. |
 | ordering | unsigned | A number describing the order the material is displayed. |
+| contract_period_id | unsigned | The unique identifier for the contract period the material is linked to. |
 
 #### The Service Object
 > Example service object:
@@ -471,6 +473,7 @@ This request supports the following [basic filters](#filters-basic-filters):
 | cost | |
 | price | |
 | tax_id | |
+| contract_period_id | |
 
 ##### Date Filters
 
