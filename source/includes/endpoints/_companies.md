@@ -424,6 +424,42 @@ The response will be a single status object with its default fields and any addi
 
 
 
+### Get Company Statuses
+> Sample Request:  
+
+
+```http
+GET /api/v0/companies/statuses HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/companies/statuses \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /companies/statuses`
+
+This request returns the possible [statuses](#statuses) that[companies](#the-company-object) can have.
+
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling The Response
+
+The response will be an array of status objects with its default fields and any additional fields requested via `_fields`.
+
+
+
+
+
+
 
 ### Get Main Contact
 > Sample Request:  
