@@ -29,11 +29,11 @@ The segmentation object contains the following:
 |:-|:-|:-|
 | **id** | unsigned | A unique identifier for the segmentation. |
 | **title** | string | A name for the segmentation. |
-| **link_type** | enum | The object type that the segmentation is related to, may be 'company', 'affiliation' or 'contact'. |
-| **standing** | enum | The standing of the segmentation, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
-| **required** | boolean | Either Yes or No, whether this segmentation is required for the object it is against. |
-| **exclusive** | boolean | Either Yes or No, whether this segmentation is limited to one value. |
-| **leaf** | boolean | Either Yes or No, whether this segmentation is limited to only child option.s |
+| link_type | enum | The object type that the segmentation is related to, may be 'company', 'affiliation' or 'contact'. |
+| standing | enum | The standing of the segmentation, may be "active" or "inactive".|
+| required | boolean | Either Yes or No, whether this segmentation is required for the object it is against. |
+| exclusive | boolean | Either Yes or No, whether this segmentation is limited to one value. |
+| leaf | boolean | Either Yes or No, whether this segmentation is limited to only child options. |
 
 
 
@@ -66,7 +66,7 @@ This request returns a list of [segmentations](#the-segmentation-object) for the
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Resource
-This request supports requesting additional fields and linked resources from the [segmentation](#the-skill-object) using
+This request supports requesting additional fields and linked resources from the [segmentation](#the-segmentation-object) using
 the `_fields` parameter.
 
 ##### Basic Filters
@@ -142,7 +142,7 @@ curl -X get \
 
 `GET /segmentations/{id}`
 
-This request creates and returns a single [segmentation](#the-segmentation-object) specified by its `id`.
+This request gets and returns a single [segmentation](#the-segmentation-object) specified by its `id`.
 
 #### Configuring the Response
 
@@ -150,5 +150,5 @@ This request supports requesting additional fields and linked items from the [se
 using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
-The response will be the single, created [segmentation](#the-segmentation-object) with its default fields and any 
+The response will be a single [segmentation](#the-segmentation-object) with its default fields and any 
 additional fields requested through `_fields`.
