@@ -424,7 +424,7 @@ The response will be a single status object with its default fields and any addi
 
 
 
-### Get Company Statuses
+### List Company Statuses
 > Sample Request:  
 
 
@@ -442,7 +442,7 @@ curl -X get \
 
 `GET /companies/statuses`
 
-This request returns the possible [statuses](#statuses) that[companies](#the-company-object) can have.
+This returns a list of company statuses.
 
 
 #### Configuring the Response
@@ -453,7 +453,7 @@ This request supports requesting additional fields and linked objects from the [
 
 #### Handling The Response
 
-The response will be an array of status objects with its default fields and any additional fields requested via `_fields`.
+The response will be an array of status objects with their default fields and any additional fields requested via `_fields`.
 
 
 
