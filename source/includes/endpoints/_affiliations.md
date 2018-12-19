@@ -61,7 +61,7 @@ The Affiliation object contains the following:
 | date_last_interacted | unix ts | The latest date that there was interaction with this affiliation. |
 | staff_bookmarked | boolean| Whether the current user has bookmarked the affiliation. |
 | portal_access | boolean | Whether the affiliation has been granted access to the Client Portal. |
-| communication | boolean | Whether the affiliation can be contacted. |
+| communication | boolean | Whether or not communications, such as updates, newsletters etc. are sent to this affiliation. |
 | invoice_method | string | The method the affiliation wishes to receive an invoice. |
 
 
