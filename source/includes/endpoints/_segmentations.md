@@ -140,7 +140,7 @@ curl -X get \
   -H 'Content-Type: application/x-www-form-urlencoded'
 ```
 
-`Get /segmentations/{id}`
+`GET /segmentations/{id}`
 
 This request creates and returns a single [segmentation](#the-segmentation-object) specified by its `id`.
 
