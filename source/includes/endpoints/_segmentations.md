@@ -33,7 +33,7 @@ The segmentation object contains the following:
 | **standing** | enum | The standing of the segmentation, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
 | **required** | boolean | Either Yes or No, whether this segmentation is required for the object it is against. |
 | **exclusive** | boolean | Either Yes or No, whether this segmentation is limited to one value. |
-| **leaf** | boolean | Either Yes or No, whether this segmentation is limited to only child options  |
+| **leaf** | boolean | Either Yes or No, whether this segmentation is limited to only child option.s |
 
 
 
@@ -58,7 +58,7 @@ curl -X get \
 
 `GET /segmentations`
 
-This request returns a list of [segmentations](#the-segmentation-object) on the deployment.
+This request returns a list of [segmentations](#the-segmentation-object) for the deployment.
 
 #### Configuring the Response
 
@@ -66,7 +66,7 @@ This request returns a list of [segmentations](#the-segmentation-object) on the 
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Resource
-This request supports requesting additional fields and linked resources from the [skill object](#the-skill-object) using
+This request supports requesting additional fields and linked resources from the [segmentation](#the-skill-object) using
 the `_fields` parameter.
 
 ##### Basic Filters
