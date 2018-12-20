@@ -46,6 +46,8 @@ The task object contains the following:
 | task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any. |
 | task_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the task. |
 | task_object_schedule_id | unsigned | The id of the object schedule linked to the task. |
+| rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
+| rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 
 #### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
@@ -163,6 +165,8 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id ||
 | custom_id ||
 | child_of_job | Filter by the `job_id` of the [job](#jobs-projects) the task, or its against object, is against. This allows you to find tasks under a certain job, even when they are not created directly against that job, for example if they are created against a [milestone](#milestones) under the job. |
+| rate_id | |
+| rate_charged | |
 
 
 ##### Date Filters
@@ -196,6 +200,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | status | Range over `status_id`. |
 | manager | Range over the `staff_id` of the manager. |
 | contact | Range over the `contact_id` of the associated contact. |
+| rate_charged | |
 
 ##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
@@ -213,6 +218,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | title ||
 | standing ||
 | status | Order by the `status_id`. |
+| rate_charged | |
 
 ##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
