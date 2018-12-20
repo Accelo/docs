@@ -35,7 +35,9 @@ working at Company A, the other for an advisor working at Company B.
   "phone": "12345678",
   "affiliation_status": "0",
   "id": "99",
-  "portal_access": "1"
+  "portal_access": "1",
+  "communication": "1",
+  "invoice_method": "email"
 }
 ```
 
@@ -59,6 +61,8 @@ The Affiliation object contains the following:
 | date_last_interacted | unix ts | The latest date that there was interaction with this affiliation. |
 | staff_bookmarked | boolean| Whether the current user has bookmarked the affiliation. |
 | portal_access | boolean | Whether the affiliation has been granted access to the Client Portal. |
+| communication | boolean | Whether or not communications, such as updates, newsletters etc. are sent to this affiliation. |
+| invoice_method | string | The method the affiliation wishes to receive an invoice. |
 
 
 
@@ -153,6 +157,9 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | company | Filter by the `company_id` of the affiliations. |
 | contact | Filter by the `contact_id` of the affiliations. |
 | contact_number | Filter over `phone`, `fax`, and `mobile`. |
+| invoice_method | |
+| portal_access | |
+| communication | |
 
 
 ##### Date Filters
