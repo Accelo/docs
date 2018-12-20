@@ -123,6 +123,10 @@ Filters may take any number of arguments, new arguments may be separated by a co
 return results that DO NOT satisfy the filter, e.g. `standing_not(active)` would return only results whose standing is
 not 'active'. Any number of filters may be [combined](#filters-combining-filters) in a single request.
 
+For example if we wanted to find all activities that were NOT created against a [job](#jobs-projects) we would use
+`_filters=engagement_table_not(job)`.
+
+
 <a name="filters-basic-filters"></a>
 
 ### Basic Filters
@@ -144,12 +148,10 @@ curl -X GET \
 	-d '_filters=owner_type(staff)'
 ```
 
-These simply filter resources with certain fields for certain values, generally
-they are requested simply by `<field>(<value>)`. For examples,
- [activities](#activities) support basic filters on the `owner_type` and
- `owner_id` fields, so for example if we wanted to search for activities
- owner by the staff member with id 17 we would use
- `_filters=owner_type(staff),owner_id(17)`.
+These simply filter resources with certain fields for certain values, generally they are requested simply by
+`<field>(<value>)`. For examples,  [activities](#activities) support basic filters on the `owner_type` and  `owner_id`
+fields, so for example if we wanted to search for activities owned by the staff member with id 17 we would use
+`_filters=owner_type(staff),owner_id(17)`.
 
 
 
@@ -215,10 +217,10 @@ there are four range filters defined:
 
 | Filter | Description |
 |:-|:-|
-| \<field_name\>_greater_than(\<value\>) | Filter by results that have a value for `<field>` greater than `<value>`. |
-| \<field_name\>_less_than(\<value\>) | Filter by results that have a value for `<field_name>` less than `<value>`. |
-| \<field_name\>_greater_than_or_equal(\<value\>) | Filter by results that have a value for `<field_name>` greater than or equal to `<value>`. |
-| \<field_name\>_less_than_or_equal(\<value\>) | Filter by results that have a value for `<field_name>` less than or equal to `<value>`.|
+| \<field_name\>\_greater_than(\<value\>) | Filter by results that have a value for `<field>` greater than `<value>`. |
+| \<field_name\>\_less_than(\<value\>) | Filter by results that have a value for `<field_name>` less than `<value>`. |
+| \<field_name\>\_greater_than_or_equal(\<value\>) | Filter by results that have a value for `<field_name>` greater than or equal to `<value>`. |
+| \<field_name\>\_less_than_or_equal(\<value\>) | Filter by results that have a value for `<field_name>` less than or equal to `<value>`.|
 
 
 
