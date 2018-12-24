@@ -275,7 +275,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X PUT \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/signoffs/signoffs/{signoff_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -304,7 +304,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X POST \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/signoffs/{signoff_id}/redraft \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -330,7 +330,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X POST \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/signoffs/{signoff_id}/send \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -356,7 +356,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X POST \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/signoffs/recipients \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -391,7 +391,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X PUT \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/signoffs/recipients/{recipient_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -419,7 +419,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X DELETE \
+curl -X delete \
  https://{deployment}.api.accelo.com/api/v0/signoffs/recipients/{recipient_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -544,6 +544,61 @@ This request will return a count of attachments in a list defined by any availab
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of attachments listed. |
+
+
+
+
+
+
+
+### Update Attachment
+> Sample Request:
+
+```http
+PUT /api/v0/signoffs/signoffs/attachments/{attachment_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/signoffs/attachments/{attachment_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`PUT /signoffs/attachments/{attachment_id}`
+
+This request updates an attachment identified by its `attachment_id` and returns the updated attachment.
+
+TODO: What is able to be updated by update attachment.
+
+
+
+
+
+
+
+### Delete Attachment
+> Sample Request:
+
+```http
+Delete /api/v0/signoffs/signoffs/attachments/{attachment_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X delete \
+ https://{deployment}.api.accelo.com/api/v0/signoffs/attachments/{attachment_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`DELETE /signoffs/attachments/{attachment_id}`
+
+This request deletes an attachment identified by its `attachment_id`.
+
+TODO: Responses etc.
+
 
 
 
