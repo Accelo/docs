@@ -714,6 +714,13 @@ This request will return a count of attachments in a list defined by any availab
 POST /api/v0/signoffs/{signoff_id}/attachments HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="resource"; filename="example.pdf"
+Content-Type: application/pdf
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
 ```shell
@@ -724,14 +731,23 @@ curl -X post \
 
 `POST /signoffs/{signoff_id}/attachments`
 
-This request uploads an attachment identified by its `attachment_id` and returns the updated attachment.
-The following fields are able to be set via this request:
+This request uploads a file as an attachment to the given signoff.
+
+#### Configuring the Resource
+The file may be uploaded using the following parameter:
 
 | Field | Type | Description |
-| :- | :- | :- |
-| **id** | unsigned | The id of the signoff the attachment is related to. |
-| **file_base64** | base64 | The file to be attached encoded in base64. |
-| **file_name** | string | The name of the file. |
+|:-|:-|:-|
+| **resource** | file | The file to be uploaded. |
+
+#### Handling the Response
+The response will contain the following fields:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **title** | string | The name of the resource. |
+| size | integer | The size of the attachment in bytes. |
+| mimetype | string | The mime type of the attachment. |
 
 
 
