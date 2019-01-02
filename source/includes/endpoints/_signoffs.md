@@ -2,7 +2,9 @@
 > Resource URI:  
 `/api/v0/signoffs`
 
-Signoffs in Accelo allow your clients to approve your work and make comments against attachments and work descriptions. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/signoffs/) for more information on signoffs.
+Signoffs in Accelo allow your clients to approve your work and make comments against attachments and work descriptions. 
+See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/signoffs/) for more 
+information on signoffs.
 
 ### The Signoff Object
 
@@ -141,13 +143,16 @@ curl -X get \
 
 `GET /signoffs/{signoff_id}`
 
-This request returns a single [signoff](#the-signoff-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request returns a single [signoff](#the-signoff-object) using the [`_fields`](#configuring-the-response-fields) 
+parameter.
 
 #### Configuring the response
-This request supports requesting additional fields and linked resources from the [signoff object](#the-signoff-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked resources from the [signoff object](#the-signoff-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 ##### Handling the Response
-The response will be the single [signoff object](#the-signoff-object) with its default fields and any additional fields requested through `_fields`.
+The response will be the single [signoff object](#the-signoff-object) with its default fields and any additional fields 
+requested through `_fields`.
 
 
 
@@ -178,7 +183,8 @@ This request returns a list of signoffs for the deployment.
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Resources
-This request supports requesting additional fields and linked resources from the [signoff object](#the-signoff-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked resources from the [signoff object](#the-signoff-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
@@ -256,7 +262,8 @@ curl -X get \
 
 `GET /signoffs/count`
 
-This request will return a count of the signoffs in a list defined by any available searches or filters. With no searches or filters, this will be a count of all signoffs on the deployment. This request returns a single field.
+This request will return a count of the signoffs in a list defined by any available searches or filters. With no 
+searches or filters, this will be a count of all signoffs on the deployment. This request returns a single field.
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -376,7 +383,8 @@ This request returns a list of all recipients for the deployment.
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Resources
-This request supports requesting additional fields and linked resources from the [recipient object](#the-recipient-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked resources from the [recipient object](#the-recipient-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
@@ -442,7 +450,8 @@ curl -X get \
 
 `GET /signoffs/recipients/count`
 
-This request will return a count of recipients in a list defined by any available searches or filters. With no searches or filters this will be a count of all recipients on the deployment. This request returns a single field:
+This request will return a count of recipients in a list defined by any available searches or filters. With no searches 
+or filters this will be a count of all recipients on the deployment. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -474,10 +483,12 @@ curl -X get \
 This request returns a [recipient](#the-recipient-object) identified by its `recipient_id`.
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [recipient objects](#the-recipient-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [recipient objects](#the-recipient-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
-The response will be the [recipient](#the-recipient-object) with its default fields and any additional fields requested through `_fields`.
+The response will be the [recipient](#the-recipient-object) with its default fields and any additional fields requested 
+through `_fields`.
 
 
 
@@ -535,7 +546,8 @@ curl -X put \
 
 `PUT /signoffs/recipients/{recipient_id}`
 
-This request allows the recipient of a quote to be updated and returns the [recipient object](#the-recipient-object), identified by their `recipient_id`. A recipient can only be edited if a user is the recipient and if the quote is in draft.
+This request allows the recipient of a quote to be updated and returns the [recipient object](#the-recipient-object), 
+identified by their `recipient_id`. A recipient can only be edited if a user is the recipient and if the quote is in draft.
 
 The following fields can be updated by this request:
 
@@ -624,7 +636,8 @@ This request supports [basic filters](#filters-basic-filters) over the following
 
 #### Handling the Response
 
-The response will be a list of [](#the-attachment-object) containing the default fields and any additional fields requested by `_fields`, and displayed according to any pagination parameters or filters used.
+The response will be a list of [](#the-attachment-object) containing the default fields and any additional fields 
+requested by `_fields`, and displayed according to any pagination parameters or filters used.
 
 
 
@@ -651,10 +664,12 @@ curl -X get \
 This request returns an [attachment](#the-attachment-object) specified by its `attachment_id`.
 
 #### Configuring the Response
-This request supports requesting additional fields and linked objects from the [attachment objects](#the-attachment-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [attachment objects](#the-attachment-object) 
+using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
-The response will be the [attachment](#the-attachment-object) with its default fields and any additional fields requested through `_fields`.
+The response will be the [attachment](#the-attachment-object) with its default fields and any additional fields 
+requested through `_fields`.
 
 
 
@@ -679,7 +694,8 @@ curl -X get \
 
 `GET /signoffs/attachments/count`
 
-This request will return a count of attachments in a list defined by any available searches or filters. With no searches or filters this will be a count of all attachments on the deployment. This request returns a single field:
+This request will return a count of attachments in a list defined by any available searches or filters. With no searches
+ or filters this will be a count of all attachments on the deployment. This request returns a single field:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -740,7 +756,8 @@ curl -X get \
 
 `PUT /signoffs/attachments/{attachment_id}`
 
-This request updates an attachment identified by its `attachment_id` and returns the updated [attachment object](#the-attachment-object).
+This request updates an attachment identified by its `attachment_id` and returns the updated 
+[attachment object](#the-attachment-object).
 
 The fields able to be updated by this request are:
 
