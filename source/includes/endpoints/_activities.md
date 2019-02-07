@@ -236,12 +236,7 @@ Activity threads are described by the thread object, this contains the following
 
 In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or
 affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members
-and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal
-with each case individually:
-
-1. [Interactions with a list of activities](#get-activities-handling-interacts)   
-2. [List of interactions with a single activity](#get-activities-id-interacts)
-
+and an affiliation.
 
 #### The Time Allocation Object
 
@@ -926,7 +921,7 @@ Values for the following fields may be set through this request.
 
 
 #### Including "to", "cc" and "bcc" Interactions
-> Sample json request segment to add interactions. In this case we would create an activity to staff with id 10, cc'ing affiliations 13 and 14 and bcc'ing the email recipient "bcc-recipient@affinitylive.com".
+> Sample json request segment to add interactions. In this case we would create an activity to staff with id 10, cc'ing affiliations 13 and 14 and bcc'ing staff 2 and affiliation 4.
 
 ```json
 {
@@ -938,7 +933,8 @@ Values for the following fields may be set through this request.
     "affiliation": [13,14]
   },
   "bcc": {
-    "emails": "bcc-recipient@affinitylive.com"
+    "staff": [2],
+    "affiliation": [4]
   }
 }
 ```
@@ -952,7 +948,7 @@ for information on sending JSON requests) and including the following objects:
 | cc | Anyone to whom the activity should be cc'd.  |
 | bcc | Anyone to whom the activity should be bcc'd|
 
-Each object accepts a staff or affiliation (identified by their id) or a general email.
+Each object accepts a staff or affiliations identified by an array of ids.
 
 #### Logging time
 
