@@ -234,9 +234,14 @@ Activity threads are described by the thread object, this contains the following
 
 #### Activity Interactions
 
-In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or
-affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members
-and/or affiliations.
+In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff 
+affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members 
+and/or affiliations. The form of interactions, and the way they are handled vary depending on the context, thus we deal
+with each case individually:
+
+1. [Interactions with a list of activities](#handling-interacts)   
+2. [List of interactions with a single activity](#list-interactions)
+
 
 #### The Time Allocation Object
 
