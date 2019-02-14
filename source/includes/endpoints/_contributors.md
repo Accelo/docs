@@ -43,6 +43,44 @@ The contributor object contains the following:
 
 
 
+
+
+
+#### The Contributor Type Object
+> Example contributor type object:
+
+```json
+"response": {
+    "id": "1",
+    "title": "Advisor",
+    "default_status_id": "2",
+    "has_status": "1",
+    "auto_cc": "1",
+    "default_standing": "active",
+    "standing": "active", 
+    "ordering": "0"
+  }
+```
+
+The contributor type object contains the following:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the contributor. |
+| **title** | string | The title of the type |
+| default_status_id | unsigned | The identifier for the default status of this contributor type. |
+| has_status | boolean | Whether the contributor type has a status. |
+| auto_cc | boolean | Whether the contributors of this type will be Auto-CC'd on correspondence. |
+| default_standing | string | The default standing for this contributor type. Related to the default_status_id. |
+| standing | string | The current standing for this contributor type. Related to has_status. |
+| ordering | unsigned | The contributor types order as displayed in the web application. |
+
+
+
+
+
+
+
 ### Get Contributor
 > Sample Request: 
 
@@ -162,7 +200,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 
 #### Handling the Response
 
-The response will be a list of [contributors](#the-contributor-object) on the Deployment, with their default fields and
+The response will be a list of [contributors](#the-contributor-object) on the deployment, with their default fields and
 any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
 searches used.
 
@@ -198,41 +236,6 @@ returns a single field:
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of contributors listed. |
-
-
-
-
-
-
-
-### The Contributor Type Object
-> Example contributor type object:
-
-```json
-"response": {
-    "id": "1",
-    "title": "Advisor",
-    "default_status_id": "2",
-    "has_status": "1",
-    "auto_cc": "1",
-    "default_standing": "active",
-    "standing": "active", 
-    "ordering": "0"
-  }
-```
-
-The contributor type object contains the following:
-
-| Field | Type | Description |
-|:-|:-|:-|
-| **id** | unsigned | A unique identifier for the contributor. |
-| **title** | string | The title of the type |
-| default_status_id | unsigned | The identifier for the default status of this contributor type. |
-| has_status | unsigned | The id of the current status of this contributor type. |
-| auto_cc | boolean | Whether the contributors of this type will be Auto-CC'd on correspondence. |
-| default_standing | string | The default standing for this contributor type. Related to the default_status_id. |
-| standing | string | The current standing for this contributor type. Related to has_status. |
-| ordering | unsigned | The contributor types order as displayed in the web application. |
 
 
 
@@ -330,7 +333,7 @@ This request supports [order filters](#filters-order-filters) over the following
 
 #### Handling the Response
 
-The response will be a list of [contributor types](#the-contributor-type-object) on the Deployment, with their default 
+The response will be a list of [contributor types](#the-contributor-type-object) on the deployment, with their default 
 fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, 
 filters, or searches used.
 
