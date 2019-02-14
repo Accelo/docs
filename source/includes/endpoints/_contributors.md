@@ -1,5 +1,5 @@
 ## Contributors
-> Resource URI:  
+> Resource URI:
 `/api/v0/contributors`
 
 Contributors are third party contacts who are involved in your client's work. You can easily keep them in the loop on
@@ -57,7 +57,7 @@ The contributor object contains the following:
     "has_status": "1",
     "auto_cc": "1",
     "default_standing": "active",
-    "standing": "active", 
+    "standing": "active",
     "ordering": "0"
   }
 ```
@@ -82,7 +82,7 @@ The contributor type object contains the following:
 
 
 ### Get Contributor
-> Sample Request: 
+> Sample Request:
 
 ```http
 GET /api/v0/contributors/{id} HTTP/1.1
@@ -91,7 +91,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contributors/{id} \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -129,7 +129,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contributors \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -222,7 +222,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contributors/count \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -244,7 +244,7 @@ returns a single field:
 
 
 ### Get Contributor Type
-> Sample Request: 
+> Sample Request:
 
 ```http
 GET /api/v0/contributors/types/{id} HTTP/1.1
@@ -253,7 +253,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contributors/types/{id} \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -290,7 +290,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contributors/types \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -333,8 +333,8 @@ This request supports [order filters](#filters-order-filters) over the following
 
 #### Handling the Response
 
-The response will be a list of [contributor types](#the-contributor-type-object) on the deployment, with their default 
-fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, 
+The response will be a list of [contributor types](#the-contributor-type-object) on the deployment, with their default
+fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters,
 filters, or searches used.
 
 
@@ -356,7 +356,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contributors/types/count \
   -H 'authorization: Bearer {access_token}'
 ```
