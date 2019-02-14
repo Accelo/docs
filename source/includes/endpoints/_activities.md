@@ -234,8 +234,8 @@ Activity threads are described by the thread object, this contains the following
 
 #### Activity Interactions
 
-In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, 
-affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members 
+In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff,
+affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members
 and/or affiliations. The form of interactions, and the way they are handled vary depending on the context, thus we deal
 with each case individually:
 
@@ -938,7 +938,7 @@ Values for the following fields may be set through this request.
     "affiliation": [13,14]
   },
   "bcc": {
-    "emails": "bcc-recipient@affinitylive.com"
+    "emails": ["bcc-recipient@affinitylive.com", "fred@freddy.com"]
   }
 }
 ```
@@ -953,7 +953,7 @@ for information on sending JSON requests) and including the following objects:
 | bcc | Anyone to whom the activity should be bcc'd|
 
 Each object accepts a staff or affiliation (identified by their id) or a general email. 
-(Note: When using a general email, not interact object will be created.)
+(Note: When using a general email, no interact object will be created.)
 
 #### Logging time
 
