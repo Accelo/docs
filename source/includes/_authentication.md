@@ -582,7 +582,7 @@ preferred. Note that including both of these will return an error.
 }
 ```
 
-In order to ensure API useability, a limit exists on the number of times a user can fail to authenticate with the
+In order to ensure API usability, a limit exists on the number of times a user can fail to authenticate with the
 Public API. A user is limited to 100 failed authentication attempts within a 5 minute period. If this limit is exceeded,
 the user will be 'locked out'. Any attempt to authenticate during this 'lockout' period will restart the 5 minute timer.
 
