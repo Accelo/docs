@@ -952,7 +952,7 @@ for information on sending JSON requests) and including the following objects:
 | cc | Anyone to whom the activity should be cc'd.  |
 | bcc | Anyone to whom the activity should be bcc'd|
 
-Each object accepts a staff or affiliation (identified by their id) or a general email. 
+Each object accepts a staff or affiliation (identified by their id) or a general email.
 (Note: When using a general email, no interact object will be created.)
 
 #### Logging time
