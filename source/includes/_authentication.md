@@ -566,3 +566,26 @@ curl -X get https://planet-express.api.accelo.com/api/v0/companies/1 \
 Once you have access to your token you may use it to access endpoints. This can be done by either including it as a
 query parameter as `_bearer_token`, or as a HTTP `Authorization: Bearer` header. For security reasons the latter is
 preferred. Note that including both of these will return an error.
+
+
+## Lockout
+
+> Example lockout response.
+
+```json
+{
+  "more_info": "https://api.accelo.com/docs/#status-codes",
+  "status": "too_many_failed_logins",
+  "message": "User is locked out by their IP due to too many failed
+              authentication attempts. Please use the 'Retry-After'
+              header for accessing the locked delay in seconds."
+}
+```
+
+In order to ensure API usability, a limit exists on the number of times a user can fail to authenticate with the
+Public API. A user is limited to 100 failed authentication attempts within a 5 minute period. If this limit is exceeded,
+the user will be 'locked out'. Any attempt to authenticate during this 'lockout' period will restart the 5 minute timer.
+
+Once the lockout period has expired, you should be able to continue to use the API as normal.
+
+
