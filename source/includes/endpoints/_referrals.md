@@ -14,33 +14,26 @@ Referrals provide a link between an object and the object it was created from. A
 	"referrer_type": "job",
 	"against_id": "84",
 	"against_type": "issue",
-	"value": "0.00",
-	"standing": "converted",
 	"updated_by": "1",
 	"date_updated": "1448519478",
 	"created_by": "2",
 	"date_created": "1448519478",
-	"probability": "0",
 }
 ```
 
-The contains the following:
-######/////////TODO: figure out which object is being referred to by some of these attributes.
+The referrals object contains the following:
+
 | Field | Type | Description |
-|:-|:-|:-|
+|:- |:- |:- |
 | **id** | unsigned | A unique identifier for the referral. |
-| **duration** | unsigned | How long the scheduled time is for in seconds |
 | referrer_id | unsigned | The id of the object which made the referral. |
-| referrer_type | string | The type of the object which made the referral. eg. A prospect. |
+| referrer_type | string | The type of the object which made the referral. eg. 'prospect'. |
 | against_id | unsigned | The id of the object which was created via referral. |
-| against_type | string | The type of the object which was created via referral. eg. A job which was created via a prospect. |
-| value | decimal | The value of the object that was created via referral. |
-| standing | string | The current standing of the referral. |
+| against_type | string | The type of the object which was created via referral. eg. A 'job' which was created via a 'prospect'. |
 | updated_by | unsigned | The id of the staff member who last updated this referral. |
 | date_updated | unix ts | The date that this referral was last updated. |
 | created_by | unsigned | The identifier of the user who created the referral. |
 | date_created | unix ts | The date that the referral was created. |
-| probability | unsigned | The probability of the referral. |
 
 
 
@@ -128,7 +121,6 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | updated_by |
 | probability |
 | standing |
-| value |
 
 ##### Date Filters
 
@@ -147,21 +139,10 @@ This request supports [order filters](#filters-order-filters) over the following
 |:-|
 | date_created |
 | date_updated |
-| value |
-| probability |
-
-##### Range Filters
-
-This request supports [range filters](#filters-range-filters) over the following fields:
-
-| Filter Name |
-|:-|
-| value |
-| probability |
 
 #### Handling the Response
 
-The response will be a list of [time schedules](#the-time-schedule-object) on the Deployment, with their default fields and
+The response will be a list of [referrals](#the-referrals-object) on the Deployment, with their default fields and
 any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or
 searches used.
 
@@ -188,7 +169,7 @@ curl -X get \
 
 `GET /referrals/count`
 
-This request will return a count of referrals defined by any available searches of filters.
+This request will return a count of [referrals](#the-referrals-object) defined by any available searches of filters.
 With no searches or filters this will be a count of all referrals on the deployment. This request returns a single field.
 
 | Field | Type | Description |
