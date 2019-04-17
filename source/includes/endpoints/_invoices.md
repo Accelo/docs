@@ -328,7 +328,7 @@ and whose value is `{invoice_id}`.
 `POST /invoices/{invoice_id}/profiles/fields/{profile_field_id}`
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
-`profile_field_id`, for an "invoice", specified by it's `invoice_id`. This is the request 
+`profile_field_id`, for an "invoice", specified by its `invoice_id`. This is the request 
 [`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "invoices",
 and whose value is `{invoice_id}`.
 
