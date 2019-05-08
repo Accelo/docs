@@ -2,8 +2,8 @@
 > Resource URI:  
 `/api/v0/signoffs`
 
-Signoffs in Accelo allow your clients to approve your work and make comments against attachments and work descriptions. 
-See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/signoffs/) for more 
+Signoffs in Accelo allow your clients to approve your work and make comments against attachments and work descriptions.
+See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/signoffs/) for more
 information on signoffs.
 
 ### The Signoff Object
@@ -44,7 +44,7 @@ The signoff object contains the following:
 | **subject** | string | A name for the signoff. |
 | standing | string | The signoffs standing/status. Either "Draft", "Sent", "Approved" or "Declined". |
 | requires | string | Whether the signoff requires "any" approvers or "all" approvers to approve the quote. |
-| against | string | The API URL for the object the signoff is against eg. "jobs/39". |
+| against | string | The API URL for the object the signoff is against e.g. "jobs/39". |
 | date_created | unix ts | The date the signoff was created.|
 | date_updated | unix ts | The date the signoff was last updated. |
 | standing_colour | string | The colour associated with the signoffs current standing/status. |
@@ -90,7 +90,7 @@ The recipient object contains the following:
 | **id** | unsigned | A unique identifier for the recipient. |
 | **signoff_id** | unsigned | The identifier of the signoff this recipient is related to. |
 | **recipient_id** | unsigned | The identifier of the recipient |
-| **recipient_type** | string | The object type of the recipient eg. 'affiliation' or 'staff'. |
+| **recipient_type** | string | The object type of the recipient e.g. 'affiliation' or 'staff'. |
 | **response** | string | The response of the recipient to the signoff. |
 | date_responded | unix ts | The date in which the recipient responded to the sign off. |
 | recipient | object | An object describing more information about the recipient. |
@@ -520,7 +520,7 @@ following fields are set via this request.
 |:-|:-|:-|
 | **signoff_id** | unsigned | The identifier of the signoff this recipient is related to. |
 | **recipient_id** | unsigned | The identifier of the recipient |
-| **recipient_type** | string | The object type of the recipient eg. 'affiliation' or 'staff'. |
+| **recipient_type** | string | The object type of the recipient e.g. 'affiliation' or 'staff'. |
 | **approver** | boolean | Whether the user can approve the quote related to this signoff. |
 
 
