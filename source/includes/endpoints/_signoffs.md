@@ -423,6 +423,7 @@ This request supports [order filters](#filters-order-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | date_responded ||
 
 ##### Range Filters
@@ -430,6 +431,7 @@ This request supports [range filters](#filters-range-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | signoff_id ||
 
 
