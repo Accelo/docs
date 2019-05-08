@@ -495,7 +495,7 @@ the [`_fields`](#configuring-the-response-fields) parameter.
 
 ##### Basic Filters
 
-This request supports the following [basic filters](#filters-order-filters):
+This request supports the following [basic filters](#filters-basic-filters):
 
 | Filter Name |
 |:-|
