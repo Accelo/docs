@@ -70,8 +70,8 @@ which contains the fields of a staff object, with the following addition:
 | relationship_id | unsigned | A unique identifier for the relationship between the company and manager.
 
 
-#### The Segmentation Object
-> Example segmentation:
+#### The Company Segmentation Object
+> Example company segmentation:
 
 ```json
 {
@@ -84,7 +84,7 @@ which contains the fields of a staff object, with the following addition:
 }
 ```
 
-Segmentations, or categories, are fields to group companies, contacts, and affiliations. For example, some segmentations
+[Segmentations](#segmentations), are fields to group companies, contacts, and affiliations. For example, some segmentations
 for a company may be:
 
 | Segmentation | Description |
@@ -93,9 +93,8 @@ for a company may be:
 | Size | Roughly, how many staff does the company have. |
 | Source | How did this company become known to us. |
 
-Segmentations may be managed through your Accelo deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-
-contacts/categories/) for information. A `segmentation` contains the following fields:
+The Company Segmentation is a special object available via companies which gives details on the segmentations, and their
+values, for a given company. This object contains:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -557,7 +556,7 @@ This request may be configured and handled a per [`GET /staff`](#list-staff)
 
 
 
-### List Segmentations
+### List A Company's Segmentations
 > Sample Request:   
 
 ```http
@@ -581,7 +580,7 @@ Host: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
-This request returns a list of [segmentations](#the-segmentation-object) for a company identified by its `company_id`.
+This request returns a list of [company segmentations](#the-company-segmentation-object) for a company identified by its `company_id`.
 This request takes no parameters and returns a list of segmentations.
 
 > Sample response:  
