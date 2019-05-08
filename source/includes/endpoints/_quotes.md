@@ -435,7 +435,7 @@ searches used.
 
 
 
-### Count Prospect Statuses
+### Count Quote Statuses
 > Sample Request:
 
 ```http
