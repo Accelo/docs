@@ -635,7 +635,7 @@ This request supports all the [pagination](#configuring-the-response-pagination)
 
 This request supports requesting extra fields or linked objects from the [attachment object](#the-attachment-object)
 using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports
-[breadcrumbs](#configuring-the-response-breadcrumbs).
+[breadcrumbs](#breadcrumbs).
 
 
 ##### Basic Filters
