@@ -34,14 +34,16 @@ The task object contains the following:
 | assignee | unsigned or object | The [staff](#staff) member assigned to the task. |
 | type | unsigned or object | The [task type](#the-task-type) of the task. Deprecated, please use `task_type`.|
 | task_type | unsigned or object | The [task type](#the-task-type) of the task. |
-| status | unsigned or object | The [status](#statuses) of the task. |
+| status | unsigned or object | The [status](#statuses) of the task. Deprecated, please use `task_status`. |
+| task_status | unsigned or object | The [status](#statuses) of the task. |
 | standing | string | The standing of the task, this is contained in the status object. |
 | manager | unsigned or object | The [staff](#staff) member assigned to manager the task. |
 | contact | unsigned or object | The [contact](#contacts) associated with the against object, if any. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the against object, if any. |
 | company | unsigned or object | The [company](#companies) object the task is against, if any. |
 | issue | unsigned or object | The [issue](#issues) object the task is against, if any. |
-| job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. |
+| job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. Deprecated, please use `task_job`|
+| task_job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. |
 | milestone | unsigned or object | The [milestone](#milestones) object the task is against, if any. |
 | task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any. |
 | task_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the task. |
