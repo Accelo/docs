@@ -3,8 +3,8 @@
 `/api/v0/segmentations`
 
 Segmentations or (Categories) organize and segment your Company list into different categories for better management and
-reporting, letting you shape Accelo to match just what your business needs. 
-See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/) 
+reporting, letting you shape Accelo to match just what your business needs.  See the [support
+documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/)
 for more information.
 
 ### The Segmentation Object
@@ -64,12 +64,12 @@ This request gets and returns a single [segmentation](#the-segmentation-object) 
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked items from the [segmentation object](#the-segmentation-object)
-using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked items from the [segmentation
+object](#the-segmentation-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
-The response will be a single [segmentation](#the-segmentation-object) with its default fields and any
-additional fields requested through `_fields`.
+The response will be a single [segmentation](#the-segmentation-object) with its default fields and any additional fields
+requested through `_fields`.
 
 
 
@@ -87,7 +87,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/segmentations \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -102,8 +102,8 @@ This request returns a list of [segmentations](#the-segmentation-object) for the
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Resource
-This request supports requesting additional fields and linked resources from the [segmentation](#the-segmentation-object) using
-the `_fields` parameter.
+This request supports requesting additional fields and linked resources from the
+[segmentation](#the-segmentation-object) using the `_fields` parameter.
 
 ##### Basic Filters
 This request supports basic filters over the following fields:
@@ -134,7 +134,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | id | |
 
 #### Handling the Response
-The response will be a list of [segmentations](#the-segmentation-object) with their default fields and any additional 
+The response will be a list of [segmentations](#the-segmentation-object) with their default fields and any additional
 fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -144,7 +144,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 ### Count Segmentations
-> Sample Request:   
+> Sample Request:
 
 ```http
 GET /api/v0/segmentations/count HTTP/1.1
@@ -153,14 +153,14 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/segmentations/count \
   -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /segmentations/count`
 
-This request will return a count of segmentations in a list defined by any available searches or filters. With no 
+This request will return a count of segmentations in a list defined by any available searches or filters. With no
 searches or filters this will be a count of all segmentations on the deployment. This request returns a single field:
 
 | Field | Type | Description |
