@@ -680,7 +680,143 @@ The response will contain the single contract type with its default fields, and 
 
 
 
-### Close a Contract Period (Beta)
+### Get Contract Status
+> Sample Request:
+
+```http
+GET /api/v0/contracts/statuses/{status_id} HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/contracts/statuses/{status_id} \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+
+`GET /contracts/statuses/{status_id}`
+
+This request returns the contract [status](#statuses) specified by its `status_id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be a contract [status object](#statuses) for the specified status with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
+### List Contract Statuses
+> Sample Request:
+
+```http
+GET /api/v0/contracts/statuses HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/contracts/statuses \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /contracts/statuses`
+
+This request reutrns a list of contract [statuses](#statuses) on the deployment.
+
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports the standard [pagination](#configuring-the-response-pagination) requests.
+
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the contract [status object](#statuses) through
+the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+| ordering |
+
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
+
+
+
+
+### Count Contract Statuses
+> Sample Request:
+
+```http
+GET /api/v0/contracts/statuses/count HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/contracts/statuses/count \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+
+`GET /contracts/statuses/count`
+
+This request will return a count of contract statuses in a list defined by any available searches or filters.
+With no searches or filters this will be a count of all contract statuses on the deployment. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the listed contract statuses. |
+
+
+
+
+
+
+### Close a Contract Period
 > Sample Request:
 
 ```http
@@ -708,7 +844,7 @@ a contract period via the Web App, including closing tickets/issues if the contr
 
 
 
-### Reopen a Contract Period (Beta)
+### Reopen a Contract Period
 > Sample Request:
 
 ```http

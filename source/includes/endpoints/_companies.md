@@ -389,7 +389,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 
-### Get Company Status
+### Get a Company's Status
 > Sample Request:  
 
 
@@ -455,6 +455,141 @@ This request supports requesting additional fields and linked objects from the [
 #### Handling The Response
 
 The response will be an array of status objects with their default fields and any additional fields requested via `_fields`.
+
+
+
+
+
+
+
+### Get Company Status
+> Sample Request:
+
+```http
+GET /api/v0/companies/statuses/{status_id} HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/companies/statuses/{status_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+
+`GET /companies/statuses/{status_id}`
+
+This request returns the company [status](#statuses) specified by its  `status_id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be a company [status object](#statuses) for the specified status with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
+### List Company Statuses
+> Sample Request:
+
+```http
+GET /api/v0/companies/statuses HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/companies/statuses \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /companies/statuses`
+
+This request returns a list of company [statuses](#statuses) on the deployment.
+
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports the standard [pagination](#configuring-the-response-pagination) requests.
+
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the company [status object](#statuses) through
+the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+| ordering |
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
+
+
+
+
+### Count Company Statuses
+> Sample Request:
+
+```http
+GET /api/v0/companies/statuses/count HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/companies/statuses/count \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET /companies/statuses/count`
+
+This request will return a count of company statuses in a list defined by any available searches or filters. 
+With no searches or filters this will be a count of all company statuses on the deployment. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the listed company statuses. |
 
 
 

@@ -267,6 +267,40 @@ This request will return a count of tasks in a list defined by any available sea
 
 
 
+### Get Task Status
+> Sample Request:
+
+```http
+GET /api/v0/tasks/statuses/{status_id} HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/tasks/statuses/{status_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /tasks/statuses/{status_id}`
+
+This request returns the task [status](#statuses) specified by its  `status_id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be a task [status object](#statuses) for the specified status with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
 
 ### List Task Statuses
 > Sample Request:   
@@ -328,6 +362,33 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 The response will be a list of [statuses](#statuses) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters or searches used.
 
 
+
+
+
+
+### Count Task Statuses
+> Sample Request:
+
+```http
+GET /api/v0/tasks/statuses/count HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/tasks/statuses/count \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET /tasks/statuses/count`
+
+This request will return a count of task statuses in a list defined by any available searches or filters.
+With no searches or filters this will be a count of all task statuses on the deployment. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the listed task statuses. |
 
 
 
