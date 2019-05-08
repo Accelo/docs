@@ -81,6 +81,21 @@ This request supports basic filters over the following fields:
 | exclusive   |
 | leaf        |
 
+##### Order Filters
+
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+
+##### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
 
 #### Handling the Response
 The response will be a list of [segmentations](#the-segmentation-object) with their default fields and any additional 
