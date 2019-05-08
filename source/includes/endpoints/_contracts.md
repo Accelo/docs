@@ -45,8 +45,6 @@ allowing for easy handling of things like tax codes and ledger codes.
   "notes": "This contract was created against a company",
   "affiliation": "98",
   "staff_bookmarked": "1",
-  "rate_id" : "9",
-  "rate_charged" : "200.00",
 }
 ```
 
