@@ -75,7 +75,6 @@ This request supports basic filters over the following fields:
 | Filter Name |
 |:----------- |
 | id          |
-| title       |
 | link_type   |
 | standing    |
 | required    |
