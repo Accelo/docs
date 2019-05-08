@@ -757,17 +757,12 @@ The file may be uploaded using the following parameter:
 
 | Field | Type | Description |
 |:-|:-|:-|
-| **resource** | file | The file to be uploaded. |
+| **file** | file | The file to be uploaded. |
 
 #### Handling the Response
-The response will contain the following fields:
 
-| Field | Type | Description |
-|:-|:-|:-|
-| **title** | string | The name of the resource. |
-| size | integer | The size of the attachment in bytes. |
-| mimetype | string | The mime type of the attachment. |
-
+The response will be the uploaded [attachment](#the-attachment-object) with its default fields and any additional fields requests
+through `_fields`.
 
 
 
