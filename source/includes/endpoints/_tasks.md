@@ -5,6 +5,57 @@
 Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
 
 ### The Task Object
+> Example task:
+
+```json
+{
+  "affiliation": "292",
+  "against": "milestones/15",
+  "against_id": "15",
+  "against_type": "milestone",
+  "assignee": "7",
+  "billable": "3600",
+  "budgeted": "0",
+  "company": null,
+  "contact": "292",
+  "creator": "staff/7",
+  "creator_id": "7",
+  "creator_type": "staff",
+  "custom_id": null,
+  "date_accepted": "1362533400",
+  "date_commenced": "1362533400",
+  "date_completed": "1374208724",
+  "date_created": "1362533400",
+  "date_due": "1374199200",
+  "date_modified": "1532347231",
+  "date_started": "1362531600",
+  "description": null,
+  "id": "24",
+  "issue": null,
+  "job": null,
+  "logged": "3600",
+  "manager": "7",
+  "milestone": "15",
+  "nonbillable": "0",
+  "object_budget": "113",
+  "rate_charged": "175.00",
+  "rate_id": "6",
+  "remaining": "0",
+  "staff_bookmarked": "0",
+  "standing": "complete",
+  "status": "5",
+  "task_job": null,
+  "task_object_budget": "113",
+  "task_object_schedule": "113",
+  "task_object_schedule_id": "113",
+  "task_status": "5",
+  "task_type": "1",
+  "title": "SEO Audit",
+  "type": "1"
+}
+
+```
+
 The task object contains the following:
 
 | Field | Type | Description |
