@@ -16,7 +16,7 @@ different resources. Currently, statuses are supported on the following objects:
 * [Quotes](#quotes)
 
 ### Status Objects
-The a status object may contain the following:
+The status object contain the following:
 
 | Fields | Type | Description |
 |:-|:-|:-|
@@ -28,4 +28,4 @@ The a status object may contain the following:
 | ordering | unsigned | A number representing the status' order on the Accelo deployment. |
 
 Note that each resources keeps track of statuses separately, so a given status may not contain all the fields listed
-above, if this is the case we will state it in that ressource's section.
+above, if this is the case we will state it in that resource's section.
