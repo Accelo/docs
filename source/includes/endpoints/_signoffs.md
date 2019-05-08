@@ -567,9 +567,10 @@ identified by their `recipient_id`. A recipient can only be edited if a user is 
 
 The following fields can be updated by this request:
 
-| Field |
-| :- |
-| response |
+| Field | Notes |
+| :- | :- |
+| approver ||
+| response | You may only update *your own* response, and only if you are an approver. |
 
 
 
