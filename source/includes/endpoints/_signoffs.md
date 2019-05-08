@@ -212,6 +212,7 @@ This request supports [order filters](#filters-order-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | date_created |
 | date_expires |
 | date_updated |
@@ -237,6 +238,20 @@ This request supports [empty filters](#filters-empty-filters) over the following
 | created_by |
 | date_expires |
 | date_updated |
+
+##### Range Filters
+This request supports [range filters](#range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id ||
+
+##### Object Filters
+This request supports the following [object filters](#filters-object-filters):
+
+| Filter | Description |
+|:-|:-|
+| against | Filter by quotes against these objects. |
 
 
 
