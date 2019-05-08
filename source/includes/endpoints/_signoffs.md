@@ -219,14 +219,6 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing |
 | subject |
 
-##### Searching
-
-This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
-
-| Field |
-|:-|
-| subject |
-
 ##### Empty Filters
 
 This request supports [empty filters](#filters-empty-filters) over the following fields:
@@ -253,6 +245,13 @@ This request supports the following [object filters](#filters-object-filters):
 |:-|:-|
 | against | Filter by quotes against these objects. |
 
+##### Searching
+
+This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+
+| Field |
+|:-|
+| subject |
 
 
 
