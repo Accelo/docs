@@ -791,9 +791,9 @@ This request updates an attachment identified by its `attachment_id` and returns
 
 The fields able to be updated by this request are:
 
-| Field |
-| :- |
-| Standing |
+| Field | Notes |
+| :- | :- |
+| Status | Updates the `standing` field |
 
 
 
