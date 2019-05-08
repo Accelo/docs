@@ -537,7 +537,7 @@ following fields are set via this request.
 | **signoff_id** | unsigned | The identifier of the signoff this recipient is related to. |
 | **recipient_id** | unsigned | The identifier of the recipient |
 | **recipient_type** | string | The object type of the recipient e.g. 'affiliation' or 'staff'. |
-| **approver** | boolean | Whether the user can approve the quote related to this signoff. |
+| approver | string | Whether the user can approve the quote related to this signoff. Must be one of 'yes' or 'no'. |
 
 
 
