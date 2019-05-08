@@ -741,9 +741,11 @@ Content-Type: application/pdf
 ```
 
 ```shell
-curl -X post \
- https://{deployment}.api.accelo.com/api/v0/signoffs/{signoff_id}/attachments \
-  -H 'authorization: Bearer {access_token}'
+curl -X POST \
+  https://{deployment}.api.local.accelo.com/api/v0/signoffs/1/attachments\
+  -H 'authorization: Bearer {access_token}
+  -H 'content-type: multipart/form-data'
+  -F 'file=@example.pdf'
 ```
 
 `POST /signoffs/{signoff_id}/attachments`
