@@ -41,6 +41,42 @@ The segmentation object contains the following:
 
 
 
+### Get a Segmentation
+> Sample Request:
+
+```http
+GET /api/v0/segmentation/{id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+Content-Type: application/x-www-form-urlencoded
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/segmentation{id} \
+  -H 'authorization: Bearer {access_token}' \
+  -H 'Content-Type: application/x-www-form-urlencoded'
+```
+
+`GET /segmentations/{id}`
+
+This request gets and returns a single [segmentation](#the-segmentation-object) specified by its `id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked items from the [segmentation object](#the-segmentation-object)
+using the [`_fields`](#configuring-the-response-fields) parameter.
+
+#### Handling the Response
+The response will be a single [segmentation](#the-segmentation-object) with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
+
+
 ### List Segmentations
 > Sample Request:
 
@@ -130,39 +166,3 @@ searches or filters this will be a count of all segmentations on the deployment.
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of the segmentations listed. |
-
-
-
-
-
-
-
-### Get a Segmentation
-> Sample Request:   
-
-```http
-GET /api/v0/segmentation/{id} HTTP/1.1
-HOST: {deployment}.api.accelo.com
-Authorization: Bearer {access_token}
-Content-Type: application/x-www-form-urlencoded
-```
-
-```shell
-curl -X get \ 
- https://{deployment}.api.accelo.com/api/v0/segmentation{id} \
-  -H 'authorization: Bearer {access_token}' \
-  -H 'Content-Type: application/x-www-form-urlencoded'
-```
-
-`GET /segmentations/{id}`
-
-This request gets and returns a single [segmentation](#the-segmentation-object) specified by its `id`.
-
-#### Configuring the Response
-
-This request supports requesting additional fields and linked items from the [segmentation object](#the-segmentation-object)
-using the [`_fields`](#configuring-the-response-fields) parameter.
-
-#### Handling the Response
-The response will be a single [segmentation](#the-segmentation-object) with its default fields and any 
-additional fields requested through `_fields`.
