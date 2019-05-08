@@ -281,7 +281,7 @@ searches or filters, this will be a count of all signoffs on the deployment. Thi
 
 | Field | Type | Description |
 |:-|:-|:-|
-| **count** | unsigned | A count of the signoffs listed. ||
+| **count** | unsigned | A count of the signoffs listed. |
 
 
 
