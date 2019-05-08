@@ -29,8 +29,8 @@ The segmentation object contains the following:
 |:-|:-|:-|
 | **id** | unsigned | A unique identifier for the segmentation. |
 | **title** | string | A name for the segmentation. |
-| link_type | enum | The object type that the segmentation is related to, may be 'company', 'affiliation' or 'contact'. |
-| standing | enum | The standing of the segmentation, may be "active" or "inactive".|
+| link_type | string | The object type that the segmentation is related to, may be 'company', 'affiliation' or 'contact'. |
+| standing | string | The standing of the segmentation, may be "active" or "inactive".|
 | required | boolean | Either Yes or No, whether this segmentation is required for the object it is against. |
 | exclusive | boolean | Either Yes or No, whether this segmentation is limited to one value. |
 | leaf | boolean | Either Yes or No, whether this segmentation is limited to only child options. |
