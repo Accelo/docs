@@ -44,7 +44,7 @@ allowing for easy handling of things like tax codes and ledger codes.
   "against": "companies/39",
   "notes": "This contract was created against a company",
   "affiliation": "98",
-  "staff_bookmarked": "1"
+  "staff_bookmarked": "1",
 }
 ```
 

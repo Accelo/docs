@@ -5,6 +5,57 @@
 Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
 
 ### The Task Object
+> Example task:
+
+```json
+{
+  "affiliation": "292",
+  "against": "milestones/15",
+  "against_id": "15",
+  "against_type": "milestone",
+  "assignee": "7",
+  "billable": "3600",
+  "budgeted": "0",
+  "company": null,
+  "contact": "292",
+  "creator": "staff/7",
+  "creator_id": "7",
+  "creator_type": "staff",
+  "custom_id": null,
+  "date_accepted": "1362533400",
+  "date_commenced": "1362533400",
+  "date_completed": "1374208724",
+  "date_created": "1362533400",
+  "date_due": "1374199200",
+  "date_modified": "1532347231",
+  "date_started": "1362531600",
+  "description": null,
+  "id": "24",
+  "issue": null,
+  "job": null,
+  "logged": "3600",
+  "manager": "7",
+  "milestone": "15",
+  "nonbillable": "0",
+  "object_budget": "113",
+  "rate_charged": "175.00",
+  "rate_id": "6",
+  "remaining": "0",
+  "staff_bookmarked": "0",
+  "standing": "complete",
+  "status": "5",
+  "task_job": null,
+  "task_object_budget": "113",
+  "task_object_schedule": "113",
+  "task_object_schedule_id": "113",
+  "task_status": "5",
+  "task_type": "1",
+  "title": "SEO Audit",
+  "type": "1"
+}
+
+```
+
 The task object contains the following:
 
 | Field | Type | Description |
@@ -34,18 +85,22 @@ The task object contains the following:
 | assignee | unsigned or object | The [staff](#staff) member assigned to the task. |
 | type | unsigned or object | The [task type](#the-task-type) of the task. Deprecated, please use `task_type`.|
 | task_type | unsigned or object | The [task type](#the-task-type) of the task. |
-| status | unsigned or object | The [status](#statuses) of the task. |
+| status | unsigned or object | The [status](#statuses) of the task. Deprecated, please use `task_status`. |
+| task_status | unsigned or object | The [status](#statuses) of the task. |
 | standing | string | The standing of the task, this is contained in the status object. |
 | manager | unsigned or object | The [staff](#staff) member assigned to manager the task. |
 | contact | unsigned or object | The [contact](#contacts) associated with the against object, if any. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the against object, if any. |
 | company | unsigned or object | The [company](#companies) object the task is against, if any. |
 | issue | unsigned or object | The [issue](#issues) object the task is against, if any. |
-| job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. |
+| job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. Deprecated, please use `task_job`|
+| task_job | unsigned or object | The [job](#jobs-projects) object the task is against, if any. |
 | milestone | unsigned or object | The [milestone](#milestones) object the task is against, if any. |
 | task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any. |
 | task_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the task. |
 | task_object_schedule_id | unsigned | The id of the object schedule linked to the task. |
+| rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
+| rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 
 #### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
@@ -163,6 +218,8 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id ||
 | custom_id ||
 | child_of_job | Filter by the `job_id` of the [job](#jobs-projects) the task, or its against object, is against. This allows you to find tasks under a certain job, even when they are not created directly against that job, for example if they are created against a [milestone](#milestones) under the job. |
+| rate_id | |
+| rate_charged | |
 
 
 ##### Date Filters
@@ -196,6 +253,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | status | Range over `status_id`. |
 | manager | Range over the `staff_id` of the manager. |
 | contact | Range over the `contact_id` of the associated contact. |
+| rate_charged | |
 
 ##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
@@ -213,6 +271,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | title ||
 | standing ||
 | status | Order by the `status_id`. |
+| rate_charged | |
 
 ##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
