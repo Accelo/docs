@@ -247,7 +247,7 @@ This request supports the following [object filters](#filters-object-filters):
 
 ##### Searching
 
-This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
