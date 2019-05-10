@@ -15,6 +15,7 @@ The staff object contains the following
 | **id** | string | A unique identifier for the staff member. |
 | **firstname** | string | The staff member's first name. |
 | **surname** | string | The staff member's surname. |
+| standing | select | Either "active", "inactive", or "lockout", the standing of the staff member. |
 | financial_level | select | Either "none", "time", or "all", the staff member's financial permission level. |
 | title | string | A title for the member, for example "Mr", "Ms". |
 | email | string | The staff member's email address. |

@@ -1,3 +1,4 @@
+
 ## Companies
 > Resource URI:
 `/api/v0/companies`
@@ -70,8 +71,8 @@ which contains the fields of a staff object, with the following addition:
 | relationship_id | unsigned | A unique identifier for the relationship between the company and manager.
 
 
-#### The Segmentation Object
-> Example segmentation:
+#### The Company Segmentation Object
+> Example company segmentation:
 
 ```json
 {
@@ -84,7 +85,7 @@ which contains the fields of a staff object, with the following addition:
 }
 ```
 
-Segmentations, or categories, are fields to group companies, contacts, and affiliations. For example, some segmentations
+[Segmentations](#segmentations), are fields to group companies, contacts, and affiliations. For example, some segmentations
 for a company may be:
 
 | Segmentation | Description |
@@ -93,9 +94,8 @@ for a company may be:
 | Size | Roughly, how many staff does the company have. |
 | Source | How did this company become known to us. |
 
-Segmentations may be managed through your Accelo deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-
-contacts/categories/) for information. A `segmentation` contains the following fields:
+The Company Segmentation is a special object available via companies which gives details on the segmentations, and their
+values, for a given company. This object contains:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -194,6 +194,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | manager_id | Filter by the `staff_id` of the [staff](#staff) set as manager of the company. |
 | contact_number | Filter over `phone` and `fax`. |
 | custom_id | Filter over the `custom_id`. |
+| website |
 
 
 
@@ -230,12 +231,11 @@ This request supports [range filters](#filters-range-filters) over the following
 | Filter Name | Notes |
 |:-|:-|
 | id ||
-| date_created ||
-| date_modified ||
-| name |
+| affiliation |
 | standing ||
 | status | Range over the `status_id`.|
 | custom_id ||
+| country ||
 
 
 ##### Searching
@@ -388,7 +388,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 
-### Get Company Status
+### Get a Company's Status
 > Sample Request:  
 
 
@@ -418,6 +418,177 @@ This request supports requesting additional fields and linked objects from the [
 #### Handling The Response
 
 The response will be a single status object with its default fields and any additional fields requested via `_fields`.
+
+
+
+
+
+
+### List Company Statuses
+> Sample Request:  
+
+
+```http
+GET /api/v0/companies/statuses HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/companies/statuses \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /companies/statuses`
+
+This returns a list of company statuses.
+
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling The Response
+
+The response will be an array of status objects with their default fields and any additional fields requested via `_fields`.
+
+
+
+
+
+
+
+### Get Company Status
+> Sample Request:
+
+```http
+GET /api/v0/companies/statuses/{status_id} HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/companies/statuses/{status_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+
+`GET /companies/statuses/{status_id}`
+
+This request returns the company [status](#statuses) specified by its  `status_id`.
+
+#### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
+
+#### Handling the Response
+
+The response will be a company [status object](#statuses) for the specified status with its default fields and any
+additional fields requested through `_fields`.
+
+
+
+
+
+### List Company Statuses
+> Sample Request:
+
+```http
+GET /api/v0/companies/statuses HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/companies/statuses \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /companies/statuses`
+
+This request returns a list of company [statuses](#statuses) on the deployment.
+
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports the standard [pagination](#configuring-the-response-pagination) requests.
+
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the company [status object](#statuses) through
+the [`_fields`](#configuring-the-response-fields) parameter.
+
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name |
+|:-|
+| id |
+| title |
+| standing |
+| color |
+| ordering |
+
+##### Searching
+
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
+
+
+
+
+### Count Company Statuses
+> Sample Request:
+
+```http
+GET /api/v0/companies/statuses/count HTTP/1.1
+Host: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/companies/statuses/count \
+  -H 'authorization: Bearer {access_token}' \
+```
+
+`GET /companies/statuses/count`
+
+This request will return a count of company statuses in a list defined by any available searches or filters. 
+With no searches or filters this will be a count of all company statuses on the deployment. This request returns a single field:
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **count** | unsigned | A count of the listed company statuses. |
 
 
 
@@ -557,7 +728,7 @@ This request may be configured and handled a per [`GET /staff`](#list-staff)
 
 
 
-### List Segmentations
+### List A Company's Segmentations
 > Sample Request:   
 
 ```http
@@ -581,7 +752,7 @@ Host: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
-This request returns a list of [segmentations](#the-segmentation-object) for a company identified by its `company_id`.
+This request returns a list of [company segmentations](#the-company-segmentation-object) for a company identified by its `company_id`.
 This request takes no parameters and returns a list of segmentations.
 
 > Sample response:  
@@ -723,6 +894,7 @@ Values for the following fields from the [company object](#the-company-object) m
 | phone | |
 | fax | |
 | comments | |
+| custom_id | `custom_id` will only show when you have custom id enabled on the web app|
 
 
 ##### Setting Profile Field Values

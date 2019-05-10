@@ -234,13 +234,13 @@ Activity threads are described by the thread object, this contains the following
 
 #### Activity Interactions
 
-In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff, or
+In the context of activities, an interaction is a recipient or sender of an activity, this will either be a staff,
 affiliation or contact object. An activity can have several interactions; an email may be sent to several staff members
-and an affiliation. The form of interactions, and the way they are handled vary depending on the context, thus we deal
+and/or affiliations. The form of interactions, and the way they are handled vary depending on the context, thus we deal
 with each case individually:
 
-1. [Interactions with a list of activities](#get-activities-handling-interacts)   
-2. [List of interactions with a single activity](#get-activities-id-interacts)
+1. [Interactions with a list of activities](#handling-interacts)
+2. [List of interactions with a single activity](#list-interactions)
 
 
 #### The Time Allocation Object
@@ -901,13 +901,13 @@ Values for the following fields may be set through this request.
 | Field | Notes |
 |:-|:-|
 | **subject** | Activity's subject that will appear in the title of the activity. |
-| **against_id** | The id of the against_table object, the activity is linked against. This will default to the current user's id. |
-| **against_type** | The object the activity is linked against. This can be: affiliation, annex, campaign, account_invoice, campaign_action, component, contract, contract_period, deployment, event, invoice, issue, job, membership, prospect, request, task or staff. This will default to staff. |
+| **against_id** | The id of the against_table object, the activity is linked against. |
+| **against_type** | The object the activity is linked against. This can be: affiliation, contract, contract_period, invoice, issue, job, prospect, request, task or staff. |
 | body | The content of the activity. |
 | medium | Type of activity to create. This can be: 'note', 'meeting', 'email', or 'call'. This will default to note. |
 | owner_type | The activity can be owned by a staff member or an affiliation. The owner defaults to the current user |
 | owner_id | Owner's id. i.e, the staff or affiliation id of owner_table. |
-| visibility | Defaults to `private` unless you are POSTing from a service application, in which case it defaults to `all`.|
+| visibility | Defaults to `private`, unless the request is executed as the Accelo Support user. |
 | details | Additional details assigned to an activity. For meetings and postals this is used to store the location/address. For calls this is used to store the number. |
 | priority_id | The unique identifier of the [priority](#the-activity-priority) to be linked to the new activity. |
 | class_id | The unique identifier of the [class](#the-activity-class) to be linked to the new activity. |
@@ -938,7 +938,7 @@ Values for the following fields may be set through this request.
     "affiliation": [13,14]
   },
   "bcc": {
-    "emails": "bcc-recipient@affinitylive.com"
+    "emails": ["bcc-recipient@affinitylive.com", "fred@freddy.com"]
   }
 }
 ```
@@ -953,11 +953,13 @@ for information on sending JSON requests) and including the following objects:
 | bcc | Anyone to whom the activity should be bcc'd|
 
 Each object accepts a staff or affiliation (identified by their id) or a general email.
+(Note: When using a general email, no interact object will be created.)
 
 #### Logging time
 
-The billable and nonbillable attributes require that you supply a staff owner (owner_type and owner_id) otherwise no
-time allocation is created against the new activity. i.e, the user who the time belongs to.
+In order to log time when creating an activity visibility must be set to `all`. The owner_id of the activty and who the
+time will be logged against will default to the current user. You can changed this by setting the `owner_type` and `owner_id`.
+
 
 #### Logging time against a task
 
@@ -1062,7 +1064,7 @@ curl -X delete \
   https://{deployment}.api.accelo.com/api/v0/activities/{activity_id} \
   -H 'authorization: Bearer {access_token}'
 ```
-`DELETE /activity/{activity_id}`
+`DELETE /activities/{activity_id}`
 
 This request will delete the activity identified by its `activity_id`. This request takes no parameters and returns no
 resources.

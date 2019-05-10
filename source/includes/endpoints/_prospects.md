@@ -777,6 +777,28 @@ The response will be the newly created prospect with its default fields and any 
 
 
 
+### Delete a Prospect
+> Sample Request:
+
+```http
+DELETE /api/v0/prospects/{prospect_id} HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Content-Type: application/x-www-form-urlencoded
+```
+
+```shell
+curl -X delete \
+  https://{deployment}.api.accelo.com/api/v0/prospects/{prospect_id} \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`DELETE /prospects/{prospect_id}`
+
+This request will delete the prospect identified by its `prospect_id`. This request takes no parameters and returns no
+resources.
+
+
+
 
 
 ### List a Prospect's Profile Field Values
