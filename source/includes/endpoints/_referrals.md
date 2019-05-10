@@ -42,7 +42,7 @@ The referrals object contains the following:
 
 
 
-### Get Time Referral
+### Get Referral
 > Sample Request:
 
 ```http
