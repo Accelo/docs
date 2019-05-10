@@ -47,6 +47,7 @@ includes:
   - endpoints/requests
   - endpoints/resources
   - endpoints/segmentations
+  - endpoints/signoffs
   - endpoints/skills
   - endpoints/staff
   - endpoints/statuses
