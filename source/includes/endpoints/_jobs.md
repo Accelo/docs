@@ -867,7 +867,7 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 `PUT /jobs/{job_id}/profiles/values/{profile_value_id}`
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
-particular job, specified by it's `job_id`. This is the request 
+particular job, specified by its `job_id`. This is the request 
 [`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "jobs", and
 whose value is `{job_id}`.
 
@@ -881,7 +881,7 @@ whose value is `{job_id}`.
 `POST /jobs/{job_id}/profiles/fields/{profile_field_id}`
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
-`profile_field_id`, for a "job", specified by it's `job_id`. This is the request 
+`profile_field_id`, for a "job", specified by its `job_id`. This is the request 
 [`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "jobs", and
 whose value is `{job_id}`.
 

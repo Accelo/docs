@@ -110,7 +110,7 @@ curl -X get \
 
 `GET /expenses/{expense_id}`
 
-This request returns a single [expense object](#the-expense-object) specified by it's `expense_id`.
+This request returns a single [expense object](#the-expense-object) specified by its `expense_id`.
 
 #### Configuring the Request
 This request supports requesting additional objects and fields from the [expenses object](#the-expense-object) using the `_fields` parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
