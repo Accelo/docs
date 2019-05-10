@@ -4,7 +4,7 @@
 
 Referrals provide a link between an object and the object it was created from. An example of this would be a job that has been created from a prospect.
 
-### The Referrals Object
+### The Referral Object
 > Example referral object:
 
 ```json
