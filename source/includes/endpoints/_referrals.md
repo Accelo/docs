@@ -137,8 +137,17 @@ This request supports [order filters](#filters-order-filters) over the following
 
 | Filter Name |
 |:-|
+| id |
 | date_created |
 | date_updated |
+
+##### Range Filters
+
+This request supports range filters over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id |
 
 #### Handling the Response
 
