@@ -44,6 +44,7 @@ includes:
   - endpoints/purchases
   - endpoints/quotes
   - endpoints/rates
+  - endpoints/referrals
   - endpoints/requests
   - endpoints/resources
   - endpoints/segmentations
