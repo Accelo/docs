@@ -23,7 +23,7 @@ a certain set of actions on a per object basis. The available events are:
 | event_id | Description |
 |:-|:-|
 | assign_task | Any time a [task](#tasks) assignee changes. |
-| unassign_task | Any time a [task](#tasks) loses its assignee. |
+| unassign_task | Any time a [task](#tasks) is unassigned. |
 | create_task | Any time a [task](#tasks) is created. |
 | create_invoice_pdf | Anytime an [invoice](#invoices) PDF is created.|
 | create_purchase_pdf | Any time a [purchase](#purchases) PDF is created. |
