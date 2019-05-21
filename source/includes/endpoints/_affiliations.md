@@ -160,7 +160,6 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | invoice_method | |
 | portal_access | |
 | communication | |
-| manager_id | Filter by the affiliated company's `manager_id` |
 
 
 ##### Date Filters
