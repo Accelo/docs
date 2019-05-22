@@ -166,9 +166,11 @@ This request supports [basic filters](#filters-basic-filters) over the following
 
 This request supports [date filters](#filters-date-filters) over the following fields:
 
-| Filter Name |
-|:-|
-| date_modified |
+| Filter Name | Notes |
+|:-|:-|
+| date_created | The date that the affiliated contact was created. |
+| date_last_interacted | The date that the affiliation was last interacted with. |
+| date_modified | The date that the affiliation was last modified. |
 
 
 ##### Order Filters
