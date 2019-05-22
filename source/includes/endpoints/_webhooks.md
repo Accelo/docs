@@ -23,7 +23,10 @@ a certain set of actions on a per object basis. The available events are:
 | event_id | Description |
 |:-|:-|
 | assign_task | Any time a [task](#tasks) assignee changes. |
+| unassign_task | Any time a [task](#tasks) is unassigned. |
+| create_task | Any time a [task](#tasks) is created. |
 | create_invoice_pdf | Anytime an [invoice](#invoices) PDF is created.|
+| create_purchase_pdf | Any time a [purchase](#purchases) PDF is created. |
 | create_quote | Anytime a new [quote](#quotes) is created|
 | create_request | Any time a new [request](#requests) is created. |
 | update_request_status | Any time a request status changes. |
@@ -38,7 +41,7 @@ a certain set of actions on a per object basis. The available events are:
 [Progression webhooks](https://www.accelo.com/resources/blog/product-priorities-update-q2-of-2017/#progressionwebhooks)
 allow you to subscribe to changing statuses for companies, contacts,  prospects, jobs, issues and contracts. Currently
 you can only do this from  the web application's administration page but there are plans to expose this  functionality
-to the api.
+to the API.
 
 ![Add Webhook Progression Button](../images/screenshots/add-progression-webhook-button-annotated.png)
 [Create Progression Action Button]
