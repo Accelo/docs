@@ -19,6 +19,7 @@ les/tickets/#WhenTickets) for more information on these objects.
   "referrer_type": null,
   "affiliation": "98",
   "date_submitted": "1493872605",
+  "date_modified": "1553728167",
   "resolution_detail": "I fixed the field, it now displays as expected.",
   "staff_bookmarked": "1",
   "against": "companies/39",
@@ -83,6 +84,7 @@ The issue object contains the following:
 | closed_by | unsigned or object | The staff member who closed the issue. |
 | date_due | unix ts |  The due date for the issue. |
 | date_last_interacted | unix ts | The date the issue was last interacted with. |
+| date_modified | unix ts | The date the issue was last modified. |
 | referrer_type | string | If the issue was created from the deployment as a "related issue" to an object, this will be the object's type. |
 | referrer_id |  unsigned | The unique identifier of this related object. |
 | staff_bookmarked | boolean | Whether the current viewer has bookmarked the issue. |
@@ -349,6 +351,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_started |
 | date_due |
 | date_closed |
+| date_modified |
 
 
 ##### Order Filters
@@ -365,6 +368,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_closed ||
 | date_resolved ||
 | date_last_interacted |
+| date_modified |
 | title ||
 | standing ||
 | status | Order by the `status_id` |
