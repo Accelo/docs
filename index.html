@@ -14124,6 +14124,7 @@ les/tickets/#WhenTickets">support documentation</a> for more information on thes
   </span><span class="s2">"referrer_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"affiliation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_submitted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1493872605"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1553728167"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"resolution_detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I fixed the field, it now displays as expected."</span><span class="p">,</span><span class="w">
   </span><span class="s2">"staff_bookmarked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"against"</span><span class="p">:</span><span class="w"> </span><span class="s2">"companies/39"</span><span class="p">,</span><span class="w">
@@ -14299,6 +14300,11 @@ les/tickets/#WhenTickets">support documentation</a> for more information on thes
 <td style="text-align: left">date_last_interacted</td>
 <td style="text-align: left">unix ts</td>
 <td style="text-align: left">The date the issue was last interacted with.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the issue was last modified.</td>
 </tr>
 <tr>
 <td style="text-align: left">referrer_type</td>
@@ -14785,6 +14791,9 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 <tr>
 <td style="text-align: left">date_closed</td>
 </tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+</tr>
 </tbody></table>
 <h5 id='order-filters'>Order Filters</h5>
 <p>This request supports <a href="#filters-order-filters">order filters</a> over the following fields:</p>
@@ -14825,6 +14834,10 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 </tr>
 <tr>
 <td style="text-align: left">date_last_interacted</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
