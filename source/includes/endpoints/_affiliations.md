@@ -80,13 +80,13 @@ curl -X get \
 ```
 
 ```http
-GET /api/v0/affiliation/{affiliation_id} HTTP/1.1
+GET /api/v0/affiliations/{affiliation_id} HTTP/1.1
 Host: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
 ```
 
-`GET /affiliation/{affiliation_id}`
+`GET /affiliations/{affiliation_id}`
 
 This request returns an affiliation specified by their unique id.
 
@@ -111,7 +111,7 @@ requested by `_fields`.
 > Sample request:
 
 ```http
-GET /api/v0/affiliation HTTP/1.1
+GET /api/v0/affiliations HTTP/1.1
 Host: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
@@ -472,7 +472,7 @@ curl -X put \
   -d 'postal_address_id=17'
 ```
 
-`PUT /affiliation/{affiliation_id}`
+`PUT /affiliations/{affiliation_id}`
 
 
 This request will update and return an [affiliation](#the-affiliation-object) identified by its `affiliation_id`.
@@ -599,7 +599,7 @@ curl -X delete \
   -H 'authorization: Bearer {access_token}'
 ```
 
-`DELETE /affiliation/{affiliation_id}`
+`DELETE /affiliations/{affiliation_id}`
 
 This request will delete the affiliation identified by its `affiliation_id`. This request takes no parameters and return
 no resources.
