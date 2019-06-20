@@ -108,7 +108,7 @@ in the first name, surname, mobile or email. Another available search method is 
 
 ## Filtering
 
-Most API endpoints support a `_filter` parameter that allows you to filter the response. The supported filters will be
+Most API endpoints support a `_filters` parameter that allows you to filter the response. The supported filters will be
 listed for each endpoint, in general there are several types of filters:
 
 * [Basic Filters](#filters-basic-filters)
