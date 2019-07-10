@@ -239,6 +239,24 @@ This request supports the following [basic filters](#filters-basic-filters):
 | Filter Name | Notes |
 |:-|:-|
 | id | |
+| staff_id | |
+| group_id | |
+
+##### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
 
 #### Handling the Response
 
