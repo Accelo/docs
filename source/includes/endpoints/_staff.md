@@ -26,6 +26,18 @@ The staff object contains the following
 | username | string | The staff member's username on the deployment. |
 | timezone | string | The staff member's timezone. |
 
+#### The Staff Membership Object
+
+This object tracks group membership for staff, each entry describes a link between a [staff](#staff) and a
+[group](#groups).
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the membership. |
+| group_id | unsigned | The id of the [group](#the-group-object-beta) the staff member is part of. |
+| staff_id | unsigned | The id of the [staff](#the-staff-object) linked to the group. |
+| staff | unsigned or object | The [staff](#the-staff-object) linked to the group. |
+
 
 
 
