@@ -26,6 +26,18 @@ The staff object contains the following
 | username | string | The staff member's username on the deployment. |
 | timezone | string | The staff member's timezone. |
 
+#### The Staff Membership Object
+
+This object tracks group membership for staff, each entry describes a link between a [staff](#staff) and a
+[group](#groups).
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the membership. |
+| group_id | unsigned | The id of the [group](#the-group-object-beta) the staff member is part of. |
+| staff_id | unsigned | The id of the [staff](#the-staff-object) linked to the group. |
+| staff | unsigned or object | The [staff](#the-staff-object) linked to the group. |
+
 
 
 
@@ -183,6 +195,77 @@ filters this will be a count of all staff on the deployment. This request return
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of staff members listed. |
+
+
+
+
+
+
+### List Staff Memberships
+
+> Sample Request:
+
+```http
+GET /api/v0/staff/memberships HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+  https://{deployment}.api.accelo.com/api/v0/staff/memberships \
+    -H 'authorization: Bearer {access_token}'
+```
+
+`GET /staf/memberships`
+
+This request returns a list of [staff memberships](#the-staff-membership-object) on the deployment.
+
+#### Configuring the Response
+
+##### Pagination
+
+This request supports all the [pagination](#configuring-the-response-pagination) parameters.
+
+##### Additional Fields and Linked Objects
+
+This request supports requesting additional fields and linked objects from the [staff
+membership](#the-staff-membership-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+
+##### Basic Filters
+
+This request supports the following [basic filters](#filters-basic-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+| staff_id | |
+| group_id | |
+
+##### Range Filters
+
+This request supports [range filters](#filters-range-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+
+##### Order Filters
+
+This request supports the following [order filters](#filters-order-filters):
+
+| Filter Name | Notes |
+|:-|:-|
+| id | |
+
+#### Handling the Response
+
+The response will be a list of [staff memberships](#the-staff-membership-object) with their default fields and any additional
+fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
+
+
+
+
 
 
 
