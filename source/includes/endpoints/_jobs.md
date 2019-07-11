@@ -32,7 +32,8 @@
   "manager": "7",
   "rate_charged": "125.00",
   "date_commenced": "1494209132",
-  "affiliation": "77"
+  "affiliation": "77",
+  "custom_id": "TIM#42"
 }
 ```
 
@@ -45,6 +46,7 @@ The jobs object contains the following:
 | against_type | string  | The type of object the job is against. |
 | against_id | unsigned | The unique identifier of the object the job is against. |
 | against | string | The API URI of the object the job is against, that is,`against_type` and `against_id` concatenated with a "/".|
+| custom_id | string | The custom id for this job. |
 | paused | integer | The number of days the jobs has been paused. |
 | staff_bookmarked | boolean | Whether the current user has bookmarked the job on the deployment. |
 | date_created |unix ts | The date the project was created. |
@@ -189,6 +191,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | status | Filter by the `status_id`. |
 | rate | Filter by the `rate_id`. |
 | affiliation | Filter by the `affiliation_id`. |
+| custom_id ||
 
 
 ##### Date Filters
@@ -222,6 +225,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | title |
 | standing |
 | status | Order by the `status_id`. |
+| custom_id ||
 
 
 ##### Range Filters
@@ -242,6 +246,7 @@ This request supports [range filters](#filters-range-filters) over the following
 | rate_charged ||
 | contract | Range by the `contract_id` of any contract associated with the job. |
 | plan_modified_by | Range by the `staff_id` of the last staff member to modify the job plan. |
+| custom_id ||
 
 
 ##### Object Filters
