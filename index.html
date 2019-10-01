@@ -15791,7 +15791,8 @@ object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
   </span><span class="s2">"manager"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"rate_charged"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_commenced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1494209132"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"affiliation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77"</span><span class="w">
+  </span><span class="s2">"affiliation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"custom_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIM#42"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The jobs object contains the following:</p>
@@ -15827,6 +15828,11 @@ object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
 <td style="text-align: left">against</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left">The API URI of the object the job is against, that is,<code>against_type</code> and <code>against_id</code> concatenated with a &quot;/&quot;.</td>
+</tr>
+<tr>
+<td style="text-align: left">custom_id</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The custom id for this job.</td>
 </tr>
 <tr>
 <td style="text-align: left">paused</td>
@@ -16089,6 +16095,10 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 <td style="text-align: left">affiliation</td>
 <td style="text-align: left">Filter by the <code>affiliation_id</code>.</td>
 </tr>
+<tr>
+<td style="text-align: left">custom_id</td>
+<td style="text-align: left"></td>
+</tr>
 </tbody></table>
 <h5 id='date-filters'>Date Filters</h5>
 <p>This request supports <a href="#filters-date-filters">date filters</a> over the following fields:</p>
@@ -16170,6 +16180,10 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 <td style="text-align: left">status</td>
 <td style="text-align: left">Order by the <code>status_id</code>.</td>
 </tr>
+<tr>
+<td style="text-align: left">custom_id</td>
+<td style="text-align: left"></td>
+</tr>
 </tbody></table>
 <h5 id='range-filters'>Range Filters</h5>
 <p>This request supports <a href="#filters-range-filters">range filters</a> over the following fields:</p>
@@ -16227,6 +16241,10 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 <tr>
 <td style="text-align: left">plan_modified_by</td>
 <td style="text-align: left">Range by the <code>staff_id</code> of the last staff member to modify the job plan.</td>
+</tr>
+<tr>
+<td style="text-align: left">custom_id</td>
+<td style="text-align: left"></td>
 </tr>
 </tbody></table>
 <h5 id='object-filters'>Object Filters</h5>
