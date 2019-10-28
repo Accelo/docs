@@ -86,7 +86,7 @@ See [rate limiting](#rate-limiting) for more information.
 Code: 500
 
 ### Description
-The request failed due to a server error and we wer notified. Unfortunately these errors are 99% of time time out of your control. If you continue to see such an error, please notify us.
+The request failed due to a server error and we were notified. Unfortunately these errors are 99% of the time out of your control. If you continue to see such an error, please notify us.
 
 ### Common Causes
 
