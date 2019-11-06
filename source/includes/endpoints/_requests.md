@@ -1,5 +1,5 @@
 ## Requests
-> Resource URI:  
+> Resource URI:
 `/api/v0/requests`
 
 These allow you to track request from clients sent to your shared company addresses, such as "@support" or "@sales" addresses. See the [support documentation](https://www.accelo.com/resources/help/learn-the-basics/tickets-and-requests/request-basics/) for more information on requests.
@@ -40,6 +40,7 @@ The request object contains the following:
 | lead_id | unsigned | A unique identifier for the sender, if they are a lead. If a request comes from an unknown sender they will be marked as a "lead". |
 | thread_id | unsigned | The unique identifier of the [activity thread](#the-activity-thread-object) the request is associated with. |
 | date_created | unix ts | The date the request was created. |
+| date_modified | unix ts | The date the request was last updated. |
 | type_id | unsigned | The unique identifier of the [request type](#the-request-type). |
 | type | unsigned or object | The [request type](#the-request-type). |
 | priority_id | unsigned | The unique identifier of the [request priority](#the-request-priority). |
@@ -163,7 +164,7 @@ These objects track the number of unresponded requests against each request type
 | title | string | The name of the request type. |
 | status | string | The standing of the request as in the [type object](#the-request-type). |
 | unresolved_count | unsigned | A count of unresolved requests of the given type. |
-| subscribed | boolean | Either "1" or "0", whether the user has subscribed to the given request type through their preferences. | 
+| subscribed | boolean | Either "1" or "0", whether the user has subscribed to the given request type through their preferences. |
 
 
 
@@ -172,7 +173,7 @@ These objects track the number of unresponded requests against each request type
 
 
 ### Get Request
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/requests/{request_id} HTTP/1.1
@@ -203,7 +204,7 @@ The response will be the single [request](#the-request-object) with its default 
 
 
 ### List  Requests
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/requests HTTP/1.1
@@ -249,6 +250,7 @@ This request supports [date filters](#filters-date-filters) over the following f
 | Filter Name |
 |:-|
 | date_created |
+| date_modified |
 
 ##### Order Filters
 This request supports [order filters](#filters-order-filters) over the following fields:
@@ -257,6 +259,7 @@ This request supports [order filters](#filters-order-filters) over the following
 |:-|
 | id |
 | date_created |
+| date_modified |
 
 ##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
@@ -288,7 +291,7 @@ The response will be a list of [requests](#the-request-object) with their defaul
 
 
 ### Count Requests
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/requests/count HTTP/1.1
@@ -317,7 +320,7 @@ This request will return a count of requests in a list defined by any available 
 
 
 ### List Request Threads
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/requests/threads HTTP/1.1
@@ -382,10 +385,10 @@ _include_unresponded_counts = 1
 curl -X get \
  https://{deployment}.api.accelo.com/api/v0/requests/threads \
   -H 'authorization: Bearer {access_token}' \
-  -d '_include_unresponded_counts = 1' 
+  -d '_include_unresponded_counts = 1'
 ```
 
-This request also supports a flag, `include_unresponded_counts` which may be either '0' or '1'. If set to '1' this returns an additional array, `unresponded_counts` 
+This request also supports a flag, `include_unresponded_counts` which may be either '0' or '1'. If set to '1' this returns an additional array, `unresponded_counts`
 
 #### Handling the Response
 The response will be an array of [request threads](#request-threads) labeled "requests", and an array of linked objects labeled "linked_objects". The "linked_objects" array is an array of objects linked to the requests in the "requests" array. Any filters used will be applied to the elements of the "request" array.
@@ -396,7 +399,7 @@ The response will be an array of [request threads](#request-threads) labeled "re
 
 
 ### List Request Types (Beta)
-> Sample Request:  
+> Sample Request:
 
 ```shell
 curl -X get \
@@ -431,7 +434,7 @@ This request does not accept pagination, filtering, or searching. The response w
 
 
 ### Update a Request
-> Sample Request:  
+> Sample Request:
 
 ```http
 PUT /api/v0/requests HTTP/1.1
@@ -530,7 +533,7 @@ curl -X post \
 This request creates and returns a [request](#the-request-object). Since a request requires an affiliation, and request may not necessarily come from known contacts, using this request you may also create a contact/affiliation, [see](#handling-a-lack-of-affiliation).
 
 #### Configuring the Request
-The following fields may be set through this request:  
+The following fields may be set through this request:
 
 | Field Name | Notes |
 |:-|:-|
@@ -545,7 +548,7 @@ The following fields may be set through this request:
 #### Handling a Lack of Affiliation
 If no [affiliation](#affiliations) data is available we will attempt to link the given data to a known affiliation, otherwise we will create one. There are three minimum sets of information we can use to create an affiliation:
 
-1. [A firstname and a surname](#requests-first-method)  
+1. [A firstname and a surname](#requests-first-method)
 2. [A firstname and a company name](#requests-second-method)
 3. [An email address](#requests-third-method)
 
@@ -563,7 +566,7 @@ If there is no match, we will attempt to extract a name from the email provided.
 
 The following fields may be used to send this information:
 
-> Create a new request without an affiliation:  
+> Create a new request without an affiliation:
 > <a name="create-request-json-example"></a> The JSON method
 
 ```json
