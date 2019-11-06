@@ -15,6 +15,7 @@ These allow you to track request from clients sent to your shared company addres
   "standing": "pending",
   "request_priority": "1",
   "date_created": "1494823725",
+  "date_modified" : "123456789",
   "type_id": "2",
   "claimer": "23",
   "body": "This is a support request, it is urgent!",
