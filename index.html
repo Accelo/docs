@@ -22449,7 +22449,7 @@ With no searches or filters this will be a count of all referrals on the deploym
 </tbody></table>
 <h2 id='requests'>Requests</h2>
 <blockquote>
-<p>Resource URI:<br>
+<p>Resource URI:
 <code>/api/v0/requests</code></p>
 </blockquote>
 
@@ -22465,6 +22465,7 @@ With no searches or filters this will be a count of all referrals on the deploym
   </span><span class="s2">"standing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"request_priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1494823725"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"claimer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a support request, it is urgent!"</span><span class="p">,</span><span class="w">
@@ -22525,6 +22526,11 @@ With no searches or filters this will be a count of all referrals on the deploym
 <td style="text-align: left">date_created</td>
 <td style="text-align: left">unix ts</td>
 <td style="text-align: left">The date the request was created.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the request was last updated.</td>
 </tr>
 <tr>
 <td style="text-align: left">type_id</td>
@@ -22806,7 +22812,7 @@ With no searches or filters this will be a count of all referrals on the deploym
 </tbody></table>
 <h3 id='get-request'>Get Request</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/requests/{request_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -22824,7 +22830,7 @@ With no searches or filters this will be a count of all referrals on the deploym
 <p>The response will be the single <a href="#the-request-object">request</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
 <h3 id='list-requests'>List  Requests</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/requests</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -22893,6 +22899,9 @@ With no searches or filters this will be a count of all referrals on the deploym
 <tr>
 <td style="text-align: left">date_created</td>
 </tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+</tr>
 </tbody></table>
 <h5 id='order-filters'>Order Filters</h5>
 <p>This request supports <a href="#filters-order-filters">order filters</a> over the following fields:</p>
@@ -22907,6 +22916,9 @@ With no searches or filters this will be a count of all referrals on the deploym
 </tr>
 <tr>
 <td style="text-align: left">date_created</td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
 </tr>
 </tbody></table>
 <h5 id='range-filters'>Range Filters</h5>
@@ -22963,7 +22975,7 @@ With no searches or filters this will be a count of all referrals on the deploym
 <p>The response will be a list of <a href="#the-request-object">requests</a> with their default fields and any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used. s</p>
 <h3 id='count-requests'>Count Requests</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/requests/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -22991,7 +23003,7 @@ With no searches or filters this will be a count of all referrals on the deploym
 </tbody></table>
 <h3 id='list-request-threads'>List Request Threads</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/requests/threads</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -23077,14 +23089,14 @@ _include_unresponded_counts = 1
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/requests/threads <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-  -d <span class="s1">'_include_unresponded_counts = 1'</span> 
+  -d <span class="s1">'_include_unresponded_counts = 1'</span>
 </code></pre>
-<p>This request also supports a flag, <code>include_unresponded_counts</code> which may be either &#39;0&#39; or &#39;1&#39;. If set to &#39;1&#39; this returns an additional array, <code>unresponded_counts</code> </p>
+<p>This request also supports a flag, <code>include_unresponded_counts</code> which may be either &#39;0&#39; or &#39;1&#39;. If set to &#39;1&#39; this returns an additional array, <code>unresponded_counts</code></p>
 <h4 id='handling-the-response-3'>Handling the Response</h4>
 <p>The response will be an array of <a href="#request-threads">request threads</a> labeled &quot;requests&quot;, and an array of linked objects labeled &quot;linked_objects&quot;. The &quot;linked_objects&quot; array is an array of objects linked to the requests in the &quot;requests&quot; array. Any filters used will be applied to the elements of the &quot;request&quot; array.</p>
 <h3 id='list-request-types-beta'>List Request Types (Beta)</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
   https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/requests/types <span class="se">\</span>
@@ -23136,7 +23148,7 @@ _include_unresponded_counts = 1
 <p>This request does not accept pagination, filtering, or searching. The response will be a list of <code>request_type</code> objects on the deployment.</p>
 <h3 id='update-a-request'>Update a Request</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/requests</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -23237,7 +23249,7 @@ _include_unresponded_counts = 1
 
 <p>This request creates and returns a <a href="#the-request-object">request</a>. Since a request requires an affiliation, and request may not necessarily come from known contacts, using this request you may also create a contact/affiliation, <a href="#handling-a-lack-of-affiliation">see</a>.</p>
 <h4 id='configuring-the-request-2'>Configuring the Request</h4>
-<p>The following fields may be set through this request:  </p>
+<p>The following fields may be set through this request:</p>
 
 <table><thead>
 <tr>
@@ -23278,7 +23290,7 @@ _include_unresponded_counts = 1
 <p>If no <a href="#affiliations">affiliation</a> data is available we will attempt to link the given data to a known affiliation, otherwise we will create one. There are three minimum sets of information we can use to create an affiliation:</p>
 
 <ol>
-<li><a href="#requests-first-method">A firstname and a surname</a><br></li>
+<li><a href="#requests-first-method">A firstname and a surname</a></li>
 <li><a href="#requests-second-method">A firstname and a company name</a></li>
 <li><a href="#requests-third-method">An email address</a></li>
 </ol>
@@ -23298,7 +23310,7 @@ _include_unresponded_counts = 1
 <p>The following fields may be used to send this information:</p>
 
 <blockquote>
-<p>Create a new request without an affiliation:<br>
+<p>Create a new request without an affiliation:
 <a name="create-request-json-example"></a> The JSON method</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
