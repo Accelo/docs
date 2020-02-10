@@ -2812,12 +2812,12 @@ _filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
     -d <span class="s1">'_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'</span>
 </code></pre>
 <p>Any combination of filters may be used to filter response, this is achieved by separating them with a comma. More
-flexible filter combinations may be achieved through the <code>_AND</code> and <code>_OR</code> keywords. For example, if instead of the above
-we wanted to search for activities owned by the specific staff OR created after the given date we could use
-<code>_filters=_OR(staff(17),date_created_after(1490140800))</code>. As expected, the original filter is equivalent to
-<code>_filters=_AND(staff(17),date_created_after(1490140800))</code>.These keywords may also be nested, for example if we wanted
-all activities created by the given staff member, or after a given date and before another date we could use
-<code>_filters=_OR(staff(17),_AND(date_created_after(1490140800),date_created_before(1490140800)))</code>.</p>
+flexible filter combinations may be achieved through the <code>_AND</code> and <code>_OR</code> keywords. For example, if we wanted to 
+search for activities owned by the specific staff OR created after a given date we could use
+<code>_filters=_OR(staff(17),date_created_after(1490140800))</code>. An <code>_AND</code> can be nested inside an <code>_OR</code> for greater filtering
+flexibility. For example, if we wanted all activities created by the given staff member, or after a given date and
+before another date we could use
+<code>_filters=_OR(staff(17),_AND(date_created_after(1490140800),date_created_before(1500140800)))</code>.</p>
 
 <p>If the same filter is used more than once in a combination only the final instance of the filter will be used. For
 example <code>_filters=_OR(staff(10),staff(11))</code> will just filter by staff with id 11, here the simple filter
