@@ -384,12 +384,12 @@ curl -X GET \
 ```
 
 Any combination of filters may be used to filter response, this is achieved by separating them with a comma. More
-flexible filter combinations may be achieved through the `_AND` and `_OR` keywords. For example, if instead of the above
-we wanted to search for activities owned by the specific staff OR created after the given date we could use
-`_filters=_OR(staff(17),date_created_after(1490140800))`. As expected, the original filter is equivalent to
-`_filters=_AND(staff(17),date_created_after(1490140800))`.These keywords may also be nested, for example if we wanted
-all activities created by the given staff member, or after a given date and before another date we could use
-`_filters=_OR(staff(17),_AND(date_created_after(1490140800),date_created_before(1490140800)))`.
+flexible filter combinations may be achieved through the `_AND` and `_OR` keywords. For example, if we wanted to 
+search for activities owned by the specific staff OR created after a given date we could use
+`_filters=_OR(staff(17),date_created_after(1490140800))`. An `_AND` can be nested inside an `_OR` for greater filtering
+flexibility. For example, if we wanted all activities created by the given staff member, or after a given date and
+before another date we could use
+`_filters=_OR(staff(17),_AND(date_created_after(1490140800),date_created_before(1500140800)))`.
 
 If the same filter is used more than once in a combination only the final instance of the filter will be used. For
 example `_filters=_OR(staff(10),staff(11))` will just filter by staff with id 11, here the simple filter
