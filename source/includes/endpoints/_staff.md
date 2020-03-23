@@ -217,7 +217,7 @@ curl -X get \
     -H 'authorization: Bearer {access_token}'
 ```
 
-`GET /staf/memberships`
+`GET /staff/memberships`
 
 This request returns a list of [staff memberships](#the-staff-membership-object) on the deployment.
 
