@@ -101,6 +101,7 @@ The task object contains the following:
 | task_object_schedule_id | unsigned | The id of the object schedule linked to the task. |
 | rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
 | rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
+| ordering | unsigned | An integer representing the task's order on the against object, only if the task is against a [job](#jobs-projects) or [milestone](#milestones) |
 
 #### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
@@ -272,6 +273,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | standing ||
 | status | Order by the `status_id`. |
 | rate_charged | |
+| ordering | The order of the tasks on their against object, if the against object is a [job](#jobs-projects) or [milestone](#milestones) |
 
 ##### Object Filters
 This request supports the following [object filters](#filters-object-filters):
