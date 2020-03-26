@@ -782,6 +782,7 @@ The following fields may be set through this request:
 | date_due ||
 | date_started ||
 | date_created | If this is not sent it will default to the current time. |
+| is_billable | If the job is billable or nonbillable |
 
 
 #### Configuring the Response
