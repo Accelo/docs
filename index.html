@@ -26013,6 +26013,11 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">decimal</td>
 <td style="text-align: left">The rate charged for billable work within this task. This is part of the rate object.</td>
 </tr>
+<tr>
+<td style="text-align: left">ordering</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">An integer representing the task&#39;s order on the against object, only if the task is against a <a href="#jobs-projects">job</a> or <a href="#milestones">milestone</a></td>
+</tr>
 </tbody></table>
 <h4 id='the-task-type'>The Task Type</h4>
 <p>Task types allow you to assign type labels to tasks. The task type contains the following:</p>
@@ -26342,6 +26347,10 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <tr>
 <td style="text-align: left">rate_charged</td>
 <td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+<td style="text-align: left">The order of the tasks on their against object, if the against object is a <a href="#jobs-projects">job</a> or <a href="#milestones">milestone</a></td>
 </tr>
 </tbody></table>
 <h5 id='object-filters'>Object Filters</h5>
