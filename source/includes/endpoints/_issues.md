@@ -1,5 +1,5 @@
 ## Issues
-> Resource URI:  
+> Resource URI:
 `/api/v0/issues`
 
 Issues (also known as "Tickets") are used for when you need to track billable time against a client, but don’t need the
@@ -199,7 +199,7 @@ guide/modules/tickets/#Types) for more information.
 ```
 
 Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/) 
+documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/)
 for more information. The issue resolution contains the following:
 
 | Field | Type | Descriptions |
@@ -244,7 +244,7 @@ Issue classes help to classify symptoms or characteristics of an issue. They can
 
 
 ### Get Issue
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/issues/{issue_id} HTTP/1.1
@@ -281,7 +281,7 @@ requested through `_fields`.
 
 
 ### List Issues
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/issues HTTP/1.1
@@ -433,7 +433,7 @@ request by `_fields`, and displayed according to any pagination parameters, filt
 
 
 ### Count Issues
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/issues/count HTTP/1.1
@@ -463,7 +463,7 @@ filters this will be a count of all issues on the deployment. This request retur
 
 
 ### List Recent Issues
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/issues/recent HTTP/1.1
@@ -501,7 +501,7 @@ plus any additional fields requested by `_fields`, and ordered in descending ord
 
 
 ### List Issue Statuses
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/issues/statuses HTTP/1.1
@@ -580,7 +580,7 @@ requested through `_fields`, and displayed according to any pagination parameter
 
 ### Get Issue Type
 
-> Sample request:  
+> Sample request:
 
 ```http
 GET /api/v0/issues/types/{issue_type_id} HTTP/1.1
@@ -601,7 +601,7 @@ This request returns an [issue type](#issue-type-id) specified by its unique id.
 
 #### Configuring the Response
 
-This request supports request additional fields and linked objects from  the issue type using the 
+This request supports request additional fields and linked objects from  the issue type using the
 [`_fields`](#configuring-the-response-fields) parameter.
 
 
@@ -616,7 +616,7 @@ The response will contain a single issue type with its default fields and any ad
 
 
 ### List Issue Types
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/issues/types HTTP/1.1
@@ -703,7 +703,7 @@ fields:
 
 
 ### List Issue Classes
-> Sample Request:  
+> Sample Request:
 
 
 ```http
@@ -908,7 +908,7 @@ returns a single field:
 
 
 ### List Tasks Against an Issue
-> Sample Request:  
+> Sample Request:
 `GET /issues/{issue_id}/tasks`
 
 ```http
@@ -943,7 +943,7 @@ This response may be handled in the same way as [`GET /tasks`](#list-tasks)
 
 
 ### Update an Issue
-> Sample Request:  
+> Sample Request:
 
 ```http
 PUT /api/v0/issues/{issue_id} HTTP/1.1
@@ -1005,7 +1005,7 @@ requested through `_fields`.
 
 
 ### Create an Issue
-> Sample Request:  
+> Sample Request:
 
 ```http
 POST /api/v0/issues/ HTTP/1.1
@@ -1065,7 +1065,7 @@ through `_fields`.
 
 
 ### Delete an Issue
-> Sample Request:  
+> Sample Request:
 
 ```http
 DELETE /api/v0/issues/{issue_id} HTTP/1.1
@@ -1115,7 +1115,7 @@ Returns the number of issue priorities.
 
 `GET /issues/{issue_id}/profiles/values`
 
-This request returns a list of [profile values](#the-profile-value-object) of an [issue](the-issue-object), specified by
+This request returns a list of [profile values](#the-profile-value-object) of an [issue](#the-issue-object), specified by
 its `issue_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values),
 where the object is "issues", and whose id is `{issue_id}`.
 
@@ -1129,7 +1129,7 @@ where the object is "issues", and whose id is `{issue_id}`.
 
 `GET /issues/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) on [issues](the-issue-object).
+This request returns a list of all [profile field values](#the-profile-value-object) on [issues](#the-issue-object).
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "issues".
 
 
@@ -1138,7 +1138,7 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 
 
 ### List Issue Profile Fields
-> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request  
+> See the [profiles section](#retrieve-a-list-of-profile-fields) for a sample request
 
 `GET /issues/profiles/fields`
 
@@ -1152,12 +1152,12 @@ This request returns a list of [profile fields](#the-profile-field-object) avail
 
 
 ### Update a Profile Value on an Issue
-> See the [profiles section](#update-a-profile-value-link) for a sample request  
+> See the [profiles section](#update-a-profile-value-link) for a sample request
 
 `PUT /issues/{issue_id}/profiles/values/{profile_value_id}`
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
-particular issue,specified by its `issue_id`. This is the request 
+particular issue,specified by its `issue_id`. This is the request
 [`PUT/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is "issues",
 and whose id is the `{issue_id}`.
 
@@ -1173,7 +1173,7 @@ and whose id is the `{issue_id}`.
 `POST /issues/{issue_id}/profiles/fields/{profile_field_id}`
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
-`profile_field_id`, for an issue, specified by its `issue_id`. This is the request 
+`profile_field_id`, for an issue, specified by its `issue_id`. This is the request
 [`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "issues",
 and whose value is `{issue_id}`.
 
@@ -1184,7 +1184,7 @@ and whose value is `{issue_id}`.
 
 
 ### List Issue Extension Fields
-> See the [extension section](#retrieve-a-list-of-extension-fields) for an example  
+> See the [extension section](#retrieve-a-list-of-extension-fields) for an example
 
 `GET /issues/extensions/fields`
 
@@ -1199,7 +1199,7 @@ object is "issues".
 
 
 ### List an Issue's Extension Field Values
-> See the [extension section](#retrieve-a-list-of-extension-field-values) for an example    
+> See the [extension section](#retrieve-a-list-of-extension-field-values) for an example
 
 `GET /issues/{issue_id}/extensions/values`
 
@@ -1225,12 +1225,12 @@ This is the request [`GET /{object}/extensions/values`](#list-extension-values),
 
 
 ### Update an Extension Field Value on an Issue
-> See the [extension section](#update-an-extension-value) for an example      
+> See the [extension section](#update-an-extension-value) for an example
 
 `PUT /issues/{issue_id}/extensions/values/{extension_value_id}`
 
 This request updates the value of an [extension field value](#the-extension-value-object), specified by its
-`extension_value_id`, of an issue, specified by its `issue_id`. This is the request 
+`extension_value_id`, of an issue, specified by its `issue_id`. This is the request
 [`PUT{object}/{object_id}/extensions/values/{extension_value_id}`](#update-an-extension-value), where the object is "issues",
 and whose id is `{issue_id}`
 
@@ -1241,13 +1241,13 @@ and whose id is `{issue_id}`
 
 
 ### Set an Extension Field Value on an Issue
-> Sample Request:  
+> Sample Request:
 
 `POST /issues/{issue_id}/extensions/fields/{extension_field_id}`
 
 
 This request sets and returns the value of an extension field, specified by its `extension_field_id`, of an issue,
-specified by its `issue_id`. This request is the request 
+specified by its `issue_id`. This request is the request
 [`POST/{object}/{object_id}/extensions/fields/{extension_field_id}`](#create-an-extension-value) where our object is "issues"
 whose id is `issue_id`.
 
@@ -1258,7 +1258,7 @@ whose id is `issue_id`.
 
 
 ### List Available Progressions on an Issue
-> See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request  
+> See the [progressions section](#retrieve-a-list-of-available-progressions) for a sample request
 
 `GET /issues/{issue_id}/progressions`
 
@@ -1273,7 +1273,7 @@ where the object is "issues" whose id is `{issue_id}`.
 
 
 ### Auto Run a Progression on an Issue
-> See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request  
+> See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
 `[POST|PUT] /issues/{issue_id}/progressions/{progression_id}/auto`
 
@@ -1287,12 +1287,12 @@ This request uses the given progression, specified by its `progression_id` to pr
 
 
 ### List an Issue's Resource Collections
-> See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
+> See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example
 
 `GET /issues/{issue_id}/collections`
 
 This request returns a list of [resource collections](#resources-attachments) against an [issue](#the-issue-object),
-specified by its `issue_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+specified by its `issue_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object)
 where the object is "issues" and hose id is `{issue_id}`.
 
 
@@ -1302,11 +1302,11 @@ where the object is "issues" and hose id is `{issue_id}`.
 
 
 ### Upload a Resource (Attachment) to a Collection on an Issue
-> See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
+> See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example
 
 `POST /issues/{issue_id}/collections/{collection_id}/resources`
 
 This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of an
-[issue](#the-issue-object) specified by its `issue_id`. This is the request 
+[issue](#the-issue-object) specified by its `issue_id`. This is the request
 [`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the
 object is "issues" whose id is `{issue_id}.`

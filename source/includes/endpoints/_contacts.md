@@ -1,5 +1,5 @@
 ## Contacts
-> Resource URI:  
+> Resource URI:
 `/api/v0/contacts`
 
 Contacts are the Accelo entries for individual people. Contact entries Provide a central location where you can view all
@@ -38,7 +38,7 @@ The contact object contains the following fields and linked objects:
 
 
 ### Get Contact
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/contacts/{contact_id} HTTP/1.1
@@ -185,7 +185,7 @@ This request will return a list of contacts containing their default fields and 
 
 
 ### Count Contacts
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/contacts/count HTTP/1.1
@@ -216,7 +216,7 @@ filters this will be a count of all contacts on the deployment. This request ret
 
 
 ### List Recent Contacts
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/contacts/recent HTTP/1.1
@@ -232,7 +232,7 @@ curl -X get \
 
 `GET /contacts/recent`
 
-Equivalent request:  
+Equivalent request:
 
 `GET /contacts?_filters=order_by_desc(date_created)`
 
@@ -258,7 +258,7 @@ plus and additional fields requested by `_fields`, and sorted in descending orde
 
 
 ### List Recently Modified Contacts
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/contacts/newest HTTP/1.1
@@ -274,7 +274,7 @@ curl -X get \
 
 `GET /contacts/newest`
 
-Equivalent request:  
+Equivalent request:
 
 `GET /contacts?_filters=order_by_desc(date_created)`
 
@@ -300,7 +300,7 @@ plus and additional fields requested by `_fields`, and sorted in descending orde
 
 
 ### Update a Contact
-> Sample Request:  
+> Sample Request:
 
 ```http
 PUT /api/v0/contacts/{contact_id} HTTP/1.1
@@ -342,7 +342,7 @@ This request allows updating the following fields in the [contact object](#the-c
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-fields) 
+This request supports requesting additional fields and linked objects through the [`_fields`](#configuring-the-response-fields)
 parameter.
 
 
@@ -417,7 +417,7 @@ This request will return the single new contact, with its default fields and any
 
 
 ### Deactivate a Contact
-> Sample Request:  
+> Sample Request:
 
 ```http
 DELETE /api/v0/contacts/{contact_id} HTTP/1.1
@@ -435,7 +435,7 @@ curl -X get \
 
 `DELETE /contacts/{contact_id}`
 
-Equivalent request:  
+Equivalent request:
 
 `PUT /contact/{contact_id}?standing=inactive`
 
@@ -452,7 +452,7 @@ object.
 
 
 ### List Addresses Against a Contact
-> Sample Request:  
+> Sample Request:
 
 ```http
 PUT /api/v0/contacts/{contact_id}/addresses HTTP/1.1
@@ -484,7 +484,7 @@ is company and `{object_id}` is the `{company_id}`.
 `POST /contacts/{contacts_id}/addresses`
 
 This request creates and returns an [address](#addresses) against a [contact](#the-contact-object) specified by its
-`contact_id`. This is the request [`POST /{object}/{object_id}/addresses`](create-an-address-against-an-object) where
+`contact_id`. This is the request [`POST /{object}/{object_id}/addresses`](#create-an-address-against-an-object) where
 the object is "addresses" whose id is `{contact_id}`.
 
 
@@ -493,7 +493,7 @@ the object is "addresses" whose id is `{contact_id}`.
 
 
 ### Get a Contact's Status
-> Sample Request:  
+> Sample Request:
 
 `GET /contacts/{contact_id}/status`
 
@@ -650,7 +650,7 @@ With no searches or filters this will be a count of all contact statuses on the 
 
 
 ### List Contact Segmentations
-> Sample Request:  
+> Sample Request:
 
 `GET /contacts/{contact_id}/segmentations`
 
@@ -668,7 +668,7 @@ by its `contact_id`. This request supports no parameters and returns a list of s
 `GET /contacts/{contact_id}/profiles/values`
 
 This request returns a list of [profile values](#the-profile-value-object) of a [contact](#the-contact-object),
-specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values),
 where the object is "contacts", and whose id is `contact_id`.
 
 
@@ -680,7 +680,7 @@ where the object is "contacts", and whose id is `contact_id`.
 
 `GET /contacts/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) on [contacts](#the-contact-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [contacts](#the-contact-object).
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "contacts".
 
 
@@ -717,7 +717,7 @@ particular contact, specified by its `contact_id`.
 `POST /contacts/{contact_id}/profiles/fields/{profile_field_id}`
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
-`profile_field_id`, for a [contact](#the-contact-object), specified by its `contact_id`. This is the request 
+`profile_field_id`, for a [contact](#the-contact-object), specified by its `contact_id`. This is the request
 [`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "contacts",
 and whose value is `contact_id`.
 
@@ -733,7 +733,7 @@ and whose value is `contact_id`.
 `GET /contacts/{contact_id}/progressions`
 
 This request returns a list of available [progressions](#the-progression-object) for a [contact](#the-contact-object),
-specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+specified by its `contact_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions)
 where the object is "contacts" whose id is `contact_id`.
 
 
@@ -748,7 +748,7 @@ where the object is "contacts" whose id is `contact_id`.
 `PUT|POST /contacts/{contact_id}/progressions/{progression_id}/auto`
 
 This request uses the given progression, specified by its `progression_id` to progress a [contact](#the-contact-object),
-specified by its `contact_id`. This is the request 
+specified by its `contact_id`. This is the request
 [`[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression) where the
 object is "contact" whose id is `contact_id`.
 
@@ -764,7 +764,7 @@ object is "contact" whose id is `contact_id`.
 `GET /contacts/{contact_id}/collections`
 
 This request returns a list of [collections](#resources-attachments) against a [contact](#the-contact-object), specified
-by its `contact_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+by its `contact_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object)
 where the object is "contacts" and whose id is `{contact_id}`.
 
 
@@ -774,11 +774,11 @@ where the object is "contacts" and whose id is `{contact_id}`.
 
 
 ### Upload a Resource (Attachment) to a Collection on a Contact
-> See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example  
+> See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example
 
 `POST /contacts/{contact_id}/collections/{collection_id}/resources`
 
 This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of a
-[contact](#the-contact-object) specified by its `contact_id`. This it the request 
+[contact](#the-contact-object) specified by its `contact_id`. This it the request
 [`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the
 object is "contacts" and whose id is `{contact_id}`.
