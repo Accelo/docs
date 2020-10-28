@@ -8797,7 +8797,7 @@ specified by its <code>company_id</code>. This it the request
 where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
 <h2 id='contacts'>Contacts</h2>
 <blockquote>
-<p>Resource URI:<br>
+<p>Resource URI:
 <code>/api/v0/contacts</code></p>
 </blockquote>
 
@@ -8898,7 +8898,7 @@ contact against the company.</p>
 </tbody></table>
 <h3 id='get-contact'>Get Contact</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/contacts/{contact_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9086,7 +9086,7 @@ object via the <a href="#configuring-the-response-fields"><code>_fields</code></
 <code>_fields</code>, and displayed according to any pagination parameters, filters or searches used.</p>
 <h3 id='count-contacts'>Count Contacts</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/contacts/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9115,7 +9115,7 @@ filters this will be a count of all contacts on the deployment. This request ret
 </tbody></table>
 <h3 id='list-recent-contacts'>List Recent Contacts</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/contacts/recent</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9126,7 +9126,7 @@ filters this will be a count of all contacts on the deployment. This request ret
 </code></pre>
 <p><code>GET /contacts/recent</code></p>
 
-<p>Equivalent request:  </p>
+<p>Equivalent request:</p>
 
 <p><code>GET /contacts?_filters=order_by_desc(date_created)</code></p>
 
@@ -9140,7 +9140,7 @@ ordered in descending order of <code>date_created</code>.</p>
 plus and additional fields requested by <code>_fields</code>, and sorted in descending order of <code>date_created</code>.</p>
 <h3 id='list-recently-modified-contacts'>List Recently Modified Contacts</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/contacts/newest</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9151,7 +9151,7 @@ plus and additional fields requested by <code>_fields</code>, and sorted in desc
 </code></pre>
 <p><code>GET /contacts/newest</code></p>
 
-<p>Equivalent request:  </p>
+<p>Equivalent request:</p>
 
 <p><code>GET /contacts?_filters=order_by_desc(date_created)</code></p>
 
@@ -9165,7 +9165,7 @@ ordered in descending order of <code>date_modified</code>.</p>
 plus and additional fields requested by <code>_fields</code>, and sorted in descending order of <code>date_modified</code>.</p>
 <h3 id='update-a-contact'>Update a Contact</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/contacts/{contact_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9239,7 +9239,7 @@ contact, so if you wish to update these fields, or do not see the field you are 
 </tr>
 </tbody></table>
 <h4 id='configuring-the-response-3'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects through the <a href="#configuring-the-response-fields"><code>_fields</code></a> 
+<p>This request supports requesting additional fields and linked objects through the <a href="#configuring-the-response-fields"><code>_fields</code></a>
 parameter.</p>
 <h4 id='handling-the-response-5'>Handling the Response</h4>
 <p>The response will be the single, updated contact object, with its default fields and any additional fields requested
@@ -9331,7 +9331,7 @@ using the <a href="#configuring-the-response-fields"><code>_fields</code></a> pa
 <code>_fields</code></p>
 <h3 id='deactivate-a-contact'>Deactivate a Contact</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/contacts/{contact_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9344,7 +9344,7 @@ using the <a href="#configuring-the-response-fields"><code>_fields</code></a> pa
 </code></pre>
 <p><code>DELETE /contacts/{contact_id}</code></p>
 
-<p>Equivalent request:  </p>
+<p>Equivalent request:</p>
 
 <p><code>PUT /contact/{contact_id}?standing=inactive</code></p>
 
@@ -9355,7 +9355,7 @@ documentation</a> for information. This request accepts no parameters and only r
 object.</p>
 <h3 id='list-addresses-against-a-contact'>List Addresses Against a Contact</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/contacts/{contact_id}/addresses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -9378,11 +9378,11 @@ is company and <code>{object_id}</code> is the <code>{company_id}</code>.</p>
 <p><code>POST /contacts/{contacts_id}/addresses</code></p>
 
 <p>This request creates and returns an <a href="#addresses">address</a> against a <a href="#the-contact-object">contact</a> specified by its
-<code>contact_id</code>. This is the request <a href="create-an-address-against-an-object"><code>POST /{object}/{object_id}/addresses</code></a> where
+<code>contact_id</code>. This is the request <a href="#create-an-address-against-an-object"><code>POST /{object}/{object_id}/addresses</code></a> where
 the object is &quot;addresses&quot; whose id is <code>{contact_id}</code>.</p>
 <h3 id='get-a-contact-39-s-status'>Get a Contact&#39;s Status</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 
 <p><code>GET /contacts/{contact_id}/status</code></p>
@@ -9519,7 +9519,7 @@ With no searches or filters this will be a count of all contact statuses on the 
 </tbody></table>
 <h3 id='list-contact-segmentations'>List Contact Segmentations</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 
 <p><code>GET /contacts/{contact_id}/segmentations</code></p>
@@ -9534,7 +9534,7 @@ by its <code>contact_id</code>. This request supports no parameters and returns 
 <p><code>GET /contacts/{contact_id}/profiles/values</code></p>
 
 <p>This request returns a list of <a href="#the-profile-value-object">profile values</a> of a <a href="#the-contact-object">contact</a>,
-specified by its <code>contact_id</code>. This is the request <a href="#retrieve-a-list-of-profile-values"><code>GET /{object}/{object_id}/profiles/values</code></a>, 
+specified by its <code>contact_id</code>. This is the request <a href="#retrieve-a-list-of-profile-values"><code>GET /{object}/{object_id}/profiles/values</code></a>,
 where the object is &quot;contacts&quot;, and whose id is <code>contact_id</code>.</p>
 <h3 id='list-all-profile-field-values-on-a-contact'>List all Profile Field Values on a Contact</h3>
 <blockquote>
@@ -9543,7 +9543,7 @@ where the object is &quot;contacts&quot;, and whose id is <code>contact_id</code
 
 <p><code>GET /contacts/profiles/values</code></p>
 
-<p>This request returns a list of all <a href="#the-profile-value-object">profile field values</a> on <a href="#the-contact-object">contacts</a>. 
+<p>This request returns a list of all <a href="#the-profile-value-object">profile field values</a> on <a href="#the-contact-object">contacts</a>.
 This is the request <a href="#list-profile-values"><code>GET /{object}/profiles/values</code></a>, where the object is &quot;contacts&quot;.</p>
 <h3 id='list-contact-profile-fields'>List Contact Profile Fields</h3>
 <blockquote>
@@ -9570,7 +9570,7 @@ particular contact, specified by its <code>contact_id</code>.</p>
 <p><code>POST /contacts/{contact_id}/profiles/fields/{profile_field_id}</code></p>
 
 <p>This request sets and returns a <a href="#the-profile-value-object">profile value</a> for a profile field, specified by its
-<code>profile_field_id</code>, for a <a href="#the-contact-object">contact</a>, specified by its <code>contact_id</code>. This is the request 
+<code>profile_field_id</code>, for a <a href="#the-contact-object">contact</a>, specified by its <code>contact_id</code>. This is the request
 <a href="#update-a-profile-value-link"><code>POST/{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where the object is &quot;contacts&quot;,
 and whose value is <code>contact_id</code>.</p>
 <h3 id='list-available-progressions-on-a-contact'>List Available Progressions on a Contact</h3>
@@ -9581,7 +9581,7 @@ and whose value is <code>contact_id</code>.</p>
 <p><code>GET /contacts/{contact_id}/progressions</code></p>
 
 <p>This request returns a list of available <a href="#the-progression-object">progressions</a> for a <a href="#the-contact-object">contact</a>,
-specified by its <code>contact_id</code>. This is the request <a href="#retrieve-a-list-of-available-progressions"><code>GET /{object}/{object_id}/progressions</code></a> 
+specified by its <code>contact_id</code>. This is the request <a href="#retrieve-a-list-of-available-progressions"><code>GET /{object}/{object_id}/progressions</code></a>
 where the object is &quot;contacts&quot; whose id is <code>contact_id</code>.</p>
 <h3 id='auto-run-a-progression-on-a-contact'>Auto Run a Progression on a Contact</h3>
 <blockquote>
@@ -9591,7 +9591,7 @@ where the object is &quot;contacts&quot; whose id is <code>contact_id</code>.</p
 <p><code>PUT|POST /contacts/{contact_id}/progressions/{progression_id}/auto</code></p>
 
 <p>This request uses the given progression, specified by its <code>progression_id</code> to progress a <a href="#the-contact-object">contact</a>,
-specified by its <code>contact_id</code>. This is the request 
+specified by its <code>contact_id</code>. This is the request
 <a href="#run-a-status-update-using-a-given-progression"><code>[POST|PUT]/{object}/{object_id}/progressions/{progression_id}/auto</code></a> where the
 object is &quot;contact&quot; whose id is <code>contact_id</code>.</p>
 <h3 id='list-a-contact-39-s-resource-collections'>List a Contact&#39;s Resource Collections</h3>
@@ -9602,17 +9602,17 @@ object is &quot;contact&quot; whose id is <code>contact_id</code>.</p>
 <p><code>GET /contacts/{contact_id}/collections</code></p>
 
 <p>This request returns a list of <a href="#resources-attachments">collections</a> against a <a href="#the-contact-object">contact</a>, specified
-by its <code>contact_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a> 
+by its <code>contact_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a>
 where the object is &quot;contacts&quot; and whose id is <code>{contact_id}</code>.</p>
 <h3 id='upload-a-resource-attachment-to-a-collection-on-a-contact'>Upload a Resource (Attachment) to a Collection on a Contact</h3>
 <blockquote>
-<p>See the <a href="#upload-a-resource-to-a-collection-of-an-object">resources (attachments) section</a> for an example  </p>
+<p>See the <a href="#upload-a-resource-to-a-collection-of-an-object">resources (attachments) section</a> for an example</p>
 </blockquote>
 
 <p><code>POST /contacts/{contact_id}/collections/{collection_id}/resources</code></p>
 
 <p>This request uploads a <a href="#resources-attachments">resource</a> to a collection, specified by its <code>collection_id</code>, of a
-<a href="#the-contact-object">contact</a> specified by its <code>contact_id</code>. This it the request 
+<a href="#the-contact-object">contact</a> specified by its <code>contact_id</code>. This it the request
 <a href="#upload-a-resource-to-a-collection-of-an-object"><code>POST/{object}/{object_id}/collections/{collection_id}/resources</code></a> where the
 object is &quot;contacts&quot; and whose id is <code>{contact_id}</code>.</p>
 <h2 id='contracts'>Contracts</h2>
@@ -14108,7 +14108,7 @@ or filters this will be a count of all line items on the deployment. This reques
 </tbody></table>
 <h2 id='issues'>Issues</h2>
 <blockquote>
-<p>Resource URI:<br>
+<p>Resource URI:
 <code>/api/v0/issues</code></p>
 </blockquote>
 
@@ -14548,7 +14548,7 @@ guide/modules/tickets/#Types">support documentation</a> for more information.</p
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/">support
-documentation</a> 
+documentation</a>
 for more information. The issue resolution contains the following:</p>
 
 <table><thead>
@@ -14640,7 +14640,7 @@ for more information. The issue resolution contains the following:</p>
 </tbody></table>
 <h3 id='get-issue'>Get Issue</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/{issue_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -14660,7 +14660,7 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 requested through <code>_fields</code>.</p>
 <h3 id='list-issues'>List Issues</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -14981,7 +14981,7 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 request by <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
 <h3 id='count-issues'>Count Issues</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15010,7 +15010,7 @@ filters this will be a count of all issues on the deployment. This request retur
 </tbody></table>
 <h3 id='list-recent-issues'>List Recent Issues</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/recent</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15031,7 +15031,7 @@ although it will always be ordered in descending order of <code>date_submitted</
 plus any additional fields requested by <code>_fields</code>, and ordered in descending order of <code>date_submitted</code>.</p>
 <h3 id='list-issue-statuses'>List Issue Statuses</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/statuses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15110,7 +15110,7 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 requested through <code>_fields</code>, and displayed according to any pagination parameters, filters or searches used.</p>
 <h3 id='get-issue-type'>Get Issue Type</h3>
 <blockquote>
-<p>Sample request:  </p>
+<p>Sample request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/types/{issue_type_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15123,14 +15123,14 @@ requested through <code>_fields</code>, and displayed according to any paginatio
 
 <p>This request returns an <a href="#issue-type-id">issue type</a> specified by its unique id.</p>
 <h4 id='configuring-the-response-3'>Configuring the Response</h4>
-<p>This request supports request additional fields and linked objects from  the issue type using the 
+<p>This request supports request additional fields and linked objects from  the issue type using the
 <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-5'>Handling the Response</h4>
 <p>The response will contain a single issue type with its default fields and any additional fields requested through
 <code>_fields</code>.</p>
 <h3 id='list-issue-types'>List Issue Types</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15224,7 +15224,7 @@ fields:</p>
 </tbody></table>
 <h3 id='list-issue-classes'>List Issue Classes</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/classes</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15398,7 +15398,7 @@ returns a single field:</p>
 </tbody></table>
 <h3 id='list-tasks-against-an-issue'>List Tasks Against an Issue</h3>
 <blockquote>
-<p>Sample Request:<br>
+<p>Sample Request:
 <code>GET /issues/{issue_id}/tasks</code></p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/issues/{issue_id}/tasks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -15415,7 +15415,7 @@ returns a single field:</p>
 <p>This response may be handled in the same way as <a href="#list-tasks"><code>GET /tasks</code></a></p>
 <h3 id='update-an-issue'>Update an Issue</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/issues/{issue_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15507,7 +15507,7 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 requested through <code>_fields</code>.</p>
 <h3 id='create-an-issue'>Create an Issue</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/issues/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15591,7 +15591,7 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 through <code>_fields</code>.</p>
 <h3 id='delete-an-issue'>Delete an Issue</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/issues/{issue_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
@@ -15623,7 +15623,7 @@ returns no resources.</p>
 
 <p><code>GET /issues/{issue_id}/profiles/values</code></p>
 
-<p>This request returns a list of <a href="#the-profile-value-object">profile values</a> of an <a href="the-issue-object">issue</a>, specified by
+<p>This request returns a list of <a href="#the-profile-value-object">profile values</a> of an <a href="#the-issue-object">issue</a>, specified by
 its <code>issue_id</code>. This is the request <a href="#retrieve-a-list-of-profile-values"><code>GET /{object}/{object_id}/profiles/values</code></a>,
 where the object is &quot;issues&quot;, and whose id is <code>{issue_id}</code>.</p>
 <h3 id='list-all-profile-field-values-on-issues'>List all Profile Field Values on Issues</h3>
@@ -15633,11 +15633,11 @@ where the object is &quot;issues&quot;, and whose id is <code>{issue_id}</code>.
 
 <p><code>GET /issues/profiles/values</code></p>
 
-<p>This request returns a list of all <a href="#the-profile-value-object">profile field values</a> on <a href="the-issue-object">issues</a>.
+<p>This request returns a list of all <a href="#the-profile-value-object">profile field values</a> on <a href="#the-issue-object">issues</a>.
 This is the request <a href="#list-profile-values"><code>GET /{object}/profiles/values</code></a>, where the object is &quot;issues&quot;.</p>
 <h3 id='list-issue-profile-fields'>List Issue Profile Fields</h3>
 <blockquote>
-<p>See the <a href="#retrieve-a-list-of-profile-fields">profiles section</a> for a sample request  </p>
+<p>See the <a href="#retrieve-a-list-of-profile-fields">profiles section</a> for a sample request</p>
 </blockquote>
 
 <p><code>GET /issues/profiles/fields</code></p>
@@ -15646,13 +15646,13 @@ This is the request <a href="#list-profile-values"><code>GET /{object}/profiles/
 <a href="#retrieve-a-list-of-profile-fields"><code>GET /{object}/profiles/fields</code></a> where the object is &quot;issues&quot;.</p>
 <h3 id='update-a-profile-value-on-an-issue'>Update a Profile Value on an Issue</h3>
 <blockquote>
-<p>See the <a href="#update-a-profile-value-link">profiles section</a> for a sample request  </p>
+<p>See the <a href="#update-a-profile-value-link">profiles section</a> for a sample request</p>
 </blockquote>
 
 <p><code>PUT /issues/{issue_id}/profiles/values/{profile_value_id}</code></p>
 
 <p>This request updates and returns a <a href="#the-profile-value-object">profile value</a>, specified by its <code>profile_value_id</code>, of a
-particular issue,specified by its <code>issue_id</code>. This is the request 
+particular issue,specified by its <code>issue_id</code>. This is the request
 <a href="#update-a-profile-value-link"><code>PUT/{object}/{object_id}/profiles/values/{profile_value_id}</code></a> where the object is &quot;issues&quot;,
 and whose id is the <code>{issue_id}</code>.</p>
 <h3 id='set-a-profile-value-on-an-issue'>Set a Profile Value on an Issue</h3>
@@ -15663,12 +15663,12 @@ and whose id is the <code>{issue_id}</code>.</p>
 <p><code>POST /issues/{issue_id}/profiles/fields/{profile_field_id}</code></p>
 
 <p>This request sets and returns a <a href="#the-profile-value-object">profile value</a> for a profile field, specified by its
-<code>profile_field_id</code>, for an issue, specified by its <code>issue_id</code>. This is the request 
+<code>profile_field_id</code>, for an issue, specified by its <code>issue_id</code>. This is the request
 <a href="#update-a-profile-value-link"><code>POST/{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where the object is &quot;issues&quot;,
 and whose value is <code>{issue_id}</code>.</p>
 <h3 id='list-issue-extension-fields'>List Issue Extension Fields</h3>
 <blockquote>
-<p>See the <a href="#retrieve-a-list-of-extension-fields">extension section</a> for an example  </p>
+<p>See the <a href="#retrieve-a-list-of-extension-fields">extension section</a> for an example</p>
 </blockquote>
 
 <p><code>GET /issues/extensions/fields</code></p>
@@ -15678,7 +15678,7 @@ and whose value is <code>{issue_id}</code>.</p>
 object is &quot;issues&quot;.</p>
 <h3 id='list-an-issue-39-s-extension-field-values'>List an Issue&#39;s Extension Field Values</h3>
 <blockquote>
-<p>See the <a href="#retrieve-a-list-of-extension-field-values">extension section</a> for an example    </p>
+<p>See the <a href="#retrieve-a-list-of-extension-field-values">extension section</a> for an example</p>
 </blockquote>
 
 <p><code>GET /issues/{issue_id}/extensions/values</code></p>
@@ -15696,29 +15696,29 @@ object is &quot;issues&quot;.</p>
 This is the request <a href="#list-extension-values"><code>GET /{object}/extensions/values</code></a>, where the object is &quot;issues&quot;.</p>
 <h3 id='update-an-extension-field-value-on-an-issue'>Update an Extension Field Value on an Issue</h3>
 <blockquote>
-<p>See the <a href="#update-an-extension-value">extension section</a> for an example      </p>
+<p>See the <a href="#update-an-extension-value">extension section</a> for an example</p>
 </blockquote>
 
 <p><code>PUT /issues/{issue_id}/extensions/values/{extension_value_id}</code></p>
 
 <p>This request updates the value of an <a href="#the-extension-value-object">extension field value</a>, specified by its
-<code>extension_value_id</code>, of an issue, specified by its <code>issue_id</code>. This is the request 
+<code>extension_value_id</code>, of an issue, specified by its <code>issue_id</code>. This is the request
 <a href="#update-an-extension-value"><code>PUT{object}/{object_id}/extensions/values/{extension_value_id}</code></a>, where the object is &quot;issues&quot;,
 and whose id is <code>{issue_id}</code></p>
 <h3 id='set-an-extension-field-value-on-an-issue'>Set an Extension Field Value on an Issue</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 
 <p><code>POST /issues/{issue_id}/extensions/fields/{extension_field_id}</code></p>
 
 <p>This request sets and returns the value of an extension field, specified by its <code>extension_field_id</code>, of an issue,
-specified by its <code>issue_id</code>. This request is the request 
+specified by its <code>issue_id</code>. This request is the request
 <a href="#create-an-extension-value"><code>POST/{object}/{object_id}/extensions/fields/{extension_field_id}</code></a> where our object is &quot;issues&quot;
 whose id is <code>issue_id</code>.</p>
 <h3 id='list-available-progressions-on-an-issue'>List Available Progressions on an Issue</h3>
 <blockquote>
-<p>See the <a href="#retrieve-a-list-of-available-progressions">progressions section</a> for a sample request  </p>
+<p>See the <a href="#retrieve-a-list-of-available-progressions">progressions section</a> for a sample request</p>
 </blockquote>
 
 <p><code>GET /issues/{issue_id}/progressions</code></p>
@@ -15728,7 +15728,7 @@ whose id is <code>issue_id</code>.</p>
 where the object is &quot;issues&quot; whose id is <code>{issue_id}</code>.</p>
 <h3 id='auto-run-a-progression-on-an-issue'>Auto Run a Progression on an Issue</h3>
 <blockquote>
-<p>See the <a href="#run-a-status-update-using-a-given-progression">progressions section</a> for a sample request  </p>
+<p>See the <a href="#run-a-status-update-using-a-given-progression">progressions section</a> for a sample request</p>
 </blockquote>
 
 <p><code>[POST|PUT] /issues/{issue_id}/progressions/{progression_id}/auto</code></p>
@@ -15737,23 +15737,23 @@ where the object is &quot;issues&quot; whose id is <code>{issue_id}</code>.</p>
 <code>issue_id</code>. This is the request <a href="#run-a-status-update-using-a-given-progression"><code>[POST|PUT] /{object}/{object_id}/progressions/{progression_id}/auto</code></a> where the object is &quot;issues&quot; whose id is <code>{issue_id}</code>.</p>
 <h3 id='list-an-issue-39-s-resource-collections'>List an Issue&#39;s Resource Collections</h3>
 <blockquote>
-<p>See the <a href="#retrieve-an-array-of-collections-for-an-object">resources (attachments) section</a> for an example  </p>
+<p>See the <a href="#retrieve-an-array-of-collections-for-an-object">resources (attachments) section</a> for an example</p>
 </blockquote>
 
 <p><code>GET /issues/{issue_id}/collections</code></p>
 
 <p>This request returns a list of <a href="#resources-attachments">resource collections</a> against an <a href="#the-issue-object">issue</a>,
-specified by its <code>issue_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a> 
+specified by its <code>issue_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a>
 where the object is &quot;issues&quot; and hose id is <code>{issue_id}</code>.</p>
 <h3 id='upload-a-resource-attachment-to-a-collection-on-an-issue'>Upload a Resource (Attachment) to a Collection on an Issue</h3>
 <blockquote>
-<p>See the <a href="#upload-a-resource-to-a-collection-of-an-object">resources (attachments) section</a> for an example   </p>
+<p>See the <a href="#upload-a-resource-to-a-collection-of-an-object">resources (attachments) section</a> for an example</p>
 </blockquote>
 
 <p><code>POST /issues/{issue_id}/collections/{collection_id}/resources</code></p>
 
 <p>This request uploads a <a href="#resources-attachments">resource</a> to a collection, specified by its <code>collection_id</code>, of an
-<a href="#the-issue-object">issue</a> specified by its <code>issue_id</code>. This is the request 
+<a href="#the-issue-object">issue</a> specified by its <code>issue_id</code>. This is the request
 <a href="#upload-a-resource-to-a-collection-of-an-object"><code>POST/{object}/{object_id}/collections/{collection_id}/resources</code></a> where the
 object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
 <h2 id='jobs-projects'>Jobs (Projects)</h2>
