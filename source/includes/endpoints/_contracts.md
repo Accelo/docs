@@ -917,7 +917,7 @@ where the object is "companies" and whose id is `{company_id}`.
 `POST /companies/{company_id}/collections/{collection_id}/resources`
 
 This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [company](#the-
-company-object) specified by its `company_id`. This it the request 
+company-object) specified by its `company_id`. This is the request 
 [POST/{object}/{object_id}/collections/{collection_id}/resources](#upload-a-resource-to-a-collection-of-an-object) 
 where the object is "companies" and whose id is `{company_id}`.
 
