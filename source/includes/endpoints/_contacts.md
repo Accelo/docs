@@ -779,6 +779,6 @@ where the object is "contacts" and whose id is `{contact_id}`.
 `POST /contacts/{contact_id}/collections/{collection_id}/resources`
 
 This request uploads a [resource](#resources-attachments) to a collection, specified by its `collection_id`, of a
-[contact](#the-contact-object) specified by its `contact_id`. This it the request
+[contact](#the-contact-object) specified by its `contact_id`. This is the request
 [`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object) where the
 object is "contacts" and whose id is `{contact_id}`.
