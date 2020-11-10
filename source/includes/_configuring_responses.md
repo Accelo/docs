@@ -396,5 +396,4 @@ If the same filter is used more than once in a combination only the final instan
 example `_filters=_OR(staff(10),staff(11))` will just filter by staff with id 11, here the simple filter
 `_filters=staff(10,11)` should be used.
  
-If more than one `_AND` keyword is defined inside `_filters` then they will be combined in a non-deterministic way, causing
-unexpected results to be returned.
+Only a single `_AND` can be defined inside the filters param.
