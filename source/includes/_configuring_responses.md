@@ -18,7 +18,7 @@ The available parameters are:
 | Argument | Description |
 |:-|:-|
 | \_page | The page of result to retrieve. For example to retrieve the first page you would use `_page=0`, and for the 5th page, `_page=4`. The default is 0 |
-| \_limit | The max number of resources to return. When combined with `_page`, this is the number of requests returned per page.  Default is 10, max is 50 |
+| \_limit | The max number of resources to return. When combined with `_page`, this is the number of requests returned per page.  Default is 10, max is 100 |
 | \_offset | The resource to return from. Default is 0, this will be overridden if `_page` is set. |
 
 
