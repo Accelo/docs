@@ -670,7 +670,7 @@ The response will contain two arrays:
 | contacts | Array of contact objects that have an interaction against the activity. |
 
 The staff and contact objects returned will contain their default fields, plus any fields added via the `_fields`
-parameter, as well as a `interact` object containing:
+parameter, as well as an `interact` object containing:
 
 | Field | Type | Description |
 |:-|:-|:-|
