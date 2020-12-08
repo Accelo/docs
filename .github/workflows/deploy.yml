@@ -1,3 +1,4 @@
+# Deploys the docs to the github page
 name: Deploy
 
 on:
