@@ -1,5 +1,5 @@
-## Object Budgets
-> Resource URI:  
+## Object Budgets yeah
+> Resource URI:
 `api/v0/object_budgets`
 
 Object budgets are budgets against a specific object, for example a budget against an [issue](#issues) or a [milestone](#milestones). They are able to track the time and money spent by staff and on services, as well as expenses and the cost of materials.
