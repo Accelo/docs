@@ -111,7 +111,7 @@ values, for a given company. This object contains:
 
 
 ### Get Company
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/{company_id} HTTP/1.1
@@ -147,7 +147,7 @@ parameter.
 
 
 ### List Companies
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies HTTP/1.1
@@ -161,7 +161,7 @@ curl -X get \
   -H 'authorization: Bearer {access_token}'
 ```
 
-`GET /companies`  
+`GET /companies`
 
 This request returns a list of [companies](#the-company-object) from the Accelo deployment.
 
@@ -263,7 +263,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 ### Count Companies
-> Sample Request:    
+> Sample Request:
 
 ```http
 GET /api/v0/companies/count HTTP/1.1
@@ -293,7 +293,7 @@ or filters this will be a count of all companies on the deployment. This request
 
 
 ### List Recent Companies
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/recent HTTP/1.1
@@ -309,7 +309,7 @@ curl -X get \
 
 `GET /companies/recent`
 
-Equivalent request:  
+Equivalent request:
 
 `GET /companies?_filters=order_by_desc(date_created)`
 
@@ -341,7 +341,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 ### List Latest Modified Companies
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/newest HTTP/1.1
@@ -389,7 +389,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 
 ### Get a Company's Status
-> Sample Request:  
+> Sample Request:
 
 
 ```http
@@ -425,7 +425,7 @@ The response will be a single status object with its default fields and any addi
 
 
 ### List Company Statuses
-> Sample Request:  
+> Sample Request:
 
 
 ```http
@@ -583,7 +583,7 @@ curl -X get \
 
 `GET /companies/statuses/count`
 
-This request will return a count of company statuses in a list defined by any available searches or filters. 
+This request will return a count of company statuses in a list defined by any available searches or filters.
 With no searches or filters this will be a count of all company statuses on the deployment. This request returns a single field:
 
 | Field | Type | Description |
@@ -597,7 +597,7 @@ With no searches or filters this will be a count of all company statuses on the 
 
 
 ### Get Main Contact
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/{company_id}/contact HTTP/1.1
@@ -623,7 +623,7 @@ This request supports requesting additional fields and linked objects from the [
 [`_fields`](#configuring-the-response-fields) parameter.
 
 
-#### Handling the Response 
+#### Handling the Response
 
 The response will be a single [contact](#contact) with its default fields and any other additional fields requested via
 `_fields`.
@@ -635,7 +635,7 @@ The response will be a single [contact](#contact) with its default fields and an
 
 
 ### List Contacts Against a Company
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/{company_id}/contacts HTTP/1.1
@@ -666,7 +666,7 @@ This request may be configured and handled as per [`GET /contacts`](#list-contac
 
 
 ### Count Contacts on a Company
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/{company_id}/contacts/count HTTP/1.1
@@ -698,7 +698,7 @@ field:
 
 
 ### List Managers
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/companies/{company_id}/managers HTTP/1.1
@@ -729,7 +729,7 @@ This request may be configured and handled a per [`GET /staff`](#list-staff)
 
 
 ### List A Company's Segmentations
-> Sample Request:   
+> Sample Request:
 
 ```http
 GET /api/v0/companies/{company_id}/segmentations HTTP/1.1
@@ -755,7 +755,7 @@ Authorization: Bearer {access_token}
 This request returns a list of [company segmentations](#the-company-segmentation-object) for a company identified by its `company_id`.
 This request takes no parameters and returns a list of segmentations.
 
-> Sample response:  
+> Sample response:
 
 ```json
 {
@@ -850,7 +850,7 @@ through `_fields`.
 
 ### Create a Company
 
-> Sample request:  
+> Sample request:
 
 ```http
 POST /api/v0/companies/{company_id} HTTP/1.1
@@ -921,7 +921,7 @@ This request returns the created company object, with its default fields and any
 
 
 ### Add a Manager
-> Sample Request:  
+> Sample Request:
 
 ```http
 POST /api/v0/companies/{company_id} HTTP/1.1
@@ -966,7 +966,7 @@ This response may be configured and handled in the same way as [`GET /companies/
 
 
 ### Remove a Company
-> Sample Request:  
+> Sample Request:
 
 ```http
 DELETE /api/v0/companies/{company_id} HTTP/1.1
@@ -993,7 +993,7 @@ parameters and returns no resource.
 
 
 ### Remove a Manager
-> Sample Request:  
+> Sample Request:
 
 ```http
 DELETE /api/v0/companies/{company_id} HTTP/1.1
@@ -1039,7 +1039,7 @@ This response returns a list of manager (staff members) for the given company.
 `GET /companies/{company_id}/profiles/values`
 
 This request returns a list of [profile field values](#the-profile-value-object) of a [company](#the-company-object),
-specified by its `company_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values), 
+specified by its `company_id`. This is the request [`GET /{object}/{object_id}/profiles/values`](#retrieve-a-list-of-profile-values),
 where the object is "companies" and whose id is `{company_id}`.
 
 
@@ -1052,7 +1052,7 @@ where the object is "companies" and whose id is `{company_id}`.
 
 `GET /companies/profiles/values`
 
-This request returns a list of all [profile field values](#the-profile-value-object) on [companies](#the-company-object). 
+This request returns a list of all [profile field values](#the-profile-value-object) on [companies](#the-company-object).
 This is the request [`GET /{object}/profiles/values`](#list-profile-values), where the object is "companies".
 
 
@@ -1065,7 +1065,7 @@ This is the request [`GET /{object}/profiles/values`](#list-profile-values), whe
 
 `GET /companies/profiles/fields`
 
-This request returns a list of [profile fields](#the-profile-field-object) available for [companies](#the-company-object). 
+This request returns a list of [profile fields](#the-profile-field-object) available for [companies](#the-company-object).
 This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profile-fields) where the object is "companies".
 
 
@@ -1094,7 +1094,7 @@ of a particular [company](#the-company-object), identified by its `company_id`. 
 
 `POST /companies/{company_id}/profiles/{profile_field_id}`
 
-This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-object), 
+This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-object),
 specified by its `profile_field_id`, for a [company](#the-company-object), specified by its `company_id`. This
 is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where is
 object is "companies" and whose id is `{company_id}`
@@ -1111,7 +1111,7 @@ object is "companies" and whose id is `{company_id}`
 `GET /companies/{company_id}/progressions`
 
 This request returns a list of available [progressions](#progressions) for a [company](#the-company-object) identified
-by its `company_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions) 
+by its `company_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions)
 where the object is "companies" whose id is `{company_id}`
 
 
@@ -1139,7 +1139,7 @@ where the object is "companies" whose id is `{company_id}`.
 
 
 ### List Addresses against a Company
-> Sample Request:  
+> Sample Request:
 
 `GET /companies/{company_id}/addresses`
 
@@ -1174,7 +1174,7 @@ This is the request [`POST /{object}/{object_id}/addresses`](#create-an-address-
 `GET /companies/{company_id}/collections`
 
 This request returns a list of [collections](#resources) against a [company](#the-company-object), specified by its
-`company_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+`company_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object)
 where the object is "companies" and whose id is `{company_id}`.
 
 
@@ -1188,7 +1188,7 @@ where the object is "companies" and whose id is `{company_id}`.
 
 `POST /companies/{company_id}/collections/{collection_id}/resources`
 
-This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [company](#the-company-object) 
+This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [company](#the-company-object)
 specified by its `company_id`. This is the request
 [`POST/{object}/{object_id}/collections/{collection_id}/resources`](#upload-a-resource-to-a-collection-of-an-object)
 where the object is "companies" and whose id is `{company_id}`.
