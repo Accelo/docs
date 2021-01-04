@@ -1,5 +1,5 @@
 ## Webhooks
-> Resource URI:  
+> Resource URI:
 `api/v0/webhooks`
 
 Webhooks allow you to build integrations that subscribe to specific Accelo events. Once an event is triggered, we will
@@ -34,6 +34,7 @@ a certain set of actions on a per object basis. The available events are:
 | update_issue | Any time an [issue](#issues) is updated. |
 | create_contact | Any time a [contact](#contacts) is created. |
 | update_contact | Any time a [contact](#contacts) is updated. |
+| delete_activity | (Beta) Any time an [activity](#activities) is deleted. |
 
 
 ##### Progression Webhooks
@@ -111,7 +112,7 @@ will respect this and instantly remove the subscription that caused the webhook 
 
 
 ### List Webhook Subscriptions
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/webhooks/subscriptions HTTP/1.1
@@ -120,7 +121,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -137,7 +138,7 @@ no parameters.
 
 
 ### List Webhook Subscription Types
-> Sample Request:  
+> Sample Request:
 
 ```http
 GET /api/v0/webhooks/subscriptions/types HTTP/1.1
@@ -146,7 +147,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/types \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -163,7 +164,7 @@ no parameters.
 
 
 ### Create Webhook Subscription
-> Sample Request:  
+> Sample Request:
 
 ```http
 POST /api/v0/webhooks/subscriptions HTTP/1.1
@@ -173,7 +174,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -185,7 +186,7 @@ This request creates and returns a [webhook subscription](#webhook-subscriptions
 takes no parameters to configure the response.
 
 #### Configuring the Subscription
-The following fields may be set through this Sample Request:  
+The following fields may be set through this Sample Request:
 
 || Notes |
 |:-|:-|
@@ -201,7 +202,7 @@ The following fields may be set through this Sample Request:
 
 
 ### Delete Webhook Subscription
-> Sample Request:  
+> Sample Request:
 
 ```http
 DELETE /api/v0/webhooks/subscriptions/{subscription_id} HTTP/1.1
@@ -210,7 +211,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id} \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -227,7 +228,7 @@ resources.
 
 
 ### Trigger a Webhook Subscription
-> Sample Request:  
+> Sample Request:
 
 ```http
 POST /api/v0/webhooks/subscriptions/{subscription_id}/trigger HTTP/1.1
@@ -236,7 +237,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id}/trigger \
   -H 'authorization: Bearer {access_token}' \
 ```
@@ -264,7 +265,7 @@ This request returns nothing to the user.
 
 
 ### Dispatch a Webhook Subscription
-> Sample Request:  
+> Sample Request:
 
 ```http
 POST /api/v0/webhooks/subscriptions/{subscription_id}/dispatch HTTP/1.1
@@ -273,7 +274,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X get \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id}/dispatch \
   -H 'authorization: Bearer {access_token}' \
 ```

@@ -4,6 +4,15 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Tuesday 5th January 2020
+
+The change log is back!
+
+#### Features
+
+Added an delete activity [webhook](#webhooks).
+- This will initially be in beta.
+
 ### Wednesday 11th April 2018
 
 #### Misc
@@ -102,7 +111,7 @@ from being sent.
  - [`GET /issues/priorities/count`](#count-issue-priorities)
 - The following endpoints have been updated:
  - [`PUT /issues/{issue_id}`](#update-an-issue) supports updating `priority_id` and (`status_id` or `standing`)
- - [`POST /issues`](#create-an-issue) supports setting `priority_id` and (`status_id` or `standing`) 
+ - [`POST /issues`](#create-an-issue) supports setting `priority_id` and (`status_id` or `standing`)
 
 ### Friday 22nd December 2017
 
