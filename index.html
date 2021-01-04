@@ -2129,6 +2129,9 @@
             <a href="#change-log" class="toc-h1 toc-link" data-title="Change log">Change log</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#tuesday-5th-january-2020" class="toc-h2 toc-link" data-title="Tuesday 5th January 2020">Tuesday 5th January 2020</a>
+                  </li>
+                  <li>
                     <a href="#wednesday-11th-april-2018" class="toc-h2 toc-link" data-title="Wednesday 11th April 2018">Wednesday 11th April 2018</a>
                   </li>
                   <li>
@@ -27454,7 +27457,7 @@ to converting the external appointment as a workable entry to use in Accelo.</p>
 <p>This request returns a <a href="#the-user-object">user object</a>, it takes no parameters.</p>
 <h2 id='webhooks'>Webhooks</h2>
 <blockquote>
-<p>Resource URI:<br>
+<p>Resource URI:
 <code>api/v0/webhooks</code></p>
 </blockquote>
 
@@ -27525,6 +27528,10 @@ a certain set of actions on a per object basis. The available events are:</p>
 <tr>
 <td style="text-align: left">update_contact</td>
 <td style="text-align: left">Any time a <a href="#contacts">contact</a> is updated.</td>
+</tr>
+<tr>
+<td style="text-align: left">delete_activity</td>
+<td style="text-align: left">(Beta) Any time an <a href="#activities">activity</a> is deleted.</td>
 </tr>
 </tbody></table>
 <h5 id='progression-webhooks'>Progression Webhooks</h5>
@@ -27651,12 +27658,12 @@ will respect this and instantly remove the subscription that caused the webhook 
 <a href="#delete-webhook-subscription">delete subscription endpoint</a> mentioned below.</p>
 <h3 id='list-webhook-subscriptions'>List Webhook Subscriptions</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/webhooks/subscriptions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
@@ -27666,12 +27673,12 @@ will respect this and instantly remove the subscription that caused the webhook 
 no parameters.</p>
 <h3 id='list-webhook-subscription-types'>List Webhook Subscription Types</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/webhooks/subscriptions/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions/types <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
@@ -27681,13 +27688,13 @@ no parameters.</p>
 no parameters.</p>
 <h3 id='create-webhook-subscription'>Create Webhook Subscription</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/webhooks/subscriptions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span>
@@ -27697,7 +27704,7 @@ no parameters.</p>
 <p>This request creates and returns a <a href="#webhook-subscriptions">webhook subscription</a> for the current user. This request
 takes no parameters to configure the response.</p>
 <h4 id='configuring-the-subscription'>Configuring the Subscription</h4>
-<p>The following fields may be set through this Sample Request:  </p>
+<p>The following fields may be set through this Sample Request:</p>
 
 <table><thead>
 <tr>
@@ -27724,12 +27731,12 @@ takes no parameters to configure the response.</p>
 </tbody></table>
 <h3 id='delete-webhook-subscription'>Delete Webhook Subscription</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/webhooks/subscriptions/{subscription_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions/<span class="o">{</span>subscription_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
@@ -27739,12 +27746,12 @@ takes no parameters to configure the response.</p>
 resources.</p>
 <h3 id='trigger-a-webhook-subscription'>Trigger a Webhook Subscription</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/webhooks/subscriptions/{subscription_id}/trigger</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions/<span class="o">{</span>subscription_id<span class="o">}</span>/trigger <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
 </code></pre>
@@ -27772,12 +27779,12 @@ following parameter:</p>
 <p>This request returns nothing to the user.</p>
 <h3 id='dispatch-a-webhook-subscription'>Dispatch a Webhook Subscription</h3>
 <blockquote>
-<p>Sample Request:  </p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/webhooks/subscriptions/{subscription_id}/dispatch</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions/<span class="o">{</span>subscription_id<span class="o">}</span>/dispatch <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
 </code></pre>
@@ -27914,9 +27921,14 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 <p>With the release of the new and easier to maintain documentation, we&#39;re going to do a much better job of tracking changes.</p>
 
 <p><strong>Note - Beta Changes:</strong> New objects or endpoints may be introduced with a <strong>(Beta)</strong> tag, which may last up to a month after introduction. While in beta these are subject to change without notice.</p>
+<h3 id='tuesday-5th-january-2020'>Tuesday 5th January 2020</h3>
+<p>The change log is back!</p>
+<h4 id='features'>Features</h4>
+<p>Added an delete activity <a href="#webhooks">webhook</a>.
+- This will initially be in beta.</p>
 <h3 id='wednesday-11th-april-2018'>Wednesday 11th April 2018</h3><h4 id='misc'>Misc</h4>
 <p>Added some extra documentation around <code>_not</code> <a href="#configuring-the-response-filtering">filters</a>.</p>
-<h4 id='features'>Features</h4>
+<h4 id='features-2'>Features</h4>
 <p>Updated the <a href="#update-an-activity"><code>PUT /activities/{activity_id}</code></a> endpoint:</p>
 
 <ul>
@@ -27943,7 +27955,7 @@ Object</a>.</li>
 <ul>
 <li>Rename some sections for clarity and to avoid title duplication.</li>
 </ul>
-<h4 id='features-2'>Features</h4>
+<h4 id='features-3'>Features</h4>
 <p>The following endpoints have been added to activities:</p>
 
 <ul>
@@ -27990,7 +28002,7 @@ Object</a>.</li>
 <li><code>surname</code></li>
 <li><code>email</code></li>
 </ul>
-<h3 id='friday-2nd-february-2018'>Friday 2nd February 2018</h3><h4 id='features-3'>Features</h4>
+<h3 id='friday-2nd-february-2018'>Friday 2nd February 2018</h3><h4 id='features-4'>Features</h4>
 <ul>
 <li>Add the <code>block_send</code> flag to allow blocking <a href="#create-an-activity">activities created through the API</a>
 from being sent.</li>
@@ -28003,7 +28015,7 @@ from being sent.</li>
 <ul>
 <li>The <code>priority</code> attribute and object on <a href="#issues">Issues</a> is deprecated. Please use <code>issue_priority</code> instead.</li>
 </ul>
-<h4 id='features-4'>Features</h4>
+<h4 id='features-5'>Features</h4>
 <ul>
 <li>The following endpoints have been added
 
@@ -28016,7 +28028,7 @@ from being sent.</li>
 
 <ul>
 <li><a href="#update-an-issue"><code>PUT /issues/{issue_id}</code></a> supports updating <code>priority_id</code> and (<code>status_id</code> or <code>standing</code>)</li>
-<li><a href="#create-an-issue"><code>POST /issues</code></a> supports setting <code>priority_id</code> and (<code>status_id</code> or <code>standing</code>) </li>
+<li><a href="#create-an-issue"><code>POST /issues</code></a> supports setting <code>priority_id</code> and (<code>status_id</code> or <code>standing</code>)</li>
 </ul></li>
 </ul>
 <h3 id='friday-22nd-december-2017'>Friday 22nd December 2017</h3><h4 id='misc-updates'>Misc Updates</h4>
