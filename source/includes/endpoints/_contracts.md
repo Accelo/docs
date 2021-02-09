@@ -631,7 +631,7 @@ curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contracts/types/count
   -H 'authorization: Bearer {access_token}'
 ```
-`GET /contracts/types/counts`
+`GET /contracts/types/count`
 
 This request returns a count of [contract types](#the-contract-type) in a list defined by any available searches or
 filters. With no searches or filters this will be a count of all contract types on the deployment. This request returns
