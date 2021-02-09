@@ -10879,21 +10879,22 @@ where the object is &quot;contracts&quot; whose id is <code>{contract_id}</code>
 <p>See the <a href="#retrieve-an-array-of-collections-for-an-object">resources (attachments) section</a> for an example  </p>
 </blockquote>
 
-<p><code>GET /companies/{company_id}/collections</code></p>
+<p><code>GET /contracts/{contract_id}/collections</code></p>
 
-<p>This request returns a list of <a href="#resources">collections</a> against a <a href="#the-company-object">company</a>, specified by its
-<code>company_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a> 
-where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+<p>This request returns a list of <a href="#resources">collections</a> against a <a href="#the-contract-object">contracts</a>,
+specified by its <code>contract_id</code>. This is the request <a href="#retrieve-an-array-of-collections-for-an-object"><code>GET /{object}/{object_id}/collections</code></a> 
+where the object is &quot;contracts&quot; whose id is <code>{contract_id}</code>.</p>
 <h3 id='upload-a-resource-attachment-to-a-collection-on-a-contract'>Upload a Resource (Attachment) to a Collection on a Contract</h3>
 <blockquote>
 <p>See the <a href="#upload-a-resource-to-a-collection-of-an-object">resources (attachments) section</a> for an example   </p>
 </blockquote>
 
-<p><code>POST /companies/{company_id}/collections/{collection_id}/resources</code></p>
+<p><code>POST /contracts/{contract_id}/collections/{collection_id}/resources</code></p>
 
-<p>This request uploads a <a href="#resources">resource</a> to a collection, specified by its <code>collection_id</code>, of a <a href="#the-">company</a> specified by its <code>company_id</code>. This is the request 
+<p>This request uploads a <a href="#resources">resource</a> to a collection, specified by its <code>collection_id</code>, of a <a href="#the-contract-object">contracts</a>,
+specified by its <code>contract_id</code>. This is the request 
 <a href="#upload-a-resource-to-a-collection-of-an-object">POST/{object}/{object_id}/collections/{collection_id}/resources</a> 
-where the object is &quot;companies&quot; and whose id is <code>{company_id}</code>.</p>
+where the object is &quot;contracts&quot; whose id is <code>{contract_id}</code>.</p>
 <h3 id='list-a-contract-39-s-profile-field-values'>List a Contract&#39;s Profile Field Values</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-profile-values">profiles section</a> for a sample request</p>
