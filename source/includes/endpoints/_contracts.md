@@ -1,4 +1,4 @@
-## Contracts
+## Contracts (Retainers)
 > Resource URI:  
 `/api/v0/contracts`
 
@@ -340,6 +340,15 @@ This request supports the following [object filters](#filters-object-filters):
 | against | Filter by contracts against these objects. |
 
 
+#### Searching
+
+This request supports the use of the [`_search`](#configuring-the-response-searching) parameter over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
 #### Handling the Response
 
 The response will be a list of [contract objects](#the-contract-object) containing the default fields and any additional
@@ -631,7 +640,7 @@ curl -X get \
  https://{deployment}.api.accelo.com/api/v0/contracts/types/count
   -H 'authorization: Bearer {access_token}'
 ```
-`GET /contracts/types/counts`
+`GET /contracts/types/count`
 
 This request returns a count of [contract types](#the-contract-type) in a list defined by any available searches or
 filters. With no searches or filters this will be a count of all contract types on the deployment. This request returns
@@ -900,11 +909,11 @@ where the object is "contracts" whose id is `{contract_id}`.
 ### List a Contract's Resource Collections
 > See the [resources (attachments) section](#retrieve-an-array-of-collections-for-an-object) for an example  
 
-`GET /companies/{company_id}/collections`
+`GET /contracts/{contract_id}/collections`
 
-This request returns a list of [collections](#resources) against a [company](#the-company-object), specified by its
-`company_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
-where the object is "companies" and whose id is `{company_id}`.
+This request returns a list of [collections](#resources) against a [contracts](#the-contract-object),
+specified by its `contract_id`. This is the request [`GET /{object}/{object_id}/collections`](#retrieve-an-array-of-collections-for-an-object) 
+where the object is "contracts" whose id is `{contract_id}`.
 
 
 
@@ -914,12 +923,12 @@ where the object is "companies" and whose id is `{company_id}`.
 ### Upload a Resource (Attachment) to a Collection on a Contract
 > See the [resources (attachments) section](#upload-a-resource-to-a-collection-of-an-object) for an example   
 
-`POST /companies/{company_id}/collections/{collection_id}/resources`
+`POST /contracts/{contract_id}/collections/{collection_id}/resources`
 
-This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [company](#the-
-company-object) specified by its `company_id`. This is the request 
+This request uploads a [resource](#resources) to a collection, specified by its `collection_id`, of a [contracts](#the-contract-object),
+specified by its `contract_id`. This is the request 
 [POST/{object}/{object_id}/collections/{collection_id}/resources](#upload-a-resource-to-a-collection-of-an-object) 
-where the object is "companies" and whose id is `{company_id}`.
+where the object is "contracts" whose id is `{contract_id}`.
 
 
 
@@ -929,7 +938,7 @@ where the object is "companies" and whose id is `{company_id}`.
 ### List a Contract's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
-`GET /contract/{contract_id}/profiles/values`
+`GET /contracts/{contract_id}/profiles/values`
 
 This request returns a list of [profile field values](#the-profile-value-object) of a [contracts](#the-contract-object),
 specified by its `contract_id`. This is the request  
