@@ -340,6 +340,15 @@ This request supports the following [object filters](#filters-object-filters):
 | against | Filter by contracts against these objects. |
 
 
+#### Searching
+
+This request supports the use of the [`_search`](#configuring-the-response-searching) parameter over the following fields:
+
+| Field |
+|:-|
+| title |
+
+
 #### Handling the Response
 
 The response will be a list of [contract objects](#the-contract-object) containing the default fields and any additional
