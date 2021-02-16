@@ -344,9 +344,9 @@ This request supports the following [object filters](#filters-object-filters):
 
 This request supports the use of the [`_search`](#configuring-the-response-searching) parameter over the following fields:
 
-| Field | Notes |
-|:-|:-|
-| title | |
+| Field |
+|:-|
+| title |
 
 
 #### Handling the Response
