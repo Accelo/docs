@@ -240,7 +240,7 @@ This request supports [range filters](#filters-range-filters) over the following
 
 ##### Searching
 
-This request supports the [`_searching`](#configuring-the-response-searching) parameter to search over the following
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following
 fields:
 
 | Field Name | Notes |

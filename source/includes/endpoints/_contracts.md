@@ -938,7 +938,7 @@ where the object is "contracts" whose id is `{contract_id}`.
 ### List a Contract's Profile Field Values
 > See the [profiles section](#retrieve-a-list-of-profile-values) for a sample request
 
-`GET /contract/{contract_id}/profiles/values`
+`GET /contracts/{contract_id}/profiles/values`
 
 This request returns a list of [profile field values](#the-profile-value-object) of a [contracts](#the-contract-object),
 specified by its `contract_id`. This is the request  
