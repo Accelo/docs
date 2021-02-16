@@ -1,4 +1,4 @@
-## Contracts
+## Contracts (Retainers)
 > Resource URI:  
 `/api/v0/contracts`
 
