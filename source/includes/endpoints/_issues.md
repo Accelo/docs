@@ -1,4 +1,4 @@
-## Issues
+## Issues (Tickets)
 > Resource URI:
 `/api/v0/issues`
 
