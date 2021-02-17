@@ -28,7 +28,7 @@ You can now see the docs at http://localhost:4567.
 ### Deploying
 
 The Accelo Public API Docs are now automatically deployed via a github action `.github/workflows/deploy.yml` which triggers
-when changes are applied to master.
+when changes are applied to main.
 
 If you wish to manually deploy the documentation, it can be done via the `deploy.sh` script.
 
@@ -51,13 +51,13 @@ If you see issues or would like to make an improvement in the documentation plea
 
 ### Upgrading Slate
 
-To upgrade slate, please merge the upstream master into a new branch off of master. As this process may result in conflicts and breaking changes, it should go through the usual pull request process before being deployed on master.
+To upgrade slate, please merge the upstream main into a new branch off of main. As this process may result in conflicts and breaking changes, it should go through the usual pull request process before being deployed on main.
 
 ```shell
-git checkout master
+git checkout main
 git checkout -b slate-upgrade
 git fetch upstream
-git merge upstream/master
+git merge upstream/main
 ```
 
 
