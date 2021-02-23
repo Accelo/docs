@@ -12,6 +12,7 @@ are supported on the following objects:
 * [Invoices](#invoices)
 * [Issues](#issues)
 * [Jobs](#jobs-projects)
+* [Milestones](#milestones)
 * [Prospects](#prospects-sales)
 * [Staff](#staff)
 
