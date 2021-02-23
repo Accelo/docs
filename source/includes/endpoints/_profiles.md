@@ -239,7 +239,7 @@ This request supports [range filters](#filters-range-filters) over the following
 
 ### Searching 
 
-This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|
