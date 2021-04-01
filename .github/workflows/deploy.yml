@@ -40,3 +40,4 @@ jobs:
         github_token: ${{ secrets.DEPLOY_DOCS }}
         publish_dir: ./build
         keep_files: true
+        allow_empty_commit: true
