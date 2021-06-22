@@ -458,7 +458,7 @@ This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profil
 ### Update a Profile Field Value on a Staff
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
-`PUT /staff/{staff_id}/profiles/fields/{profile_value_id}`
+`PUT /staff/{staff_id}/profiles/values/{profile_value_id}`
 
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a
