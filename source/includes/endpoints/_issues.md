@@ -1272,6 +1272,42 @@ where the object is "issues" whose id is `{issue_id}`.
 
 
 
+### List All Progressions For Issues
+
+`GET /issues/progressions`
+
+This request returns all [progressions](#the-progression-object) available for issues.
+
+This returns a list of [progressions](#the-progression-object) with the following fields added to the response.
+
+| Field | Type | Description |
+|:-|:-|:-|
+| issue_status | unsigned or object | The [issue status](#statuses) of the issue.
+| issue_type | unsigned or object | The [issue type](#the-issue-type) that the progression is for. |
+
+##### Basic Filters
+
+This request supports [basic filters](#filters-basic-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id ||
+| issue_type_id ||
+
+
+##### Boolean Filters
+this request also supports a special kind of filter, the boolean filter. These filters take boolean arguments, the supported filters are:
+
+| Filter Name | Notes |
+|:-|:-|
+| on_create | Filter whether the progression can be run on create |
+
+
+
+
+
+
+
 ### Auto Run a Progression on an Issue
 > See the [progressions section](#run-a-status-update-using-a-given-progression) for a sample request
 
