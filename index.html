@@ -1157,6 +1157,9 @@
                           <a href="#list-available-progressions-on-an-issue" class="toc-h3 toc-link" data-title="Endpoints">List Available Progressions on an Issue</a>
                         </li>
                         <li>
+                          <a href="#list-all-progressions-for-issues" class="toc-h3 toc-link" data-title="Endpoints">List All Progressions For Issues</a>
+                        </li>
+                        <li>
                           <a href="#auto-run-a-progression-on-an-issue" class="toc-h3 toc-link" data-title="Endpoints">Auto Run a Progression on an Issue</a>
                         </li>
                         <li>
@@ -14530,6 +14533,16 @@ guide/modules/tickets/#Types">support documentation</a> for more information.</p
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">A number describing the type&#39;s ordering on the deployment.</td>
 </tr>
+<tr>
+<td style="text-align: left">default_issue_class</td>
+<td style="text-align: left">unsigned or Object</td>
+<td style="text-align: left">The default <a href="#the-issue-class">issue class</a> for issues created with this type.</td>
+</tr>
+<tr>
+<td style="text-align: left">default_issue_priority</td>
+<td style="text-align: left">unsigned or Object</td>
+<td style="text-align: left">The default <a href="#the-issue-priority">issue_priority</a> for issues created with this type.</td>
+</tr>
 </tbody></table>
 
 <p><strong>Note:</strong> the <code>type</code> field is deprecated, please request the issue type object through the
@@ -15745,6 +15758,63 @@ whose id is <code>issue_id</code>.</p>
 <p>This request returns a list of available <a href="#the-progression-object">progressions</a> for an issue, specified by its
 <code>issue_id</code>. This is the request <a href="#retrieve-a-list-of-available-progressions"><code>GET /{object}/{object_id}/progressions</code></a>
 where the object is &quot;issues&quot; whose id is <code>{issue_id}</code>.</p>
+<h3 id='list-all-progressions-for-issues'>List All Progressions For Issues</h3>
+<p><code>GET /issues/progressions</code></p>
+
+<p>This request returns all <a href="#the-progression-object">progressions</a> available for issues.</p>
+
+<p>This returns a list of <a href="#the-progression-object">progressions</a> with the following fields added to the response.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">issue_status</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#statuses">issue status</a> of the issue.</td>
+</tr>
+<tr>
+<td style="text-align: left">issue_type</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#the-issue-type">issue type</a> that the progression is for.</td>
+</tr>
+</tbody></table>
+<h5 id='basic-filters-5'>Basic Filters</h5>
+<p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">issue_type_id</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='boolean-filters'>Boolean Filters</h5>
+<p>this request also supports a special kind of filter, the boolean filter. These filters take boolean arguments, the supported filters are:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">on_create</td>
+<td style="text-align: left">Filter whether the progression can be run on create</td>
+</tr>
+</tbody></table>
 <h3 id='auto-run-a-progression-on-an-issue'>Auto Run a Progression on an Issue</h3>
 <blockquote>
 <p>See the <a href="#run-a-status-update-using-a-given-progression">progressions section</a> for a sample request</p>
