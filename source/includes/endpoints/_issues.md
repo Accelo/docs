@@ -174,6 +174,8 @@ guide/modules/tickets/#Types) for more information.
 | standing | select | Either "active" or "inactive", the standing of the issue type.  |
 | budget | select | Either "yes" or "no", whether issues under this type are billable. |
 | ordering | unsigned | A number describing the type's ordering on the deployment. |
+| default_issue_class | unsigned or Object | The default [issue class](#the-issue-class) for issues created with this type. |
+| default_issue_priority | unsigned or Object | The default [issue_priority](#the-issue-priority) for issues created with this type. |
 
 **Note:** the `type` field is deprecated, please request the issue type object through the
 `issue_type` field, which contains the following additional fields:
