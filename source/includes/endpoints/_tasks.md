@@ -345,6 +345,29 @@ This request will return a count of tasks in a list defined by any available sea
 
 
 
+### List Task Priorities
+> Sample Request:   
+
+```http
+GET /api/v0/tasks/priorities HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/tasks/priorities \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /tasks/priorities`
+
+This request returns a list of [priorities](#the-task-priority) available for tasks.
+
+
+
+
+
 
 ### Get Task Status
 > Sample Request:
