@@ -286,6 +286,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_completed ||
 | date_modified ||
 | date_due ||
+| task_priority ||
 | title ||
 | standing ||
 | status | Order by the `status_id`. |
