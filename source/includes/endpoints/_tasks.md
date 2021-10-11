@@ -555,6 +555,7 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | assignee_id |
 | affiliation_id |
 | manager_id |
+| priority_id |
 | type_id |
 | rate_id |
 | rate_charged |
@@ -609,6 +610,7 @@ The following fields from the [task object](#the-task-object) may be set with th
 | assignee_id | The `staff_id` for the [staff](#staff) to be assigned to the task. |
 | affiliation_id | The `affiliation_id` for the [affiliation](#affiliations) to be associated with the task. |
 | date_due ||
+| priority_id | The [priority](#the-task-priority) object's id. For available priorities see [`GET /tasks/priorities`](#list-task-priorities) |
 | remaining | The field `budgeted` will be automatically updated with this value upon creation. |
 | rate_id | Only available if the task is against a "job" or "milestone". The `rate_id` of the [rate](#rates) for this task. |
 | rate_charged | Only available if the task is against a "job" or "milestone". The rate charged for work on this task, as a decimal. |
