@@ -48,6 +48,7 @@ Tasks are small units of work, they may be thought of as the type of work you wo
   "task_object_budget": "113",
   "task_object_schedule": "113",
   "task_object_schedule_id": "113",
+  "task_priority": "1",
   "task_status": "5",
   "task_type": "1",
   "title": "SEO Audit",
@@ -99,6 +100,7 @@ The task object contains the following:
 | task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any. |
 | task_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the task. |
 | task_object_schedule_id | unsigned | The id of the object schedule linked to the task. |
+| task_priority | unsigned or object | The [priority](#the-task-priority) of the task. |
 | rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
 | rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 | ordering | unsigned | An integer representing the task's order on the against object, only if the task is against a [job](#jobs-projects) or [milestone](#milestones) |
