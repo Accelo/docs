@@ -105,6 +105,21 @@ The task object contains the following:
 | rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 | ordering | unsigned | An integer representing the task's order on the against object, only if the task is against a [job](#jobs-projects) or [milestone](#milestones) |
 
+
+#### The Task Priority
+Task priorities help you prioritize your task. They may be set up from the deployment, see the [support
+documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name) for information. They
+contain the following:
+
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the task priority. |
+| **title** | string | A title for the task priority. |
+|icon | select | The icon of the priority when displayed on the deployment. The icons, in order of decreasing urgency a `critical_priority`, `high_priority`, `normal_priority`, `low_priority`, `none_priority`. |
+| level | unsigned | A number representing the urgency of the priority. 1 is "Critical", 5 is "None"|
+
+
 #### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
 
