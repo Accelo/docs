@@ -1870,6 +1870,9 @@
                           <a href="#count-tasks" class="toc-h3 toc-link" data-title="Endpoints">Count Tasks</a>
                         </li>
                         <li>
+                          <a href="#list-task-priorities" class="toc-h3 toc-link" data-title="Endpoints">List Task Priorities</a>
+                        </li>
+                        <li>
                           <a href="#get-task-status" class="toc-h3 toc-link" data-title="Endpoints">Get Task Status</a>
                         </li>
                         <li>
@@ -14533,6 +14536,16 @@ guide/modules/tickets/#Types">support documentation</a> for more information.</p
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">A number describing the type&#39;s ordering on the deployment.</td>
 </tr>
+<tr>
+<td style="text-align: left">default_issue_class</td>
+<td style="text-align: left">unsigned or Object</td>
+<td style="text-align: left">The default <a href="#the-issue-class">issue class</a> for issues created with this type.</td>
+</tr>
+<tr>
+<td style="text-align: left">default_issue_priority</td>
+<td style="text-align: left">unsigned or Object</td>
+<td style="text-align: left">The default <a href="#the-issue-priority">issue_priority</a> for issues created with this type.</td>
+</tr>
 </tbody></table>
 
 <p><strong>Note:</strong> the <code>type</code> field is deprecated, please request the issue type object through the
@@ -25871,6 +25884,7 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
   </span><span class="s2">"task_object_budget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_object_schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_object_schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"task_priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEO Audit"</span><span class="p">,</span><span class="w">
@@ -26083,6 +26097,11 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">The id of the object schedule linked to the task.</td>
 </tr>
 <tr>
+<td style="text-align: left">task_priority</td>
+<td style="text-align: left">unsigned or object</td>
+<td style="text-align: left">The <a href="#the-task-priority">priority</a> of the task.</td>
+</tr>
+<tr>
 <td style="text-align: left">rate_id</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">The unique identifier of the <a href="#rates">rate object</a> of the task.</td>
@@ -26096,6 +26115,39 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">ordering</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">An integer representing the task&#39;s order on the against object, only if the task is against a <a href="#jobs-projects">job</a> or <a href="#milestones">milestone</a></td>
+</tr>
+</tbody></table>
+<h4 id='the-task-priority'>The Task Priority</h4>
+<p>Task priorities help you prioritize your task. They may be set up from the deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name">support
+documentation</a> for information. They
+contain the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the task priority.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A title for the task priority.</td>
+</tr>
+<tr>
+<td style="text-align: left">icon</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">The icon of the priority when displayed on the deployment. The icons, in order of decreasing urgency a <code>critical_priority</code>, <code>high_priority</code>, <code>normal_priority</code>, <code>low_priority</code>, <code>none_priority</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left">level</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A number representing the urgency of the priority. 1 is &quot;Critical&quot;, 5 is &quot;None&quot;</td>
 </tr>
 </tbody></table>
 <h4 id='the-task-type'>The Task Type</h4>
@@ -26412,6 +26464,10 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left"></td>
 </tr>
 <tr>
+<td style="text-align: left">task_priority</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
 <td style="text-align: left">title</td>
 <td style="text-align: left"></td>
 </tr>
@@ -26495,6 +26551,20 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">A count of tasks listed.</td>
 </tr>
 </tbody></table>
+<h3 id='list-task-priorities'>List Task Priorities</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/tasks/priorities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/tasks/priorities <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /tasks/priorities</code></p>
+
+<p>This request returns a list of <a href="#the-task-priority">priorities</a> available for tasks.</p>
 <h3 id='get-task-status'>Get Task Status</h3>
 <blockquote>
 <p>Sample Request:</p>
@@ -26677,6 +26747,9 @@ With no searches or filters this will be a count of all task statuses on the dep
 <td style="text-align: left">manager_id</td>
 </tr>
 <tr>
+<td style="text-align: left">priority_id</td>
+</tr>
+<tr>
 <td style="text-align: left">type_id</td>
 </tr>
 <tr>
@@ -26760,6 +26833,10 @@ With no searches or filters this will be a count of all task statuses on the dep
 <tr>
 <td style="text-align: left">date_due</td>
 <td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">priority_id</td>
+<td style="text-align: left">The <a href="#the-task-priority">priority</a> object&#39;s id. For available priorities see <a href="#list-task-priorities"><code>GET /tasks/priorities</code></a></td>
 </tr>
 <tr>
 <td style="text-align: left">remaining</td>
