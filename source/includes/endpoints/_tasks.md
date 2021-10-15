@@ -48,6 +48,7 @@ Tasks are small units of work, they may be thought of as the type of work you wo
   "task_object_budget": "113",
   "task_object_schedule": "113",
   "task_object_schedule_id": "113",
+  "task_priority": "1",
   "task_status": "5",
   "task_type": "1",
   "title": "SEO Audit",
@@ -99,9 +100,25 @@ The task object contains the following:
 | task_object_budget | unsigned or object | The [object budget](#object-budgets) linked to the task, if any. |
 | task_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the task. |
 | task_object_schedule_id | unsigned | The id of the object schedule linked to the task. |
+| task_priority | unsigned or object | The [priority](#the-task-priority) of the task. |
 | rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
 | rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 | ordering | unsigned | An integer representing the task's order on the against object, only if the task is against a [job](#jobs-projects) or [milestone](#milestones) |
+
+
+#### The Task Priority
+Task priorities help you prioritize your task. They may be set up from the deployment, see the [support
+documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name) for information. They
+contain the following:
+
+
+| Field | Type | Description |
+|:-|:-|:-|
+| **id** | unsigned | A unique identifier for the task priority. |
+| **title** | string | A title for the task priority. |
+|icon | select | The icon of the priority when displayed on the deployment. The icons, in order of decreasing urgency a `critical_priority`, `high_priority`, `normal_priority`, `low_priority`, `none_priority`. |
+| level | unsigned | A number representing the urgency of the priority. 1 is "Critical", 5 is "None"|
+
 
 #### The Task Type
 Task types allow you to assign type labels to tasks. The task type contains the following:
@@ -269,6 +286,7 @@ This request supports [order filters](#filters-order-filters) over the following
 | date_completed ||
 | date_modified ||
 | date_due ||
+| task_priority ||
 | title ||
 | standing ||
 | status | Order by the `status_id`. |
@@ -322,6 +340,29 @@ This request will return a count of tasks in a list defined by any available sea
 | Field | Type | Description |
 |:-|:-|:-|
 | **count** | unsigned | A count of tasks listed. |
+
+
+
+
+
+### List Task Priorities
+> Sample Request:   
+
+```http
+GET /api/v0/tasks/priorities HTTP/1.1
+HOST: {deployment}.api.accelo.com
+Authorization: Bearer {access_token}
+```
+
+```shell
+curl -X get \
+ https://{deployment}.api.accelo.com/api/v0/tasks/priorities \
+  -H 'authorization: Bearer {access_token}'
+```
+
+`GET /tasks/priorities`
+
+This request returns a list of [priorities](#the-task-priority) available for tasks.
 
 
 
@@ -514,6 +555,7 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | assignee_id |
 | affiliation_id |
 | manager_id |
+| priority_id |
 | type_id |
 | rate_id |
 | rate_charged |
@@ -568,6 +610,7 @@ The following fields from the [task object](#the-task-object) may be set with th
 | assignee_id | The `staff_id` for the [staff](#staff) to be assigned to the task. |
 | affiliation_id | The `affiliation_id` for the [affiliation](#affiliations) to be associated with the task. |
 | date_due ||
+| priority_id | The [priority](#the-task-priority) object's id. For available priorities see [`GET /tasks/priorities`](#list-task-priorities) |
 | remaining | The field `budgeted` will be automatically updated with this value upon creation. |
 | rate_id | Only available if the task is against a "job" or "milestone". The `rate_id` of the [rate](#rates) for this task. |
 | rate_charged | Only available if the task is against a "job" or "milestone". The rate charged for work on this task, as a decimal. |
