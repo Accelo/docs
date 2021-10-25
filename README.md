@@ -38,7 +38,7 @@ For those who don't have JavaScript runtime or are experiencing JavaScript runti
 
 ## Need help?
 
-To report problems or ask questions please post to our [development forum](https://groups.google.com/forum/#!forum/accelo-devs) and someone will be happy to help :smiley:
+To report problems or ask questions please post to our [community forum](https://community.accelo.com/) and someone will be happy to help :smiley:
 
 If you see issues or would like to make an improvement in the documentation please don't hesitate to contribute with a pull request.
 
