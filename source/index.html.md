@@ -8,7 +8,7 @@ language_tabs:
 toc_footers:
   - <a href='https://github.com/Accelo/docs/issues/new'>Report documentation error</a>
   - <a href='https://github.com/Accelo/docs'>Contribute</a>
-  - <a href='https://groups.google.com/forum/#!forum/accelo-devs'>Need help? Developer Forum</a>
+  - <a href='https://community.accelo.com/c/dev-forum/6'>Need help? Developer Forum</a>
   - <a href='http://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
