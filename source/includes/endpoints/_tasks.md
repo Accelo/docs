@@ -661,3 +661,17 @@ This request uses the given progression, specified by its `progression_id` to pr
 `PUT|POST /tasks/{task_id}/progressions/done`
 
 These requests will auto progress the [status](#statuses) of a [task](#the-task-object), identified by its `task_id` to "start" or "done", respectively.
+
+
+
+
+
+
+
+### List Skills on a Task
+
+The following field can be used to return an array of [Skills](#the-skill-object) on a [task](#the-task-object).
+
+| Field Name |
+|:-|
+| skills |
