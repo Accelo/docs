@@ -1,7 +1,7 @@
 # Introduction
 Welcome to Accelo's Public REST API documentation. Here you will find resources and information to help you use the API.
 
-**Developer Forum** - Connect with other developers on our [developer forum / mailing list](https://groups.google.com/forum/#!forum/accelo-devs).
+**Developer Forum** - Connect with other developers on our [developer forum](https://community.accelo.com/c/dev-forum/6).
 Use this space to ask any questions and report errors in the documentation.
 
 
