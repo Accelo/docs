@@ -130,7 +130,7 @@ This request returns a list of quotes on the deployment.
 This request supports all the [pagination](#configuring-the-response-pagination) parameters.
 
 ##### Additional Fields and Linked Resources
-This request supports requesting additional fields and linked resources from the [quote object](#the-quote-object) using the [`_fields`](#configuring-the-response-fields) paramter.
+This request supports requesting additional fields and linked resources from the [quote object](#the-quote-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
 ##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
