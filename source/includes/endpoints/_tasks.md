@@ -104,6 +104,7 @@ The task object contains the following:
 | rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
 | rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 | ordering | unsigned | An integer representing the task's order on the against object, only if the task is against a [job](#jobs-projects) or [milestone](#milestones) |
+| skills | array[object] | The [skills](#skills) assigned to the task.
 
 
 #### The Task Priority
@@ -661,17 +662,3 @@ This request uses the given progression, specified by its `progression_id` to pr
 `PUT|POST /tasks/{task_id}/progressions/done`
 
 These requests will auto progress the [status](#statuses) of a [task](#the-task-object), identified by its `task_id` to "start" or "done", respectively.
-
-
-
-
-
-
-
-### List Skills on a Task
-
-The following field can be used to return an array of [Skills](#the-skill-object) on a [task](#the-task-object).
-
-| Field Name |
-|:-|
-| skills |
