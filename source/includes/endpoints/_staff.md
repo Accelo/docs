@@ -25,6 +25,8 @@ The staff object contains the following
 | position | string | The staff member's position in the company. |
 | username | string | The staff member's username on the deployment. |
 | timezone | string | The staff member's timezone. |
+| staff_rate | decimal | The staff member's billable rate. Not returned when requesting _ALL fields. |
+| staff_cost_rate | decimal | The staff member's cost rate. Not returned when requesting _ALL fields. |
 
 #### The Staff Membership Object
 
@@ -481,18 +483,3 @@ This request sets and returns a [profile value](#the-profile-value-object) for a
 `profile_field_id`, for a [staff object](#the-staff-object), specified by its `staff_id`. This is the request 
 [`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "staff",
 and whose value is `staff_id`.
-
-
-
-
-
-
-
-### Get Billable and Cost Rates on a Staff
-
-The following fields may be used to return the billable and cost rates from the [staff object](#the-staff-object), respectively:
-
-| Field Name | Notes |
-|:-|:-|
-| staff_rate | The staff member's billable rate. |
-| staff_cost_rate | The staff member's cost rate. |
