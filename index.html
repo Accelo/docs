@@ -25204,6 +25204,16 @@ professionals, and collaborators</p>
 <td style="text-align: left">string</td>
 <td style="text-align: left">The staff member&#39;s timezone.</td>
 </tr>
+<tr>
+<td style="text-align: left">staff_rate</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The staff member&#39;s billable rate. Not returned when requesting _ALL fields.</td>
+</tr>
+<tr>
+<td style="text-align: left">staff_cost_rate</td>
+<td style="text-align: left">decimal</td>
+<td style="text-align: left">The staff member&#39;s cost rate. Not returned when requesting _ALL fields.</td>
+</tr>
 </tbody></table>
 <h4 id='the-staff-membership-object'>The Staff Membership Object</h4>
 <p>This object tracks group membership for staff, each entry describes a link between a <a href="#staff">staff</a> and a
@@ -26115,6 +26125,11 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">ordering</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">An integer representing the task&#39;s order on the against object, only if the task is against a <a href="#jobs-projects">job</a> or <a href="#milestones">milestone</a></td>
+</tr>
+<tr>
+<td style="text-align: left">skills</td>
+<td style="text-align: left">array[object]</td>
+<td style="text-align: left">The <a href="#skills">skills</a> assigned to the task.</td>
 </tr>
 </tbody></table>
 <h4 id='the-task-priority'>The Task Priority</h4>
