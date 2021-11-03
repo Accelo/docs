@@ -104,6 +104,7 @@ The task object contains the following:
 | rate_id | unsigned | The unique identifier of the [rate object](#rates) of the task. |
 | rate_charged | decimal | The rate charged for billable work within this task. This is part of the rate object. |
 | ordering | unsigned | An integer representing the task's order on the against object, only if the task is against a [job](#jobs-projects) or [milestone](#milestones) |
+| skills | array[object] | The [skills](#skills) assigned to the task.
 
 
 #### The Task Priority

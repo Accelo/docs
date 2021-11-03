@@ -25,6 +25,8 @@ The staff object contains the following
 | position | string | The staff member's position in the company. |
 | username | string | The staff member's username on the deployment. |
 | timezone | string | The staff member's timezone. |
+| staff_rate | decimal | The staff member's billable rate. Not returned when requesting _ALL fields. |
+| staff_cost_rate | decimal | The staff member's cost rate. Not returned when requesting _ALL fields. |
 
 #### The Staff Membership Object
 
