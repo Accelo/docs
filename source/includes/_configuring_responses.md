@@ -179,7 +179,7 @@ curl -X GET \
 ```
 
 Many endpoints contain fields representing dates, such as `date_created` under [activities](#activities). Date fields
-are express as unix timestamps (for brevity we will just use the shorter "unix ts"). The API supports filtering for may
+are expressed as unix timestamps (for brevity we will just use the shorter "unix ts"). The API supports filtering for many
 of these "date_fields" through the following filters:
 
 | Filter | Description |
