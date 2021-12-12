@@ -28,7 +28,7 @@ The contact object contains the following fields and linked objects:
 | date_last_interacted | unix ts | The most recent date of interaction with the contact. |
 | comments | string | Any comments or notes made against the contact. |
 | default_affiliation | unsigned | The unique identifier of the default [affiliation](#affiliations) associated with the contact. |
-| status | unsigned or object | The [status](#statuses) of the contact. |
+| contact_status | unsigned or object | The [status](#statuses) of the contact. |
 | standing | string | The contact's standing, this is part of the status object. For example "active", "potential". |
 
 

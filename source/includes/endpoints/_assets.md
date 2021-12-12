@@ -34,7 +34,7 @@ The asset object contains the following:
 |:-|:-|:-|
 | **id** | unsigned | The unique identifier for the asset. |
 | **title** | string | The name given to the asset. |
-| **latest_asset_link** | object | The most [asset link](#the-asset-link) made on the asset. |
+| **latest_asset_link** | object | The most recent [asset link](#the-asset-link) made on the asset. |
 | standing | string | The standing of the asset, see the [status object](#statuses) for more information. |
 | date_created | unix ts | The date the asset was created. |
 | against_type | string | A string representing the object the endpoint is against. |

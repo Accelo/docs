@@ -25,6 +25,8 @@ The staff object contains the following
 | position | string | The staff member's position in the company. |
 | username | string | The staff member's username on the deployment. |
 | timezone | string | The staff member's timezone. |
+| staff_rate | decimal | The staff member's billable rate. Not returned when requesting _ALL fields. |
+| staff_cost_rate | decimal | The staff member's cost rate. Not returned when requesting _ALL fields. |
 
 #### The Staff Membership Object
 
@@ -458,7 +460,7 @@ This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profil
 ### Update a Profile Field Value on a Staff
 > See the [profiles section](#update-a-profile-value-link) for a sample request  
 
-`PUT /staff/{staff_id}/profiles/fields/{profile_value_id}`
+`PUT /staff/{staff_id}/profiles/values/{profile_value_id}`
 
 
 This request updates and returns a [profile value](#the-profile-value-object), specified by its `profile_value_id`, of a

@@ -174,6 +174,8 @@ guide/modules/tickets/#Types) for more information.
 | standing | select | Either "active" or "inactive", the standing of the issue type.  |
 | budget | select | Either "yes" or "no", whether issues under this type are billable. |
 | ordering | unsigned | A number describing the type's ordering on the deployment. |
+| default_issue_class | unsigned or Object | The default [issue class](#the-issue-class) for issues created with this type. |
+| default_issue_priority | unsigned or Object | The default [issue_priority](#the-issue-priority) for issues created with this type. |
 
 **Note:** the `type` field is deprecated, please request the issue type object through the
 `issue_type` field, which contains the following additional fields:
@@ -1265,6 +1267,42 @@ whose id is `issue_id`.
 This request returns a list of available [progressions](#the-progression-object) for an issue, specified by its
 `issue_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions)
 where the object is "issues" whose id is `{issue_id}`.
+
+
+
+
+
+
+
+### List All Progressions For Issues
+
+`GET /issues/progressions`
+
+This request returns all [progressions](#the-progression-object) available for issues.
+
+This returns a list of [progressions](#the-progression-object) with the following fields added to the response.
+
+| Field | Type | Description |
+|:-|:-|:-|
+| issue_status | unsigned or object | The [issue status](#statuses) of the issue.
+| issue_type | unsigned or object | The [issue type](#the-issue-type) that the progression is for. |
+
+##### Basic Filters
+
+This request supports [basic filters](#filters-basic-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id ||
+| issue_type_id ||
+
+
+##### Boolean Filters
+this request also supports a special kind of filter, the boolean filter. These filters take boolean arguments, the supported filters are:
+
+| Filter Name | Notes |
+|:-|:-|
+| on_create | Filter whether the progression can be run on create |
 
 
 
