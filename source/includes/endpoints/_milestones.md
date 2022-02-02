@@ -63,7 +63,7 @@ The milestone object contains the following:
 | rate_charged | decimal | The rate charged for billable work within this milestone. This is part of the rate object. |
 | milestone_object_budget | unsigned or object | The [object budget](#object-budgets) associated with the milestone. |
 | object_budget | unsigned or object | **Deprecated** please use `milestone_object_budget`. |
-
+| milestone_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the milestone. |
 
 
 
