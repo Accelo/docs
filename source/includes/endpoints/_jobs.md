@@ -68,6 +68,7 @@ The jobs object contains the following:
 | affiliation | unsigned or object | The [affiliation](#affiliations) against the job. |
 | job_object_budget | unsigned or object | The [object budget](#object-budgets) associated with the job. |
 | job_contract | unsigned or object | The [contract](#contracts) associated with the job, if any. |
+| job_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the job. |
 
 #### The Job Type
 > Example job type:
