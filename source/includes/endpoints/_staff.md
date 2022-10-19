@@ -404,8 +404,8 @@ curl -X get \
 
 `DELETE /staff/{staff_id}`
 
-This request removes a [staff member](#the-staff-object) from the deployment, identified by their `staff_id`. This
-request takes no parameters and returns no resources.
+This request completely removes a [staff member](#the-staff-object) from the deployment, identified by their `staff_id`. This
+request takes no parameters and returns no resources. This endpoint should **not** be used to deactivate a staff member.
 
 
 
