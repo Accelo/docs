@@ -51,7 +51,8 @@ The payment object contains the following:
 	"owner_id": "1055",
 	"id": "28945",
 	"affiliation_id": "152348",
-	"amount": "79.00"
+	"amount": "79.00",
+	"date_received": "1496887498"
 }
 ```
 
@@ -64,6 +65,7 @@ Where a payment object stores the information on a payment made against a single
 | affiliation_id | unsigned | The unique id of the [affiliation](#affiliations) associated with the receipt. |
 | owner_id | unsigned | The unique identifier of the owner. |
 | owner_type | select | Either "staff" or "contact", the type of owner of the receipt. |
+| date_received | unix ts | The date the receipt was received. |
 
 
 #### The Payment Method Object (Beta)
