@@ -19097,7 +19097,8 @@ schedule on a given <a href="#tasks">task</a>.</p>
     </span><span class="s2">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1055"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28945"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"affiliation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152348"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79.00"</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1496887498"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Where a payment object stores the information on a payment made against a single object, a receipt may be issued for a single payment, or a collection of payments. For information on accessing receipts from the deployment and receiving receipts from an integrated accounting system see the <a href="https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/receipts/">support documentation</a>. The receipt object contains the following:</p>
@@ -19133,6 +19134,11 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <td style="text-align: left">owner_type</td>
 <td style="text-align: left">select</td>
 <td style="text-align: left">Either &quot;staff&quot; or &quot;contact&quot;, the type of owner of the receipt.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_received</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the receipt was received.</td>
 </tr>
 </tbody></table>
 <h4 id='the-payment-method-object-beta'>The Payment Method Object (Beta)</h4>
