@@ -275,7 +275,7 @@ Parsing a search through `_search` in JSON is simply a matter of assigning a str
 ```
 
 Requests to the API will be limited to 5000/hour per deployment, this is to protect the quality of the service offered
-by the API. Authentication or authorization requests (those made to `/ouath2` endpoints) will not be limited and will
+by the API. Authentication or authorization requests (those made to `/oauth2` endpoints) will not be limited and will
 not be counted against this limit. Requests made after exceeding this limit  will return a `429` error.
 
 The following headers have also been added to track usage rates:
