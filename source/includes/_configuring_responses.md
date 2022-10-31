@@ -34,7 +34,7 @@ The available parameters are:
 "city" field:
 
 ```http
-GET /activities HTTP/1.1
+GET /companies HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 
