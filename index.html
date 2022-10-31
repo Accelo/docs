@@ -2519,20 +2519,20 @@ The available parameters are:</p>
 <p>Requesting companies with the &quot;website&quot; and &quot;phone&quot; fields, as well as the linked &quot;postal_address&quot; object and its
 &quot;city&quot; field:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/companies</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 
 _fields=website,phone,postal_address(city)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
+    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_fields=website,phone,postal_address(city)'</span>
 </code></pre>
 <p>By default, each resource returns only the minimal required fields, these are displayed in the table describing the
 object. To request additional fields we can use the <code>_fields</code> parameter. For example, the <a href="#companies">company</a> object
 has additional fields <code>website</code> and <code>phone</code>, to display these in a request response we would add
-<code>_fields=website,phones</code> to our request. The keyword <code>_ALL</code> may be used to return all optional fields.</p>
+<code>_fields=website,phone</code> to our request. The keyword <code>_ALL</code> may be used to return all optional fields.</p>
 
 <p>For linked objects (those marked as &quot;unsigned or object&quot;) the <code>_fields</code> parameter may be used to request the linked
 object by adding parenthesis to the field. For example, the company object contains a link to an <a href="#addresses">address</a>
