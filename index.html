@@ -1157,9 +1157,6 @@
                           <a href="#list-available-progressions-on-an-issue" class="toc-h3 toc-link" data-title="Endpoints">List Available Progressions on an Issue</a>
                         </li>
                         <li>
-                          <a href="#list-all-progressions-for-issues" class="toc-h3 toc-link" data-title="Endpoints">List All Progressions For Issues</a>
-                        </li>
-                        <li>
                           <a href="#auto-run-a-progression-on-an-issue" class="toc-h3 toc-link" data-title="Endpoints">Auto Run a Progression on an Issue</a>
                         </li>
                         <li>
@@ -1810,9 +1807,6 @@
                           <a href="#create-a-staff-member" class="toc-h3 toc-link" data-title="Endpoints">Create a Staff Member</a>
                         </li>
                         <li>
-                          <a href="#delete-a-staff-member" class="toc-h3 toc-link" data-title="Endpoints">Delete a Staff Member</a>
-                        </li>
-                        <li>
                           <a href="#list-a-staff-39-s-profile-field-values" class="toc-h3 toc-link" data-title="Endpoints">List a Staff's Profile Field Values</a>
                         </li>
                         <li>
@@ -1868,9 +1862,6 @@
                         </li>
                         <li>
                           <a href="#count-tasks" class="toc-h3 toc-link" data-title="Endpoints">Count Tasks</a>
-                        </li>
-                        <li>
-                          <a href="#list-task-priorities" class="toc-h3 toc-link" data-title="Endpoints">List Task Priorities</a>
                         </li>
                         <li>
                           <a href="#get-task-status" class="toc-h3 toc-link" data-title="Endpoints">Get Task Status</a>
@@ -2179,8 +2170,8 @@
         <ul class="toc-footer">
             <li><a href='https://github.com/Accelo/docs/issues/new'>Report documentation error</a></li>
             <li><a href='https://github.com/Accelo/docs'>Contribute</a></li>
-            <li><a href='https://community.accelo.com/c/dev-forum/6'>Need help? Developer Forum</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://groups.google.com/forum/#!forum/accelo-devs'>Need help? Developer Forum</a></li>
+            <li><a href='http://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -2449,7 +2440,7 @@ JSON object of the form <code>&quot;&lt;object_filter&gt;&quot;: [{ &quot;&lt;ob
 
 </span></code></pre>
 <p>Requests to the API will be limited to 5000/hour per deployment, this is to protect the quality of the service offered
-by the API. Authentication or authorization requests (those made to <code>/oauth2</code> endpoints) will not be limited and will
+by the API. Authentication or authorization requests (those made to <code>/ouath2</code> endpoints) will not be limited and will
 not be counted against this limit. Requests made after exceeding this limit  will return a <code>429</code> error.</p>
 
 <p>The following headers have also been added to track usage rates:</p>
@@ -2519,20 +2510,20 @@ The available parameters are:</p>
 <p>Requesting companies with the &quot;website&quot; and &quot;phone&quot; fields, as well as the linked &quot;postal_address&quot; object and its
 &quot;city&quot; field:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/companies</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 
 _fields=website,phone,postal_address(city)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
+    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
     -d <span class="s1">'_fields=website,phone,postal_address(city)'</span>
 </code></pre>
 <p>By default, each resource returns only the minimal required fields, these are displayed in the table describing the
 object. To request additional fields we can use the <code>_fields</code> parameter. For example, the <a href="#companies">company</a> object
 has additional fields <code>website</code> and <code>phone</code>, to display these in a request response we would add
-<code>_fields=website,phone</code> to our request. The keyword <code>_ALL</code> may be used to return all optional fields.</p>
+<code>_fields=website,phones</code> to our request. The keyword <code>_ALL</code> may be used to return all optional fields.</p>
 
 <p>For linked objects (those marked as &quot;unsigned or object&quot;) the <code>_fields</code> parameter may be used to request the linked
 object by adding parenthesis to the field. For example, the company object contains a link to an <a href="#addresses">address</a>
@@ -2643,7 +2634,7 @@ _filters=date_created_after(1490140800)
     -d <span class="s1">'_filters=date_created_after(1490140800)'</span>
 </code></pre>
 <p>Many endpoints contain fields representing dates, such as <code>date_created</code> under <a href="#activities">activities</a>. Date fields
-are expressed as unix timestamps (for brevity we will just use the shorter &quot;unix ts&quot;). The API supports filtering for many
+are express as unix timestamps (for brevity we will just use the shorter &quot;unix ts&quot;). The API supports filtering for may
 of these &quot;date_fields&quot; through the following filters:</p>
 
 <table><thead>
@@ -4906,7 +4897,7 @@ fields requested through <code>_fields</code>.</p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>against_type</strong></td>
-<td style="text-align: left">The object the activity is linked against. This can be: affiliation, contract, contract_period, invoice, issue, job, prospect, request, task or staff.</td>
+<td style="text-align: left">The object the activity is linked against. This can be: activity_event, asset, affiliation, annex, account_invoice, account_purchase, contact, contract, contract_period, company, deployment, issue, job, milestone, prospect, request, staff or task.</td>
 </tr>
 <tr>
 <td style="text-align: left">body</td>
@@ -6883,7 +6874,7 @@ companies. For more information see the <a href="https://www.accelo.com/resource
 <tr>
 <td style="text-align: left"><strong>latest_asset_link</strong></td>
 <td style="text-align: left">object</td>
-<td style="text-align: left">The most recent <a href="#the-asset-link">asset link</a> made on the asset.</td>
+<td style="text-align: left">The most <a href="#the-asset-link">asset link</a> made on the asset.</td>
 </tr>
 <tr>
 <td style="text-align: left">standing</td>
@@ -8898,7 +8889,7 @@ contact against the company.</p>
 <td style="text-align: left">The unique identifier of the default <a href="#affiliations">affiliation</a> associated with the contact.</td>
 </tr>
 <tr>
-<td style="text-align: left">contact_status</td>
+<td style="text-align: left">status</td>
 <td style="text-align: left">unsigned or object</td>
 <td style="text-align: left">The <a href="#statuses">status</a> of the contact.</td>
 </tr>
@@ -13869,7 +13860,7 @@ parameter.</p>
 </tr>
 </tbody></table>
 <h5 id='searching'>Searching</h5>
-<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter to search over the following fields:</p>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> paramter to search over the following fields:</p>
 
 <table><thead>
 <tr>
@@ -14535,16 +14526,6 @@ guide/modules/tickets/#Types">support documentation</a> for more information.</p
 <td style="text-align: left">ordering</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">A number describing the type&#39;s ordering on the deployment.</td>
-</tr>
-<tr>
-<td style="text-align: left">default_issue_class</td>
-<td style="text-align: left">unsigned or Object</td>
-<td style="text-align: left">The default <a href="#the-issue-class">issue class</a> for issues created with this type.</td>
-</tr>
-<tr>
-<td style="text-align: left">default_issue_priority</td>
-<td style="text-align: left">unsigned or Object</td>
-<td style="text-align: left">The default <a href="#the-issue-priority">issue_priority</a> for issues created with this type.</td>
 </tr>
 </tbody></table>
 
@@ -15761,63 +15742,6 @@ whose id is <code>issue_id</code>.</p>
 <p>This request returns a list of available <a href="#the-progression-object">progressions</a> for an issue, specified by its
 <code>issue_id</code>. This is the request <a href="#retrieve-a-list-of-available-progressions"><code>GET /{object}/{object_id}/progressions</code></a>
 where the object is &quot;issues&quot; whose id is <code>{issue_id}</code>.</p>
-<h3 id='list-all-progressions-for-issues'>List All Progressions For Issues</h3>
-<p><code>GET /issues/progressions</code></p>
-
-<p>This request returns all <a href="#the-progression-object">progressions</a> available for issues.</p>
-
-<p>This returns a list of <a href="#the-progression-object">progressions</a> with the following fields added to the response.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Field</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">issue_status</td>
-<td style="text-align: left">unsigned or object</td>
-<td style="text-align: left">The <a href="#statuses">issue status</a> of the issue.</td>
-</tr>
-<tr>
-<td style="text-align: left">issue_type</td>
-<td style="text-align: left">unsigned or object</td>
-<td style="text-align: left">The <a href="#the-issue-type">issue type</a> that the progression is for.</td>
-</tr>
-</tbody></table>
-<h5 id='basic-filters-5'>Basic Filters</h5>
-<p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Filter Name</th>
-<th style="text-align: left">Notes</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">id</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">issue_type_id</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-<h5 id='boolean-filters'>Boolean Filters</h5>
-<p>this request also supports a special kind of filter, the boolean filter. These filters take boolean arguments, the supported filters are:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Filter Name</th>
-<th style="text-align: left">Notes</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">on_create</td>
-<td style="text-align: left">Filter whether the progression can be run on create</td>
-</tr>
-</tbody></table>
 <h3 id='auto-run-a-progression-on-an-issue'>Auto Run a Progression on an Issue</h3>
 <blockquote>
 <p>See the <a href="#run-a-status-update-using-a-given-progression">progressions section</a> for a sample request</p>
@@ -16030,11 +15954,6 @@ object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
 <td style="text-align: left">job_contract</td>
 <td style="text-align: left">unsigned or object</td>
 <td style="text-align: left">The <a href="#contracts">contract</a> associated with the job, if any.</td>
-</tr>
-<tr>
-<td style="text-align: left">job_object_schedule</td>
-<td style="text-align: left">unsigned or object</td>
-<td style="text-align: left">The <a href="#the-object-schedule">object schedule</a> linked to the job.</td>
 </tr>
 </tbody></table>
 <h4 id='the-job-type'>The Job Type</h4>
@@ -17360,11 +17279,6 @@ for more information.</p>
 <td style="text-align: left">object_budget</td>
 <td style="text-align: left">unsigned or object</td>
 <td style="text-align: left"><strong>Deprecated</strong> please use <code>milestone_object_budget</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left">milestone_object_schedule</td>
-<td style="text-align: left">unsigned or object</td>
-<td style="text-align: left">The <a href="#the-object-schedule">object schedule</a> linked to the milestone.</td>
 </tr>
 </tbody></table>
 <h3 id='get-milestone'>Get Milestone</h3>
@@ -19097,8 +19011,7 @@ schedule on a given <a href="#tasks">task</a>.</p>
     </span><span class="s2">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1055"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28945"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"affiliation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152348"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79.00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1496887498"</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79.00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Where a payment object stores the information on a payment made against a single object, a receipt may be issued for a single payment, or a collection of payments. For information on accessing receipts from the deployment and receiving receipts from an integrated accounting system see the <a href="https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/receipts/">support documentation</a>. The receipt object contains the following:</p>
@@ -19134,11 +19047,6 @@ schedule on a given <a href="#tasks">task</a>.</p>
 <td style="text-align: left">owner_type</td>
 <td style="text-align: left">select</td>
 <td style="text-align: left">Either &quot;staff&quot; or &quot;contact&quot;, the type of owner of the receipt.</td>
-</tr>
-<tr>
-<td style="text-align: left">date_received</td>
-<td style="text-align: left">unix ts</td>
-<td style="text-align: left">The date the receipt was received.</td>
 </tr>
 </tbody></table>
 <h4 id='the-payment-method-object-beta'>The Payment Method Object (Beta)</h4>
@@ -19730,7 +19638,7 @@ using the <a href="#configuring-the-response-fields"><code>_fields</code></a> pa
 </tr>
 </tbody></table>
 <h3 id='searching'>Searching</h3>
-<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter to search over the following fields:</p>
+<p>This request supports the <a href="#configuring-the-response-searching"><code>_search</code></a> paramter to search over the following fields:</p>
 
 <table><thead>
 <tr>
@@ -21764,7 +21672,7 @@ This is the request <a href="#list-profile-fields"><code>GET /{object}/profiles/
 <h4 id='configuring-the-response-2'>Configuring the Response</h4><h5 id='pagination'>Pagination</h5>
 <p>This request supports all the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
 <h5 id='additional-fields-and-linked-resources'>Additional Fields and Linked Resources</h5>
-<p>This request supports requesting additional fields and linked resources from the <a href="#the-quote-object">quote object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<p>This request supports requesting additional fields and linked resources from the <a href="#the-quote-object">quote object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramter.</p>
 <h5 id='basic-filters'>Basic Filters</h5>
 <p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
 
@@ -25220,16 +25128,6 @@ professionals, and collaborators</p>
 <td style="text-align: left">string</td>
 <td style="text-align: left">The staff member&#39;s timezone.</td>
 </tr>
-<tr>
-<td style="text-align: left">staff_rate</td>
-<td style="text-align: left">decimal</td>
-<td style="text-align: left">The staff member&#39;s billable rate. Not returned when requesting _ALL fields.</td>
-</tr>
-<tr>
-<td style="text-align: left">staff_cost_rate</td>
-<td style="text-align: left">decimal</td>
-<td style="text-align: left">The staff member&#39;s cost rate. Not returned when requesting _ALL fields.</td>
-</tr>
 </tbody></table>
 <h4 id='the-staff-membership-object'>The Staff Membership Object</h4>
 <p>This object tracks group membership for staff, each entry describes a link between a <a href="#staff">staff</a> and a
@@ -25584,21 +25482,6 @@ the <code>_fields</code> parameter.</p>
 <h4 id='handling-the-response-5'>Handling the Response</h4>
 <p>The response will be the single, updated <a href="#the-staff-object">staff object</a> with its default fields and any additional
 fields requested through <code>_fields</code>.</p>
-<h3 id='delete-a-staff-member'>Delete a Staff Member</h3>
-<blockquote>
-<p>Sample Request:   </p>
-</blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/staff</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/staff <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {access_token}'</span>
-</code></pre>
-<p><code>DELETE /staff/{staff_id}</code></p>
-
-<p>This request removes a <a href="#the-staff-object">staff member</a> from the deployment, identified by their <code>staff_id</code>. This
-request takes no parameters and returns no resources.</p>
 <h3 id='list-a-staff-39-s-profile-field-values'>List a Staff&#39;s Profile Field Values</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-profile-values">profiles section</a> for a sample request</p>
@@ -25632,7 +25515,7 @@ This is the request <a href="#retrieve-a-list-of-profile-fields"><code>GET /{obj
 <p>See the <a href="#update-a-profile-value-link">profiles section</a> for a sample request  </p>
 </blockquote>
 
-<p><code>PUT /staff/{staff_id}/profiles/values/{profile_value_id}</code></p>
+<p><code>PUT /staff/{staff_id}/profiles/fields/{profile_value_id}</code></p>
 
 <p>This request updates and returns a <a href="#the-profile-value-object">profile value</a>, specified by its <code>profile_value_id</code>, of a
 particular <a href="#the-staff-object">staff object</a>, specified by its <code>staff_id</code>. This is the request 
@@ -25910,7 +25793,6 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
   </span><span class="s2">"task_object_budget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_object_schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_object_schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"113"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"task_priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEO Audit"</span><span class="p">,</span><span class="w">
@@ -26123,11 +26005,6 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">The id of the object schedule linked to the task.</td>
 </tr>
 <tr>
-<td style="text-align: left">task_priority</td>
-<td style="text-align: left">unsigned or object</td>
-<td style="text-align: left">The <a href="#the-task-priority">priority</a> of the task.</td>
-</tr>
-<tr>
 <td style="text-align: left">rate_id</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">The unique identifier of the <a href="#rates">rate object</a> of the task.</td>
@@ -26141,44 +26018,6 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <td style="text-align: left">ordering</td>
 <td style="text-align: left">unsigned</td>
 <td style="text-align: left">An integer representing the task&#39;s order on the against object, only if the task is against a <a href="#jobs-projects">job</a> or <a href="#milestones">milestone</a></td>
-</tr>
-<tr>
-<td style="text-align: left">skills</td>
-<td style="text-align: left">array[object]</td>
-<td style="text-align: left">The <a href="#skills">skills</a> assigned to the task.</td>
-</tr>
-</tbody></table>
-<h4 id='the-task-priority'>The Task Priority</h4>
-<p>Task priorities help you prioritize your task. They may be set up from the deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name">support
-documentation</a> for information. They
-contain the following:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Field</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><strong>id</strong></td>
-<td style="text-align: left">unsigned</td>
-<td style="text-align: left">A unique identifier for the task priority.</td>
-</tr>
-<tr>
-<td style="text-align: left"><strong>title</strong></td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">A title for the task priority.</td>
-</tr>
-<tr>
-<td style="text-align: left">icon</td>
-<td style="text-align: left">select</td>
-<td style="text-align: left">The icon of the priority when displayed on the deployment. The icons, in order of decreasing urgency a <code>critical_priority</code>, <code>high_priority</code>, <code>normal_priority</code>, <code>low_priority</code>, <code>none_priority</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left">level</td>
-<td style="text-align: left">unsigned</td>
-<td style="text-align: left">A number representing the urgency of the priority. 1 is &quot;Critical&quot;, 5 is &quot;None&quot;</td>
 </tr>
 </tbody></table>
 <h4 id='the-task-type'>The Task Type</h4>
@@ -26495,10 +26334,6 @@ contain the following:</p>
 <td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left">task_priority</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
 <td style="text-align: left">title</td>
 <td style="text-align: left"></td>
 </tr>
@@ -26582,20 +26417,6 @@ contain the following:</p>
 <td style="text-align: left">A count of tasks listed.</td>
 </tr>
 </tbody></table>
-<h3 id='list-task-priorities'>List Task Priorities</h3>
-<blockquote>
-<p>Sample Request:   </p>
-</blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/tasks/priorities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/tasks/priorities <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {access_token}'</span>
-</code></pre>
-<p><code>GET /tasks/priorities</code></p>
-
-<p>This request returns a list of <a href="#the-task-priority">priorities</a> available for tasks.</p>
 <h3 id='get-task-status'>Get Task Status</h3>
 <blockquote>
 <p>Sample Request:</p>
@@ -26778,9 +26599,6 @@ With no searches or filters this will be a count of all task statuses on the dep
 <td style="text-align: left">manager_id</td>
 </tr>
 <tr>
-<td style="text-align: left">priority_id</td>
-</tr>
-<tr>
 <td style="text-align: left">type_id</td>
 </tr>
 <tr>
@@ -26864,10 +26682,6 @@ With no searches or filters this will be a count of all task statuses on the dep
 <tr>
 <td style="text-align: left">date_due</td>
 <td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">priority_id</td>
-<td style="text-align: left">The <a href="#the-task-priority">priority</a> object&#39;s id. For available priorities see <a href="#list-task-priorities"><code>GET /tasks/priorities</code></a></td>
 </tr>
 <tr>
 <td style="text-align: left">remaining</td>
