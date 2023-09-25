@@ -52,10 +52,14 @@ Keep in mind, for an installed or web application we will want to use the end-us
 deployment. Note, all authorization endpoints are accessed through the OAuth2.0 base URI, which is different from the
 resource base URI, see the [authentication section](#oauth2-uri) for more information.
 
+## API Application Load Balancer (ALB)
 
+The API ALBs only support cipher suites graded as being strongly secure. All incoming requests to the Accelo API will require TLS 1.2 and must support one or more of the following ciphers:
 
-
-
+* ECDHE-ECDSA-AES128-GCM-SHA256
+* ECDHE-RSA-AES128-GCM-SHA256
+* ECDHE-ECDSA-AES256-GCM-SHA384
+* ECDHE-RSA-AES256-GCM-SHA384
 
 
 ## Response and Request Structure
