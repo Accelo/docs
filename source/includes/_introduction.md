@@ -54,8 +54,10 @@ resource base URI, see the [authentication section](#oauth2-uri) for more inform
 
 ## Cipher Suites
 
-We advise using cipher suites that are graded as being strongly secure. The folliwng guide provides details about insecure ciphers that we no longer support. 
-https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html
+In order to maintain security for Accelo and our customers, we may need to stop using old cipher suites; this could cause problems for users utilising older SSL/TLS libraries.
+Before doing so we will ensure that this will not affect the majority of our users, and will work with those that would be impacted.
+See the below link for technical details, as of 2023 we are using `ELBSecurityPolicy-FS-1-2-Res-2020-10`. 
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#fs-supported-policies
 
 
 
