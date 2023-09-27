@@ -2233,9 +2233,9 @@ deployment. Note, all authorization endpoints are accessed through the OAuth2.0 
 resource base URI, see the <a href="#oauth2-uri">authentication section</a> for more information.</p>
 <h2 id='cipher-suites'>Cipher Suites</h2>
 <p>In order to maintain security for Accelo and our customers, we may need to stop using old cipher suites; this could cause problems for users utilising older SSL/TLS libraries.
-Before doing so we will ensure that this will not affect the majority of our users, and will work with those that would be impacted.
-See the below link for technical details, as of 2023 we are using <code>ELBSecurityPolicy-FS-1-2-Res-2020-10</code>. 
-https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#fs-supported-policies</p>
+Before doing so we will ensure that this will not affect the majority of our users, and will work with those that would be impacted.</p>
+
+<p>See the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#fs-supported-policies">following documentation</a> for technical details, as of 2023 we are using <code>ELBSecurityPolicy-FS-1-2-Res-2020-10</code>. </p>
 <h2 id='response-and-request-structure'>Response and Request Structure</h2>
 <blockquote>
 <p>Sample request to return a list of <a href="#staff">staff</a> as XML:  </p>
