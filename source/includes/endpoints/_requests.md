@@ -51,6 +51,8 @@ The request object contains the following:
 | claimer | unsigned or object | The [staff](#staff) member who has claimed the request. |
 | affiliation_id | unsigned | The unique identifier of the [affiliation](#affiliations) associated with the request. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the request. |
+| conversion_type | unsigned or object | The module type that the request was converted to, for example Prospects (Sales), Issues (Tickets), Jobs (Projects) |
+| conversion_id | unsigned | The ID of the module where the request was converted to. |
 
 #### The Request Type
 > Example request type object:
