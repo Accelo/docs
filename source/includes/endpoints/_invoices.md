@@ -3,7 +3,7 @@
 `/api/v0/invoices`
 
 These are invoices for any work done. See the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/invoices/) for more
+documentation](https://help.accelo.com/guides/user/modules/billing-and-invoices/invoices/) for more
 information on invoices.
 
 ### The Invoice Object

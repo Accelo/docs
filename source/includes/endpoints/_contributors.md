@@ -4,7 +4,7 @@
 
 Contributors are third party contacts who are involved in your client's work. You can easily keep them in the loop on
 any project or issue by making them a contributor.  See the [support
-documentation](https://www.accelo.com/resources/help/faq/contributors/) for more information on contributors.
+documentation](https://help.accelo.com/faq/contributors/) for more information on contributors.
 Contributors link Staff or Affiliations to work like Jobs or issues.
 
 ### The Contributor Object

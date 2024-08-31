@@ -6,8 +6,7 @@
 Companies are the entries in Accelo to note the companies with whom you interact. These can range from partners and
 vendors to your actual customers, and can even include you! These Client entries also act as the central repository for
 all information related to that group, including correspondence, project and sales updates, and contact information for
-their employees. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-
-and-contacts/) for more information on accessing and using companies on your deployment.
+their employees. See the [support documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/) for more information on accessing and using companies on your deployment.
 
 ### The Company Object
 > Example company object:
@@ -953,7 +952,7 @@ The following fields may be sent with this request:
 | Field | Type | Description |
 |:-|:-|:-|
 | **manager_id** | unsigned | The `staff_id` of the staff member to be set as the manager of the company. |
-| nature | select | Nature of the new relationship. Must be "professional","confidential" or "private". Defaults to "professional", see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships) for more information on manager relationships. |
+| nature | select | Nature of the new relationship. Must be "professional","confidential" or "private". Defaults to "professional", see the [support documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships) for more information on manager relationships. |
 
 
 #### Configuring the Response

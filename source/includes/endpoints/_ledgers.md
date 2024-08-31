@@ -1,5 +1,5 @@
 ## Ledgers
-Accelo supports account ledgers, it also allows account ledger integration with certain online accounting systems (e.g. Xero). These account ledgers are described by the API through the `ledger` object. For information on viewing, adding and syncing account ledgers from your deployment, please see the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/).
+Accelo supports account ledgers, it also allows account ledger integration with certain online accounting systems (e.g. Xero). These account ledgers are described by the API through the `ledger` object. For information on viewing, adding and syncing account ledgers from your deployment, please see the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/).
 
 ### The Ledger Object (Beta)
 > Example ledger

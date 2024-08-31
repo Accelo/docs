@@ -5,12 +5,11 @@
 Milestones are the steps on the road to a [Job's](#jobs-projects) (Project's) completion. They define the schedule of
 the job, and contain the budget for their respective portion of the job. For information on accessing milestones through
 the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/view-a-milestone/), milestones may
-also be imported through the deployment, see again the [support documentation](https://www.accelo.com/resources/help/faq
-/importing-clients-contacts-and-sales-data/import-milestones/) for information.
+documentation](https://help.accelo.com/guides/user/modules/projects/view-a-milestone/), milestones may
+also be imported through the deployment, see again the [support documentation](https://help.accelo.com/guides/user/modules/projects/view-a-milestone/)for information.
 
 Deleting, creating, and updating milestones is only available through the deployment on the project planning screen, see
-the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/creating-a-project-plan/)
+the [support documentation](https://help.accelo.com/guides/user/modules/projects/creating-a-project-plan/)
 for more information.
 
 ### The Milestone Object

@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/tasks`
 
-Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
+Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://help.accelo.com/guides/user/messages-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
 
 ### The Task Object
 > Example task:
@@ -109,7 +109,7 @@ The task object contains the following:
 
 #### The Task Priority
 Task priorities help you prioritize your task. They may be set up from the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name) for information. They
+documentation](https://help.accelo.com/guides/user/messages-and-tasks/tasks/using-task-priorities/#configure_task_priority_name) for information. They
 contain the following:
 
 
