@@ -1,5 +1,5 @@
 ## Groups
-Groups allow you to categorize your staff for bulk assignments and access controls. See the [support documentation](https://www.accelo.com/resources/help/faq/user-permissions-and-settings/managing-user-groups/) for more information.
+Groups allow you to categorize your staff for bulk assignments and access controls. See the [support documentation](https://help.accelo.com/faq/managing-user-groups/) for more information.
 
 ### The Group Object (Beta)
 > Sample JSON group object:

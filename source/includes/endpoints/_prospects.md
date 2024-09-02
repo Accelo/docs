@@ -3,7 +3,7 @@
 `api/v0/prospects`
 
 Prospects (also known as Sales) are a way to keep track of your sales and deals. See the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/sales/) for more information on the full
+documentation](https://help.accelo.com/guides/user/modules/sales/) for more information on the full
 potential of these, and also information on setting up and configuring them via the deployment.
 
 
@@ -50,7 +50,7 @@ The prospect object contains the following:
 | value | decimal | The currency value of the prospect. |
 | success | select | Either "yes" or "no", whether the sale has been successfully completed, or won. |
 | comments | string | Comments, description etc. of the Prospect. |
-| progress | decimal | A decimal representation of the "progress %" associated with the current standing of the prospect. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/#CreateProgression) on setting up progressions for information on this field. |
+| progress | decimal | A decimal representation of the "progress %" associated with the current standing of the prospect. See the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/#CreateProgression) on setting up progressions for information on this field. |
 | value_weighted | integer | A value incorporating the `progress` and `weighting` values to describe the prospect. |
 | staff_bookmarked | boolean | Whether the current user has bookmarked the prospect on the deployment. |
 | won_by_id | unsigned | The id of the [staff](#staff) who won the prospect. 'null' if the prospect has not been won. |
@@ -80,8 +80,7 @@ The prospect object contains the following:
 ```
 
 You may group prospect using prospect types to reflect the different actions taken on different types of prospect. See
-the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-
-guide/modules/prospect/sales-types/) for information on prospect types. The prospect type contains the following:
+the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/) for information on prospect types. The prospect type contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -94,7 +93,7 @@ guide/modules/prospect/sales-types/) for information on prospect types. The pros
 
 #### The Prospect Probability
 
-Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/sales/probabilities/) for more information. The prospect
+Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/sales/probabilities/) for more information. The prospect
 probability contains the following:
 
 | Field | Type | Description |
@@ -121,7 +120,7 @@ probability contains the following:
 ```
 
 Prospect Statuses may be used to track the progress of a Prospect. These may be configured on the deployment, see the
-[support documentation](https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/) for more
+[support documentation](https://help.accelo.com/faq/automating-your-business-processes/statuses/) for more
 information. The status object contains the following:
 
 | Field | Type | Description |

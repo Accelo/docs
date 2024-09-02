@@ -5,8 +5,8 @@
 Issues (also known as "Tickets") are used for when you need to track billable time against a client, but don’t need the
 complexity of a full Project and its workflow and components. For example, issues may be used to track support cases
 where you’re diagnosing and fixing a problem and don’t know beforehand the specific steps which will be required to
-resolve the Issue. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modu
-les/tickets/#WhenTickets) for more information on these objects.
+resolve the Issue. See the [support documentation](https://help.accelo.com/guides/user/modules/tickets/#WhenTickets)
+for more information on these objects.
 
 
 ### The Issue Object
@@ -109,7 +109,7 @@ The issue object contains the following:
 ```
 
 Issue priorities help you keep track of what needs to be done. They may be set up from the deployment, see the [support
-documentation](https://www.accelo.com/resources/videos/config-and-setup/tickets/priorities/) for information. They
+documentation](https://help.accelo.com/videos/config-and-setup/tickets/priorities/) for information. They
 contain the following:
 
 | Field | Type | Description |
@@ -135,7 +135,7 @@ contain the following:
 ```
 
 Statuses may be used to track the progress of an issue. These statuses may be configured from the deployment, see the
-[support documentation](https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/) for more
+[support documentation](https://help.accelo.com/faq/automating-your-business-processes/statuses/) for more
 information. The status objects contain the following
 
 | Field | Type | Description |
@@ -162,8 +162,8 @@ information. The status objects contain the following
 ```
 
 Issue types let you sort your issues according to the type of work the entail. Issue types may be set up and edited from
-the deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-
-guide/modules/tickets/#Types) for more information.
+the deployment, see the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/#Types)
+for more information.
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -201,7 +201,7 @@ guide/modules/tickets/#Types) for more information.
 ```
 
 Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/)
+documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/)
 for more information. The issue resolution contains the following:
 
 | Field | Type | Descriptions |
@@ -228,8 +228,8 @@ for more information. The issue resolution contains the following:
 ```
 
 Issue classes help to classify symptoms or characteristics of an issue. They can be set up from the deployment, see the
-[support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets
-/ticket-classes/) for information. Ticket classes contain the following:
+[support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/ticket-classes/)
+for information. Ticket classes contain the following:
 
 | Field | Type | Description |
 |:-|:-|:-|

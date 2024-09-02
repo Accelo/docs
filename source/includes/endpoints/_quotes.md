@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/quotes`
 
-Quotes in Accelo allow you to generate and edit your quotes and proposals. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/sales/quotes/) for information on quotes.
+Quotes in Accelo allow you to generate and edit your quotes and proposals. See the [support documentation](https://help.accelo.com/guides/user/modules/sales/quotes/) for information on quotes.
 
 ### The Quote Object
 > Example quote object:

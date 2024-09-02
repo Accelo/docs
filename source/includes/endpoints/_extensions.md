@@ -7,11 +7,9 @@
 Extensions, also known as Custom Fields, are similar to [profiles](#profiles). The main difference is in their
 availability. A given profile may be available to all types of a particular object, for example any type of
 [issues](#issues), or even across a range of objects. Conversely, an extension is available to only one type of one
-object at at time, see also the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-
-configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField). Extensions
+object at at time, see also the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField). Extensions
 may be set up through the Accelo deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-
-processes/custom-fields/custom-fields/) for information on setting them up. Currently the following objects support
+documentation](https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/custom-fields/) for information on setting them up. Currently the following objects support
 extensions through the API:
 
 * [Assets](#assets)
@@ -110,7 +108,7 @@ object contains the following:
 | date_modified | unix ts | The date this extension value was last modified. |
 | modified_by | unsigned or object | The staff member who last modified this extension value. |
 | default_value | dynamic |  The default value of the related extension field. |
-| is_sensitive | bool | Whether this value can only be viewed by people with "sensitive" permissions for the `link_type` object. See the [support documentation](https://www.accelo.com/resources/help/faq/user-permissions-and-settings/setup-permissions/) for information on setting permissions. |
+| is_sensitive | bool | Whether this value can only be viewed by people with "sensitive" permissions for the `link_type` object. See the [support documentation](https://help.accelo.com/faq/how-do-i-set-up-user-permissions/) for information on setting permissions. |
 | is_important | bool | Whether the related extension field is marked as "important". |
 | is_exported | bool | Whether the related extension field is "exported". |
 | value_id | unsigned | If `field_type` is "lookup" or "contributor" this will be the ID of the lookup object (e.g, the company id) or the contributor id |
