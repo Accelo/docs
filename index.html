@@ -3587,7 +3587,7 @@ the user will be &#39;locked out&#39;. Any attempt to authenticate during this &
 <p>Once the lockout period has expired, you should be able to continue to use the API as normal.</p>
 <h1 id='endpoints'>Endpoints</h1><h2 id='activities'>Activities</h2>
 <p>Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes.
-See the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/">support documentation</a> 
+See the <a href="https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/">support documentation</a>
 for more information on activities.</p>
 
 <blockquote>
@@ -3917,7 +3917,7 @@ for more information on activities.</p>
 <h4 id='the-activity-class'>The Activity Class</h4>
 <p>Classes are an additional field for further describing Activities, you may add or remove classes from your deployment
 through the configuration menu, this process is outlined in the Accelo 
-<a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/">support documentation</a>. 
+<a href="https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/set-up-and-customize/classes/">support documentation</a>.
 By default your Accelo deployment will have three classes:</p>
 
 <table><thead>
@@ -6847,7 +6847,7 @@ object is &quot;affiliations&quot; whose id is <code>{affiliation_id}</code>.</p
 
 <p>Assets are flexible objects within Accelo, they can represent almost any asset or object you want. For example, you may
 wish to store information on the computers owned by your company, or the prices of advertising media offered by external
-companies. For more information see the <a href="https://www.accelo.com/resources/help/guides/user/modules/assets/">support documentation</a>.</p>
+companies. For more information see the <a href="https://help.accelo.com/guides/user/modules/assets/">support documentation</a>.</p>
 <h3 id='the-asset-object'>The Asset Object</h3>
 <p>The asset object contains the following:</p>
 
@@ -6916,7 +6916,7 @@ companies. For more information see the <a href="https://www.accelo.com/resource
 <tr>
 <td style="text-align: left">asset_type</td>
 <td style="text-align: left">unsigned or object</td>
-<td style="text-align: left">The <a href="#the-asset-type">type</a> of the asset. Asset types can be created and edited from your Accelo deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/assets/">assets module page</a> for more information.</td>
+<td style="text-align: left">The <a href="#the-asset-type">type</a> of the asset. Asset types can be created and edited from your Accelo deployment, see the <a href="https://help.accelo.com/guides/user/modules/assets/">assets module page</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left">asset_type_id</td>
@@ -7696,8 +7696,7 @@ whose id is <code>asset_id</code>.</p>
 <p>Companies are the entries in Accelo to note the companies with whom you interact. These can range from partners and
 vendors to your actual customers, and can even include you! These Client entries also act as the central repository for
 all information related to that group, including correspondence, project and sales updates, and contact information for
-their employees. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/companies-
-and-contacts/">support documentation</a> for more information on accessing and using companies on your deployment.</p>
+their employees. See the <a href="https://help.accelo.com/guides/user/modules/companies-and-contacts/">support documentation</a> for more information on accessing and using companies on your deployment.</p>
 <h3 id='the-company-object'>The Company Object</h3>
 <blockquote>
 <p>Example company object:</p>
@@ -8648,7 +8647,7 @@ identified by its unique <code>company_id</code>. The request returns a list of 
 <tr>
 <td style="text-align: left">nature</td>
 <td style="text-align: left">select</td>
-<td style="text-align: left">Nature of the new relationship. Must be &quot;professional&quot;,&quot;confidential&quot; or &quot;private&quot;. Defaults to &quot;professional&quot;, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships">support documentation</a> for more information on manager relationships.</td>
+<td style="text-align: left">Nature of the new relationship. Must be &quot;professional&quot;,&quot;confidential&quot; or &quot;private&quot;. Defaults to &quot;professional&quot;, see the <a href="https://help.accelo.com/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships">support documentation</a> for more information on manager relationships.</td>
 </tr>
 </tbody></table>
 <h4 id='configuring-the-response-14'>Configuring the Response</h4>
@@ -9369,10 +9368,8 @@ using the <a href="#configuring-the-response-fields"><code>_fields</code></a> pa
 <p><code>PUT /contact/{contact_id}?standing=inactive</code></p>
 
 <p>This request sets a contact on the Accelo deployment, identified by its <code>contact_id</code>, to <code>inactive</code>. This request does
-<strong>NOT</strong> delete the contact, a user can only be removed from the web deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/deactivate-delete-a
--company-contact/#HowtoDeleteContact">support
-documentation</a> for information. This request accepts no parameters and only returns the meta
-object.</p>
+<strong>NOT</strong> delete the contact, a user can only be removed from the web deployment, see the <a href="https://help.accelo.com/guides/user/modules/companies-and-contacts/deactivate-delete-a-company-contact/#HowtoDeleteContact">support
+documentation</a> for information. This request accepts no parameters and only returns the meta object.</p>
 <h3 id='list-addresses-against-a-contact'>List Addresses Against a Contact</h3>
 <blockquote>
 <p>Sample Request:</p>
@@ -9645,11 +9642,11 @@ object is &quot;contacts&quot; and whose id is <code>{contact_id}</code>.</p>
 invoicing - such as license fee. A contract is created against a company/client record (that is, an
 <a href="#affiliations">affiliation</a>), and work is tracked against the contract through <a href="#the-contract-period">periods</a>. You can
 configure your contract to automatically create periods at certain intervals, and invoice up-front for a fixed amount or
-at the end of the period for the work done. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/retainers/">support documentation</a>
+at the end of the period for the work done. See the <a href="https://help.accelo.com/guides/user/modules/retainers/">support documentation</a>
 for more information on contracts/retainers.</p>
 
 <p>The contracts model integrates flawlessly with the the <a href="#issues">issues</a> and <a href="#jobs-projects">jobs</a> modules so that you
-can even allocate work from those into a contract period. Contracts can also be linked to <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/">service
+can even allocate work from those into a contract period. Contracts can also be linked to <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/">service
 items</a>, 
 allowing for easy handling of things like tax codes and ledger codes.</p>
 <h3 id='the-contract-object'>The Contract Object</h3>
@@ -9707,7 +9704,7 @@ allowing for easy handling of things like tax codes and ledger codes.</p>
 <tr>
 <td style="text-align: left"><strong>period_template_id</strong></td>
 <td style="text-align: left">unsigned</td>
-<td style="text-align: left">The unique identifier of the <code>period_template</code>. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/retainers/add-a-retainer/#periodtemplate">support documentation</a> for information on period templates.</td>
+<td style="text-align: left">The unique identifier of the <code>period_template</code>. See the <a href="https://help.accelo.com/guides/user/modules/retainers/add-a-retainer/#periodtemplate">support documentation</a> for information on period templates.</td>
 </tr>
 <tr>
 <td style="text-align: left">date_created</td>
@@ -9901,7 +9898,7 @@ following:</p>
 <tr>
 <td style="text-align: left">service_item_id</td>
 <td style="text-align: left">unsigned</td>
-<td style="text-align: left">The unique identifier of the service item linked to the contract. See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/">support documentation</a> for information on service items.</td>
+<td style="text-align: left">The unique identifier of the service item linked to the contract. See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/">support documentation</a> for information on service items.</td>
 </tr>
 <tr>
 <td style="text-align: left">duration_type</td>
@@ -10310,11 +10307,11 @@ via the <a href="#configuring-the-response-fields"><code>_fields</code></a> para
 </tr>
 <tr>
 <td style="text-align: left">service_tax</td>
-<td style="text-align: left">Range by <code>service_tax_id</code> from the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/">service item</a> linked to the contract, if any.</td>
+<td style="text-align: left">Range by <code>service_tax_id</code> from the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/">service item</a> linked to the contract, if any.</td>
 </tr>
 <tr>
 <td style="text-align: left">service_ledger</td>
-<td style="text-align: left">Rage by <code>service_ledger_id</code>.from the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/">service item</a> linked to the contract, if any.</td>
+<td style="text-align: left">Rage by <code>service_ledger_id</code>.from the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/">service item</a> linked to the contract, if any.</td>
 </tr>
 </tbody></table>
 <h5 id='object-filters'>Object Filters</h5>
@@ -10858,7 +10855,7 @@ With no searches or filters this will be a count of all contract statuses on the
 </span></code></pre>
 <p><code>[PUT | POST] /contracts/periods/{period_id}/close</code></p>
 
-<p>This request closes and returns a <a href="#the-contract-period">contract period</a>, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/retainers/close-period/#ClosePeriod">support
+<p>This request closes and returns a <a href="#the-contract-period">contract period</a>, see the <a href="https://help.accelo.com/guides/user/modules/retainers/close-period/#ClosePeriod">support
 documentation</a> for
 information on closing contract periods. The response may be configured as per <a href="#get-contract-period">get contract period</a>.</p>
 
@@ -11007,7 +11004,7 @@ specified by its <code>contract_id</code>. This request is the request
 </blockquote>
 
 <p>Contributors are third party contacts who are involved in your client&#39;s work. You can easily keep them in the loop on
-any project or issue by making them a contributor.  See the <a href="https://www.accelo.com/resources/help/faq/contributors/">support
+any project or issue by making them a contributor.  See the <a href="https://help.accelo.com/faq/contributors/">support
 documentation</a> for more information on contributors.
 Contributors link Staff or Affiliations to work like Jobs or issues.</p>
 <h3 id='the-contributor-object'>The Contributor Object</h3>
@@ -11436,7 +11433,7 @@ returns a single field:</p>
 <code>/api/v0/divisions</code></p>
 </blockquote>
 
-<p>Divisions allow you manage contacts, companies, and staff under different details, rates, or identities. See the <a href="https://www.accelo.com/resources/help/faq/divisions/">support documentation</a> for more information.</p>
+<p>Divisions allow you manage contacts, companies, and staff under different details, rates, or identities. See the <a href="https://help.accelo.com/faq/divisions/">support documentation</a> for more information.</p>
 <h3 id='the-division-object-beta'>The Division Object (Beta)</h3>
 <blockquote>
 <p>Sample division JSON object:</p>
@@ -11757,7 +11754,7 @@ _fields=standing
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Similarly to <a href="#contract-types">contracts</a>, expenses have types associated with them. Expense types may be set up on the Accelo deployment (see the <a href="https://www.accelo.com/resources/help/guides/user/modules/retainers/expenses/">support documentation</a> for information). This expense type object contains the following:</p>
+<p>Similarly to <a href="#contract-types">contracts</a>, expenses have types associated with them. Expense types may be set up on the Accelo deployment (see the <a href="https://help.accelo.com/guides/user/modules/retainers/expenses/">support documentation</a> for information). This expense type object contains the following:</p>
 
 <table><thead>
 <tr>
@@ -11784,7 +11781,7 @@ _fields=standing
 <tr>
 <td style="text-align: left">ledger_id</td>
 <td style="text-align: left">unsigned</td>
-<td style="text-align: left">The unique identifier of the billing ledger associated with this expense type. See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/">support documentation</a> for information on ledgers.</td>
+<td style="text-align: left">The unique identifier of the billing ledger associated with this expense type. See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/">support documentation</a> for information on ledgers.</td>
 </tr>
 </tbody></table>
 
@@ -12332,10 +12329,8 @@ which contains the following additional fields:</p>
 <p>Extensions, also known as Custom Fields, are similar to <a href="#profiles">profiles</a>. The main difference is in their
 availability. A given profile may be available to all types of a particular object, for example any type of
 <a href="#issues">issues</a>, or even across a range of objects. Conversely, an extension is available to only one type of one
-object at at time, see also the <a href="https://www.accelo.com/resources/help/guides/settings-and-
-configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField">support documentation</a>. Extensions
-may be set up through the Accelo deployment, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-
-processes/custom-fields/custom-fields/">support
+object at at time, see also the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/companies-and-contacts/custom-company-fields/#CustomProfileFieldvsCustomField">support documentation</a>. Extensions
+may be set up through the Accelo deployment, see the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/custom-fields/">support
 documentation</a> for information on setting them up. Currently the following objects support
 extensions through the API:</p>
 
@@ -12547,7 +12542,7 @@ object contains the following:</p>
 <tr>
 <td style="text-align: left">is_sensitive</td>
 <td style="text-align: left">bool</td>
-<td style="text-align: left">Whether this value can only be viewed by people with &quot;sensitive&quot; permissions for the <code>link_type</code> object. See the <a href="https://www.accelo.com/resources/help/faq/user-permissions-and-settings/setup-permissions/">support documentation</a> for information on setting permissions.</td>
+<td style="text-align: left">Whether this value can only be viewed by people with &quot;sensitive&quot; permissions for the <code>link_type</code> object. See the <a href="https://help.accelo.com/faq/how-do-i-set-up-user-permissions/">support documentation</a> for information on setting permissions.</td>
 </tr>
 <tr>
 <td style="text-align: left">is_important</td>
@@ -12757,7 +12752,7 @@ and any additional fields requested using <code>_fields</code>.</p>
 <code>/api/v0/filters</code></p>
 </blockquote>
 
-<p>Filters are available on the Accelo deployment that allow you to search through the resources on the deployment. These filters may be customized and saved on the deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/filters-and-favorites/filters/">support documentation</a> for more information. Currently these filters are supported through the API on the following objects:</p>
+<p>Filters are available on the Accelo deployment that allow you to search through the resources on the deployment. These filters may be customized and saved on the deployment, see the <a href="https://help.accelo.com/guides/user/filters-and-favorites/filters/">support documentation</a> for more information. Currently these filters are supported through the API on the following objects:</p>
 
 <ul>
 <li><a href="#activities">Activities</a><br></li>
@@ -13038,7 +13033,7 @@ and any additional fields requested using <code>_fields</code>.</p>
 <h4 id='handling-the-response-4'>Handling the Response</h4>
 <p>The response will be a list of objects that are of type <code>object_type</code>, with their default fields, and any additional fields requested through <code>_fields</code>, and displayed according to the value of <code>_limit</code> set.</p>
 <h2 id='groups'>Groups</h2>
-<p>Groups allow you to categorize your staff for bulk assignments and access controls. See the <a href="https://www.accelo.com/resources/help/faq/user-permissions-and-settings/managing-user-groups/">support documentation</a> for more information.</p>
+<p>Groups allow you to categorize your staff for bulk assignments and access controls. See the <a href="https://help.accelo.com/faq/managing-user-groups/">support documentation</a> for more information.</p>
 <h3 id='the-group-object-beta'>The Group Object (Beta)</h3>
 <blockquote>
 <p>Sample JSON group object:</p>
@@ -13512,7 +13507,7 @@ _filters=standing(active)
 <code>/api/v0/invoices</code></p>
 </blockquote>
 
-<p>These are invoices for any work done. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/invoices/">support
+<p>These are invoices for any work done. See the <a href="https://help.accelo.com/guides/user/modules/billing-and-invoices/invoices/">support
 documentation</a> for more
 information on invoices.</p>
 <h3 id='the-invoice-object'>The Invoice Object</h3>
@@ -14148,8 +14143,8 @@ or filters this will be a count of all line items on the deployment. This reques
 <p>Issues (also known as &quot;Tickets&quot;) are used for when you need to track billable time against a client, but don’t need the
 complexity of a full Project and its workflow and components. For example, issues may be used to track support cases
 where you’re diagnosing and fixing a problem and don’t know beforehand the specific steps which will be required to
-resolve the Issue. See the <a href="https://www.accelo.com/resources/help/guides/user/modu
-les/tickets/#WhenTickets">support documentation</a> for more information on these objects.</p>
+resolve the Issue. See the <a href="https://help.accelo.com/guides/user/modules/tickets/#WhenTickets">support documentation</a>
+for more information on these objects.</p>
 <h3 id='the-issue-object'>The Issue Object</h3>
 <blockquote>
 <p>Example issue object:</p>
@@ -14399,7 +14394,7 @@ les/tickets/#WhenTickets">support documentation</a> for more information on thes
   </span><span class="s2">"factor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Issue priorities help you keep track of what needs to be done. They may be set up from the deployment, see the <a href="https://www.accelo.com/resources/videos/config-and-setup/tickets/priorities/">support
+<p>Issue priorities help you keep track of what needs to be done. They may be set up from the deployment, see the <a href="https://help.accelo.com/videos/config-and-setup/tickets/priorities/">support
 documentation</a> for information. They
 contain the following:</p>
 
@@ -14445,7 +14440,7 @@ contain the following:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Statuses may be used to track the progress of an issue. These statuses may be configured from the deployment, see the
-<a href="https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/">support documentation</a> for more
+<a href="https://help.accelo.com/faq/automating-your-business-processes/statuses/">support documentation</a> for more
 information. The status objects contain the following</p>
 
 <table><thead>
@@ -14499,8 +14494,8 @@ information. The status objects contain the following</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Issue types let you sort your issues according to the type of work the entail. Issue types may be set up and edited from
-the deployment, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-
-guide/modules/tickets/#Types">support documentation</a> for more information.</p>
+the deployment, see the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/#Types">support documentation</a>
+for more information.</p>
 
 <table><thead>
 <tr>
@@ -14590,7 +14585,7 @@ guide/modules/tickets/#Types">support documentation</a> for more information.</p
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I fixed the field, it now displays as expected."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/">support
+<p>Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/">support
 documentation</a>
 for more information. The issue resolution contains the following:</p>
 
@@ -14645,8 +14640,8 @@ for more information. The issue resolution contains the following:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Issue classes help to classify symptoms or characteristics of an issue. They can be set up from the deployment, see the
-<a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets
-/ticket-classes/">support documentation</a> for information. Ticket classes contain the following:</p>
+<a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/ticket-classes/">support documentation</a>
+for information. Ticket classes contain the following:</p>
 
 <table><thead>
 <tr>
@@ -15862,7 +15857,7 @@ object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
 <code>api/v0/jobs</code></p>
 </blockquote>
 
-<p>Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/projects/">support documentation</a> for more information.</p>
+<p>Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the <a href="https://help.accelo.com/guides/user/modules/projects/">support documentation</a> for more information.</p>
 <h3 id='the-job-object'>The Job Object</h3>
 <blockquote>
 <p>Example job object:</p>
@@ -16057,8 +16052,8 @@ object is &quot;issues&quot; whose id is <code>{issue_id}.</code></p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>You may set up and configure different job types to suit your business processes, general information on types can be
-found in the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide
-/triggers-and-business-processes/types/">support documentation</a>. For jobs, the type object contains the following:</p>
+found in the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/types/">support documentation</a>.
+For jobs, the type object contains the following:</p>
 
 <table><thead>
 <tr>
@@ -17040,7 +17035,7 @@ where the object is &quot;jobs&quot; and hose id is <code>{job_id}</code>.</p>
 <a href="#upload-a-resource-to-a-collection-of-an-object"><code>POST/{object}/{object_id}/collections/{collection_id}/resources</code></a> where the
 object is &quot;jobs&quot; whose id is <code>{job_id}.</code></p>
 <h2 id='ledgers'>Ledgers</h2>
-<p>Accelo supports account ledgers, it also allows account ledger integration with certain online accounting systems (e.g. Xero). These account ledgers are described by the API through the <code>ledger</code> object. For information on viewing, adding and syncing account ledgers from your deployment, please see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/">support documentation</a>.</p>
+<p>Accelo supports account ledgers, it also allows account ledger integration with certain online accounting systems (e.g. Xero). These account ledgers are described by the API through the <code>ledger</code> object. For information on viewing, adding and syncing account ledgers from your deployment, please see the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/">support documentation</a>.</p>
 <h3 id='the-ledger-object-beta'>The Ledger Object (Beta)</h3>
 <blockquote>
 <p>Example ledger</p>
@@ -17231,13 +17226,12 @@ object is &quot;jobs&quot; whose id is <code>{job_id}.</code></p>
 
 <p>Milestones are the steps on the road to a <a href="#jobs-projects">Job&#39;s</a> (Project&#39;s) completion. They define the schedule of
 the job, and contain the budget for their respective portion of the job. For information on accessing milestones through
-the deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/projects/view-a-milestone/">support
+the deployment, see the <a href="https://help.accelo.com/guides/user/modules/projects/view-a-milestone/">support
 documentation</a>, milestones may
-also be imported through the deployment, see again the <a href="https://www.accelo.com/resources/help/faq
-/importing-clients-contacts-and-sales-data/import-milestones/">support documentation</a> for information.</p>
+also be imported through the deployment, see again the <a href="https://help.accelo.com/guides/user/modules/projects/view-a-milestone/">support documentation</a>for information.</p>
 
 <p>Deleting, creating, and updating milestones is only available through the deployment on the project planning screen, see
-the <a href="https://www.accelo.com/resources/help/guides/user/modules/projects/creating-a-project-plan/">support documentation</a>
+the <a href="https://help.accelo.com/guides/user/modules/projects/creating-a-project-plan/">support documentation</a>
 for more information.</p>
 <h3 id='the-milestone-object'>The Milestone Object</h3>
 <blockquote>
@@ -19109,7 +19103,7 @@ schedule on a given <a href="#tasks">task</a>.</p>
     </span><span class="s2">"date_received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1496887498"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Where a payment object stores the information on a payment made against a single object, a receipt may be issued for a single payment, or a collection of payments. For information on accessing receipts from the deployment and receiving receipts from an integrated accounting system see the <a href="https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/receipts/">support documentation</a>. The receipt object contains the following:</p>
+<p>Where a payment object stores the information on a payment made against a single object, a receipt may be issued for a single payment, or a collection of payments. For information on accessing receipts from the deployment and receiving receipts from an integrated accounting system see the <a href="https://help.accelo.com/guides/user/modules/billing-and-invoices/receipts/">support documentation</a>. The receipt object contains the following:</p>
 
 <table><thead>
 <tr>
@@ -19159,7 +19153,7 @@ schedule on a given <a href="#tasks">task</a>.</p>
     </span><span class="s2">"standing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The payment method describes the different methods payment may be given, for example via cash or via mastercard. Payments from online billing systems should automatically update the method, see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/receipt-and-payment-methods/">support documentation</a> for more information. The payment method object contains the following:</p>
+<p>The payment method describes the different methods payment may be given, for example via cash or via mastercard. Payments from online billing systems should automatically update the method, see the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/receipt-and-payment-methods/">support documentation</a> for more information. The payment method object contains the following:</p>
 
 <table><thead>
 <tr>
@@ -19422,10 +19416,9 @@ schedule on a given <a href="#tasks">task</a>.</p>
 </tr>
 </tbody></table>
 <h2 id='profiles'>Profiles</h2>
-<p>Profile fields are objects used for tracking extra information from your Accelo deployment. See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-
-processes/custom-fields/profile-fields/">support
-documentation</a> for further information about profile fields. Currently, custom profile fields
-are supported on the following objects:</p>
+<p>Profile fields are objects used for tracking extra information from your Accelo deployment. See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/profile-fields/">support
+documentation</a>
+for further information about profile fields. Currently, custom profile fields are supported on the following objects:</p>
 
 <ul>
 <li><a href="#affiliations">Affiliations</a></li>
@@ -19499,7 +19492,7 @@ are supported on the following objects:</p>
 <tr>
 <td style="text-align: left">restrictions</td>
 <td style="text-align: left">select</td>
-<td style="text-align: left">Who is able to edit the value of this field. May be one of &quot;all&quot;, &quot;edit&quot;, &quot;process&quot;, &quot;admin&quot;. For example, if set to &quot;process&quot;, only users with &quot;process&quot; permission for custom fields will be able to edit this field. See the <a href="https://www.accelo.com/resources/help/faq/user-permissions-and-settings/setup-permissions/">support documentation</a> for information on setting permissions.</td>
+<td style="text-align: left">Who is able to edit the value of this field. May be one of &quot;all&quot;, &quot;edit&quot;, &quot;process&quot;, &quot;admin&quot;. For example, if set to &quot;process&quot;, only users with &quot;process&quot; permission for custom fields will be able to edit this field. See the <a href="https://help.accelo.com/faq/how-do-i-set-up-user-permissions/">support documentation</a> for information on setting permissions.</td>
 </tr>
 <tr>
 <td style="text-align: left">exported</td>
@@ -19519,7 +19512,7 @@ are supported on the following objects:</p>
 <tr>
 <td style="text-align: left">confidential</td>
 <td style="text-align: left">select</td>
-<td style="text-align: left">Either &quot;yes&quot; or &quot;no&quot;, whether this is a confidential profile field. These are profile fields viewable only within confidential relationships, see the <a href="https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/managers-and-relationships/#Confidential">support documentation</a> for more information.</td>
+<td style="text-align: left">Either &quot;yes&quot; or &quot;no&quot;, whether this is a confidential profile field. These are profile fields viewable only within confidential relationships, see the <a href="https://help.accelo.com/guides/user/modules/companies-and-contacts/managers-and-relationships/#Confidential">support documentation</a> for more information.</td>
 </tr>
 <tr>
 <td style="text-align: left">description</td>
@@ -19848,7 +19841,7 @@ additional fields requested through <code>_fields</code>.</p>
 
 <p><strong>NOTE</strong>: For a user to perform an interaction on a progression they MUST have the process permission or be a manager (or assignee for tasks) of the object. The list progression actions endpoint will NOT return progressions on objects that do not meet these requirements.</p>
 
-<p>See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/">support documentation</a> for information on progressions, including how to define new progressions on your deployment.</p>
+<p>See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/">support documentation</a> for information on progressions, including how to define new progressions on your deployment.</p>
 <h3 id='the-progression-object'>The Progression Object</h3>
 <blockquote>
 <p>Example progression object:</p>
@@ -20128,7 +20121,7 @@ no searches or filters this will be a count of all progression histories. The re
 <code>api/v0/prospects</code></p>
 </blockquote>
 
-<p>Prospects (also known as Sales) are a way to keep track of your sales and deals. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/sales/">support
+<p>Prospects (also known as Sales) are a way to keep track of your sales and deals. See the <a href="https://help.accelo.com/guides/user/modules/sales/">support
 documentation</a> for more information on the full
 potential of these, and also information on setting up and configuring them via the deployment.</p>
 <h3 id='the-prospect-object'>The Prospect Object</h3>
@@ -20225,7 +20218,7 @@ potential of these, and also information on setting up and configuring them via 
 <tr>
 <td style="text-align: left">progress</td>
 <td style="text-align: left">decimal</td>
-<td style="text-align: left">A decimal representation of the &quot;progress %&quot; associated with the current standing of the prospect. See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/#CreateProgression">support documentation</a> on setting up progressions for information on this field.</td>
+<td style="text-align: left">A decimal representation of the &quot;progress %&quot; associated with the current standing of the prospect. See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/#CreateProgression">support documentation</a> on setting up progressions for information on this field.</td>
 </tr>
 <tr>
 <td style="text-align: left">value_weighted</td>
@@ -20306,8 +20299,7 @@ potential of these, and also information on setting up and configuring them via 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>You may group prospect using prospect types to reflect the different actions taken on different types of prospect. See
-the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-
-guide/modules/prospect/sales-types/">support documentation</a> for information on prospect types. The prospect type contains the following:</p>
+the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/">support documentation</a> for information on prospect types. The prospect type contains the following:</p>
 
 <table><thead>
 <tr>
@@ -20343,7 +20335,7 @@ guide/modules/prospect/sales-types/">support documentation</a> for information o
 </tr>
 </tbody></table>
 <h4 id='the-prospect-probability'>The Prospect Probability</h4>
-<p>Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/sales/probabilities/">support documentation</a> for more information. The prospect
+<p>Prospect probabilities are customizable fields you may use to reflect how likely you are to win a sale. See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/sales/probabilities/">support documentation</a> for more information. The prospect
 probability contains the following:</p>
 
 <table><thead>
@@ -20388,7 +20380,7 @@ probability contains the following:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Prospect Statuses may be used to track the progress of a Prospect. These may be configured on the deployment, see the
-<a href="https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/">support documentation</a> for more
+<a href="https://help.accelo.com/faq/automating-your-business-processes/statuses/">support documentation</a> for more
 information. The status object contains the following:</p>
 
 <table><thead>
@@ -21307,7 +21299,7 @@ object is &quot;prospects&quot; whose id is <code>{prospect_id}</code>.</p>
 </blockquote>
 
 <p>Track the purchases made when completing a <a href="#jobs-projects">job</a>, <a href="#issues">issue</a> or <a href="#contracts">contract</a>. More
-information can be found on the <a href="#https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/purchases/">support documentation</a></p>
+information can be found on the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/purchases/">support documentation</a></p>
 <h3 id='the-purchase-object'>The Purchase Object</h3>
 <p>The purchase object contains the following fields:</p>
 
@@ -21568,7 +21560,7 @@ This is the request <a href="#list-profile-fields"><code>GET /{object}/profiles/
 <code>/api/v0/quotes</code></p>
 </blockquote>
 
-<p>Quotes in Accelo allow you to generate and edit your quotes and proposals. See the <a href="https://www.accelo.com/resources/help/guides/user/modules/sales/quotes/">support documentation</a> for information on quotes.</p>
+<p>Quotes in Accelo allow you to generate and edit your quotes and proposals. See the <a href="https://help.accelo.com/guides/user/modules/sales/quotes/">support documentation</a> for information on quotes.</p>
 <h3 id='the-quote-object'>The Quote Object</h3>
 <blockquote>
 <p>Example quote object:</p>
@@ -22221,7 +22213,7 @@ searches or filters this will be a count of all quote statuses on the deployment
 <code>/api/v0/rates</code></p>
 </blockquote>
 
-<p>Rates define the hourly rate paid for work done. They may be set up and modified from the deployment, see the <a href="https://www.accelo.com/resources/help/faq/setup-rates/">support documentation</a> for information.</p>
+<p>Rates define the hourly rate paid for work done. They may be set up and modified from the deployment, see the <a href="https://help.accelo.com/faq/setup-rates/">support documentation</a> for information.</p>
 <h3 id='the-rate-object'>The Rate Object</h3>
 <blockquote>
 <p>Example rate object:</p>
@@ -22573,7 +22565,7 @@ With no searches or filters this will be a count of all referrals on the deploym
 <code>/api/v0/requests</code></p>
 </blockquote>
 
-<p>These allow you to track request from clients sent to your shared company addresses, such as &quot;@support&quot; or &quot;@sales&quot; addresses. See the <a href="https://www.accelo.com/resources/help/learn-the-basics/tickets-and-requests/request-basics/">support documentation</a> for more information on requests.</p>
+<p>These allow you to track request from clients sent to your shared company addresses, such as &quot;@support&quot; or &quot;@sales&quot; addresses. See the <a href="https://help.accelo.com/learn-the-basics/tickets-and-requests/request-basics/">support documentation</a> for more information on requests.</p>
 <h3 id='the-request-object'>The Request Object</h3>
 <blockquote>
 <p>Sample request object:</p>
@@ -22710,7 +22702,7 @@ With no searches or filters this will be a count of all referrals on the deploym
   </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Support"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The request type object allows you to assign a type to each request, making them easier to track and categorize. By default there are two types &quot;support&quot; and &quot;sales&quot;, you may set up as many different types as you like from your deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/inbox-and-requests/request-inbox/setup-and-configuration/">support documentation</a> for more information. This object contains the following:</p>
+<p>The request type object allows you to assign a type to each request, making them easier to track and categorize. By default there are two types &quot;support&quot; and &quot;sales&quot;, you may set up as many different types as you like from your deployment, see the <a href="https://help.accelo.com/guides/user/inbox-and-requests/request-inbox/setup-and-configuration/">support documentation</a> for more information. This object contains the following:</p>
 
 <table><thead>
 <tr>
@@ -23855,7 +23847,7 @@ Content-Type: application/pdf
 </blockquote>
 
 <p>Segmentations or (Categories) organize and segment your Company list into different categories for better management and
-reporting, letting you shape Accelo to match just what your business needs.  See the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/">support
+reporting, letting you shape Accelo to match just what your business needs.  See the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/">support
 documentation</a>
 for more information.</p>
 <h3 id='the-segmentation-object'>The Segmentation Object</h3>
@@ -24052,7 +24044,7 @@ searches or filters this will be a count of all segmentations on the deployment.
 </blockquote>
 
 <p>Signoffs in Accelo allow your clients to approve your work and make comments against attachments and work descriptions.
-See the <a href="https://www.accelo.com/resources/help/guides/user/modules/projects/signoffs/">support documentation</a> for more
+See the <a href="https://help.accelo.com/guides/user/modules/projects/signoffs/">support documentation</a> for more
 information on signoffs.</p>
 <h3 id='the-signoff-object'>The Signoff Object</h3>
 <blockquote>
@@ -25658,7 +25650,7 @@ and whose id is the <code>staff_id</code>.</p>
 <a href="#update-a-profile-value-link"><code>POST/{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where the object is &quot;staff&quot;,
 and whose value is <code>staff_id</code>.</p>
 <h2 id='statuses'>Statuses</h2>
-<p>Statuses are used to track the progress of work. See the <a href="https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/">support
+<p>Statuses are used to track the progress of work. See the <a href="https://help.accelo.com/faq/automating-your-business-processes/statuses/">support
 documentation</a> for more
 information. Since many resources on Accelo track various types and aspects of work, statuses are present in many
 different resources. Currently, statuses are supported on the following objects:</p>
@@ -25724,7 +25716,7 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <code>/api/v0/tags</code></p>
 </blockquote>
 
-<p>Tags are keywords you my apply to a range of objects within Accelo, for example <a href="#activities">activities</a> or <a href="#jobs">jobs</a>. They may both help describe the object, and make searching easier. See the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/tags/">support documentation</a> for more information on tags and how to apply them.</p>
+<p>Tags are keywords you my apply to a range of objects within Accelo, for example <a href="#activities">activities</a> or <a href="#jobs">jobs</a>. They may both help describe the object, and make searching easier. See the <a href="https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/set-up-and-customize/tags/">support documentation</a> for more information on tags and how to apply them.</p>
 <h3 id='the-tag-object'>The Tag Object</h3>
 <p>The tag object contains the following:</p>
 
@@ -25873,7 +25865,7 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 <code>/api/v0/tasks</code></p>
 </blockquote>
 
-<p>Tasks are small units of work, they may be thought of as the type of work you would put on a &quot;to-do&quot; list. See the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/">support documentation</a> for more information on tasks and how to interact with them on the deployment.</p>
+<p>Tasks are small units of work, they may be thought of as the type of work you would put on a &quot;to-do&quot; list. See the <a href="https://help.accelo.com/guides/user/messages-and-tasks/tasks/">support documentation</a> for more information on tasks and how to interact with them on the deployment.</p>
 <h3 id='the-task-object'>The Task Object</h3>
 <blockquote>
 <p>Example task:</p>
@@ -26157,7 +26149,7 @@ above, if this is the case we will state it in that resource&#39;s section.</p>
 </tr>
 </tbody></table>
 <h4 id='the-task-priority'>The Task Priority</h4>
-<p>Task priorities help you prioritize your task. They may be set up from the deployment, see the <a href="https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name">support
+<p>Task priorities help you prioritize your task. They may be set up from the deployment, see the <a href="https://help.accelo.com/guides/user/messages-and-tasks/tasks/using-task-priorities/#configure_task_priority_name">support
 documentation</a> for information. They
 contain the following:</p>
 
@@ -26924,7 +26916,7 @@ With no searches or filters this will be a count of all task statuses on the dep
 
 <p>These requests will auto progress the <a href="#statuses">status</a> of a <a href="#the-task-object">task</a>, identified by its <code>task_id</code> to &quot;start&quot; or &quot;done&quot;, respectively.</p>
 <h2 id='taxes'>Taxes</h2>
-<p>The different account tax codes are stored by Accelo in the tax object. For information on these, and instructions on interacting with them through the deployment please see the <a href="https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/tax-codes/">support doucmentation</a></p>
+<p>The different account tax codes are stored by Accelo in the tax object. For information on these, and instructions on interacting with them through the deployment please see the <a href="https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/tax-codes/">support doucmentation</a></p>
 <h3 id='the-tax-object-beta'>The Tax Object (Beta)</h3>
 <blockquote>
 <p>Example tax:</p>
@@ -27073,8 +27065,7 @@ With no searches or filters this will be a count of all task statuses on the dep
 
 <p>Time Externals are imported appointments from calendars such as Google, Exchange, or Outlook. Once they are
 imported and turned into <a href="#the-activity-object">activities</a> you can use them on your schedule and entries on your
-timesheet. See the <a href="https://www.accelo.com/resources/help/guides/user/timers-timesheets-and-
-scheduling/schedules/external-appointments-in-your-schedule/">support documentation</a> for more information on time externals.</p>
+timesheet. See the <a href="https://help.accelo.com/guides/user/timers-timesheets-and-scheduling/schedules/external-appointments-in-your-schedule/">support documentation</a> for more information on time externals.</p>
 <h3 id='the-time-external-object'>The Time External Object</h3>
 <blockquote>
 <p>Example time external object:</p>
@@ -27321,7 +27312,7 @@ to converting the external appointment as a workable entry to use in Accelo.</p>
 <code>/api/v0/timers</code></p>
 </blockquote>
 
-<p>Timers are used to log time through Accelo. See the <a href="https://www.accelo.com/resources/help/guides/user/timers-timesheets-and-scheduling/log-time-and-use-timers/">support documentation</a> for more information on these objects, and how to access them on the deployment.</p>
+<p>Timers are used to log time through Accelo. See the <a href="https://help.accelo.com/guides/user/timers-timesheets-and-scheduling/log-time-and-use-timers/">support documentation</a> for more information on these objects, and how to access them on the deployment.</p>
 
 <p><strong>NOTE:</strong> Timer endpoints all operate from the current user and because of this are <strong>not available to service applications</strong>. If this restriction impacts your business model, please contact support and we will consider opening certain timer access up to service applications by requiring a staff id. It also means that a user will only be able to view or edit timers that they own.</p>
 <h3 id='the-timer-object'>The Timer Object</h3>
