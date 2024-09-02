@@ -70,14 +70,14 @@ The expense object contains the following fields and linked objects:
 }
 ```
 
-Similarly to [contracts](#contract-types), expenses have types associated with them. Expense types may be set up on the Accelo deployment (see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/retainers/expenses/) for information). This expense type object contains the following:
+Similarly to [contracts](#contract-types), expenses have types associated with them. Expense types may be set up on the Accelo deployment (see the [support documentation](https://help.accelo.com/guides/user/modules/retainers/expenses/) for information). This expense type object contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
 | **id** | unsigned | A unique identifier for the type. |
 | **title** | string | A name for the type. |
 | standing | string | The standing of the expense when created. |
-| ledger_id | unsigned | The unique identifier of the billing ledger associated with this expense type. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/) for information on ledgers. |
+| ledger_id | unsigned | The unique identifier of the billing ledger associated with this expense type. See the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/ledgers/) for information on ledgers. |
 
 **Note:** The `type` field is deprecated, please request the expense type through the `expense_type` field,
 which contains the following additional fields:

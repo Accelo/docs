@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/timers`
 
-Timers are used to log time through Accelo. See the [support documentation](https://www.accelo.com/resources/help/guides/user/timers-timesheets-and-scheduling/log-time-and-use-timers/) for more information on these objects, and how to access them on the deployment.
+Timers are used to log time through Accelo. See the [support documentation](https://help.accelo.com/guides/user/timers-timesheets-and-scheduling/log-time-and-use-timers/) for more information on these objects, and how to access them on the deployment.
 
 **NOTE:** Timer endpoints all operate from the current user and because of this are **not available to service applications**. If this restriction impacts your business model, please contact support and we will consider opening certain timer access up to service applications by requiring a staff id. It also means that a user will only be able to view or edit timers that they own.
 
