@@ -1,6 +1,6 @@
 ## Milestones
 > Resource URI:  
-`/api/vo/milestones`
+`/api/v0/milestones`
 
 Milestones are the steps on the road to a [Job's](#jobs-projects) (Project's) completion. They define the schedule of
 the job, and contain the budget for their respective portion of the job. For information on accessing milestones through
