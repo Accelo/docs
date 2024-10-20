@@ -4,7 +4,7 @@
 
 Assets are flexible objects within Accelo, they can represent almost any asset or object you want. For example, you may
 wish to store information on the computers owned by your company, or the prices of advertising media offered by external
-companies. For more information see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/assets/).
+companies. For more information see the [support documentation](https://help.accelo.com/guides/user/modules/assets/).
 
 ### The Asset Object
 The asset object contains the following:
@@ -34,12 +34,12 @@ The asset object contains the following:
 |:-|:-|:-|
 | **id** | unsigned | The unique identifier for the asset. |
 | **title** | string | The name given to the asset. |
-| **latest_asset_link** | object | The most [asset link](#the-asset-link) made on the asset. |
+| **latest_asset_link** | object | The most recent [asset link](#the-asset-link) made on the asset. |
 | standing | string | The standing of the asset, see the [status object](#statuses) for more information. |
 | date_created | unix ts | The date the asset was created. |
 | against_type | string | A string representing the object the endpoint is against. |
 | against_id | unsigned | The unique identifier of the object the asset is created against. |
-| asset_type | unsigned or object | The [type](#the-asset-type) of the asset. Asset types can be created and edited from your Accelo deployment, see the [assets module page](https://www.accelo.com/resources/help/guides/user/modules/assets/) for more information. |
+| asset_type | unsigned or object | The [type](#the-asset-type) of the asset. Asset types can be created and edited from your Accelo deployment, see the [assets module page](https://help.accelo.com/guides/user/modules/assets/) for more information. |
 | asset_type_id | unsigned | The unique identifier given to this asset type. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the asset (if any). |
 | affiliation_id | unsigned | The unique identifier of the affiliation associated with the asset. |

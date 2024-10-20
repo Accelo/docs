@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/rates`
 
-Rates define the hourly rate paid for work done. They may be set up and modified from the deployment, see the [support documentation](https://www.accelo.com/resources/help/faq/setup-rates/) for information.
+Rates define the hourly rate paid for work done. They may be set up and modified from the deployment, see the [support documentation](https://help.accelo.com/faq/setup-rates/) for information.
 
 ### The Rate Object
 > Example rate object:

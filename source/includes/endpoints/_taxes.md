@@ -1,5 +1,5 @@
 ## Taxes
-The different account tax codes are stored by Accelo in the tax object. For information on these, and instructions on interacting with them through the deployment please see the [support doucmentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/tax-codes/)
+The different account tax codes are stored by Accelo in the tax object. For information on these, and instructions on interacting with them through the deployment please see the [support doucmentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/tax-codes/)
 
 ### The Tax Object (Beta)
 > Example tax:

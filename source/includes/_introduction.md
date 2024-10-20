@@ -52,8 +52,12 @@ Keep in mind, for an installed or web application we will want to use the end-us
 deployment. Note, all authorization endpoints are accessed through the OAuth2.0 base URI, which is different from the
 resource base URI, see the [authentication section](#oauth2-uri) for more information.
 
+## Cipher Suites
 
+In order to maintain security for Accelo and our customers, we may need to stop using old cipher suites; this could cause problems for users utilising older SSL/TLS libraries.
+Before doing so we will ensure that this will not affect the majority of our users, and will work with those that would be impacted.
 
+See the [following documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#fs-supported-policies) for technical details, as of 2023 we are using `ELBSecurityPolicy-FS-1-2-Res-2020-10`. 
 
 
 
@@ -275,7 +279,7 @@ Parsing a search through `_search` in JSON is simply a matter of assigning a str
 ```
 
 Requests to the API will be limited to 5000/hour per deployment, this is to protect the quality of the service offered
-by the API. Authentication or authorization requests (those made to `/ouath2` endpoints) will not be limited and will
+by the API. Authentication or authorization requests (those made to `/oauth2` endpoints) will not be limited and will
 not be counted against this limit. Requests made after exceeding this limit  will return a `429` error.
 
 The following headers have also been added to track usage rates:

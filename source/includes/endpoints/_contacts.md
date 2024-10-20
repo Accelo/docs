@@ -28,7 +28,7 @@ The contact object contains the following fields and linked objects:
 | date_last_interacted | unix ts | The most recent date of interaction with the contact. |
 | comments | string | Any comments or notes made against the contact. |
 | default_affiliation | unsigned | The unique identifier of the default [affiliation](#affiliations) associated with the contact. |
-| status | unsigned or object | The [status](#statuses) of the contact. |
+| contact_status | unsigned or object | The [status](#statuses) of the contact. |
 | standing | string | The contact's standing, this is part of the status object. For example "active", "potential". |
 
 
@@ -441,9 +441,7 @@ Equivalent request:
 
 This request sets a contact on the Accelo deployment, identified by its `contact_id`, to `inactive`. This request does
 **NOT** delete the contact, a user can only be removed from the web deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/deactivate-delete-a
--company-contact/#HowtoDeleteContact) for information. This request accepts no parameters and only returns the meta
-object.
+documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/deactivate-delete-a-company-contact/#HowtoDeleteContact) for information. This request accepts no parameters and only returns the meta object.
 
 
 

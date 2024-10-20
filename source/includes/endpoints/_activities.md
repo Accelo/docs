@@ -1,7 +1,7 @@
 ## Activities
 
 Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes.
-See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/) 
+See the [support documentation](https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/)
 for more information on activities.
 
 > Resource URI:  
@@ -131,7 +131,7 @@ Activities also have a visibility associated with them, which determines how the
 
 Classes are an additional field for further describing Activities, you may add or remove classes from your deployment
 through the configuration menu, this process is outlined in the Accelo 
-[support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/). 
+[support documentation](https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/set-up-and-customize/classes/).
 By default your Accelo deployment will have three classes:
 
 

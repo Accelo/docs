@@ -1,9 +1,8 @@
 ## Profiles
 
 Profile fields are objects used for tracking extra information from your Accelo deployment. See the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-
-processes/custom-fields/profile-fields/) for further information about profile fields. Currently, custom profile fields
-are supported on the following objects:
+documentation](https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/custom-fields/profile-fields/)
+for further information about profile fields. Currently, custom profile fields are supported on the following objects:
 
 * [Affiliations](#affiliations)
 * [Companies](#companies)
@@ -45,11 +44,11 @@ These are objects describing the custom fields on the deployment, they contain t
 | parent_id | unsigned | The unique identifier of the parent profile field. If there is no parent this has a value of "0". |
 | link_type | string | The  type of object this profile field is against. For example "contact". |
 | required | select | Either "yes" or "no", whether this profile field is required for the object it is against. |
-| restrictions | select | Who is able to edit the value of this field. May be one of "all", "edit", "process", "admin". For example, if set to "process", only users with "process" permission for custom fields will be able to edit this field. See the [support documentation](https://www.accelo.com/resources/help/faq/user-permissions-and-settings/setup-permissions/) for information on setting permissions. |
+| restrictions | select | Who is able to edit the value of this field. May be one of "all", "edit", "process", "admin". For example, if set to "process", only users with "process" permission for custom fields will be able to edit this field. See the [support documentation](https://help.accelo.com/faq/how-do-i-set-up-user-permissions/) for information on setting permissions. |
 | exported | select | Either "yes" or "no", whether this profile field will be included when you export the against object. |
 | lookup_type | string | When `field_type` is "lookup", this will contain the lookup type, e.g. "company". |
 | options | array | When `field_type` is either "select" or "multi_select" this will contain the possible values. |
-| confidential | select | Either "yes" or "no", whether this is a confidential profile field. These are profile fields viewable only within confidential relationships, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/managers-and-relationships/#Confidential) for more information. |
+| confidential | select | Either "yes" or "no", whether this is a confidential profile field. These are profile fields viewable only within confidential relationships, see the [support documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/managers-and-relationships/#Confidential) for more information. |
 | description | string | A description of the profile field. |
 
 
@@ -239,7 +238,7 @@ This request supports [range filters](#filters-range-filters) over the following
 
 ### Searching 
 
-This request supports the [`_search`](#configuring-the-response-searching) paramter to search over the following fields:
+This request supports the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Filter Name |
 |:-|

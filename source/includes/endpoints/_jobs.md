@@ -2,7 +2,7 @@
 > Resource URI:  
 `api/v0/jobs`
 
- Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/) for more information.
+ Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the [support documentation](https://help.accelo.com/guides/user/modules/projects/) for more information.
 
 ### The Job Object
 > Example job object:
@@ -68,6 +68,7 @@ The jobs object contains the following:
 | affiliation | unsigned or object | The [affiliation](#affiliations) against the job. |
 | job_object_budget | unsigned or object | The [object budget](#object-budgets) associated with the job. |
 | job_contract | unsigned or object | The [contract](#contracts) associated with the job, if any. |
+| job_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the job. |
 
 #### The Job Type
 > Example job type:
@@ -82,8 +83,8 @@ The jobs object contains the following:
 ```
 
 You may set up and configure different job types to suit your business processes, general information on types can be
-found in the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide
-/triggers-and-business-processes/types/). For jobs, the type object contains the following:
+found in the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/types/).
+For jobs, the type object contains the following:
 
  Field | Type | Description |
 |:-|:-|:-|

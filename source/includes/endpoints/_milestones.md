@@ -1,16 +1,15 @@
 ## Milestones
 > Resource URI:  
-`/api/vo/milestones`
+`/api/v0/milestones`
 
 Milestones are the steps on the road to a [Job's](#jobs-projects) (Project's) completion. They define the schedule of
 the job, and contain the budget for their respective portion of the job. For information on accessing milestones through
 the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/view-a-milestone/), milestones may
-also be imported through the deployment, see again the [support documentation](https://www.accelo.com/resources/help/faq
-/importing-clients-contacts-and-sales-data/import-milestones/) for information.
+documentation](https://help.accelo.com/guides/user/modules/projects/view-a-milestone/), milestones may
+also be imported through the deployment, see again the [support documentation](https://help.accelo.com/guides/user/modules/projects/view-a-milestone/)for information.
 
 Deleting, creating, and updating milestones is only available through the deployment on the project planning screen, see
-the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/creating-a-project-plan/)
+the [support documentation](https://help.accelo.com/guides/user/modules/projects/creating-a-project-plan/)
 for more information.
 
 ### The Milestone Object
@@ -63,7 +62,7 @@ The milestone object contains the following:
 | rate_charged | decimal | The rate charged for billable work within this milestone. This is part of the rate object. |
 | milestone_object_budget | unsigned or object | The [object budget](#object-budgets) associated with the milestone. |
 | object_budget | unsigned or object | **Deprecated** please use `milestone_object_budget`. |
-
+| milestone_object_schedule | unsigned or object | The [object schedule](#the-object-schedule) linked to the milestone. |
 
 
 

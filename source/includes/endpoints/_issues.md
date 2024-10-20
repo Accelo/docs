@@ -5,8 +5,8 @@
 Issues (also known as "Tickets") are used for when you need to track billable time against a client, but don’t need the
 complexity of a full Project and its workflow and components. For example, issues may be used to track support cases
 where you’re diagnosing and fixing a problem and don’t know beforehand the specific steps which will be required to
-resolve the Issue. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modu
-les/tickets/#WhenTickets) for more information on these objects.
+resolve the Issue. See the [support documentation](https://help.accelo.com/guides/user/modules/tickets/#WhenTickets)
+for more information on these objects.
 
 
 ### The Issue Object
@@ -109,7 +109,7 @@ The issue object contains the following:
 ```
 
 Issue priorities help you keep track of what needs to be done. They may be set up from the deployment, see the [support
-documentation](https://www.accelo.com/resources/videos/config-and-setup/tickets/priorities/) for information. They
+documentation](https://help.accelo.com/videos/config-and-setup/tickets/priorities/) for information. They
 contain the following:
 
 | Field | Type | Description |
@@ -135,7 +135,7 @@ contain the following:
 ```
 
 Statuses may be used to track the progress of an issue. These statuses may be configured from the deployment, see the
-[support documentation](https://www.accelo.com/resources/help/faq/automating-your-business-processes/statuses/) for more
+[support documentation](https://help.accelo.com/faq/automating-your-business-processes/statuses/) for more
 information. The status objects contain the following
 
 | Field | Type | Description |
@@ -162,8 +162,8 @@ information. The status objects contain the following
 ```
 
 Issue types let you sort your issues according to the type of work the entail. Issue types may be set up and edited from
-the deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-
-guide/modules/tickets/#Types) for more information.
+the deployment, see the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/#Types)
+for more information.
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -174,6 +174,8 @@ guide/modules/tickets/#Types) for more information.
 | standing | select | Either "active" or "inactive", the standing of the issue type.  |
 | budget | select | Either "yes" or "no", whether issues under this type are billable. |
 | ordering | unsigned | A number describing the type's ordering on the deployment. |
+| default_issue_class | unsigned or Object | The default [issue class](#the-issue-class) for issues created with this type. |
+| default_issue_priority | unsigned or Object | The default [issue_priority](#the-issue-priority) for issues created with this type. |
 
 **Note:** the `type` field is deprecated, please request the issue type object through the
 `issue_type` field, which contains the following additional fields:
@@ -199,7 +201,7 @@ guide/modules/tickets/#Types) for more information.
 ```
 
 Issue resolutions track how certain issues are resolved and may be set up on the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/)
+documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/ticket-resolutions/)
 for more information. The issue resolution contains the following:
 
 | Field | Type | Descriptions |
@@ -226,8 +228,8 @@ for more information. The issue resolution contains the following:
 ```
 
 Issue classes help to classify symptoms or characteristics of an issue. They can be set up from the deployment, see the
-[support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/tickets
-/ticket-classes/) for information. Ticket classes contain the following:
+[support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/tickets/ticket-classes/)
+for information. Ticket classes contain the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -1265,6 +1267,42 @@ whose id is `issue_id`.
 This request returns a list of available [progressions](#the-progression-object) for an issue, specified by its
 `issue_id`. This is the request [`GET /{object}/{object_id}/progressions`](#retrieve-a-list-of-available-progressions)
 where the object is "issues" whose id is `{issue_id}`.
+
+
+
+
+
+
+
+### List All Progressions For Issues
+
+`GET /issues/progressions`
+
+This request returns all [progressions](#the-progression-object) available for issues.
+
+This returns a list of [progressions](#the-progression-object) with the following fields added to the response.
+
+| Field | Type | Description |
+|:-|:-|:-|
+| issue_status | unsigned or object | The [issue status](#statuses) of the issue.
+| issue_type | unsigned or object | The [issue type](#the-issue-type) that the progression is for. |
+
+##### Basic Filters
+
+This request supports [basic filters](#filters-basic-filters) over the following fields:
+
+| Filter Name | Notes |
+|:-|:-|
+| id ||
+| issue_type_id ||
+
+
+##### Boolean Filters
+this request also supports a special kind of filter, the boolean filter. These filters take boolean arguments, the supported filters are:
+
+| Filter Name | Notes |
+|:-|:-|
+| on_create | Filter whether the progression can be run on create |
 
 
 

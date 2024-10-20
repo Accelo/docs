@@ -4,7 +4,7 @@
 
 Segmentations or (Categories) organize and segment your Company list into different categories for better management and
 reporting, letting you shape Accelo to match just what your business needs.  See the [support
-documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/)
+documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/companies-and-contacts/categories/)
 for more information.
 
 ### The Segmentation Object

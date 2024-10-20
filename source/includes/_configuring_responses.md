@@ -34,7 +34,7 @@ The available parameters are:
 "city" field:
 
 ```http
-GET /activities HTTP/1.1
+GET /companies HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 
@@ -43,7 +43,7 @@ _fields=website,phone,postal_address(city)
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
+	https://{deployment}.api.accelo.com/api/v0/companies \
 	-H 'authorization: Bearer {access_token}' \
 	-d '_fields=website,phone,postal_address(city)'
 ```
@@ -51,7 +51,7 @@ curl -X GET \
 By default, each resource returns only the minimal required fields, these are displayed in the table describing the
 object. To request additional fields we can use the `_fields` parameter. For example, the [company](#companies) object
 has additional fields `website` and `phone`, to display these in a request response we would add
-`_fields=website,phones` to our request. The keyword `_ALL` may be used to return all optional fields.
+`_fields=website,phone` to our request. The keyword `_ALL` may be used to return all optional fields.
 
 For linked objects (those marked as "unsigned or object") the `_fields` parameter may be used to request the linked
 object by adding parenthesis to the field. For example, the company object contains a link to an [address](#addresses)
@@ -179,7 +179,7 @@ curl -X GET \
 ```
 
 Many endpoints contain fields representing dates, such as `date_created` under [activities](#activities). Date fields
-are express as unix timestamps (for brevity we will just use the shorter "unix ts"). The API supports filtering for may
+are expressed as unix timestamps (for brevity we will just use the shorter "unix ts"). The API supports filtering for many
 of these "date_fields" through the following filters:
 
 | Filter | Description |
