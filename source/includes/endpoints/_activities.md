@@ -902,7 +902,7 @@ Values for the following fields may be set through this request.
 |:-|:-|
 | **subject** | Activity's subject that will appear in the title of the activity. |
 | **against_id** | The id of the against_table object, the activity is linked against. |
-| **against_type** | The object the activity is linked against. This can be: affiliation, contract, contract_period, invoice, issue, job, prospect, request, task, asset or staff. |
+| **against_type** | The object the activity is linked against. This can be: activity_event, asset, affiliation, account_invoice, account_purchase, contact, contract, contract_period, company, issue, job, milestone, prospect, request, staff or task.  |
 | body | The content of the activity. |
 | medium | Type of activity to create. This can be: 'note', 'meeting', 'email', or 'call'. This will default to note. |
 | owner_type | The activity can be owned by a staff member or an affiliation. The owner defaults to the current user |
