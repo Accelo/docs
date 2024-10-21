@@ -1813,9 +1813,6 @@
                           <a href="#create-a-staff-member" class="toc-h3 toc-link" data-title="Endpoints">Create a Staff Member</a>
                         </li>
                         <li>
-                          <a href="#delete-a-staff-member" class="toc-h3 toc-link" data-title="Endpoints">Delete a Staff Member</a>
-                        </li>
-                        <li>
                           <a href="#list-a-staff-39-s-profile-field-values" class="toc-h3 toc-link" data-title="Endpoints">List a Staff's Profile Field Values</a>
                         </li>
                         <li>
@@ -4914,7 +4911,7 @@ fields requested through <code>_fields</code>.</p>
 </tr>
 <tr>
 <td style="text-align: left"><strong>against_type</strong></td>
-<td style="text-align: left">The object the activity is linked against. This can be: affiliation, contract, contract_period, invoice, issue, job, prospect, request, task, asset or staff.</td>
+<td style="text-align: left">The object the activity is linked against. This can be: activity_event, asset, affiliation, account_invoice, account_purchase, contact, contract, contract_period, company, issue, job, milestone, prospect, request, staff or task.</td>
 </tr>
 <tr>
 <td style="text-align: left">body</td>
@@ -25594,21 +25591,6 @@ the <code>_fields</code> parameter.</p>
 <h4 id='handling-the-response-5'>Handling the Response</h4>
 <p>The response will be the single, updated <a href="#the-staff-object">staff object</a> with its default fields and any additional
 fields requested through <code>_fields</code>.</p>
-<h3 id='delete-a-staff-member'>Delete a Staff Member</h3>
-<blockquote>
-<p>Sample Request:   </p>
-</blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/staff</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/staff <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {access_token}'</span>
-</code></pre>
-<p><code>DELETE /staff/{staff_id}</code></p>
-
-<p>This request removes a <a href="#the-staff-object">staff member</a> from the deployment, identified by their <code>staff_id</code>. This
-request takes no parameters and returns no resources.</p>
 <h3 id='list-a-staff-39-s-profile-field-values'>List a Staff&#39;s Profile Field Values</h3>
 <blockquote>
 <p>See the <a href="#retrieve-a-list-of-profile-values">profiles section</a> for a sample request</p>
