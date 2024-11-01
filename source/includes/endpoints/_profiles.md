@@ -313,7 +313,17 @@ curl -X post \
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
 `profile_field_id`. The object whose profile field is to be update is identified by `object_id` and `object`.
+The following lists which objects are supported:
 
+* Affiliations
+* Companies
+* Contacts
+* Invoices
+* Issues
+* Jobs
+* Milestones
+* Prospects
+* Staff
 
 #### Configuring the Profile Value
 
