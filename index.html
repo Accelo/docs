@@ -19813,7 +19813,20 @@ additional fields requested through <code>_fields</code>.</p>
 <p><code>POST /{object}/{object_id}/profiles/fields/{profile_field_id}</code></p>
 
 <p>This request sets and returns a <a href="#the-profile-value-object">profile value</a> for a profile field, specified by its
-<code>profile_field_id</code>. The object whose profile field is to be update is identified by <code>object_id</code> and <code>object</code>.</p>
+<code>profile_field_id</code>. The object whose profile field is to be update is identified by <code>object_id</code> and <code>object</code>.
+The following lists which objects are supported:</p>
+
+<ul>
+<li>Affiliations</li>
+<li>Companies</li>
+<li>Contacts</li>
+<li>Invoices</li>
+<li>Issues</li>
+<li>Jobs</li>
+<li>Milestones</li>
+<li>Prospects</li>
+<li>Staff</li>
+</ul>
 <h4 id='configuring-the-profile-value-2'>Configuring the Profile Value</h4>
 <p>This request accepts the same fields as the <a href="#configuring-the-profile-value">previous request</a>, that is, it takes only
 the relevant value field(s). The relevant value field is required for this request.</p>
