@@ -35,7 +35,7 @@ a certain set of actions on a per object basis. The available events are:
 | create_contact | Any time a [contact](#contacts) is created. |
 | update_contact | Any time a [contact](#contacts) is updated. |
 | delete_activity | (Beta) Any time an [activity](#activities) is deleted. |
-
+| update_sale | Any time a [sale](#prospects-sales) is updated. |
 
 ##### Progression Webhooks
 
