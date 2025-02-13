@@ -34,7 +34,7 @@ a certain set of actions on a per object basis. The available events are:
 | update_issue | Any time an [issue](#issues) is updated. |
 | create_contact | Any time a [contact](#contacts) is created. |
 | update_contact | Any time a [contact](#contacts) is updated. |
-| create_sale | Any time a [sale](#sales) is created. |
+| create_sale | Any time a [sale](#prospects-sales) is created. |
 | delete_activity | (Beta) Any time an [activity](#activities) is deleted. |
 
 
