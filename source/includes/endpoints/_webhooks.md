@@ -26,6 +26,7 @@ a certain set of actions on a per object basis. The available events are:
 | unassign_task | Any time a [task](#tasks) is unassigned. |
 | create_task | Any time a [task](#tasks) is created. |
 | create_invoice | Any time an [invoice](#invoices) is created.|
+| update_invoice | Any time an [invoice](#invoices) is updated.|
 | create_invoice_pdf | Any time an [invoice](#invoices) PDF is created.|
 | create_purchase_pdf | Any time a [purchase](#purchases) PDF is created. |
 | create_quote | Any time a new [quote](#quotes) is created|
