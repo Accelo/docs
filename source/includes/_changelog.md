@@ -4,7 +4,7 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
-### Tuesday 26th February 2025
+### Wednesday 26th February 2025
 
 #### Features
 
