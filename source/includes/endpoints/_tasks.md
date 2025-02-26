@@ -223,7 +223,7 @@ This request supports the [pagination](#configuring-the-response-pagination) par
 ##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-##### Basic Filters
+##### Basics
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
@@ -253,6 +253,7 @@ This request supports [date_filters](#filters-date-filters) over the following f
 | date_completed |
 | date_modified |
 | date_due |
+| started |
 
 ##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
@@ -562,6 +563,7 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | rate_charged |
 | date_due |
 | remaining |
+| date_started |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked resources from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
