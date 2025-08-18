@@ -56,7 +56,7 @@ The Affiliation object contains the following:
 | company | unsigned or object | The [company](#companies) that the contact is affiliated with. |
 | contact | unsigned or object | The [contact](#contacts) the affiliation is against. |
 | affiliation_status | unsigned | The contact's [status](#statuses) in the role of this affiliation. |
-| standing | string | The standing of the contact's status. See the [status object](#statuses). |
+| standing | string | The standing of the affiliation's status. See the [status object](#statuses). |
 | date_modified | unix ts | The latest date that this affiliation was modified. |
 | date_last_interacted | unix ts | The latest date that there was interaction with this affiliation. |
 | staff_bookmarked | boolean| Whether the current user has bookmarked the affiliation. |
