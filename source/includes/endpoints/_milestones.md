@@ -169,6 +169,16 @@ This request supports [date filters](#filters-date-filters) over the following f
 | date_completed |
 
 
+##### Order Filters
+
+This request supports [order filters](#filters-order-filters) over the following fields:
+
+| Filter Name |
+|:-|
+| id |
+| title |
+
+
 ##### Range Filters
 
 This request supports [range filters](#filters-range-filters) over the following fields:
