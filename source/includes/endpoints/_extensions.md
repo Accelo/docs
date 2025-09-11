@@ -143,7 +143,9 @@ curl -X get \
 
 `GET /{object}/extensions/fields`
 
-This request request returns a list of [extension fields](#the-extension-field-object) available for the given object
+This request returns a list of [extension fields](#the-extension-field-object) available for the given object.
+
+The results are ordered by link_type, link_type_id, group_id, ordering, id.
 
 
 #### Configuring the Response
