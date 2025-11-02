@@ -557,9 +557,6 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | affiliation_id |
 | manager_id |
 | priority_id |
-| type_id |
-| rate_id |
-| rate_charged |
 | date_due |
 | remaining |
 
