@@ -223,7 +223,7 @@ This request supports the [pagination](#configuring-the-response-pagination) par
 ##### Additional Fields and Linked Objects
 This request supports requesting additional fields and linked objects from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-##### Basics
+##### Basic Filters
 This request supports [basic filters](#filters-basic-filters) over the following fields:
 
 | Filter Name | Notes |
