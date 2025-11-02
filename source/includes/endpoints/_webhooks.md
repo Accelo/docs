@@ -35,6 +35,8 @@ a certain set of actions on a per object basis. The available events are:
 | update_request_status | Any time a request status changes. |
 | create_issue | Any time an [issue](#issues) is created. |
 | update_issue | Any time an [issue](#issues) is updated. |
+| create_company | Any time a [company](#companies) is created. |
+| update_company | Any time a [company](#companies) is updated. |
 | create_contact | Any time a [contact](#contacts) is created. |
 | update_contact | Any time a [contact](#contacts) is updated. |
 | create_sale | Any time a [sale](#prospects-sales) is created. |
