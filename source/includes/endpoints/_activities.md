@@ -1,7 +1,7 @@
 ## Activities
 
 Activities hold communications to and from your Accelo deployment, such as client communication, meetings, and notes.
-See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/) 
+See the [support documentation](https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/)
 for more information on activities.
 
 > Resource URI:  
@@ -131,7 +131,7 @@ Activities also have a visibility associated with them, which determines how the
 
 Classes are an additional field for further describing Activities, you may add or remove classes from your deployment
 through the configuration menu, this process is outlined in the Accelo 
-[support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/classes/). 
+[support documentation](https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/set-up-and-customize/classes/).
 By default your Accelo deployment will have three classes:
 
 
@@ -902,7 +902,7 @@ Values for the following fields may be set through this request.
 |:-|:-|
 | **subject** | Activity's subject that will appear in the title of the activity. |
 | **against_id** | The id of the against_table object, the activity is linked against. |
-| **against_type** | The object the activity is linked against. This can be: affiliation, contract, contract_period, invoice, issue, job, prospect, request, task or staff. |
+| **against_type** | The object the activity is linked against. This can be: activity_event, asset, affiliation, account_invoice, account_purchase, contact, contract, contract_period, company, issue, job, milestone, prospect, request, staff or task.  |
 | body | The content of the activity. |
 | medium | Type of activity to create. This can be: 'note', 'meeting', 'email', or 'call'. This will default to note. |
 | owner_type | The activity can be owned by a staff member or an affiliation. The owner defaults to the current user |

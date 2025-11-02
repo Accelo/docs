@@ -387,25 +387,6 @@ fields requested through `_fields`.
 
 
 
-### Delete a Staff Member
-> Sample Request:   
-
-```http
-DELETE /api/v0/staff HTTP/1.1
-HOST: {deployment}.api.accelo.com
-Authorization: Bearer {access_token}
-```
-
-```shell
-curl -X get \
- https://{deployment}.api.accelo.com/api/v0/staff \
-  -H 'authorization: Bearer {access_token}'
-```
-
-`DELETE /staff/{staff_id}`
-
-This request removes a [staff member](#the-staff-object) from the deployment, identified by their `staff_id`. This
-request takes no parameters and returns no resources.
 
 
 

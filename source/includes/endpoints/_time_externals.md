@@ -4,8 +4,7 @@
 
 Time Externals are imported appointments from calendars such as Google, Exchange, or Outlook. Once they are
 imported and turned into [activities](#the-activity-object) you can use them on your schedule and entries on your
-timesheet. See the [support documentation](https://www.accelo.com/resources/help/guides/user/timers-timesheets-and-
-scheduling/schedules/external-appointments-in-your-schedule/) for more information on time externals.
+timesheet. See the [support documentation](https://help.accelo.com/guides/user/timers-timesheets-and-scheduling/schedules/external-appointments-in-your-schedule/) for more information on time externals.
 
 ### The Time External Object
 > Example time external object:

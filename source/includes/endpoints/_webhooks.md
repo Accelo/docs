@@ -25,17 +25,23 @@ a certain set of actions on a per object basis. The available events are:
 | assign_task | Any time a [task](#tasks) assignee changes. |
 | unassign_task | Any time a [task](#tasks) is unassigned. |
 | create_task | Any time a [task](#tasks) is created. |
-| create_invoice_pdf | Anytime an [invoice](#invoices) PDF is created.|
+| create_invoice | Any time an [invoice](#invoices) is created.|
+| update_invoice | Any time an [invoice](#invoices) is updated.|
+| delete_invoice | Any time an [invoice](#invoices) is deleted.|
+| create_invoice_pdf | Any time an [invoice](#invoices) PDF is created.|
 | create_purchase_pdf | Any time a [purchase](#purchases) PDF is created. |
-| create_quote | Anytime a new [quote](#quotes) is created|
+| create_quote | Any time a new [quote](#quotes) is created|
 | create_request | Any time a new [request](#requests) is created. |
 | update_request_status | Any time a request status changes. |
 | create_issue | Any time an [issue](#issues) is created. |
 | update_issue | Any time an [issue](#issues) is updated. |
+| create_company | Any time a [company](#companies) is created. |
+| update_company | Any time a [company](#companies) is updated. |
 | create_contact | Any time a [contact](#contacts) is created. |
 | update_contact | Any time a [contact](#contacts) is updated. |
+| create_sale | Any time a [sale](#prospects-sales) is created. |
+| update_sale | Any time a [sale](#prospects-sales) is updated. |
 | delete_activity | (Beta) Any time an [activity](#activities) is deleted. |
-
 
 ##### Progression Webhooks
 
