@@ -253,7 +253,6 @@ This request supports [date_filters](#filters-date-filters) over the following f
 | date_completed |
 | date_modified |
 | date_due |
-| started |
 
 ##### Range Filters
 This request supports [range filters](#filters-range-filters) over the following fields:
