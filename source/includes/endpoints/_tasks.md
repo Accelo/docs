@@ -559,6 +559,7 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | priority_id |
 | date_due |
 | remaining |
+| date_started |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked resources from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
