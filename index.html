@@ -651,13 +651,10 @@
                           <a href="#get-a-company-39-s-status" class="toc-h3 toc-link" data-title="Endpoints">Get a Company's Status</a>
                         </li>
                         <li>
-                          <a href="#list-company-statuses" class="toc-h3 toc-link" data-title="Endpoints">List Company Statuses</a>
-                        </li>
-                        <li>
                           <a href="#get-company-status" class="toc-h3 toc-link" data-title="Endpoints">Get Company Status</a>
                         </li>
                         <li>
-                          <a href="#list-company-statuses-2" class="toc-h3 toc-link" data-title="Endpoints">List Company Statuses</a>
+                          <a href="#list-company-statuses" class="toc-h3 toc-link" data-title="Endpoints">List Company Statuses</a>
                         </li>
                         <li>
                           <a href="#count-company-statuses" class="toc-h3 toc-link" data-title="Endpoints">Count Company Statuses</a>
@@ -8217,13 +8214,13 @@ their employees. See the <a href="https://help.accelo.com/guides/user/modules/co
 </tr>
 <tr>
 <td style="text-align: left">date_modified</td>
-<td style="text-align: left">unix  ts</td>
+<td style="text-align: left">unix ts</td>
 <td style="text-align: left">The date the company was last modified on the Accelo deployment.</td>
 </tr>
 <tr>
 <td style="text-align: left">date_last_interacted</td>
 <td style="text-align: left">unix ts</td>
-<td style="text-align: left">The date the company was last modified on the Accelo deployment.</td>
+<td style="text-align: left">The date the company was last interacted with.</td>
 </tr>
 <tr>
 <td style="text-align: left">comments</td>
@@ -8337,7 +8334,7 @@ values, for a given company. This object contains:</p>
 <tr>
 <td style="text-align: left"><strong>title</strong></td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">The title for this segmentation. For example &quot;Industry&quot; or &quot;size&quot;</td>
+<td style="text-align: left">The title for this segmentation. For example &quot;Industry&quot; or &quot;Size&quot;</td>
 </tr>
 <tr>
 <td style="text-align: left"><strong>value</strong></td>
@@ -8355,7 +8352,7 @@ values, for a given company. This object contains:</p>
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span> <span class="se">\</span>
@@ -8374,7 +8371,7 @@ parameter.</p>
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/ <span class="se">\</span>
@@ -8560,7 +8557,7 @@ fields requested through <code>_fields</code>, and displayed according to any pa
 <p>Sample Request:    </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/count <span class="se">\</span>
@@ -8589,7 +8586,7 @@ or filters this will be a count of all companies on the deployment. This request
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/recent</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/recent <span class="se">\</span>
@@ -8600,10 +8597,7 @@ or filters this will be a count of all companies on the deployment. This request
 <p>Equivalent request:  </p>
 
 <p><code>GET /companies?_filters=order_by_desc(date_created)</code></p>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/recent</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre>
+
 <p>This request returns the most recently created companies on the Accelo deployment. This request is equivalent to
 requesting all companies and ordering in descending order of <code>date_created</code>.</p>
 <h4 id='configuring-the-response-3'>Configuring the Response</h4>
@@ -8617,7 +8611,7 @@ fields requested through <code>_fields</code>, and displayed according to any pa
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/newest</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/newest <span class="se">\</span>
@@ -8628,10 +8622,7 @@ fields requested through <code>_fields</code>, and displayed according to any pa
 <p>Equivalent Request:</p>
 
 <p><code>GET /companies?_filters=order_by_desc(date_modified)</code></p>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/newest</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre>
+
 <p>This request returns the most recently changed companies on the Accelo deployment. This request is equivalent to
 requesting all companies and ordering in descending order of <code>date_modified</code>.</p>
 <h4 id='configuring-the-response-4'>Configuring the Response</h4>
@@ -8645,7 +8636,7 @@ fields requested through <code>_fields</code>, and displayed according to any pa
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/status</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/status <span class="se">\</span>
@@ -8657,33 +8648,14 @@ fields requested through <code>_fields</code>, and displayed according to any pa
 <h4 id='configuring-the-response-5'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status object</a> using the
 <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h4 id='handling-the-response-5'>Handling The Response</h4>
+<h4 id='handling-the-response-5'>Handling the Response</h4>
 <p>The response will be a single status object with its default fields and any additional fields requested via <code>_fields</code>.</p>
-<h3 id='list-company-statuses'>List Company Statuses</h3>
-<blockquote>
-<p>Sample Request:  </p>
-</blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/statuses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/statuses <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {access_token}'</span>
-</code></pre>
-<p><code>GET /companies/statuses</code></p>
-
-<p>This returns a list of company statuses.</p>
-<h4 id='configuring-the-response-6'>Configuring the Response</h4>
-<p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status object</a> using the
-<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h4 id='handling-the-response-6'>Handling The Response</h4>
-<p>The response will be an array of status objects with their default fields and any additional fields requested via <code>_fields</code>.</p>
 <h3 id='get-company-status'>Get Company Status</h3>
 <blockquote>
 <p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/statuses/{status_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/statuses/<span class="o">{</span>status_id<span class="o">}</span> <span class="se">\</span>
@@ -8692,18 +8664,18 @@ fields requested through <code>_fields</code>, and displayed according to any pa
 <p><code>GET /companies/statuses/{status_id}</code></p>
 
 <p>This request returns the company <a href="#statuses">status</a> specified by its  <code>status_id</code>.</p>
-<h4 id='configuring-the-response-7'>Configuring the Response</h4>
+<h4 id='configuring-the-response-6'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status object</a> using the
 <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
-<h4 id='handling-the-response-7'>Handling the Response</h4>
+<h4 id='handling-the-response-6'>Handling the Response</h4>
 <p>The response will be a company <a href="#statuses">status object</a> for the specified status with its default fields and any
 additional fields requested through <code>_fields</code>.</p>
-<h3 id='list-company-statuses-2'>List Company Statuses</h3>
+<h3 id='list-company-statuses'>List Company Statuses</h3>
 <blockquote>
 <p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/statuses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/statuses <span class="se">\</span>
@@ -8712,7 +8684,10 @@ additional fields requested through <code>_fields</code>.</p>
 <p><code>GET /companies/statuses</code></p>
 
 <p>This request returns a list of company <a href="#statuses">statuses</a> on the deployment.</p>
-<h4 id='configuring-the-response-8'>Configuring the Response</h4><h5 id='pagination-2'>Pagination</h5>
+<h4 id='configuring-the-response-7'>Configuring the Response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#statuses">status object</a> using the
+<a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='pagination-2'>Pagination</h5>
 <p>This request supports the standard <a href="#configuring-the-response-pagination">pagination</a> requests.</p>
 <h5 id='additional-fields-and-linked-objects-2'>Additional Fields and Linked Objects</h5>
 <p>This request supports requesting additional fields and linked objects from the company <a href="#statuses">status object</a> through
@@ -8774,12 +8749,14 @@ the <a href="#configuring-the-response-fields"><code>_fields</code></a> paramete
 <td style="text-align: left">title</td>
 </tr>
 </tbody></table>
+<h4 id='handling-the-response-7'>Handling The Response</h4>
+<p>The response will be an array of status objects with their default fields and any additional fields requested via <code>_fields</code>.</p>
 <h3 id='count-company-statuses'>Count Company Statuses</h3>
 <blockquote>
 <p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/statuses/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
   https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/statuses/count <span class="se">\</span>
@@ -8799,7 +8776,7 @@ With no searches or filters this will be a count of all company statuses on the 
 </thead><tbody>
 <tr>
 <td style="text-align: left"><strong>count</strong></td>
-<td style="text-align: left">unsigned</td>
+<td style="text-align: left">unsigned int</td>
 <td style="text-align: left">A count of the listed company statuses.</td>
 </tr>
 </tbody></table>
@@ -8808,47 +8785,47 @@ With no searches or filters this will be a count of all company statuses on the 
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/contact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/<span class="o">{</span>company_id<span class="o">}</span>/contact <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/contact <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>GET /companies/{company_id}/contact</code></p>
 
 <p>This request returns the main <a href="#contacts">contact</a> of a company identified by its <code>{company_id}</code>. This is the contact
 associated with the company&#39;s <code>default_affiliation</code>.</p>
-<h4 id='configuring-the-response-9'>Configuring the Response</h4>
+<h4 id='configuring-the-response-8'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#contacts">contact object</a> using the
 <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-8'>Handling the Response</h4>
-<p>The response will be a single <a href="#contact">contact</a> with its default fields and any other additional fields requested via
+<p>The response will be a single <a href="#contacts">contact</a> with its default fields and any other additional fields requested via
 <code>_fields</code>.</p>
 <h3 id='list-contacts-against-a-company'>List Contacts Against a Company</h3>
 <blockquote>
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/contacts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/<span class="o">{</span>company_id<span class="o">}</span>/contacts <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/contacts <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>GET /companies/{company_id}/contacts</code></p>
 
 <p>This request returns a list of <a href="#contacts">contacts</a> for a company identified by its <code>{company_id}</code>.</p>
-<h4 id='configuring-the-response-10'>Configuring the Response</h4>
+<h4 id='configuring-the-response-9'>Configuring the Response</h4>
 <p>This request may be configured and handled as per <a href="#list-contacts"><code>GET /contacts</code></a></p>
 <h3 id='count-contacts-on-a-company'>Count Contacts on a Company</h3>
 <blockquote>
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/contacts/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/<span class="o">{</span>company_id<span class="o">}</span>/contacts/count <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/contacts/count <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>GET /companies/{company_id}/contacts/count</code></p>
@@ -8875,33 +8852,30 @@ field:</p>
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/managers</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/<span class="o">{</span>company_id<span class="o">}</span>/managers <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/managers <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>GET /companies/{company_id}/managers</code></p>
 
 <p>This request returns a list of <a href="#the-manager-object">managers</a> of a company specified by its <code>company_id</code>.</p>
-<h4 id='configuring-the-response-11'>Configuring the Response</h4>
-<p>This request may be configured and handled a per <a href="#list-staff"><code>GET /staff</code></a></p>
+<h4 id='configuring-the-response-10'>Configuring the Response</h4>
+<p>This request may be configured and handled as per <a href="#list-staff"><code>GET /staff</code></a></p>
 <h3 id='list-a-company-39-s-segmentations'>List A Company&#39;s Segmentations</h3>
 <blockquote>
 <p>Sample Request:   </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/segmentations</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
- https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/<span class="o">{</span>company_id<span class="o">}</span>/segmentations <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/segmentations <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>GET /companies/{company_id}/segmentations</code></p>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/companies/{company_id}/segmentations</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre>
+
 <p>This request returns a list of <a href="#the-company-segmentation-object">company segmentations</a> for a company identified by its <code>company_id</code>.
 This request takes no parameters and returns a list of segmentations.</p>
 
@@ -8935,10 +8909,10 @@ This request takes no parameters and returns a list of segmentations.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='update-a-company'>Update a Company</h3>
 <blockquote>
-<p>Example request:</p>
+<p>Sample Request:</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
@@ -8946,7 +8920,7 @@ comments=This%20is%20a%20fresh%20new%20company
 _fields=comments
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X put <span class="se">\</span>
   https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {acces_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   -d <span class="s1">'comments=This%20is%20a%20fresh%20new%20company'</span> <span class="se">\</span>
   -d <span class="s1">'_fields=comments'</span>
@@ -8978,18 +8952,17 @@ _fields=comments
 <td style="text-align: left">name</td>
 </tr>
 </tbody></table>
-<h4 id='configuring-the-response-12'>Configuring the Response</h4>
+<h4 id='configuring-the-response-11'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a>
 using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-9'>Handling the Response</h4>
-<p>This request returns the single updated company object, with its default fields and any additional fields requesting
-through <code>_fields</code>.</p>
+<p>This request returns the single updated company object, with its default fields and any additional fields requested through <code>_fields</code>.</p>
 <h3 id='create-a-company'>Create a Company</h3>
 <blockquote>
-<p>Sample request:  </p>
+<p>Sample Request:  </p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/companies</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
@@ -9057,25 +9030,25 @@ profile.12=09-17
 </tbody></table>
 <h5 id='setting-profile-field-values'>Setting Profile Field Values</h5>
 <p><a href="#profiles">Profile field values</a> may be set when you create a company, for a given profile value identified by
-[<code>profile_value_id</code> you may update it through the field &quot;profile.{<code>profile_value_id</code>}&quot;.</p>
-<h4 id='configuring-the-response-13'>Configuring the Response</h4>
+[<code>profile_value_id</code>] you may update it through the field &quot;profile.{<code>profile_value_id</code>}&quot;.</p>
+<h4 id='configuring-the-response-12'>Configuring the Response</h4>
 <p>This request supports requesting additional fields and linked objects from the <a href="#the-company-object">company object</a>
 using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
 <h4 id='handling-the-response-10'>Handling the Response</h4>
-<p>This request returns the created company object, with its default fields and any additional fields requesting through
+<p>This request returns the created company object, with its default fields and any additional fields requested through
 <code>_fields</code>.</p>
 <h3 id='add-a-manager'>Add a Manager</h3>
 <blockquote>
 <p>Sample Request:  </p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/companies/{company_id}/managers/add</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
 manager_id=14
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X post <span class="se">\</span>
-  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/managers/add <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   -d <span class="s1">'manager_id=14'</span>
@@ -9105,14 +9078,14 @@ identified by its unique <code>company_id</code>. The request returns a list of 
 <td style="text-align: left">Nature of the new relationship. Must be &quot;professional&quot;,&quot;confidential&quot; or &quot;private&quot;. Defaults to &quot;professional&quot;, see the <a href="https://help.accelo.com/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships">support documentation</a> for more information on manager relationships.</td>
 </tr>
 </tbody></table>
-<h4 id='configuring-the-response-14'>Configuring the Response</h4>
+<h4 id='configuring-the-response-13'>Configuring the Response</h4>
 <p>This response may be configured and handled in the same way as <a href="#list-managers"><code>GET /companies/{company_id}/managers</code></a>.</p>
 <h3 id='remove-a-company'>Remove a Company</h3>
 <blockquote>
 <p>Sample Request:  </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span> <span class="se">\</span>
@@ -9126,21 +9099,21 @@ parameters and returns no resource.</p>
 <blockquote>
 <p>Sample Request:  </p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/companies/{company_id}/managers/delete</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-relationship=23
+relationship_id=23
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
-  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span>/managers/delete  <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   -d <span class="s1">'relationship_id=23'</span>
 </code></pre>
 <p><code>DELETE /companies/{company_id}/managers/delete</code></p>
 
-<p>This request returns a staff member, identified via the <code>relationship_id</code> of their manager object, from the role of
+<p>This request removes a staff member, identified via the <code>relationship_id</code> of their manager object, from the role of
 manager of a company, identified by its <code>company_id</code>. The <code>manager_id</code> is not used to identify the manager as a manager
 can have multiple relationships with the same company. Hence this request takes a single parameter:</p>
 
@@ -9195,7 +9168,7 @@ This is the request <a href="#retrieve-a-list-of-profile-fields"><code>GET /{obj
 <p>This request updates and returns a <a href="#the-profile-value-object">profile field value</a>, specified by its <code>profile_value_id</code>
 of a particular <a href="#the-company-object">company</a>, identified by its <code>company_id</code>. This is the request
 <a href="#update-a-profile-value-link"><code>PUT/{object}/{object_id}/profiles/values/{profile_value_id}</code></a> where the object is
-&quot;company&quot;, and whose id is <code>{company_id}</code>.</p>
+&quot;companies&quot;, and whose id is <code>{company_id}</code>.</p>
 <h3 id='set-a-profile-field-value-on-a-company'>Set a Profile Field Value on a Company</h3>
 <blockquote>
 <p>See the <a href="#create-a-profile-value-link">profiles section</a> for a sample request</p>
@@ -9205,7 +9178,7 @@ of a particular <a href="#the-company-object">company</a>, identified by its <co
 
 <p>This request sets and returns a <a href="#the-profile-value-object">profile value</a> for a <a href="#the-profile-field-object">profile field</a>, 
 specified by its <code>profile_field_id</code>, for a <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This
-is the request <a href="#update-a-profile-value-link"><code>POST /{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where is
+is the request <a href="#create-a-profile-value-link"><code>POST /{object}/{object_id}/profiles/fields/{profile_field_id}</code></a> where the
 object is &quot;companies&quot; and whose id is <code>{company_id}</code></p>
 <h3 id='list-available-progressions-on-a-company'>List Available Progressions on a Company</h3>
 <blockquote>
@@ -9226,7 +9199,7 @@ where the object is &quot;companies&quot; whose id is <code>{company_id}</code><
 
 <p>This request uses the given <a href="#progressions">progression</a>, specified by its <code>progression_id</code> to progress the status of a
 <a href="#the-company-object">company</a>, specified by its <code>company_id</code>. This is the request
-<a href="#run-a-status-update-using-a-given-progression"><code>[PUT|POST]/{object}/{object_id}/progressions/{progression_id/auto}</code></a>
+<a href="#run-a-status-update-using-a-given-progression"><code>[PUT|POST]/{object}/{object_id}/progressions/{progression_id}/auto</code></a>
 where the object is &quot;companies&quot; whose id is <code>{company_id}</code>.</p>
 <h3 id='list-addresses-against-a-company'>List Addresses against a Company</h3>
 <blockquote>
