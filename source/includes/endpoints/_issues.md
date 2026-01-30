@@ -327,8 +327,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | against_id ||
 | against_type ||
 | status | Filter by the `status_id` of the issue. |
-| type | Filter by the `type_id` of the issue. **Deprecated**, please use `issue_type`. |
-| issue_type | Filter by the `issue_type_id`. |
+| type | Filter by the `type_id` of the issue. |
 | affiliation | Filter by the `affiliation_id` of the issue. |
 | class | Filter by the `class_id` of the issue. |
 | priority | **Deprecated**, please use `issue_priority` |
