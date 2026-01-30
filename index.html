@@ -588,6 +588,44 @@
                         </li>
                     </ul>
                   <li>
+                    <a href="#checklists" class="toc-h2 toc-link" data-title="Checklists">Checklists</a>
+                  </li>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#the-checklist-object" class="toc-h3 toc-link" data-title="Endpoints">The Checklist Object</a>
+                        </li>
+                        <li>
+                          <a href="#get-checklist" class="toc-h3 toc-link" data-title="Endpoints">Get Checklist</a>
+                        </li>
+                        <li>
+                          <a href="#list-checklists" class="toc-h3 toc-link" data-title="Endpoints">List Checklists</a>
+                        </li>
+                        <li>
+                          <a href="#count-checklists" class="toc-h3 toc-link" data-title="Endpoints">Count Checklists</a>
+                        </li>
+                        <li>
+                          <a href="#list-checklist-items" class="toc-h3 toc-link" data-title="Endpoints">List Checklist Items</a>
+                        </li>
+                        <li>
+                          <a href="#get-checklist-items" class="toc-h3 toc-link" data-title="Endpoints">Get Checklist Items</a>
+                        </li>
+                        <li>
+                          <a href="#count-checklist-items" class="toc-h3 toc-link" data-title="Endpoints">Count Checklist Items</a>
+                        </li>
+                        <li>
+                          <a href="#create-a-checklist" class="toc-h3 toc-link" data-title="Endpoints">Create a Checklist</a>
+                        </li>
+                        <li>
+                          <a href="#update-a-checklist" class="toc-h3 toc-link" data-title="Endpoints">Update a Checklist</a>
+                        </li>
+                        <li>
+                          <a href="#delete-a-checklist" class="toc-h3 toc-link" data-title="Endpoints">Delete a Checklist</a>
+                        </li>
+                        <li>
+                          <a href="#delete-a-checklist-item" class="toc-h3 toc-link" data-title="Endpoints">Delete a Checklist Item</a>
+                        </li>
+                    </ul>
+                  <li>
                     <a href="#companies" class="toc-h2 toc-link" data-title="Companies">Companies</a>
                   </li>
                     <ul class="toc-list-h3">
@@ -7571,7 +7609,7 @@ from one of the supported types.</p>
 <td style="text-align: left">The type of object the asset is to be linked to. Should be one of the supported objects listed for <a href="#the-asset-link">asset links</a>.</td>
 </tr>
 <tr>
-<td style="text-align: left">Description</td>
+<td style="text-align: left">description</td>
 <td style="text-align: left">string</td>
 <td style="text-align: left"></td>
 </tr>
@@ -7687,6 +7725,423 @@ and whose id is <code>asset_id</code></p>
 </a>, specified by its <code>asset_id</code>. This request is the request 
 <a href="#create-an-extension-value"><code>POST/{object}/{object_id}/extensions/fields/{extension_field_id}</code></a> where our object is &quot;assets&quot;
 whose id is <code>asset_id</code>.</p>
+<h2 id='checklists'>Checklists</h2>
+<blockquote>
+<p>Resource URI:<br>
+<code>/api/v0/checklists</code></p>
+</blockquote>
+
+<p>When creating a task in Accelo, you may want to cleanly lay out all of the key to-do items to ensure the task is completed properly.</p>
+
+<p>Using the Checklist feature, these key to-dos can be easily listed, marked and tracked to ensure your tasks stay on track. When a checklist item is marked as completed, Accelo will record which user completed it.</p>
+
+<p>See the <a href="https://help.accelo.com/guides/user/messages-and-tasks/tasks/using-checklists/">support documentation</a> for more information on checklists.</p>
+<h3 id='the-checklist-object'>The Checklist Object</h3>
+<blockquote>
+<p>Example checklist:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"124"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"against_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"against_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1624345472"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>The checklist object contains the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the checklist.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the object the checklist is against.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">The type of object the checklist is against. Only &#39;task&#39; is supported.</td>
+</tr>
+<tr>
+<td style="text-align: left">created_by</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the staff member that created the checklist.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_created</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the checklist was created.</td>
+</tr>
+</tbody></table>
+<h4 id='the-checklist-item'>The Checklist Item</h4>
+<p>Each checklist can have one or more items</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A unique identifier for the checklist item.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title</strong></td>
+<td style="text-align: left">string</td>
+<td style="text-align: left">A title for the checklist item.</td>
+</tr>
+<tr>
+<td style="text-align: left">created_by</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the staff member that created the checklist item.</td>
+</tr>
+<tr>
+<td style="text-align: left">complete</td>
+<td style="text-align: left">boolean</td>
+<td style="text-align: left">Whether the checklist item has been marked as completed.</td>
+</tr>
+<tr>
+<td style="text-align: left">checklist_id</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the checklist the item is associated with.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_modified</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the checklist was last modified.</td>
+</tr>
+<tr>
+<td style="text-align: left">modified_by</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the staff member that last modified the checklist item.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_completed</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the checklist was completed.</td>
+</tr>
+<tr>
+<td style="text-align: left">completed_by</td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">The unique identifier of the staff member that completed the checklist item.</td>
+</tr>
+<tr>
+<td style="text-align: left">ordering</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">An integer representing the checklist item&#39;s ordering within the checklist.</td>
+</tr>
+<tr>
+<td style="text-align: left">date_created</td>
+<td style="text-align: left">unix ts</td>
+<td style="text-align: left">The date the checklist was created.</td>
+</tr>
+</tbody></table>
+<h3 id='get-checklist'>Get Checklist</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/checklists/{checklist_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/<span class="o">{</span>checklist_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /checklists/{checklist_id}</code></p>
+
+<p>This request returns a single <a href="#the-checklist-object">checklist</a>, identified by its <code>checklist_id</code>.</p>
+<h4 id='configuring-the-response'>Configuring the response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-checklist-object">checklist object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h4 id='handling-the-response'>Handling the response</h4>
+<p>The response will be the single <a href="#the-checklist-object">checklist object</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<h3 id='list-checklists'>List Checklists</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/checklists</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /checklists</code></p>
+
+<p>This request returns a list of <a href="#the-checklist-object">checklists</a> on the deployment.</p>
+<h4 id='configuring-the-response-2'>Configuring the response</h4><h5 id='pagination'>Pagination</h5>
+<p>This request supports the <a href="#configuring-the-response-pagination">pagination</a> parameters.</p>
+<h4 id='configuring-the-response-3'>Configuring the response</h4>
+<p>This request supports requesting additional fields and linked objects from the <a href="#the-checklist-object">checklist object</a> using the <a href="#configuring-the-response-fields"><code>_fields</code></a> parameter.</p>
+<h5 id='basic-filters'>Basic Filters</h5>
+<p>This request supports <a href="#filters-basic-filters">basic filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">against_id</td>
+<td style="text-align: left">Filter by the against_id.</td>
+</tr>
+<tr>
+<td style="text-align: left">against_type</td>
+<td style="text-align: left">Filter by the against_type.</td>
+</tr>
+<tr>
+<td style="text-align: left">created_by</td>
+<td style="text-align: left">Filter by the <code>staff_id</code> of the creator.</td>
+</tr>
+</tbody></table>
+<h5 id='date-filters'>Date Filters</h5>
+<p>This request supports <a href="#filters-date-filters">date_filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">date_created</td>
+</tr>
+</tbody></table>
+<h5 id='order-filters'>Order Filters</h5>
+<p>This request supports <a href="#filters-order-filters">order filters</a> over the following fields:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">date_created</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h5 id='searching'>Searching</h5>
+<p>This request does not support the <a href="#configuring-the-response-searching"><code>_search</code></a> parameter.</p>
+<h4 id='handling-the-response-2'>Handling the response</h4>
+<p>The response will be a list of <a href="#the-checklist-object">checklists</a> with their default fields and any additional fields requested through <code>_fields</code>, and displayed according to any pagination parameters, filters, or searches used.</p>
+<h3 id='count-checklists'>Count Checklists</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/checklists/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/count <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /checklists/count</code></p>
+
+<p>This request will return a count of checklists in a list defined by any available searches or filters. With no searches or filters this will be a count of all checklists on the deployment. This request returns a single field:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>count</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A count of checklists listed.</td>
+</tr>
+</tbody></table>
+<h3 id='list-checklist-items'>List Checklist Items</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/checklists/items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/items <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>GET /checklists/items</code></p>
+
+<p>This request returns a list of <a href="#the-checklist-item">checklist items</a>.</p>
+<h3 id='get-checklist-items'>Get Checklist Items</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/checklists/items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+
+_filters=checklist_id({checklist_id})
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/items <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -d <span class="s1">'_filters=checklist_id({checklist_id})'</span>
+</code></pre>
+<p><code>GET /checklists/items?_filters=checklist_id(2)</code></p>
+
+<p>This request returns the <a href="#the-checklist-item">checklist items</a> for a given checklist.</p>
+<h3 id='count-checklist-items'>Count Checklist Items</h3>
+<blockquote>
+<p>Sample Request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v0/checklists/items/count</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/items/count <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+</code></pre>
+<p><code>GET /checklists/items/count</code></p>
+
+<p>This request will return a count of checklist items in a list defined by any available searches or filters.
+With no searches or filters this will be a count of all checklist items on the deployment. This request returns a single field:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>count</strong></td>
+<td style="text-align: left">unsigned</td>
+<td style="text-align: left">A count of the listed checklist items.</td>
+</tr>
+</tbody></table>
+<h3 id='create-a-checklist'>Create a Checklist</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v0/checklists</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X post <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span>
+</code></pre>
+<p><code>POST /checklists</code></p>
+
+<p>This request creates and returns a <a href="#the-checklist-object">checklist</a>.</p>
+<h4 id='configuring-the-request'>Configuring the request</h4>
+<p>The following fields from the <a href="#the-checklist-object">checklist object</a> may be set with this Sample Request:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>against_id</strong></td>
+<td style="text-align: left">Must point to a valid object.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>against_type</strong></td>
+<td style="text-align: left">Must point to a valid object type. Only &#39;task&#39; is supported.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>items</strong></td>
+<td style="text-align: left">An array of items for the checklist. Each item includes &#39;title&#39; and &#39;ordering&#39;.</td>
+</tr>
+</tbody></table>
+<h4 id='handling-the-response-3'>Handling the response</h4>
+<p>The response will be the single, created <a href="#the-checklist-object">checklist</a> with its default fields and any additional fields requested through <code>_fields</code>.</p>
+<h3 id='update-a-checklist'>Update a Checklist</h3>
+<blockquote>
+<p>Sample Request:   </p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/api/v0/checklists/{checklist_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X put <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/<span class="o">{</span>checklist_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span>
+</code></pre>
+<p><code>PUT /checklists/{checklist_id}</code></p>
+
+<p>This request updates and returns a <a href="#the-checklist-object">checklist</a> on the deployment.</p>
+<h4 id='configuring-the-checklist'>Configuring the checklist</h4>
+<p>The following fields from the <a href="#the-checklist-object">checklist object</a> may be updated through this Sample Request:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Field Name</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>against_id</strong></td>
+<td style="text-align: left">Must point to a valid object.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>against_type</strong></td>
+<td style="text-align: left">Must point to a valid object type. Only &#39;task&#39; is supported.</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>items</strong></td>
+<td style="text-align: left">An array of items for the checklist. Each item includes &#39;title&#39; and &#39;ordering&#39;.</td>
+</tr>
+</tbody></table>
+<h3 id='delete-a-checklist'>Delete a Checklist</h3>
+<blockquote>
+<p>Sample Request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/checklists/{checklist_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/<span class="o">{</span>checklist_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>DELETE /checklists/{checklist_id}</code></p>
+
+<p>This request removes a checklist from the deployment, specified by its <code>checklist_id</code>. This request takes no parameters and
+returns no resources.</p>
+<h3 id='delete-a-checklist-item'>Delete a Checklist Item</h3>
+<blockquote>
+<p>Sample Request:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/checklists/items/{checklist_item_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
+ https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/checklists/items/<span class="o">{</span>checklist_item_id<span class="o">}</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
+</code></pre>
+<p><code>DELETE /checklists/items/{checklist_item_id}</code></p>
+
+<p>This request removes a checklist item from the deployment, specified by its <code>checklist_item_id</code>. This request takes no parameters and
+returns no resources.</p>
 <h2 id='companies'>Companies</h2>
 <blockquote>
 <p>Resource URI:
@@ -8659,7 +9114,7 @@ identified by its unique <code>company_id</code>. The request returns a list of 
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/companies/{company_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies/<span class="o">{</span>company_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
@@ -8677,7 +9132,7 @@ parameters and returns no resource.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
 relationship=23
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X post <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
   https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
@@ -12294,7 +12749,7 @@ which contains the following additional fields:</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/expenses/{expense_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/expenses/<span class="o">{</span>expense_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span>
@@ -15636,9 +16091,9 @@ through <code>_fields</code>.</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/issues/{issue_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/issues/<span class="o">{</span>issue_id<span class="o">}</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>DELETE /issues/{issue_id}</code></p>
 
@@ -16885,7 +17340,7 @@ requested through <code>_fields</code>.</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/jobs/{job_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/jobs/<span class="o">{</span>job_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
@@ -27300,9 +27755,9 @@ With no searches or filters this will be a count of all time externals on the de
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/time/externals/{time_external_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/time/externals/<span class="o">{</span>time_external_id<span class="o">}</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p><code>DELETE /time/externals/{time_externals_id}</code></p>
 
@@ -27575,7 +28030,7 @@ to converting the external appointment as a workable entry to use in Accelo.</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/timers/{timer_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\ </span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\ </span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/timers/<span class="o">{</span>timer_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
@@ -27963,7 +28418,7 @@ takes no parameters to configure the response.</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/v0/webhooks/subscriptions/{subscription_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X get <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X delete <span class="se">\</span>
  https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/webhooks/subscriptions/<span class="o">{</span>subscription_id<span class="o">}</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
