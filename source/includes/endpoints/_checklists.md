@@ -76,10 +76,10 @@ curl -X get \
 
 This request returns a single [checklist](#the-checklist-object), identified by its `checklist_id`.
 
-#### Configuring the response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [checklist object](#the-checklist-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### Handling the response
+#### Handling the Response
 The response will be the single [checklist object](#the-checklist-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -105,12 +105,12 @@ curl -X get \
 
 This request returns a list of [checklists](#the-checklist-object) on the deployment.
 
-#### Configuring the response
+#### Configuring the Response
 
 ##### Pagination
 This request supports the [pagination](#configuring-the-response-pagination) parameters.
 
-#### Configuring the response
+#### Configuring the Response
 This request supports requesting additional fields and linked objects from the [checklist object](#the-checklist-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
 ##### Basic Filters
@@ -141,7 +141,7 @@ This request supports [order filters](#filters-order-filters) over the following
 ##### Searching
 This request does not support the [`_search`](#configuring-the-response-searching) parameter.
 
-#### Handling the response
+#### Handling the Response
 The response will be a list of [checklists](#the-checklist-object) with their default fields and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -273,7 +273,7 @@ curl -X post \
 
 This request creates and returns a [checklist](#the-checklist-object).
 
-#### Configuring the request
+#### Configuring the Request
 
 The following fields from the [checklist object](#the-checklist-object) may be set with this Sample Request:
 
@@ -283,7 +283,7 @@ The following fields from the [checklist object](#the-checklist-object) may be s
 | **against_type** | Must point to a valid object type. Only 'task' is supported. |
 | **items** | An array of items for the checklist. Each item includes 'title' and 'ordering'. |
 
-#### Handling the response
+#### Handling the Response
 The response will be the single, created [checklist](#the-checklist-object) with its default fields and any additional fields requested through `_fields`.
 
 
@@ -311,7 +311,7 @@ curl -X put \
 
 This request updates and returns a [checklist](#the-checklist-object) on the deployment.
 
-#### Configuring the checklist
+#### Configuring the Checklist
 The following fields from the [checklist object](#the-checklist-object) may be updated through this Sample Request:
 
 | Field Name | Notes |

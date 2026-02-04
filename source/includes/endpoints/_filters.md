@@ -202,7 +202,7 @@ The following fields from the [filter object](#the-filter-object) may be updated
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [filter object](#the-filter-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
+#### Handling the Response
 The response will be the single, updated [filter object](#the-filter-object) containing its default fields, and any additional fields requested via `_fields`
 
 

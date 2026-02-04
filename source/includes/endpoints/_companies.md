@@ -579,7 +579,7 @@ This request supports requesting additional fields and linked objects from the [
 [`_fields`](#configuring-the-response-fields) parameter.
 
 
-#### Handling the Response 
+#### Handling the Response
 
 The response will be a single [contact](#contacts) with its default fields and any other additional fields requested via
 `_fields`.

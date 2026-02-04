@@ -931,7 +931,7 @@ This request returns a list of [tasks](#tasks) against an [issue](#the-issue-obj
 
 #### Configuring the Response
 
-This response may be configuring in the same way as [`GET /tasks`](#list-tasks)
+This response may be configured in the same way as [`GET /tasks`](#list-tasks)
 
 
 #### Handling the Response

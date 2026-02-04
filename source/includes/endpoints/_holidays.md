@@ -210,7 +210,7 @@ The following fields from the [holiday object](#the-holiday-object-beta) may be 
 **Note:** you may only update one of `date_end` or `duration_seconds`.
 
 #### Configuring the Response
-The response may be configuring as per [Get Holiday](#get-holiday-beta)
+The response may be configured as per [Get Holiday](#get-holiday-beta)
 
 #### Handling the Response
 The response will be the single, updated holiday with its default fields and any additional fields requested through `_fields`.
@@ -252,7 +252,7 @@ The following fields may be set through this request, (date fields may be sent a
 **Note:** only one of `date_end` or `duration_seconds` is required; both cannot be sent.
 
 #### Handling the Response
-The response may be configuring as per [Get Holiday](#get-holiday-beta)
+The response may be configured as per [Get Holiday](#get-holiday-beta)
 
 #### Handling the Response
 The response will be the new holiday with its default fields and any additional fields requested through `_fields`.

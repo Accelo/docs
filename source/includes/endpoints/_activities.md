@@ -842,7 +842,7 @@ The following fields from the [activity object](#the-activity-object) may be upd
 ```
 
 
-#### Configuring the response
+#### Configuring the Response
 
 This request supports requesting additional fields and linked objects from the [activity object](#the-activity-object)
 using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports 

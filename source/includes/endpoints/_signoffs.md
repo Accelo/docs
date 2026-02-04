@@ -146,7 +146,7 @@ curl -X get \
 This request returns a single [signoff](#the-signoff-object) using the [`_fields`](#configuring-the-response-fields)
 parameter.
 
-#### Configuring the response
+#### Configuring the Response
 This request supports requesting additional fields and linked resources from the [signoff object](#the-signoff-object)
 using the [`_fields`](#configuring-the-response-fields) parameter.
 

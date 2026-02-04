@@ -210,7 +210,7 @@ This request supports the use of the [`_search`](#configuring-the-response-searc
 |:-|
 | title |
 
-#### handling the Response
+#### Handling the Response
 This request will return a list of expenses containing the default fields and any additional fields request by `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -270,7 +270,7 @@ This request returns a single [expenses type](#the-expense-type) object, specifi
 #### Configuring the Response
 This request supports requesting extra fields and linked objects from the [expenses type](#the-expense-type) object using the [`_fields`](#configuring-the-response-fields) parameter.
 
-#### handling the Response
+#### Handling the Response
 The response will be a single [expense type](#the-expense-type) object with its default fields, and any additional fields requested through `_fields`.
 
 
@@ -341,13 +341,13 @@ This request supports [empty filters](#filters-empty-filters) over the following
 | title |
 
 ##### Searching
-This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+This request supports the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|
 | title |
 
-#### handling the Response
+#### Handling the Response
 The response will contain a list of [expense types](#the-expense-type) with their default fields, and any additional fields requested through `_fields`, and displayed according to any pagination parameters, filters, or searches used.
 
 
@@ -423,7 +423,7 @@ The following fields from the [expense object](#the-expense-object) may be updat
 #### Configuring the Response
 This request supports requesting additional fields and linked objects from the [expense object](#the-expense-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).
 
-#### handling the Response
+#### Handling the Response
 The response will be the single updated [expense object](#the-expense-object) with its default fields, and any additional fields requested through `_fields`.
 
 

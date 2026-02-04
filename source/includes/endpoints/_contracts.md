@@ -609,7 +609,7 @@ This request supports [empty filters](#filters-empty-filters) over the following
 
 ##### Searching
 
-This request the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
+This request supports the use of the [`_search`](#configuring-the-response-searching) parameter to search over the following fields:
 
 | Field |
 |:-|

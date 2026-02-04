@@ -91,7 +91,7 @@ This request returns a single [milestone](#the-milestone-object), identified by 
 
 #### Configuring the Response
 
-This request supports requesting additional fields and linked resource from the [milestone object](#the-milestone-object) 
+This request supports requesting additional fields and linked resources from the [milestone object](#the-milestone-object) 
 using the [`_fields`](#configuring-the-response-fields) parameter.
 
 

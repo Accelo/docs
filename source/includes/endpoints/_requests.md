@@ -195,7 +195,7 @@ curl -X get \
 This request returns a [request](#the-request-object) specified by its `request_id`.
 
 #### Configuring the Response
-This request supports requesting additional fields and linked from the [request object](#the-request-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the [request object](#the-request-object) using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
 The response will be the single [request](#the-request-object) with its default fields and any additional fields requested through `_fields`.
