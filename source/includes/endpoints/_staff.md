@@ -8,7 +8,7 @@ professionals, and collaborators
 
 ### The Staff Object
 
-The staff object contains the following
+The staff object contains the following fields and linked objects:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -231,8 +231,9 @@ This request supports all the [pagination](#configuring-the-response-pagination)
 
 ##### Additional Fields and Linked Objects
 
-This request supports requesting additional fields and linked objects from the [staff
-membership](#the-staff-membership-object) using the [`_fields`](#configuring-the-response-fields) parameter.
+This request supports requesting additional fields and linked objects from the
+[staff membership](#the-staff-membership-object) using the [`_fields`](#configuring-the-response-fields)
+parameter.
 
 ##### Basic Filters
 
@@ -286,7 +287,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/staff/{staff_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -299,7 +300,7 @@ This request updates and returns a [staff member](#the-staff-object), identified
 
 #### Configuring the Staff
 
-The following fields from the [staff object](#the-staff-object) may be updated with this Sample Request:
+The following fields from the [staff object](#the-staff-object) may be updated with this request:
 
 | Field Name |
 |:-|
@@ -341,7 +342,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/staff \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -354,7 +355,7 @@ This request creates and returns a new [staff member](#the-staff-object).
 
 #### Configuring the Staff
 
-The following fields from the [staff object](#the-staff-object) may be set through this Sample Request:
+The following fields from the [staff object](#the-staff-object) may be set through this request:
 
 | Field Name | Notes |
 |:-|:-|
@@ -378,7 +379,7 @@ the `_fields` parameter.
 
 #### Handling the Response
 
-The response will be the single, updated [staff object](#the-staff-object) with its default fields and any additional
+The response will be the single, created [staff object](#the-staff-object) with its default fields and any additional
 fields requested through `_fields`.
 
 
@@ -462,5 +463,5 @@ and whose id is the `staff_id`.
 
 This request sets and returns a [profile value](#the-profile-value-object) for a profile field, specified by its
 `profile_field_id`, for a [staff object](#the-staff-object), specified by its `staff_id`. This is the request 
-[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where the object is "staff",
+[`POST/{object}/{object_id}/profiles/fields/{profile_field_id}`](#create-a-profile-value-link) where the object is "staff",
 and whose value is `staff_id`.
