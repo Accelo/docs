@@ -180,7 +180,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -243,7 +243,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id}/trigger \
   -H 'authorization: Bearer {access_token}' \
 ```
@@ -280,7 +280,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id}/dispatch \
   -H 'authorization: Bearer {access_token}' \
 ```

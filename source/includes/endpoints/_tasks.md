@@ -536,7 +536,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/tasks \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -584,7 +584,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/tasks \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'

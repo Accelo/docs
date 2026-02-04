@@ -676,7 +676,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/prospects/{prospect_id} \
   -H 'authorization: Bearer {access_token}'
   -H 'Content-Type: application/x-www-form-urlencoded'

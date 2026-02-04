@@ -220,7 +220,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/time/externals/{time_external_id}/convert_to_meeting \
   -H 'authorization: Bearer {access_token}' \
 ```

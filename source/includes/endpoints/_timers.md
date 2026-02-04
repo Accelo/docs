@@ -123,7 +123,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \ 
+curl -X post \ 
  https://{deployment}.api.accelo.com/api/v0/timers/{timer_id} \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -166,7 +166,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \ 
+curl -X post \ 
  https://{deployment}.api.accelo.com/api/v0/timers \
   -H 'authorization: Bearer {access_token}' \
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -234,7 +234,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X put \ 
  https://{deployment}.api.accelo.com/api/v0/timers/{timer_id}/pause \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -259,7 +259,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X put \ 
  https://{deployment}.api.accelo.com/api/v0/timers/{timer_id}/start \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -284,7 +284,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \ 
+curl -X put \ 
  https://{deployment}.api.accelo.com/api/v0/timers/{timer_id}/cancel \
   -H 'authorization: Bearer {access_token}'
 ```

@@ -779,7 +779,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/signoffs/attachments/{attachment_id} \
   -H 'authorization: Bearer {access_token}'
 ```

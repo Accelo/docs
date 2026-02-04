@@ -310,7 +310,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/contacts/{contact_id} \
   -H 'authorization: Bearer {access_token}'
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -368,7 +368,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X post \
  https://{deployment}.api.accelo.com/api/v0/contacts/ \
   -H 'authorization: Bearer {access_token}'
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -427,7 +427,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X delete \
  https://{deployment}.api.accelo.com/api/v0/contacts/{contact_id} \
   -H 'authorization: Bearer {access_token}'
   -H 'Content-Type: application/x-www-form-urlencoded'
@@ -460,7 +460,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```shell
-curl -X get \
+curl -X put \
  https://{deployment}.api.accelo.com/api/v0/contacts/{contact_id}/addresses \
   -H 'authorization: Bearer {access_token}'
   -H 'Content-Type: application/x-www-form-urlencoded'
