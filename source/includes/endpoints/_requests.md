@@ -55,7 +55,7 @@ The request object contains the following:
 | conversion_id | unsigned | The ID of the module where the request was converted to. |
 
 #### The Request Type
-> Example request type object:
+> Sample request type object:
 
 ```json
 {
@@ -486,7 +486,7 @@ The response will be the single, updated [request](#the-request-object) with its
 
 
 ### Create a Request
-> Example request:
+> Sample Request:
 
 ```shell
 curl -post \

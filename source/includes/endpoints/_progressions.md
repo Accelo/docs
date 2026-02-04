@@ -68,7 +68,7 @@ Progressions may be used to perform an automatic status update, this is a three 
 
 ### List Available Progressions
 <a name="retrieve-a-list-of-available-progressions"></a>
-> Example request:
+> Sample Request:
 
 ```shell
 curl -X get \
@@ -230,7 +230,7 @@ no searches or filters this will be a count of all progression histories. The re
 
 ### Auto Run a Progression
 <a name="run-a-status-update-using-a-given-progression"></a>
-> Example request, we wish to move our job to "complete" from the above request we found that the progression with id "8" will do this:
+> Sample Request: we wish to move our job to "complete" from the above request we found that the progression with id "8" will do this:
 
 ```shell
 curl -X post \
