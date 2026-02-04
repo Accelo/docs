@@ -44,7 +44,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
 	https://{deployment}.api.accelo.com/api/v0/holidays/{holiday_id} \
-	-H 'authorization: Bearer {access_token} \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 `GET /holidays/{holiday_id}`
@@ -73,7 +73,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
 	https://{deployment}.api.accelo.com/api/v0/holidays/ \
-	-H 'authorization: Bearer {access_token} \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 `GET /holidays/`
@@ -161,7 +161,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
 	https://{deployment}.api.accelo.com/api/v0/holidays/count \
-	-H 'authorization: Bearer {access_token} \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 `GET /holidays/count`
@@ -188,7 +188,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X PUT \
 	https://{deployment}.api.accelo.com/api/v0/holidays/{holiday_id} \
-	-H 'authorization: Bearer {access_token} \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 `PUT /holidays/{holiday_id}`
@@ -231,7 +231,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X POST \
 	https://{deployment}.api.accelo.com/api/v0/holidays/ \
-	-H 'authorization: Bearer {access_token} \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 `POST /holidays`
@@ -273,7 +273,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X DELETE \
 	https://{deployment}.api.accelo.com/api/v0/holidays/{holiday_id} \
-	-H 'authorization: Bearer {access_token} \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 `DELETE /holidays/{holiday_id}`

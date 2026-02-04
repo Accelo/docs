@@ -407,7 +407,7 @@ The response will be an array of [request threads](#request-threads) labeled "re
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/requests/types \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 ```http

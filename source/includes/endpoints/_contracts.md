@@ -701,7 +701,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/contracts/statuses/{status_id} \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 
@@ -807,7 +807,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/contracts/statuses/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 

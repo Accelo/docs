@@ -338,7 +338,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/object_budgets/templates \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /object_budgets/templates`
@@ -440,7 +440,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/object_budgets/materials \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /object_budgets/materials`
@@ -538,7 +538,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/object_budgets/services \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/object_budgets/services`

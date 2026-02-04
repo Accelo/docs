@@ -236,7 +236,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/checklists/items/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /checklists/items/count`

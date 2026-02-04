@@ -534,7 +534,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/companies/statuses/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /companies/statuses/count`

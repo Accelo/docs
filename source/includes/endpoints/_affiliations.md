@@ -330,7 +330,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/affiliations/statuses/{status_id} \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /affiliations/statuses/{status_id}`
@@ -364,7 +364,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/affiliations/statuses/{status_id} \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /affiliations/statuses`
@@ -435,7 +435,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/affiliations/statuses/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /affiliations/statuses/count`
@@ -539,7 +539,7 @@ Content-Type: application/x-www-form-urlencoded
 curl -X post \
   https://{deployment}.api.accelo.com/api/v0/affiliations \
   -H 'authorization: Bearer {access_token}' \
-  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'content-type: application/x-www-form-urlencoded'
 ```
 
 `POST /affiliations`

@@ -103,7 +103,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/progressions/history \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/progressions/history`
@@ -181,7 +181,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/progressions/history/{progression_history_id} \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/progressions/history/{progression_history_id}`
@@ -205,7 +205,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/progressions/history/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/progressions/history/count`

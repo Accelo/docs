@@ -755,7 +755,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/issues/resolutions/{resolution_id} \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/issues/resolutions/{resolution_id}`
@@ -794,7 +794,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/issues/resolutions \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/issues/resolutions`
@@ -888,7 +888,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/issues/resolutions/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/issues/resolutions/count`

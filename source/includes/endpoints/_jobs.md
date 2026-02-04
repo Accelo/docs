@@ -562,7 +562,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X GET \
   https://{deployment}.api.accelo.com/api/v0/jobs/statuses \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET/jobs/statuses`
@@ -640,7 +640,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get \
   https://{deployment}.api.accelo.com/api/v0/jobs/statuses/count \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /jobs/statuses/count`

@@ -245,7 +245,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X post \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id}/trigger \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `POST /webhooks/subscription/{subscription_id}/trigger`
@@ -282,7 +282,7 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X post \
  https://{deployment}.api.accelo.com/api/v0/webhooks/subscriptions/{subscription_id}/dispatch \
-  -H 'authorization: Bearer {access_token}' \
+  -H 'authorization: Bearer {access_token}'
 ```
 
 `POST /webhooks/subscriptions/{subscription_id}/dispatch`
