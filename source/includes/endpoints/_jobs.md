@@ -775,6 +775,7 @@ The following fields may be set through this request:
 | **manager_id** | The `staff_id` of the staff member to be assigned manager. This MUST point to a valid staff. |
 | **type_id*** | MUST point to a valid [job type](#the-job-type). |
 | **title** ||
+| job_template_id | The unique identifier of the `job_template_id`. See the [support documentation](https://help.accelo.com/guides/user/modules/projects/creating-a-project-plan/#Templates) for information on job templates. |
 | rate_id ||
 | status_id | MUST point to a valid [job status](#the-job-status). |
 | contract_id | The `contract_id` of a [contract](#contracts) to be linked to the job. |
