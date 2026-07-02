@@ -56,7 +56,7 @@ The payment object contains the following:
 }
 ```
 
-Where a payment object stores the information on a payment made against a single object, a receipt may be issued for a single payment, or a collection of payments. For information on accessing receipts from the deployment and receiving receipts from an integrated accounting system see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/billing-and-invoices/receipts/). The receipt object contains the following:
+Where a payment object stores the information on a payment made against a single object, a receipt may be issued for a single payment, or a collection of payments. For information on accessing receipts from the deployment and receiving receipts from an integrated accounting system see the [support documentation](https://help.accelo.com/guides/user/modules/billing-and-invoices/receipts/). The receipt object contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|
@@ -79,7 +79,7 @@ Where a payment object stores the information on a payment made against a single
 }
 ```
 
-The payment method describes the different methods payment may be given, for example via cash or via mastercard. Payments from online billing systems should automatically update the method, see the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/receipt-and-payment-methods/) for more information. The payment method object contains the following:
+The payment method describes the different methods payment may be given, for example via cash or via mastercard. Payments from online billing systems should automatically update the method, see the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/receipt-and-payment-methods/) for more information. The payment method object contains the following:
 
 | Field | Type | Description |
 |:-|:-|:-|

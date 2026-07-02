@@ -13,7 +13,7 @@ Progressions allow you and your team to intelligently move records between statu
 
 **NOTE**: For a user to perform an interaction on a progression they MUST have the process permission or be a manager (or assignee for tasks) of the object. The list progression actions endpoint will NOT return progressions on objects that do not meet these requirements.
 
-See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/) for information on progressions, including how to define new progressions on your deployment.
+See the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/business-processes/progressions/) for information on progressions, including how to define new progressions on your deployment.
 
 
 ### The Progression Object

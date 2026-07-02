@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/tasks`
 
-Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
+Tasks are small units of work, they may be thought of as the type of work you would put on a "to-do" list. See the [support documentation](https://help.accelo.com/guides/user/messages-and-tasks/tasks/) for more information on tasks and how to interact with them on the deployment.
 
 ### The Task Object
 > Example task:
@@ -109,7 +109,7 @@ The task object contains the following:
 
 #### The Task Priority
 Task priorities help you prioritize your task. They may be set up from the deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/tasks/using-task-priorities/#configure_task_priority_name) for information. They
+documentation](https://help.accelo.com/guides/user/messages-and-tasks/tasks/using-task-priorities/#configure_task_priority_name) for information. They
 contain the following:
 
 
@@ -231,7 +231,7 @@ This request supports [basic filters](#filters-basic-filters) over the following
 | id |
 | assignee | Filter by the `staff_id` of the assignee. |
 | manager | Filter by the `staff_id` of the manager. |
-| status | Filter by `status_id`. |
+| task_status | Filter by `status_id`. |
 | standing ||
 | against_type ||
 | against_id ||
@@ -557,11 +557,9 @@ The following fields from the [task object](#the-task-object) may be updated thr
 | affiliation_id |
 | manager_id |
 | priority_id |
-| type_id |
-| rate_id |
-| rate_charged |
 | date_due |
 | remaining |
+| date_started |
 
 #### Configuring the Response
 This request supports requesting additional fields and linked resources from the [task object](#the-task-object) using the [`_fields`](#configuring-the-response-fields) parameter. This request also supports [breadcrumbs](#configuring-the-response-breadcrumbs).

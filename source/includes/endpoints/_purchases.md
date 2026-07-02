@@ -4,7 +4,7 @@
 `/api/v0/purchases`
 
 Track the purchases made when completing a [job](#jobs-projects), [issue](#issues) or [contract](#contracts). More
-information can be found on the [support documentation](#https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/purchases/)
+information can be found on the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/purchases/)
 
 ### The Purchase Object
 The purchase object contains the following fields:

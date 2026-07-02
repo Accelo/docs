@@ -20,6 +20,7 @@ includes:
   - endpoints/addresses
   - endpoints/affiliations
   - endpoints/assets
+  - endpoints/checklists
   - endpoints/companies
   - endpoints/contacts
   - endpoints/contracts

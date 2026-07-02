@@ -2,7 +2,7 @@
 > Resource URI:
 `/api/v0/requests`
 
-These allow you to track request from clients sent to your shared company addresses, such as "@support" or "@sales" addresses. See the [support documentation](https://www.accelo.com/resources/help/learn-the-basics/tickets-and-requests/request-basics/) for more information on requests.
+These allow you to track request from clients sent to your shared company addresses, such as "@support" or "@sales" addresses. See the [support documentation](https://help.accelo.com/learn-the-basics/tickets-and-requests/request-basics/) for more information on requests.
 
 ### The Request Object
 > Sample request object:
@@ -51,6 +51,8 @@ The request object contains the following:
 | claimer | unsigned or object | The [staff](#staff) member who has claimed the request. |
 | affiliation_id | unsigned | The unique identifier of the [affiliation](#affiliations) associated with the request. |
 | affiliation | unsigned or object | The [affiliation](#affiliations) associated with the request. |
+| conversion_type | unsigned or object | The module type that the request was converted to, for example Prospects (Sales), Issues (Tickets), Jobs (Projects) |
+| conversion_id | unsigned | The ID of the module where the request was converted to. |
 
 #### The Request Type
 > Example request type object:
@@ -65,7 +67,7 @@ The request object contains the following:
 }
 ```
 
-The request type object allows you to assign a type to each request, making them easier to track and categorize. By default there are two types "support" and "sales", you may set up as many different types as you like from your deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/user/inbox-and-requests/request-inbox/setup-and-configuration/) for more information. This object contains the following:
+The request type object allows you to assign a type to each request, making them easier to track and categorize. By default there are two types "support" and "sales", you may set up as many different types as you like from your deployment, see the [support documentation](https://help.accelo.com/guides/user/inbox-and-requests/request-inbox/setup-and-configuration/) for more information. This object contains the following:
 
 | Fields | Type | Description |
 |:-|:-|:-|

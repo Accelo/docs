@@ -441,9 +441,7 @@ Equivalent request:
 
 This request sets a contact on the Accelo deployment, identified by its `contact_id`, to `inactive`. This request does
 **NOT** delete the contact, a user can only be removed from the web deployment, see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/deactivate-delete-a
--company-contact/#HowtoDeleteContact) for information. This request accepts no parameters and only returns the meta
-object.
+documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/deactivate-delete-a-company-contact/#HowtoDeleteContact) for information. This request accepts no parameters and only returns the meta object.
 
 
 

@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/filters`
 
-Filters are available on the Accelo deployment that allow you to search through the resources on the deployment. These filters may be customized and saved on the deployment, see the [support documentation](https://www.accelo.com/resources/help/guides/user/filters-and-favorites/filters/) for more information. Currently these filters are supported through the API on the following objects:
+Filters are available on the Accelo deployment that allow you to search through the resources on the deployment. These filters may be customized and saved on the deployment, see the [support documentation](https://help.accelo.com/guides/user/filters-and-favorites/filters/) for more information. Currently these filters are supported through the API on the following objects:
 
 * [Activities](#activities)  
 * [Affiliations](#affiliations)  

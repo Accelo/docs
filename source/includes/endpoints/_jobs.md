@@ -2,7 +2,7 @@
 > Resource URI:  
 `api/v0/jobs`
 
- Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/) for more information.
+ Jobs (or Projects) help you to plan, delegate and track client and internal projects. Projects can be as simple or complex as you like, see the [support documentation](https://help.accelo.com/guides/user/modules/projects/) for more information.
 
 ### The Job Object
 > Example job object:
@@ -83,8 +83,8 @@ The jobs object contains the following:
 ```
 
 You may set up and configure different job types to suit your business processes, general information on types can be
-found in the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide
-/triggers-and-business-processes/types/). For jobs, the type object contains the following:
+found in the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/triggers-and-business-processes/types/).
+For jobs, the type object contains the following:
 
  Field | Type | Description |
 |:-|:-|:-|
@@ -775,6 +775,7 @@ The following fields may be set through this request:
 | **manager_id** | The `staff_id` of the staff member to be assigned manager. This MUST point to a valid staff. |
 | **type_id*** | MUST point to a valid [job type](#the-job-type). |
 | **title** ||
+| job_template_id | The unique identifier of the `job_template_id`. See the [support documentation](https://help.accelo.com/guides/user/modules/projects/creating-a-project-plan/#Templates) for information on job templates. |
 | rate_id ||
 | status_id | MUST point to a valid [job status](#the-job-status). |
 | contract_id | The `contract_id` of a [contract](#contracts) to be linked to the job. |
@@ -813,7 +814,7 @@ Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \
+curl -X delete \
  https://{deployment}.api.accelo.com/api/v0/jobs/{job_id} \
   -H 'authorization: Bearer {access_token}'
 ```
