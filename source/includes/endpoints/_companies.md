@@ -6,8 +6,7 @@
 Companies are the entries in Accelo to note the companies with whom you interact. These can range from partners and
 vendors to your actual customers, and can even include you! These Client entries also act as the central repository for
 all information related to that group, including correspondence, project and sales updates, and contact information for
-their employees. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-
-and-contacts/) for more information on accessing and using companies on your deployment.
+their employees. See the [support documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/) for more information on accessing and using companies on your deployment.
 
 ### The Company Object
 > Example company object:
@@ -41,8 +40,8 @@ and-contacts/) for more information on accessing and using companies on your dep
 | phone | string | A contact phone number for the company. |
 | fax | string | A fax number for the company. |
 | date_created | unix ts | The date the company was created on the Accelo deployment. |
-| date_modified | unix  ts | The date the company was last modified on the Accelo deployment. |
-| date_last_interacted | unix ts | The date the company was last modified on the Accelo deployment. |
+| date_modified | unix ts | The date the company was last modified on the Accelo deployment. |
+| date_last_interacted | unix ts | The date the company was last interacted with. |
 | comments | string | Any comments or notes made against the company. |
 | standing | string | The standing of the company, from its status. |
 | status | unsigned or object | The company's [status](#statuses). |
@@ -100,9 +99,9 @@ values, for a given company. This object contains:
 | Field | Type | Description |
 |:-|:-|:-|
 | **id** | unsigned | The unique identifier for this segmentation. |
-| **title** | string | The title for this segmentation. For example "Industry" or "size"|
+| **title** | string | The title for this segmentation. For example "Industry" or "Size" |
 | **value** | string | The value(s) for this segmentation, separated by commas. For example "transport,utilities". |
-| **values** | array | An array of the values for this segmentation.|
+| **values** | array | An array of the values for this segmentation. |
 
 
 
@@ -115,7 +114,7 @@ values, for a given company. This object contains:
 
 ```http
 GET /api/v0/companies/{company_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -151,7 +150,7 @@ parameter.
 
 ```http
 GET /api/v0/companies HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -267,7 +266,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 ```http
 GET /api/v0/companies/count HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -297,7 +296,7 @@ or filters this will be a count of all companies on the deployment. This request
 
 ```http
 GET /api/v0/companies/recent HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -312,12 +311,6 @@ curl -X get \
 Equivalent request:  
 
 `GET /companies?_filters=order_by_desc(date_created)`
-
-```http
-GET /api/v0/companies/recent HTTP/1.1
-Host: {deployment}.api.accelo.com
-Authorization: Bearer {access_token}
-```
 
 This request returns the most recently created companies on the Accelo deployment. This request is equivalent to
 requesting all companies and ordering in descending order of `date_created`.
@@ -345,7 +338,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 ```http
 GET /api/v0/companies/newest HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -360,12 +353,6 @@ curl -X get \
 Equivalent Request:
 
 `GET /companies?_filters=order_by_desc(date_modified)`
-
-```http
-GET /api/v0/companies/newest HTTP/1.1
-Host: {deployment}.api.accelo.com
-Authorization: Bearer {access_token}
-```
 
 This request returns the most recently changed companies on the Accelo deployment. This request is equivalent to
 requesting all companies and ordering in descending order of `date_modified`.
@@ -394,7 +381,7 @@ fields requested through `_fields`, and displayed according to any pagination pa
 
 ```http
 GET /api/v0/companies/{company_id}/status HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -415,46 +402,9 @@ This request supports requesting additional fields and linked objects from the [
 [`_fields`](#configuring-the-response-fields) parameter.
 
 
-#### Handling The Response
+#### Handling the Response
 
 The response will be a single status object with its default fields and any additional fields requested via `_fields`.
-
-
-
-
-
-
-### List Company Statuses
-> Sample Request:  
-
-
-```http
-GET /api/v0/companies/statuses HTTP/1.1
-Host: {deployment}.api.accelo.com
-Authorization: Bearer {access_token}
-```
-
-```shell
-curl -X get \
- https://{deployment}.api.accelo.com/api/v0/companies/statuses \
-  -H 'authorization: Bearer {access_token}'
-```
-
-`GET /companies/statuses`
-
-This returns a list of company statuses.
-
-
-#### Configuring the Response
-
-This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
-[`_fields`](#configuring-the-response-fields) parameter.
-
-
-#### Handling The Response
-
-The response will be an array of status objects with their default fields and any additional fields requested via `_fields`.
-
 
 
 
@@ -466,7 +416,7 @@ The response will be an array of status objects with their default fields and an
 
 ```http
 GET /api/v0/companies/statuses/{status_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -475,7 +425,6 @@ curl -X get \
  https://{deployment}.api.accelo.com/api/v0/companies/statuses/{status_id} \
   -H 'authorization: Bearer {access_token}'
 ```
-
 
 `GET /companies/statuses/{status_id}`
 
@@ -501,7 +450,7 @@ additional fields requested through `_fields`.
 
 ```http
 GET /api/v0/companies/statuses HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -517,6 +466,10 @@ This request returns a list of company [statuses](#statuses) on the deployment.
 
 
 #### Configuring the Response
+
+This request supports requesting additional fields and linked objects from the [status object](#statuses) using the
+[`_fields`](#configuring-the-response-fields) parameter.
+
 
 ##### Pagination
 
@@ -561,6 +514,9 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 |:-|
 | title |
 
+#### Handling The Response
+
+The response will be an array of status objects with their default fields and any additional fields requested via `_fields`.
 
 
 
@@ -571,7 +527,7 @@ This request supports the [`_search`](#configuring-the-response-searching) param
 
 ```http
 GET /api/v0/companies/statuses/count HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
@@ -588,7 +544,7 @@ With no searches or filters this will be a count of all company statuses on the 
 
 | Field | Type | Description |
 |:-|:-|:-|
-| **count** | unsigned | A count of the listed company statuses. |
+| **count** | unsigned int | A count of the listed company statuses. |
 
 
 
@@ -601,13 +557,13 @@ With no searches or filters this will be a count of all company statuses on the 
 
 ```http
 GET /api/v0/companies/{company_id}/contact HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/{company_id}/contact \
+ https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/contact \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -625,7 +581,7 @@ This request supports requesting additional fields and linked objects from the [
 
 #### Handling the Response 
 
-The response will be a single [contact](#contact) with its default fields and any other additional fields requested via
+The response will be a single [contact](#contacts) with its default fields and any other additional fields requested via
 `_fields`.
 
 
@@ -639,14 +595,14 @@ The response will be a single [contact](#contact) with its default fields and an
 
 ```http
 GET /api/v0/companies/{company_id}/contacts HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/{company_id}/contacts \
+ https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/contacts \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -670,14 +626,14 @@ This request may be configured and handled as per [`GET /contacts`](#list-contac
 
 ```http
 GET /api/v0/companies/{company_id}/contacts/count HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/{company_id}/contacts/count \
+ https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/contacts/count \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -702,14 +658,14 @@ field:
 
 ```http
 GET /api/v0/companies/{company_id}/managers HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/{company_id}/managers \
+ https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/managers \
   -H 'authorization: Bearer {access_token}'
 ```
 
@@ -720,7 +676,7 @@ This request returns a list of [managers](#the-manager-object) of a company spec
 
 #### Configuring the Response
 
-This request may be configured and handled a per [`GET /staff`](#list-staff)
+This request may be configured and handled as per [`GET /staff`](#list-staff)
 
 
 
@@ -733,24 +689,18 @@ This request may be configured and handled a per [`GET /staff`](#list-staff)
 
 ```http
 GET /api/v0/companies/{company_id}/segmentations HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 
 ```shell
 curl -X get \
- https://{deployment}.api.accelo.com/api/v0/{company_id}/segmentations \
+ https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/segmentations \
   -H 'authorization: Bearer {access_token}'
 ```
 
 `GET /companies/{company_id}/segmentations`
-
-```http
-GET /api/v0/companies/{company_id}/segmentations HTTP/1.1
-Host: {deployment}.api.accelo.com
-Authorization: Bearer {access_token}
-```
 
 This request returns a list of [company segmentations](#the-company-segmentation-object) for a company identified by its `company_id`.
 This request takes no parameters and returns a list of segmentations.
@@ -792,11 +742,11 @@ This request takes no parameters and returns a list of segmentations.
 
 
 ### Update a Company
-> Example request:
+> Sample Request:
 
 ```http
 PUT /api/v0/companies/{company_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
 
@@ -807,7 +757,7 @@ _fields=comments
 ```shell
 curl -X put \
   https://{deployment}.api.accelo.com/api/v0/companies/{company_id} \
-  -H 'authorization: Bearer {acces_token}' \
+  -H 'authorization: Bearer {access_token}' \
   -H 'content-type: application/x-www-form-urlencoded' \
   -d 'comments=This%20is%20a%20fresh%20new%20company' \
   -d '_fields=comments'
@@ -839,8 +789,7 @@ using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
 
-This request returns the single updated company object, with its default fields and any additional fields requesting
-through `_fields`.
+This request returns the single updated company object, with its default fields and any additional fields requested through `_fields`.
 
 
 
@@ -850,11 +799,11 @@ through `_fields`.
 
 ### Create a Company
 
-> Sample request:  
+> Sample Request:  
 
 ```http
-POST /api/v0/companies/{company_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+POST /api/v0/companies HTTP/1.1
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
 
@@ -900,7 +849,7 @@ Values for the following fields from the [company object](#the-company-object) m
 ##### Setting Profile Field Values
 
 [Profile field values](#profiles) may be set when you create a company, for a given profile value identified by
-[`profile_value_id` you may update it through the field "profile.{`profile_value_id`}".
+\[`profile_value_id`\] you may update it through the field "profile.{`profile_value_id`}".
 
 
 #### Configuring the Response
@@ -911,7 +860,7 @@ using the [`_fields`](#configuring-the-response-fields) parameter.
 
 #### Handling the Response
 
-This request returns the created company object, with its default fields and any additional fields requesting through
+This request returns the created company object, with its default fields and any additional fields requested through
 `_fields`.
 
 
@@ -924,8 +873,8 @@ This request returns the created company object, with its default fields and any
 > Sample Request:  
 
 ```http
-POST /api/v0/companies/{company_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+POST /api/v0/companies/{company_id}/managers/add HTTP/1.1
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
 
@@ -934,7 +883,7 @@ manager_id=14
 
 ```shell
 curl -X post \
-  https://{deployment}.api.accelo.com/api/v0/companies \
+  https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/managers/add \
   -H 'authorization: Bearer {access_token}' \
   -H 'content-type: application/x-www-form-urlencoded' \
   -d 'manager_id=14'
@@ -953,7 +902,7 @@ The following fields may be sent with this request:
 | Field | Type | Description |
 |:-|:-|:-|
 | **manager_id** | unsigned | The `staff_id` of the staff member to be set as the manager of the company. |
-| nature | select | Nature of the new relationship. Must be "professional","confidential" or "private". Defaults to "professional", see the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships) for more information on manager relationships. |
+| nature | select | Nature of the new relationship. Must be "professional","confidential" or "private". Defaults to "professional", see the [support documentation](https://help.accelo.com/guides/user/modules/companies-and-contacts/managers-and-relationships/#PrivateRelationships) for more information on manager relationships. |
 
 
 #### Configuring the Response
@@ -970,12 +919,12 @@ This response may be configured and handled in the same way as [`GET /companies/
 
 ```http
 DELETE /api/v0/companies/{company_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 ```
 
 ```shell
-curl -X get \
+curl -X delete \
  https://{deployment}.api.accelo.com/api/v0/companies/{company_id} \
   -H 'authorization: Bearer {access_token}'
 ```
@@ -996,17 +945,17 @@ parameters and returns no resource.
 > Sample Request:  
 
 ```http
-DELETE /api/v0/companies/{company_id} HTTP/1.1
-Host: {deployment}.api.accelo.com
+DELETE /api/v0/companies/{company_id}/managers/delete HTTP/1.1
+HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
 Content-Type: application/x-www-form-urlencoded
 
-relationship=23
+relationship_id=23
 ```
 
 ```shell
-curl -X post \
-  https://{deployment}.api.accelo.com/api/v0/companies \
+curl -X delete \
+  https://{deployment}.api.accelo.com/api/v0/companies/{company_id}/managers/delete  \
   -H 'authorization: Bearer {access_token}' \
   -H 'content-type: application/x-www-form-urlencoded' \
   -d 'relationship_id=23'
@@ -1014,7 +963,7 @@ curl -X post \
 
 `DELETE /companies/{company_id}/managers/delete`
 
-This request returns a staff member, identified via the `relationship_id` of their manager object, from the role of
+This request removes a staff member, identified via the `relationship_id` of their manager object, from the role of
 manager of a company, identified by its `company_id`. The `manager_id` is not used to identify the manager as a manager
 can have multiple relationships with the same company. Hence this request takes a single parameter:
 
@@ -1081,7 +1030,7 @@ This is the request [`GET /{object}/profiles/fields`](#retrieve-a-list-of-profil
 This request updates and returns a [profile field value](#the-profile-value-object), specified by its `profile_value_id`
 of a particular [company](#the-company-object), identified by its `company_id`. This is the request
 [`PUT/{object}/{object_id}/profiles/values/{profile_value_id}`](#update-a-profile-value-link) where the object is
-"company", and whose id is `{company_id}`.
+"companies", and whose id is `{company_id}`.
 
 
 
@@ -1096,7 +1045,7 @@ of a particular [company](#the-company-object), identified by its `company_id`. 
 
 This request sets and returns a [profile value](#the-profile-value-object) for a [profile field](#the-profile-field-object), 
 specified by its `profile_field_id`, for a [company](#the-company-object), specified by its `company_id`. This
-is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#update-a-profile-value-link) where is
+is the request [`POST /{object}/{object_id}/profiles/fields/{profile_field_id}`](#create-a-profile-value-link) where the
 object is "companies" and whose id is `{company_id}`
 
 
@@ -1128,7 +1077,7 @@ where the object is "companies" whose id is `{company_id}`
 
 This request uses the given [progression](#progressions), specified by its `progression_id` to progress the status of a
 [company](#the-company-object), specified by its `company_id`. This is the request
-[`[PUT|POST]/{object}/{object_id}/progressions/{progression_id/auto}`](#run-a-status-update-using-a-given-progression)
+[`[PUT|POST]/{object}/{object_id}/progressions/{progression_id}/auto`](#run-a-status-update-using-a-given-progression)
 where the object is "companies" whose id is `{company_id}`.
 
 

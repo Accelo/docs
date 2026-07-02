@@ -3,7 +3,7 @@
 `/api/v0/signoffs`
 
 Signoffs in Accelo allow your clients to approve your work and make comments against attachments and work descriptions.
-See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/projects/signoffs/) for more
+See the [support documentation](https://help.accelo.com/guides/user/modules/projects/signoffs/) for more
 information on signoffs.
 
 ### The Signoff Object

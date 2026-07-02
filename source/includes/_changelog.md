@@ -4,6 +4,18 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Wednesday 26th February 2025
+
+#### Features
+
+The following [webhook events](#webhook-events) have been added:
+
+- `create_invoice`
+- `update_invoice`
+- `delete_invoice`
+- `create_sale`
+- `update_sale`
+
 ### Tuesday 5th January 2020
 
 The change log is back!

@@ -6,12 +6,12 @@ Contracts (also known as retainers) are objects for managing recurring client wo
 invoicing - such as license fee. A contract is created against a company/client record (that is, an
 [affiliation](#affiliations)), and work is tracked against the contract through [periods](#the-contract-period). You can
 configure your contract to automatically create periods at certain intervals, and invoice up-front for a fixed amount or
-at the end of the period for the work done. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/retainers/)
+at the end of the period for the work done. See the [support documentation](https://help.accelo.com/guides/user/modules/retainers/)
 for more information on contracts/retainers.
 
 The contracts model integrates flawlessly with the the [issues](#issues) and [jobs](#jobs-projects) modules so that you
 can even allocate work from those into a contract period. Contracts can also be linked to [service
-items](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/), 
+items](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/), 
 allowing for easy handling of things like tax codes and ledger codes.
 
 ### The Contract Object
@@ -54,7 +54,7 @@ The contract object contains the following fields and linked objects:
 |:-|:-|:-|
 | **id** | unsigned | A unique identifier for the contract. |
 | **title** | string | A title for the contract. |
-| **period_template_id** | unsigned | The unique identifier of the `period_template`. See the [support documentation](https://www.accelo.com/resources/help/guides/user/modules/retainers/add-a-retainer/#periodtemplate) for information on period templates. |
+| **period_template_id** | unsigned | The unique identifier of the `period_template`. See the [support documentation](https://help.accelo.com/guides/user/modules/retainers/add-a-retainer/#periodtemplate) for information on period templates. |
 | date_created | unix ts | The date the contract was created on the Accelo deployment. |
 | date_started | unix ts | The date the contract was started. |
 | date_expires | unix ts | The date the contract expires. |
@@ -116,7 +116,7 @@ following:
 | allowance_type | select | The prepaid allowance for the period. May be either "unlimited hours", "fixed hours", or "fixed value". |
 | rate_type | select | Whether [activities](#activities) linked to the period should use the rate defined by the object they are against, or the rate defined by the contract. May be either "contract" or "object". |
 | rate_id | unsigned | The unique identifier of the [rate object](#rates) of the period. |
-| service_item_id | unsigned | The unique identifier of the service item linked to the contract. See the [support documentation](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/) for information on service items. |
+| service_item_id | unsigned | The unique identifier of the service item linked to the contract. See the [support documentation](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/) for information on service items. |
 | duration_type | select | The type of the period duration. May be either "fixed" or "unlimited". |
 | rollover | select | Whether an expiring period should roll unused allowance into the next period. Either "yes" or "no". |
 | standing | string | The standing of the period. For example "opened", "closed". |
@@ -327,8 +327,8 @@ this request supports [range filters](#filters-range-filters) over the following
 | value | |
 | renew_days | |
 | period_template | Range by `period_template_id`. |
-| service_tax | Range by `service_tax_id` from the [service item](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/) linked to the contract, if any. |
-| service_ledger | Rage by `service_ledger_id`.from the [service item](https://www.accelo.com/resources/help/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/services/) linked to the contract, if any. |
+| service_tax | Range by `service_tax_id` from the [service item](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/) linked to the contract, if any. |
+| service_ledger | Rage by `service_ledger_id`.from the [service item](https://help.accelo.com/guides/settings-and-configuration-guide/modules/billing-and-invoices/items/service-items/) linked to the contract, if any. |
 
 
 ##### Object Filters
@@ -843,7 +843,7 @@ curl -X PUT \
 `[PUT | POST] /contracts/periods/{period_id}/close`
 
 This request closes and returns a [contract period](#the-contract-period), see the [support
-documentation](https://www.accelo.com/resources/help/guides/user/modules/retainers/close-period/#ClosePeriod) for
+documentation](https://help.accelo.com/guides/user/modules/retainers/close-period/#ClosePeriod) for
 information on closing contract periods. The response may be configured as per [get contract period](#get-contract-period).
 
 **Take Care:** This request doesn't just set the standing to 'closed', but will replicate the actions taken when you close

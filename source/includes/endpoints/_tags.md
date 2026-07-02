@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/tags`
 
-Tags are keywords you my apply to a range of objects within Accelo, for example [activities](#activities) or [jobs](#jobs). They may both help describe the object, and make searching easier. See the [support documentation](https://www.accelo.com/resources/help/guides/user/activities-and-tasks/activities-notes-and-emails/set-up-and-customize/tags/) for more information on tags and how to apply them.
+Tags are keywords you my apply to a range of objects within Accelo, for example [activities](#activities) or [jobs](#jobs). They may both help describe the object, and make searching easier. See the [support documentation](https://help.accelo.com/guides/user/messages-and-tasks/messages-notes-and-emails/set-up-and-customize/tags/) for more information on tags and how to apply them.
 
 ### The Tag Object
 The tag object contains the following:

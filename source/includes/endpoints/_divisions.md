@@ -2,7 +2,7 @@
 > Resource URI:  
 `/api/v0/divisions`
 
-Divisions allow you manage contacts, companies, and staff under different details, rates, or identities. See the [support documentation](https://www.accelo.com/resources/help/faq/divisions/) for more information.
+Divisions allow you manage contacts, companies, and staff under different details, rates, or identities. See the [support documentation](https://help.accelo.com/faq/divisions/) for more information.
 
 ### The Division Object (Beta)
 > Sample division JSON object:
