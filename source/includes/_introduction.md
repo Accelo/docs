@@ -171,10 +171,12 @@ GET /companies/10?_method=delete
 POST /companies/10?_method=delete
 ```
 
+While the other override values are most commonly passed as query parameters, `_method=get` has an additional use case: sending a JSON body alongside a logical GET.
+
 A common use case for `_method=get` is when you need to use a JSON request body to pass complex filters or
-field selections — something GET requests do not support. By sending a POST request with `_method=get` in the
-body, the server treats the request as a GET while still reading the JSON body. This also avoids caching issues
-and network-device rejections that can affect GET requests with a body.
+field selections — something GET requests do not support. By sending a POST request with `"_method": "get"` included in the JSON body,
+the server treats the request as a GET while still reading the JSON body. This avoids the caching issues
+and network-device rejections that some HTTP clients and intermediaries impose on GET requests that carry a body.
 
 > For example, to list companies and specify fields and filters via a JSON body:
 
@@ -192,6 +194,8 @@ curl -X POST \
 	}'
 ```
 
+> Request body (JSON only):
+
 ```json
 {
   "_method": "get",
@@ -201,10 +205,6 @@ curl -X POST \
   }
 }
 ```
-
-
-
-
 
 
 ## JSON Content Types
