@@ -131,18 +131,15 @@ For example if we wanted to find all activities that were NOT created against a 
 > Example request, filter activities by those owned by a staff member:
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=owner_type(staff) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=owner_type(staff)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=owner_type(staff)'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=owner_type(staff)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 These simply filter resources with certain fields for certain values, generally they are requested simply by
@@ -161,18 +158,15 @@ fields, so for example if we wanted to search for activities owned by the staff 
 > Filter activities by those created after 2017-03-22 00:00:00 (UTC)
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=date_created_after(1490140800) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=date_created_after(1490140800)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=date_created_after(1490140800)'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=date_created_after(1490140800)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 Many endpoints contain fields representing dates, such as `date_created` under [activities](#activities). Date fields
@@ -195,18 +189,15 @@ of these "date_fields" through the following filters:
 > Filter activities with and id greater than 17:
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=id_greater_than(17) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=id_greater_than(17)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=id_greater_than(17)'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=id_greater_than(17)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 These are similar to [Date Filters](#filters-date-filters) except they operate on non-date fields. For a given "field"
@@ -231,18 +222,15 @@ there are four range filters defined:
 > Filter activities by descending order of id:
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=order_by_desc(id) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=order_by_desc(id)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=order_by_desc(id)'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=order_by_desc(id)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 These change of the order in which the response is displayed, they are not strictly filters in that they will not
@@ -267,18 +255,15 @@ filters defined:
 > Filter contracts with an empty date_expires:
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=empty(date_expires) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=empty(date_expires)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=empty(date_expires)'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=empty(date_expires)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 These filter resources which have no value for the given field, the format is `empty(<field_name>)`. For example, the
@@ -297,18 +282,15 @@ all contracts without an expiry date.
 > Filter activities owned by "staff/17"
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=owner(staff(17)) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=owner(staff(17))
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=owner(staff(17))'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=owner(staff(17))" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 These are an extension of basic filters that allow for more compact filtering over entire objects, they take both an
@@ -331,18 +313,15 @@ the [affiliation](#affiliations) with id 22.
 >Filter contacts by "kurt wagner"
 
 ```http
-GET /contacts HTTP/1.1
+GET /contacts?_filters=search(kurt%20wagner) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=search(kurt wagner)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/contacts \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=search(kurt wagner)'
+	"https://{deployment}.api.accelo.com/api/v0/contacts?_filters=search(kurt%20wagner)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 This filter is similar to the [searching](#searching) parameter and supports the same requests available to that
@@ -366,18 +345,15 @@ supports search over `firstname`, `surname`, `mobile`, and `email` so if we want
 > and _not_ against a job
 
 ```http
-GET /activities HTTP/1.1
+GET /activities?_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/activities \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'
+	"https://{deployment}.api.accelo.com/api/v0/activities?_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 Any combination of filters may be used to filter response, this is achieved by separating them with a comma. More

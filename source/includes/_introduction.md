@@ -171,7 +171,7 @@ GET /companies/10?_method=delete
 POST /companies/10?_method=delete
 ```
 
-While the other override values are most commonly passed as query parameters, `_method=get` has an additional use case: sending a JSON body alongside a logical GET.
+Like the other override values, `_method=get` may be passed as a query parameter (e.g. `POST /companies?_method=get`). It also supports passing it directly in the JSON body, which is necessary when you need to include `_fields` or `_filters` in that same JSON body.
 
 A common use case for `_method=get` is when you need to use a JSON request body to pass complex filters or
 field selections — something GET requests do not support. By sending a POST request with `"_method": "get"` included in the JSON body,
@@ -192,18 +192,6 @@ curl -X POST \
 	    "status": [1, 2]
 	  }
 	}'
-```
-
-> Request body (JSON only):
-
-```json
-{
-  "_method": "get",
-  "_fields": "website,phone,postal_address(city)",
-  "_filters": {
-    "status": [1, 2]
-  }
-}
 ```
 
 
