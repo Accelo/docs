@@ -34,18 +34,15 @@ The available parameters are:
 "city" field:
 
 ```http
-GET /companies HTTP/1.1
+GET /companies?_fields=website,phone,postal_address(city) HTTP/1.1
 HOST: {deployment}.api.accelo.com
 Authorization: Bearer {access_token}
-
-_fields=website,phone,postal_address(city)
 ```
 
 ```shell
 curl -X GET \
-	https://{deployment}.api.accelo.com/api/v0/companies \
-	-H 'authorization: Bearer {access_token}' \
-	-d '_fields=website,phone,postal_address(city)'
+	"https://{deployment}.api.accelo.com/api/v0/companies?_fields=website,phone,postal_address(city)" \
+	-H 'authorization: Bearer {access_token}'
 ```
 
 By default, each resource returns only the minimal required fields, these are displayed in the table describing the
