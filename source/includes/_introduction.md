@@ -171,6 +171,37 @@ GET /companies/10?_method=delete
 POST /companies/10?_method=delete
 ```
 
+A common use case for `_method=get` is when you need to use a JSON request body to pass complex filters or
+field selections — something GET requests do not support. By sending a POST request with `_method=get` in the
+body, the server treats the request as a GET while still reading the JSON body. This also avoids caching issues
+and network-device rejections that can affect GET requests with a body.
+
+> For example, to list companies and specify fields and filters via a JSON body:
+
+```shell
+curl -X POST \
+	https://{deployment}.api.accelo.com/api/v0/companies \
+	-H 'authorization: Bearer {access_token}' \
+	-H 'content-type: application/json' \
+	-d '{
+	  "_method": "get",
+	  "_fields": "website,phone,postal_address(city)",
+	  "_filters": {
+	    "status": [1, 2]
+	  }
+	}'
+```
+
+```json
+{
+  "_method": "get",
+  "_fields": "website,phone,postal_address(city)",
+  "_filters": {
+    "status": [1, 2]
+  }
+}
+```
+
 
 
 
