@@ -195,10 +195,9 @@ using non-alphanumeric characters e.g "@", "." or special or accented characters
   "_fields": "status(color), username, company(_ALL)"
 ```
 
-When sending JSON data with your request, the `"_fields"` key should hold a string of the desired fields and linked
-objects, separated by a comma. For example, the query `_fields=status` would be equivalent to including `"_fields":
-"status"` in the JSON body. The same method is used to request additional objects and their fields as for queries, the
-"\_ALL" value also works as for queries..
+**Note:** `_fields` in a JSON body is only supported on **POST** and **PUT** requests. On a GET request, request bodies are not processed — pass `_fields` as a query parameter instead (e.g. `?_fields=status`). See [Overriding the Request Method](#overriding-the-request-method) if you need to send a JSON body while performing a logical GET.
+
+When sending JSON data with a POST or PUT request, the `"_fields"` key should hold a string of the desired fields and linked objects, separated by a comma. For example, the query `_fields=status` would be equivalent to including `"_fields": "status"` in the JSON body. The same method is used to request additional objects and their fields as for queries, and the `_ALL` keyword also works as it does for query parameters.
 
 
 
