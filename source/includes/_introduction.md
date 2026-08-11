@@ -171,9 +171,28 @@ GET /companies/10?_method=delete
 POST /companies/10?_method=delete
 ```
 
+Like the other override values, `_method=get` may be passed as a query parameter (e.g. `POST /companies?_method=get`). It also supports passing it directly in the JSON body, which is necessary when you need to include `_fields` or `_filters` in that same JSON body.
 
+A common use case for `_method=get` is when you need to use a JSON request body to pass complex filters or
+field selections — something GET requests do not support. By sending a POST request with `"_method": "get"` included in the JSON body,
+the server treats the request as a GET while still reading the JSON body. This avoids the caching issues
+and network-device rejections that some HTTP clients and intermediaries impose on GET requests that carry a body.
 
+> For example, to list companies and specify fields and filters via a JSON body:
 
+```shell
+curl -X POST \
+	https://{deployment}.api.accelo.com/api/v0/companies \
+	-H 'authorization: Bearer {access_token}' \
+	-H 'content-type: application/json' \
+	-d '{
+	  "_method": "get",
+	  "_fields": "website,phone,postal_address(city)",
+	  "_filters": {
+	    "status": [1, 2]
+	  }
+	}'
+```
 
 
 ## JSON Content Types
@@ -195,10 +214,9 @@ using non-alphanumeric characters e.g "@", "." or special or accented characters
   "_fields": "status(color), username, company(_ALL)"
 ```
 
-When sending JSON data with your request, the `"_fields"` key should hold a string of the desired fields and linked
-objects, separated by a comma. For example, the query `_fields=status` would be equivalent to including `"_fields":
-"status"` in the JSON body. The same method is used to request additional objects and their fields as for queries, the
-"\_ALL" value also works as for queries..
+**Note:** `_fields` in a JSON body is only supported on **POST** and **PUT** requests. On a GET request, request bodies are not processed — pass `_fields` as a query parameter instead (e.g. `?_fields=status`). See [Overriding the Request Method](#overriding-the-request-method) if you need to send a JSON body while performing a logical GET.
+
+When sending JSON data with a POST or PUT request, the `"_fields"` key should hold a string of the desired fields and linked objects, separated by a comma. For example, the query `_fields=status` would be equivalent to including `"_fields": "status"` in the JSON body. The same method is used to request additional objects and their fields as for queries, and the `_ALL` keyword also works as it does for query parameters.
 
 
 
