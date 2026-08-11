@@ -2418,6 +2418,28 @@ override the request method using the <code>_method</code> parameter, this can t
 <pre class="highlight plaintext"><code>DELETE /companies/10
 GET /companies/10?_method=delete
 POST /companies/10?_method=delete
+</code></pre>
+<p>Like the other override values, <code>_method=get</code> may be passed as a query parameter (e.g. <code>POST /companies?_method=get</code>). It also supports passing it directly in the JSON body, which is necessary when you need to include <code>_fields</code> or <code>_filters</code> in that same JSON body.</p>
+
+<p>A common use case for <code>_method=get</code> is when you need to use a JSON request body to pass complex filters or
+field selections — something GET requests do not support. By sending a POST request with <code>&quot;_method&quot;: &quot;get&quot;</code> included in the JSON body,
+the server treats the request as a GET while still reading the JSON body. This avoids the caching issues
+and network-device rejections that some HTTP clients and intermediaries impose on GET requests that carry a body.</p>
+
+<blockquote>
+<p>For example, to list companies and specify fields and filters via a JSON body:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -d <span class="s1">'{
+      "_method": "get",
+      "_fields": "website,phone,postal_address(city)",
+      "_filters": {
+        "status": [1, 2]
+      }
+    }'</span>
 </code></pre><h2 id='json-content-types'>JSON Content Types</h2>
 <p>Requests may also be sent as JSON. This can greatly simplify the client side implementation as it offers filters and
 fields that translate well to programmatic structures. This may also be necessary when you wish to search or filter
@@ -2431,10 +2453,9 @@ using non-alphanumeric characters e.g &quot;@&quot;, &quot;.&quot; or special or
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="s2">"_fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status(color), username, company(_ALL)"</span><span class="w">
 </span></code></pre>
-<p>When sending JSON data with your request, the <code>&quot;_fields&quot;</code> key should hold a string of the desired fields and linked
-objects, separated by a comma. For example, the query <code>_fields=status</code> would be equivalent to including <code>&quot;_fields&quot;:
-&quot;status&quot;</code> in the JSON body. The same method is used to request additional objects and their fields as for queries, the
-&quot;_ALL&quot; value also works as for queries..</p>
+<p><strong>Note:</strong> <code>_fields</code> in a JSON body is only supported on <strong>POST</strong> and <strong>PUT</strong> requests. On a GET request, request bodies are not processed — pass <code>_fields</code> as a query parameter instead (e.g. <code>?_fields=status</code>). See <a href="#overriding-the-request-method">Overriding the Request Method</a> if you need to send a JSON body while performing a logical GET.</p>
+
+<p>When sending JSON data with a POST or PUT request, the <code>&quot;_fields&quot;</code> key should hold a string of the desired fields and linked objects, separated by a comma. For example, the query <code>_fields=status</code> would be equivalent to including <code>&quot;_fields&quot;: &quot;status&quot;</code> in the JSON body. The same method is used to request additional objects and their fields as for queries, and the <code>_ALL</code> keyword also works as it does for query parameters.</p>
 <h3 id='parsing-_filters-as-json'>Parsing _filters as JSON</h3>
 <blockquote>
 <p>Example, converting a query list of filters to JSON:<br>
@@ -2562,15 +2583,12 @@ The available parameters are:</p>
 <p>Requesting companies with the &quot;website&quot; and &quot;phone&quot; fields, as well as the linked &quot;postal_address&quot; object and its
 &quot;city&quot; field:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/companies</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/companies?_fields=website,phone,postal_address(city)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_fields=website,phone,postal_address(city)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/companies <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_fields=website,phone,postal_address(city)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/companies?_fields=website,phone,postal_address(city)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>By default, each resource returns only the minimal required fields, these are displayed in the table describing the
 object. To request additional fields we can use the <code>_fields</code> parameter. For example, the <a href="#companies">company</a> object
@@ -2655,15 +2673,12 @@ not &#39;active&#39;. Any number of filters may be <a href="#filters-combining-f
 <blockquote>
 <p>Example request, filter activities by those owned by a staff member:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=owner_type(staff)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=owner_type(staff)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=owner_type(staff)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=owner_type(staff)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>These simply filter resources with certain fields for certain values, generally they are requested simply by
 <code>&lt;field&gt;(&lt;value&gt;)</code>. For examples,  <a href="#activities">activities</a> support basic filters on the <code>owner_type</code> and  <code>owner_id</code>
@@ -2675,15 +2690,12 @@ fields, so for example if we wanted to search for activities owned by the staff 
 <blockquote>
 <p>Filter activities by those created after 2017-03-22 00:00:00 (UTC)</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=date_created_after(1490140800)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=date_created_after(1490140800)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=date_created_after(1490140800)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=date_created_after(1490140800)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>Many endpoints contain fields representing dates, such as <code>date_created</code> under <a href="#activities">activities</a>. Date fields
 are expressed as unix timestamps (for brevity we will just use the shorter &quot;unix ts&quot;). The API supports filtering for many
@@ -2710,15 +2722,12 @@ of these &quot;date_fields&quot; through the following filters:</p>
 <blockquote>
 <p>Filter activities with and id greater than 17:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=id_greater_than(17)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=id_greater_than(17)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=id_greater_than(17)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=id_greater_than(17)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>These are similar to <a href="#filters-date-filters">Date Filters</a> except they operate on non-date fields. For a given &quot;field&quot;
 there are four range filters defined:</p>
@@ -2752,15 +2761,12 @@ there are four range filters defined:</p>
 <blockquote>
 <p>Filter activities by descending order of id:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=order_by_desc(id)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=order_by_desc(id)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=order_by_desc(id)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=order_by_desc(id)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>These change of the order in which the response is displayed, they are not strictly filters in that they will not
 exclude any objects from the response, but they are called using <code>_filters</code> so we shall list them here. By default a
@@ -2788,15 +2794,12 @@ filters defined:</p>
 <blockquote>
 <p>Filter contracts with an empty date_expires:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=empty(date_expires)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=empty(date_expires)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=empty(date_expires)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=empty(date_expires)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>These filter resources which have no value for the given field, the format is <code>empty(&lt;field_name&gt;)</code>. For example, the
 <code>date_expires</code> field for <a href="#contracts">contract</a> supports this filter, so <code>_filters=empty(date_expires)</code> would display
@@ -2807,15 +2810,12 @@ all contracts without an expiry date.</p>
 <blockquote>
 <p>Filter activities owned by &quot;staff/17&quot;</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=owner(staff(17))</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=owner(staff(17))
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=owner(staff(17))'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=owner(staff(17))"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>These are an extension of basic filters that allow for more compact filtering over entire objects, they take both an
 object and an id as arguments. For example, <a href="#activities">activities</a> support object filtering on the &quot;owner&quot; object. As
@@ -2829,15 +2829,12 @@ the <a href="#affiliations">affiliation</a> with id 22.</p>
 <blockquote>
 <p>Filter contacts by &quot;kurt wagner&quot;</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/contacts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/contacts?_filters=search(kurt%20wagner)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=search(kurt wagner)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/contacts <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=search(kurt wagner)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/contacts?_filters=search(kurt%20wagner)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>This filter is similar to the <a href="#searching">searching</a> parameter and supports the same requests available to that
 parameter. Automatically this filter will append an <code>AND</code> between multiple search requirements. Search terms are
@@ -2853,15 +2850,12 @@ supports search over <code>firstname</code>, <code>surname</code>, <code>mobile<
 <p>Filter by activities owned by &quot;staff/17&quot; and created after 2017-03-22 00:00:00 (UTC)
 and <em>not</em> against a job</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/activities?_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">HOST</span><span class="p">:</span> <span class="s">{deployment}.api.accelo.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-
-_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    https://<span class="o">{</span>deployment<span class="o">}</span>.api.accelo.com/api/v0/activities <span class="se">\</span>
-    -H <span class="s1">'authorization: Bearer {access_token}'</span> <span class="se">\</span>
-    -d <span class="s1">'_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)'</span>
+    <span class="s2">"https://{deployment}.api.accelo.com/api/v0/activities?_filters=owner(staff(17)),date_created_after(1490140800),against_type_not(job)"</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Bearer {access_token}'</span>
 </code></pre>
 <p>Any combination of filters may be used to filter response, this is achieved by separating them with a comma. More
 flexible filter combinations may be achieved through the <code>_AND</code> and <code>_OR</code> keywords. For example, if we wanted to 
