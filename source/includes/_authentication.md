@@ -112,8 +112,7 @@ For convenience we will just write `{client_credentials}`
 
 ## Service Applications
 
-These are not run from the end user's deployment, and hence do not need to be authorized by the user, so authorization
-and accessing a token is are combined into one step for these application.
+Service applications are not run on behalf of a user, so they're great for situations where you need to access and move data, but don't need to attribute the action to an individual.  Authorization and accessing a token are combined into one step for these applications.
 
 
 ### Token Acquisition for Service Applications
@@ -138,6 +137,17 @@ curl X- POST https://planet-express.api.accelo.com/oauth2/v0/token \
   -H 'authorization: Basic {client_credentials}' \
   -d 'grant_type=client_credentials' \
   -d 'scope=read(staff)'
+```
+
+```python
+requests.post(
+    'https://planet-express.api.accelo.com/oauth2/v0/token',
+    data={
+      'grant_type': 'client_credentials',
+      'scope': 'read(staff)'
+    },
+    auth=(client_id, client_secret),
+)
 ```
 The token endpoint:
 
@@ -187,12 +197,12 @@ A successful request will contain the following fields:
 
 ## Web Applications
 
-Web applications require the end-user to authorize an application before it can make any requests. Hence token
+Web applications are  run on behalf of a user, so they're great for situations where you need to take an action, and attribute the action to an individual.  To authorize a web application, the user must first authorize the application, so token
 acquisition requires two steps:   
 1. [Authorization of the application](#authorization-for-web-applications)   
-2. [TokenAcquisition](#token-acquisition-for-web-applications)
+2. [Token Acquisition](#token-acquisition-for-web-applications)
 
-Keep in mind for these applications that the host is the deployment for the *user* and not the web application's
+Keep in mind for these applications that the host is the *user's* deployment, not the web application's
 deployment host.
 
 
@@ -224,6 +234,17 @@ curl -X POST https://planet-express.api.accelo.com/oauth2/v0/authorize \
   -d 'response_type=code' \
   -d 'scope=read(companies,contacts),write(staff)' \
   -d 'redirect_uri=https//planet-express.com/oauth-callback'
+```
+
+```python
+requests.post(
+    'https://planet-express.api.accelo.com/oauth2/v0/authorize',
+    data={
+      'client_id': client_id,
+      'response_type': 'code',
+      'scope': 'read(companies,contacts),write(staff)
+    }
+)
 ```
 
 Authorization is achieved through the authorize endpoint. For authorizing web applications, the endpoint takes the
@@ -370,6 +391,17 @@ curl -X POST https://planet-express.api.accelo.com/oauth2/v0/authorize \
   -d 'scope=read(companies,contacts),write(staff)'
 ```
 
+```python
+requests.post(
+    'https://planet-express.api.accelo.com/oauth2/v0/authorize',
+    data={
+      'client_id': client_id,
+      'response_type': 'code',
+      'scope': 'read(companies,contacts),write(staff)
+    }
+)
+```
+
 This is done through the `/authorize` endpoint. For authorizing installed applications we have the following parameters:
 
 | Parameter | Type | Description |
@@ -450,6 +482,17 @@ curl -X POST https://planet-express.api.accelo.com/oauth2/v0/revoke \
     -d 'token={access_token_to_be_revoked}'
 ```
 
+```python
+requests.post(
+    'https://planet-express.api.accelo.com/oauth2/v0/revoke',
+    data={
+      'client_id': client_id,
+      'client_secret': client_secret,
+      'token': {access_token_to_be_revoked}
+    }
+)
+```
+
 `POST /oauth2/revoke`
 
 Token revocation may be necessary when read/write permissions are no longer required e.g. on log-out, authorization on
@@ -491,6 +534,17 @@ curl -X POST https://planet-express.api.accelo.com/oauth2/v0/token \
   -d 'refresh_token=VYfb63__vf'
 ```
 
+```python
+requests.post(
+    'https://planet-express.api.accelo.com/oauth2/v0/token',
+    data={
+      'token_type': 'refresh_token',
+      'refresh_token': 'VYfb63__vf'
+    },
+    auth=(client_id, client_secret),
+)
+```
+
 For installed and web applications if you still have a valid token, you may request a new token using the refresh token
 that came with it. This request uses the `/token` endpoint and accepts the following parameters:
 
@@ -518,6 +572,13 @@ Authorization: Bearer {access_token}
 ```shell
 curl -X get https://planet-express.api.accelo.com/api/v0/tokeninfo \
   -H 'authorization: Bearer {access_token}'
+```
+
+```python
+requests.get(
+    'https://planet-express.api.accelo.com/api/v0/tokeninfo',
+    headers={'authorization': f'Bearer {access_token}'}
+)
 ```
 
 To obtain the information of any access token the `/tokeninfo` endpoint is used. Note this endpoint is *not* located in
@@ -563,6 +624,16 @@ curl -X get https://planet-express.api.accelo.com/api/v0/companies/1 \
   -H 'authorization: Bearer {access_token}'
 ```
 
+```python
+requests.get(
+    'https://planet-express.api.accelo.com/api/v0/companies/1',
+    headers={
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'authorization': f'Bearer {access_token}'
+    }
+)
+```
+
 Once you have access to your token you may use it to access endpoints. This can be done by either including it as a
 query parameter as `_bearer_token`, or as a HTTP `Authorization: Bearer` header. For security reasons the latter is
 preferred. Note that including both of these will return an error.
@@ -587,5 +658,3 @@ Public API. A user is limited to 100 failed authentication attempts within a 5 m
 the user will be 'locked out'. Any attempt to authenticate during this 'lockout' period will restart the 5 minute timer.
 
 Once the lockout period has expired, you should be able to continue to use the API as normal.
-
-
