@@ -4,6 +4,12 @@ With the release of the new and easier to maintain documentation, we're going to
 
 **Note - Beta Changes:** New objects or endpoints may be introduced with a **(Beta)** tag, which may last up to a month after introduction. While in beta these are subject to change without notice.
 
+### Wednesday 11th November 2026
+
+#### Features
+
+Added the `timesheet_standing` field to [activities](#activities). It returns the activity's timesheet approval status when timesheet approvals are on. The existing `standing` field is unchanged.
+
 ### Wednesday 26th February 2025
 
 #### Features
