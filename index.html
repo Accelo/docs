@@ -2170,6 +2170,9 @@
             <a href="#change-log" class="toc-h1 toc-link" data-title="Change log">Change log</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#wednesday-11th-november-2026" class="toc-h2 toc-link" data-title="Wednesday 11th November 2026">Wednesday 11th November 2026</a>
+                  </li>
+                  <li>
                     <a href="#wednesday-26th-february-2025" class="toc-h2 toc-link" data-title="Wednesday 26th February 2025">Wednesday 26th February 2025</a>
                   </li>
                   <li>
@@ -3869,6 +3872,11 @@ for more information on activities.</p>
 <td style="text-align: left">standing</td>
 <td style="text-align: left">select</td>
 <td style="text-align: left">The standing of the activity, may be one of &quot;unapproved&quot;, &quot;approved&quot;, &quot;invoiced&quot;, &quot;locked&quot;, or empty.</td>
+</tr>
+<tr>
+<td style="text-align: left">timesheet_standing</td>
+<td style="text-align: left">select</td>
+<td style="text-align: left">The timesheet approval status of the activity, may be one of &quot;pending&quot;, &quot;submitted&quot;, &quot;approved&quot;, &quot;invoiced&quot;, &quot;declined&quot;, or null. Null when timesheet approvals are off or the activity is not on a timesheet. Not returned by <code>_ALL</code>; request it by name.</td>
 </tr>
 <tr>
 <td style="text-align: left">invoice_id</td>
@@ -28574,7 +28582,9 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 <p>With the release of the new and easier to maintain documentation, we&#39;re going to do a much better job of tracking changes.</p>
 
 <p><strong>Note - Beta Changes:</strong> New objects or endpoints may be introduced with a <strong>(Beta)</strong> tag, which may last up to a month after introduction. While in beta these are subject to change without notice.</p>
-<h3 id='wednesday-26th-february-2025'>Wednesday 26th February 2025</h3><h4 id='features'>Features</h4>
+<h3 id='wednesday-11th-november-2026'>Wednesday 11th November 2026</h3><h4 id='features'>Features</h4>
+<p>Added the <code>timesheet_standing</code> field to <a href="#activities">activities</a>. It returns the activity&#39;s timesheet approval status when timesheet approvals are on. The existing <code>standing</code> field is unchanged.</p>
+<h3 id='wednesday-26th-february-2025'>Wednesday 26th February 2025</h3><h4 id='features-2'>Features</h4>
 <p>The following <a href="#webhook-events">webhook events</a> have been added:</p>
 
 <ul>
@@ -28586,12 +28596,12 @@ See <a href="#rate-limiting">rate limiting</a> for more information.</p>
 </ul>
 <h3 id='tuesday-5th-january-2020'>Tuesday 5th January 2020</h3>
 <p>The change log is back!</p>
-<h4 id='features-2'>Features</h4>
+<h4 id='features-3'>Features</h4>
 <p>Added an delete activity <a href="#webhooks">webhook</a>.
 - This will initially be in beta.</p>
 <h3 id='wednesday-11th-april-2018'>Wednesday 11th April 2018</h3><h4 id='misc'>Misc</h4>
 <p>Added some extra documentation around <code>_not</code> <a href="#configuring-the-response-filtering">filters</a>.</p>
-<h4 id='features-3'>Features</h4>
+<h4 id='features-4'>Features</h4>
 <p>Updated the <a href="#update-an-activity"><code>PUT /activities/{activity_id}</code></a> endpoint:</p>
 
 <ul>
@@ -28618,7 +28628,7 @@ Object</a>.</li>
 <ul>
 <li>Rename some sections for clarity and to avoid title duplication.</li>
 </ul>
-<h4 id='features-4'>Features</h4>
+<h4 id='features-5'>Features</h4>
 <p>The following endpoints have been added to activities:</p>
 
 <ul>
@@ -28665,7 +28675,7 @@ Object</a>.</li>
 <li><code>surname</code></li>
 <li><code>email</code></li>
 </ul>
-<h3 id='friday-2nd-february-2018'>Friday 2nd February 2018</h3><h4 id='features-5'>Features</h4>
+<h3 id='friday-2nd-february-2018'>Friday 2nd February 2018</h3><h4 id='features-6'>Features</h4>
 <ul>
 <li>Add the <code>block_send</code> flag to allow blocking <a href="#create-an-activity">activities created through the API</a>
 from being sent.</li>
@@ -28678,7 +28688,7 @@ from being sent.</li>
 <ul>
 <li>The <code>priority</code> attribute and object on <a href="#issues">Issues</a> is deprecated. Please use <code>issue_priority</code> instead.</li>
 </ul>
-<h4 id='features-6'>Features</h4>
+<h4 id='features-7'>Features</h4>
 <ul>
 <li>The following endpoints have been added
 
