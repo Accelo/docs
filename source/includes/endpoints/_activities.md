@@ -97,6 +97,7 @@ The activities object contains the following fields:
 | tag | array of objects | A list of [tags](#tags) associated with the activity. |
 | scheduled | select | Either 'yes' or 'no', whether the activity is scheduled. |
 | standing | select | The standing of the activity, may be one of "unapproved", "approved", "invoiced", "locked", or empty.|
+| timesheet_standing | select | The timesheet approval status of the activity, may be one of "pending", "submitted", "approved", "invoiced", "declined", or null. Null when timesheet approvals are off or the activity is not on a timesheet. Not returned by `_ALL`; request it by name. |
 | invoice_id | unsigned | The unique identifier of the [invoice](#invoices) the activity is attached to, if any. |
 | contract_period_id | unsigned | The unique identifier of the [contract period](#the-contract-period) the activity is attached to, if any. |
 | is_billable | bool | Either 1 or 0, whether billable time can be logged on the activity. |
