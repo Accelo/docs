@@ -10,8 +10,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      ruby-version: 2.5
     permissions:
       contents: write
     steps:
@@ -19,14 +17,14 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ env.ruby-version }}
+        ruby-version: .ruby-version
 
     - uses: actions/cache@v4
       with:
         path: vendor/bundle
-        key: gems-${{ runner.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
+        key: gems-${{ runner.os }}-${{ hashFiles('.ruby-version') }}-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
-          gems-${{ runner.os }}-${{ matrix.ruby-version }}-
+          gems-${{ runner.os }}-${{ hashFiles('.ruby-version') }}-
           gems-${{ runner.os }}-
     - run: bundle config set deployment 'true'
     - name: bundle install
