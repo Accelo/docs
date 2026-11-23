@@ -9,18 +9,14 @@ Powering the documentation at [api.accelo.com/docs/](https://api.accelo.com/docs
 You're going to need:
 
  - **Linux or macOS** — Windows may work, but is unsupported.
- - **Ruby, version 2.3.1 or newer**
+ - **Ruby 2.5** — the version in `.ruby-version`, which the deploy workflow also uses
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
 ### Running Preview
 
 ```shell
-# either run this to run locally
 bundle install
 bundle exec middleman server
-
-# OR run this to run with vagrant
-vagrant up
 ```
 
 You can now see the docs at http://localhost:4567.
