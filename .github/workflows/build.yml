@@ -1,0 +1,69 @@
+# Builds the docs on every pull request, without deploying, and compares
+# the output with what is live on the gh-pages branch.
+name: Build
+
+on:
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: .ruby-version
+
+    - uses: actions/cache@v4
+      with:
+        path: vendor/bundle
+        key: gems-${{ runner.os }}-${{ hashFiles('.ruby-version') }}-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          gems-${{ runner.os }}-${{ hashFiles('.ruby-version') }}-
+          gems-${{ runner.os }}-
+    - run: bundle config set deployment 'true'
+    - name: bundle install
+      run: |
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - run: bundle exec middleman build
+
+    - name: Check out live site (gh-pages)
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        path: live
+
+    # Informational only: content changes are expected to change the output.
+    # gh-pages keeps old files between deploys (keep_files: true), so files
+    # that exist only in live/ are not necessarily a problem.
+    - name: Compare build with live site
+      run: |
+        rm -rf live/.git live/.nojekyll
+        {
+          echo "## Build output compared with live site"
+          if git diff --no-index --quiet live build; then
+            echo "No differences: this build is identical to what is live."
+          else
+            echo '```'
+            git diff --no-index --stat=200 live build || true
+            echo '```'
+          fi
+        } >> "$GITHUB_STEP_SUMMARY"
+
+    - name: Upload build output
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: build
+        retention-days: 14
