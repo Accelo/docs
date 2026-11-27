@@ -1,4 +1,4 @@
-ruby '~> 2.7'
+ruby '~> 3.2.0'
 source 'https://rubygems.org'
 
 # activesupport 6.1 uses Logger without requiring it, and concurrent-ruby 1.3.5+

@@ -9,7 +9,7 @@ Powering the documentation at [api.accelo.com/docs/](https://api.accelo.com/docs
 You're going to need:
 
  - **Linux or macOS** — Windows may work, but is unsupported.
- - **Ruby 2.7** — the version in `.ruby-version`, which the deploy workflow also uses
+ - **Ruby 3.2** — the version in `.ruby-version`, which the deploy workflow also uses
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
 ### Running Preview
