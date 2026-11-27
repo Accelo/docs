@@ -1,6 +1,11 @@
 ruby '~> 2.7'
 source 'https://rubygems.org'
 
+# activesupport 6.1 uses Logger without requiring it, and concurrent-ruby 1.3.5+
+# no longer loads it for us. Bundler requires gems in Gemfile order, so this
+# must stay above middleman.
+gem 'logger'
+
 # Middleman
 gem 'middleman', '~> 4.5'
 gem 'middleman-syntax', '~> 3.0.0'

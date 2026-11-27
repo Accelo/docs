@@ -37,6 +37,7 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    logger (1.7.0)
     memoist (0.16.2)
     middleman (4.5.1)
       coffee-script (~> 2.2)
@@ -123,6 +124,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  logger
   middleman (~> 4.5)
   middleman-autoprefixer (~> 2.7.0)
   middleman-sprockets (= 4.1.0)
